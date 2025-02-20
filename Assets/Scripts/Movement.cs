@@ -1,9 +1,7 @@
-
-
 // ---------------------------------------------------------
-// Componente de test para probar el input de movimiento 
-// Guillermo Jiménez Díaz
-// TemplateP1
+// Componente de movimiento del jugador
+// Isabel Serrano Martín
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
@@ -11,13 +9,10 @@ using UnityEngine;
 
 
 /// <summary>
-/// Componente de prueba que se comunica con el InputManager
-/// para mostrar cómo se comporta el input de movimiento.
-/// Si ponemos este componente en un objeto visual de la escena
-/// podemos ver cómo se mueve con respecto al punto inicial
-/// en el que aparece
+/// Componente que comunica con el InputManager para 
+/// permitir el movimiento del jugador
 /// </summary>
-public class TestMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -25,38 +20,31 @@ public class TestMovement : MonoBehaviour
     [SerializeField]
     float Speed = 1.0f; //velocidad de movimiento
 
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Rigidbody2D rb; //rigidbody
-
-
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private Rigidbody2D rb; //rigidbody para colisiones
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        transform.localPosition = InputManager.Instance.MovementVector * Speed * Time.deltaTime;
+        transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
     }
+
+   
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -78,5 +66,5 @@ public class TestMovement : MonoBehaviour
 
     #endregion
 
-} // class TestMovement 
-// namespace
+} //class Movement
+  // namespace
