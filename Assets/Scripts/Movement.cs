@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -17,8 +18,9 @@ public class Movement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField]
-    float Speed = 1.0f; //velocidad de movimiento
+    [SerializeField] private float Speed = 1.0f; //velocidad de movimiento
+    private Animator animator;
+    private Vector2 lastDir;
 
 
     #endregion
@@ -34,6 +36,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -41,7 +44,34 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
+        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
+        
         transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
+
+        if (moveInput != Vector2.zero)
+        {
+            float absX = Mathf.Abs(moveInput.x); //valor absoluto x
+            float absY = Mathf.Abs(moveInput.y); //valor absoluto y
+            float tolerance = 0.05f;
+
+            if (Mathf.Abs(absX - absY) > tolerance) //guarda la dirección si la diferencia es mayor que la tolerancia
+            {
+                //mira si se mueve más en vertical o en horizontal
+                if (absX > absY) //horizontal
+                {
+                    if (moveInput.x > 0) lastDir = new Vector2(1, 0); //derecha
+                    else lastDir = new Vector2(-1, 0); //izquierda
+                }
+                else //vertical
+                {
+                    if (moveInput.y > 0) lastDir = new Vector2(0, 1); //arriba
+                    else lastDir = new Vector2(0, -1);//abajo
+                }
+            }
+            
+            animator.SetFloat("moveX", lastDir.x);
+            animator.SetFloat("moveY", lastDir.y);
+        }
     }
 
    
