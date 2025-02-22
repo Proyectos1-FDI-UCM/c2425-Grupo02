@@ -6,7 +6,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Componente que se encarga de la gestión de un nivel concreto.
@@ -72,7 +74,16 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
+    
+    public Vector2 GetMapSize()
+    {
+        float mapWidth = 16;
+        float mapHeight = 10;
+        Vector2 mapSize = new Vector2(mapWidth, mapHeight);
 
+        return mapSize;
+    }
+   
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.

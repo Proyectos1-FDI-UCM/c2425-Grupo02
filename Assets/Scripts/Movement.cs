@@ -53,15 +53,19 @@ public class Movement : MonoBehaviour
         animator.SetFloat("moveY", lastDir.y);
 
         //TOROIDALIDAD
+        Vector2 mapSize = LevelManager.Instance.GetMapSize();
+        Vector3 worldPos = transform.position;
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         //obtiene posición de la bala y lo convierte al espacio de la cámara
         //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
         //(0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
 
-        if (viewPos.x > 1) { viewPos.x = 0.05f; transform.position = Camera.main.ViewportToWorldPoint(viewPos); } //de derecha a izquierda
-        else if (viewPos.x < 0) { viewPos.x = 0.95f; transform.position = Camera.main.ViewportToWorldPoint(viewPos); } //de izquierda a derecha
-        else if (viewPos.y < 0) { viewPos.y = 0.95f; transform.position = Camera.main.ViewportToWorldPoint(viewPos); } //de abajo a arriba
-        else if (viewPos.y > 1) { viewPos.y = 0.05f; transform.position = Camera.main.ViewportToWorldPoint(viewPos); } //de arriba a abajo
+        if (viewPos.x > 1) worldPos.x -= mapSize.x; //de derecha a izquierda
+        else if (viewPos.x < 0) worldPos.x += mapSize.x; //de izquierda a derecha
+        else if (viewPos.y < 0) worldPos.y += mapSize.y; //de abajo a arriba
+        else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
+
+        transform.position = worldPos;
     }
 
     #endregion
