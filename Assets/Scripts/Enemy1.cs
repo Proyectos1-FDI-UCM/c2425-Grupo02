@@ -18,10 +18,10 @@ public class Enemy1 : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] float movement_speed;
-    [SerializeField] float rest_time;
-    [SerializeField] float attack_cooldown;
-    [SerializeField] int health;
+    [SerializeField] float MovementSpeed;   //Velocidad de movimiento del enemigo
+    [SerializeField] float RestTime;        //Tiempo que el enemigo pasa quieto después de atacar
+    [SerializeField] float AttackCooldown;  //Tiempo que pasa entre cada uno de los tres ataques
+    [SerializeField] int Health;            //Vidas del enemigo
 
     #endregion
 
@@ -29,11 +29,11 @@ public class Enemy1 : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    GameObject player;
-    Rigidbody2D rb;
-    float timer = 0f;
-    bool is_resting = false;
-    bool on_range = false;
+    GameObject _player;         //Jugador en la escena
+    Rigidbody2D _rb;            //Componente rigidBody del enemigo
+    float _timer = 0f;          //Temporizador para calcular el estado del enemigo (descanso, perseguir, etc)
+    bool _isResting = false;    //Bandera que marca si el enemigo está descansando
+    bool _onRange = false;      //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
     #endregion
 
@@ -42,52 +42,49 @@ public class Enemy1 : MonoBehaviour
     #region Métodos de MonoBehaviour
 
     void Start() {
-        player = FindObjectOfType<Movement>().gameObject;
-        rb = GetComponent<Rigidbody2D>();
+        _player = FindObjectOfType<Movement>().gameObject;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void Update() {
-        /*
-        if (!is_resting)
+        if (!_isResting)
         {
-            if (!on_range)
+            if (!_onRange)
             {
                 Debug.Log("Persiguiendo");
-                Vector2 player_position = player.transform.position;
-                Vector2 dir = (player_position - (Vector2)transform.position).normalized;
-                rb.velocity = dir * movement_speed;
+                Vector2 player_position = _player.transform.position;
+                Vector2 dir = GetDirection((player_position - (Vector2)transform.position));
+                _rb.velocity = dir * MovementSpeed;
             }
             else
             {
+                _rb.velocity = Vector2.zero;
                 Attack();
                 Debug.Log("Ataque");
-                is_resting = true;
+                _isResting = true;
             }
         }
         else
         {
+            _rb.velocity = Vector2.zero;
             Debug.Log("Descansando");
-            timer += Time.deltaTime;
+            _timer += Time.deltaTime;
 
-            if (timer >= rest_time)
+            if (_timer >= RestTime)
             {
-                timer = 0f;
-                is_resting = false;
+                _timer = 0f;
+                _isResting = false;
             }
         }
-         */
-    }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision) {
-        on_range = true;
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        on_range = false;
+    private void OnTriggerEnter2D(Collider2D collision) {
+        _onRange = true;
     }
-     */
 
-
+    private void OnTriggerExit2D(Collider2D collision) {
+        _onRange = false;
+    }
 
     #endregion
 
@@ -98,16 +95,44 @@ public class Enemy1 : MonoBehaviour
     /// Esta función se debe llamar desde el script que se encarge del ataque del jugador.
     /// Una vez llamado, resta el daño pasado por parámetro a la vida actual del enemigo.
     /// </summary>
-    /// <param name="dmg"> daño que le hace el jugador al enemigo </param>
+    /// <param name="dmg"> Daño que va a recibir el enemigo </param>
     public void Damage(int dmg) {
-        health -= dmg;
-        if (health <= 0) Destroy(gameObject);
+        Health -= dmg;
+        if (Health <= 0) Destroy(gameObject);
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+    /// <summary>
+    /// Esta función toma un vector y calcula su dirección.
+    /// </summary>
+    /// <param name="v"> Vector cuya dirección se quiere calcular </param>
+    /// <returns></returns>
+    Vector2 GetDirection(Vector2 v) {
+        Vector2 res;
+        float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+        ang = (ang + 360) % 360;
+        
+        if (ang == 0) res = Vector2.right;
+
+        else if (ang == 90) res = Vector2.up;
+
+        else if (ang == 180) res = Vector2.left;
+
+        else if (ang == 270) res = Vector2.down;
+
+        else if (ang <= 90 && ang > 0) res = (Vector2.right + Vector2.up).normalized;
+
+        else if (ang <= 180 && ang > 90) res = (Vector2.up + Vector2.left).normalized;
+
+        else if (ang <= 270 && ang > 180) res = (Vector2.left + Vector2.down).normalized;
+
+        else res = (Vector2.down + Vector2.right).normalized;
+
+        return res;
+    }
 
     void Attack() {
 
