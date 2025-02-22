@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed;
     [SerializeField] private GameObject player;
 
     #endregion
@@ -51,6 +51,11 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
         }        
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("You can shoot");
     }
 
     /// <summary>

@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviour
     /// Si está activado, se muestran todos los eventos de que
     /// la acción está siendo realizada (uno por frame)
     /// </summary>
-    [SerializeField] private bool displayIsPressed = false;
+    //[SerializeField] private bool displayIsPressed = false;
     [SerializeField] private GameObject bullet; //prefab de la bala
 
     #endregion
@@ -53,7 +53,7 @@ public class Shoot : MonoBehaviour
     {
         if (InputManager.Instance.FireWasPressedThisFrame())
         {
-            Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed this frame");
+            //Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed this frame");
 
             if (shootEnabled)
             {
@@ -61,26 +61,28 @@ public class Shoot : MonoBehaviour
                 Quaternion bulletRotation;
                 Vector3 instancePos = transform.position; //posición en la que se instancia la bala
 
-                if (lastDir.x > 0) { instancePos.x += 0.75f; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
-                else if (lastDir.x < 0) { instancePos.x -= 0.75f; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
-                else if (lastDir.y > 0) { instancePos.y += 0.75f; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
-                else { instancePos.y -= 0.75f; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
+                if (lastDir.x > 0) { instancePos.x += 1; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
+                else if (lastDir.x < 0) { instancePos.x -= 1; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
+                else if (lastDir.y > 0) { instancePos.y += 1; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
+                else { instancePos.y -= 1; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
 
                 newBullet = Instantiate(bullet, instancePos, bulletRotation);
                 shootEnabled = false;
             }
-
-            if (newBullet == null) shootEnabled = true;
         }
+        if (newBullet == null) shootEnabled = true;
 
+        /*
         if (InputManager.Instance.FireWasReleasedThisFrame())
             Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was released this frame");
 
+        
         if (displayIsPressed && InputManager.Instance.FireIsPressed())
         {
             Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed");
             
         }
+        */
     }
 
     #endregion
