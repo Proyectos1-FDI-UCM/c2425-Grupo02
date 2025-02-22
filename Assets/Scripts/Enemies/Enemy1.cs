@@ -21,7 +21,6 @@ public class Enemy1 : MonoBehaviour
     [SerializeField] float MovementSpeed;   //Velocidad de movimiento del enemigo
     [SerializeField] float RestTime;        //Tiempo que el enemigo pasa quieto después de atacar
     [SerializeField] float AttackCooldown;  //Tiempo que pasa entre cada uno de los tres ataques
-    [SerializeField] int Health;            //Vidas del enemigo
 
     #endregion
 
@@ -90,16 +89,6 @@ public class Enemy1 : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
-    /// <summary>
-    /// Esta función se debe llamar desde el script que se encarge del ataque del jugador.
-    /// Una vez llamado, resta el daño pasado por parámetro a la vida actual del enemigo.
-    /// </summary>
-    /// <param name="dmg"> Daño que va a recibir el enemigo </param>
-    public void Damage(int dmg) {
-        Health -= dmg;
-        if (Health <= 0) Destroy(gameObject);
-    }
 
     #endregion
 
