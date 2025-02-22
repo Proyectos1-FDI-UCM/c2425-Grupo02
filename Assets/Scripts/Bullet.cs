@@ -60,8 +60,10 @@ public class Bullet : MonoBehaviour
     {
         transform.position += -transform.up * speed * Time.deltaTime;
 
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position); //obtiene posición de la bala y lo convierte al espacio de la cámara
-
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        //obtiene posición de la bala y lo convierte al espacio de la cámara
+        //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
+        //(0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1) Destroy(gameObject); //destruye la bala si se sale de los márgenes de cámara
     }
     #endregion
