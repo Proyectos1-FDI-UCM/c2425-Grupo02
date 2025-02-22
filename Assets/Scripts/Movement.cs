@@ -19,15 +19,15 @@ public class Movement : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] private float Speed = 1.0f; //velocidad de movimiento
-    private Animator animator;
-    private Vector2 lastDir;
-
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb; //rigidbody para colisiones
+    private Animator animator;
+    private Vector2 lastDir;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,46 +44,40 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
         
         transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
-
-        if (moveInput != Vector2.zero)
-        {
-            float absX = Mathf.Abs(moveInput.x); //valor absoluto x
-            float absY = Mathf.Abs(moveInput.y); //valor absoluto y
-            float tolerance = 0.05f;
-
-            if (Mathf.Abs(absX - absY) > tolerance) //guarda la dirección si la diferencia es mayor que la tolerancia
-            {
-                //mira si se mueve más en vertical o en horizontal
-                if (absX > absY) //horizontal
-                {
-                    if (moveInput.x > 0) lastDir = new Vector2(1, 0); //derecha
-                    else lastDir = new Vector2(-1, 0); //izquierda
-                }
-                else //vertical
-                {
-                    if (moveInput.y > 0) lastDir = new Vector2(0, 1); //arriba
-                    else lastDir = new Vector2(0, -1);//abajo
-                }
-            }
+        
+        Vector2 lastDir = GetLastDir();
             
-            animator.SetFloat("moveX", lastDir.x);
-            animator.SetFloat("moveY", lastDir.y);
-        }
+        animator.SetFloat("moveX", lastDir.x);
+        animator.SetFloat("moveY", lastDir.y);
     }
 
-   
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+   
+    public Vector2 GetLastDir()
+    {
+        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
+
+        if (moveInput != Vector2.zero)
+        {
+            //mira si se mueve más en vertical o en horizontal
+            if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) //horizontal
+            {
+                if (moveInput.x > 0) lastDir = new Vector2(1, 0); //derecha
+                else lastDir = new Vector2(-1, 0); //izquierda
+            }
+            else //vertical
+            {
+                if (moveInput.y > 0) lastDir = new Vector2(0, 1); //arriba
+                else lastDir = new Vector2(0, -1); //abajo
+            }
+        }
+        return lastDir;
+    }
 
     #endregion
 
