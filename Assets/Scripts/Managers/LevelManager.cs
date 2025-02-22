@@ -25,11 +25,8 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    //atribuimos un GameObject al jugador
+    [SerializeField] GameObject Player; 
 
     #endregion
 
@@ -88,6 +85,26 @@ public class LevelManager : MonoBehaviour
     {
         return _instance != null;
     }
+
+
+    ///<summary>
+    ///Lo llamamos desde Healing_GameObjects si el jugador 
+    ///colisiona contra dicho objeto
+    ///</summary>
+    public void HealCollected(GameObject Player)
+    {
+        Player_Health playerHealth = Player.GetComponent<Player_Health>();
+
+        if (Player != null)     
+            playerHealth.Heal(1);        
+        else
+            Debug.LogError("Player es null.");       
+    }
+    /// <summary>
+    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
+    /// </summary>
+    /// <returns></returns>
+
 
     #endregion
 

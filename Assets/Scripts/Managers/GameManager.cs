@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
+
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -113,7 +114,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour
     /// destruído antes de tiempo.
     /// </summary>
     /// <returns>Cierto si hay instancia creada.</returns>
+
+  
+
+   
     public static bool HasInstance()
     {
         return _instance != null;
