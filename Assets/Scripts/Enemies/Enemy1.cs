@@ -30,7 +30,7 @@ public class Enemy1 : MonoBehaviour
 
     GameObject _player;         //Jugador en la escena
     Rigidbody2D _rb;            //Componente rigidBody del enemigo
-    float _timer = 0f;          //Temporizador para calcular el estado del enemigo (descanso, perseguir, etc)
+    float _restTimer = 0f;      //Temporizador que cuenta el tiempo de descnaso
     bool _isResting = false;    //Bandera que marca si el enemigo está descansando
     bool _onRange = false;      //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
@@ -52,7 +52,7 @@ public class Enemy1 : MonoBehaviour
             {
                 Debug.Log("Persiguiendo");
                 Vector2 player_position = _player.transform.position;
-                Vector2 dir = GetDirection((player_position - (Vector2)transform.position));
+                Vector2 dir = GetDirection(player_position - (Vector2)transform.position);
                 _rb.velocity = dir * MovementSpeed;
             }
             else
@@ -67,11 +67,11 @@ public class Enemy1 : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             Debug.Log("Descansando");
-            _timer += Time.deltaTime;
+            _restTimer += Time.deltaTime;
 
-            if (_timer >= RestTime)
+            if (_restTimer >= RestTime)
             {
-                _timer = 0f;
+                _restTimer = 0f;
                 _isResting = false;
             }
         }
@@ -103,21 +103,22 @@ public class Enemy1 : MonoBehaviour
         Vector2 res;
         float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
         ang = (ang + 360) % 360;
-        
-        if (ang == 0) res = Vector2.right;
 
-        else if (ang == 90) res = Vector2.up;
-
-        else if (ang == 180) res = Vector2.left;
-
-        else if (ang == 270) res = Vector2.down;
-
-        else if (ang <= 90 && ang > 0) res = (Vector2.right + Vector2.up).normalized;
-
+        //0
+        if (ang <= 5 && ang >= -5) res = Vector2.right;
+        //90
+        else if (ang <= 95 && ang >= 85) res = Vector2.up;
+        //180
+        else if (ang <= 185 && ang >= 175) res = Vector2.left;
+        //270
+        else if (ang <= 275 && ang >= 265) res = Vector2.down;
+        //1er cuadrante
+        else if (ang <= 90 && ang >= 0) res = (Vector2.right + Vector2.up).normalized;
+        //2do cuadrante
         else if (ang <= 180 && ang > 90) res = (Vector2.up + Vector2.left).normalized;
-
+        //3er cuadrante
         else if (ang <= 270 && ang > 180) res = (Vector2.left + Vector2.down).normalized;
-
+        //4to cuadrante
         else res = (Vector2.down + Vector2.right).normalized;
 
         return res;

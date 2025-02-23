@@ -64,7 +64,7 @@ public class Enemy_health : MonoBehaviour
     /// Cuando se llama, se le resta el daño pasado por parametro a Health.
     /// Si Health llega a 0 el enmigo se destruye.
     /// </summary>
-    /// <param name="dmg"> Entero que se la resta a Health </param>
+    /// <param name="dmg"> Entero que se le resta a Health </param>
     public void Damage(int dmg) {
         Health -= dmg;
         if (Health <= 0) Destroy(gameObject);

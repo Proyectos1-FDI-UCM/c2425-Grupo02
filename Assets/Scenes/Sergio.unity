@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: AttackCooldown
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -505898004778013179, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
+      propertyPath: MovementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 401006718666866730, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
       propertyPath: m_Name
       value: Enemy1
