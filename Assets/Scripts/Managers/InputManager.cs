@@ -59,7 +59,12 @@ public class InputManager : MonoBehaviour
     /// la carpeta Settings
     /// </summary>
     private InputActionSettings _theController;
-    
+
+    /// <summary>
+    /// Acción para Attack. 
+    /// </summary>
+    private InputAction _attack;
+
     /// <summary>
     /// Acción para Fire. Si tenemos más botones tendremos que crear más
     /// acciones como esta (y crear los métodos que necesitemos para
@@ -154,6 +159,16 @@ public class InputManager : MonoBehaviour
     public Vector2 MovementVector { get; private set; }
 
     /// <summary>
+    /// Método para saber si el botón de ataque (Attack) se ha pulsado
+    /// Devolverá true en todos los frames en los que se mantenga pulsado
+    /// <returns>True, si el botón está pulsado</returns>
+    /// </summary>
+    public bool AttackIsPressed()
+    {
+        return _attack.IsPressed();
+    }
+
+    /// <summary>
     /// Método para saber si el botón de disparo (Fire) está pulsado
     /// Devolverá true en todos los frames en los que se mantenga pulsado
     /// <returns>True, si el botón está pulsado</returns>
@@ -207,6 +222,9 @@ public class InputManager : MonoBehaviour
         // el método OnMove
         movement.performed += OnMove;
         movement.canceled += OnMove;
+
+        // Cacheamos la acción de ataque.
+        _attack = _theController.Player.Attack;
 
         // Para el disparo solo cacheamos la acción de disparo.
         // El estado lo consultaremos a través de los métodos públicos que 
