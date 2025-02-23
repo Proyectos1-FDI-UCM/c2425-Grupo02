@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
     #region Atributos Privados (private fields)
     private Rigidbody2D rb; //rigidbody para colisiones
     private Animator animator;
+    private Dash dash;
+    private int control = 1;  //variable de control para que al hacer dash no se pueda mover el player
     private Vector2 lastDir;
 
     #endregion
@@ -37,6 +39,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
         animator = GetComponent<Animator>();
+        dash = GetComponent<Dash>();    //tomamos el código del dash
     }
 
     /// <summary>
@@ -45,7 +48,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         
-        transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
+        transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime * control;
         
         Vector2 lastDir = GetLastDir();
             
@@ -66,6 +69,9 @@ public class Movement : MonoBehaviour
         else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
 
         transform.position = worldPos;
+        bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
+        if (ddash == true) { control= 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
+        else { control = 1; }
     }
 
     #endregion
