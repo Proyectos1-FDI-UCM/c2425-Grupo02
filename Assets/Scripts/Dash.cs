@@ -17,6 +17,9 @@ public class Dash : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] private float dashtime = 0.1f;  //tiempo que dura el dash
+    [SerializeField] private float dashtimec = 1.5f;   //countdown entre cada dash
+    [SerializeField] private float dashforce = 3.0f;  // velocidad del dash
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -29,13 +32,12 @@ public class Dash : MonoBehaviour
     #region Atributos Privados (private fields)
 
 
-    private Rigidbody2D _rb;  //rigidbody para colisiones
+    private Rigidbody2D rb;  //rigidbody para colisiones
     private Movement player;
-    [SerializeField] private float dashtime = 0.1f;  //tiempo que dura el dash
-    [SerializeField] private float dashtimec = 1.5f;   //countdown entre cada dash
-    [SerializeField] private float dashforce = 3.0f;  // velocidad del dash
     private bool dash;   // detecta si está dasheando
     private bool candash = true;   // si se puede dashear dash == true
+
+
 
 
     #endregion
@@ -45,7 +47,7 @@ public class Dash : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Movement>();
 
     }
@@ -53,10 +55,18 @@ public class Dash : MonoBehaviour
 
     void Update()
     {
+
+
         if (InputManager.Instance.DashWasPressedThisFrame())
         {
 
-            StartCoroutine(_Dash());
+            if (candash)
+
+            {
+
+                StartCoroutine(_Dash());
+
+            }
 
         }
     }
@@ -96,36 +106,28 @@ public class Dash : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private IEnumerator _Dash()
     {
-        if (candash == true && dash == false)
+        if (dash == false)
         {
-            dash = true;
-            candash = false;
             Vector2 lastDir = player.GetLastDir();
             Vector2 dashpos = transform.position;
-            if (lastDir.x > 0)
-            {
-                dashpos += new Vector2(dashforce, 0f); //dash derecha
-            }
-            else if (lastDir.x < 0)
-            {
-                dashpos -= new Vector2(dashforce, 0f); //dash izquierda
-            }
-            else if (lastDir.y > 0)
-            {
-                dashpos += new Vector2(0f, dashforce); //dash arriba
-            }
-            else
-            {
-                dashpos -= new Vector2(0f, dashforce); //dash abajo
-            }
+            candash = false;
+            dash = true;
 
-            yield return new WaitForSeconds(dashtime);
-            dash = false;
-            yield return new WaitForSeconds(dashtimec);
-            candash = true;
-        }
-    }
-    #endregion   
+            if (lastDir.x > 0) { dashpos.x = 1; dashpos.y = 0; }
+            else if (lastDir.x < 0) { dashpos.x = -1; dashpos.y = 0; }
+            else if (lastDir.y > 0) { dashpos.x = 0; dashpos.y = 1; }
+            else { dashpos.x = 0; dashpos.y = -1; }
 
-} // class Dash 
+            rb.velocity = new Vector2(dashpos.x * dashforce, dashpos.y * dashforce); // Updates the speed of player, as to simulate a dash
+                yield return new WaitForSeconds(dashtime);
+                dash = false;
+                yield return new WaitForSeconds(dashtimec);
+                candash = true;
+                rb.velocity = new Vector2(0, 0);
+            dashpos.x = dashpos.y = 0;
+            }
+            }
+                #endregion
+
+            } // class Dash 
 // namespace
