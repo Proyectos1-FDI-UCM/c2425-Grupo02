@@ -13,12 +13,15 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy_health : MonoBehaviour
+public class Enemy1_attack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-
-    [SerializeField] int Health; //Vidas del enemigo
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // públicos y de inspector se nombren en formato PascalCase
+    // (palabras con primera letra mayúscula, incluida la primera letra)
+    // Ejemplo: MaxHealthPoints
 
     #endregion
     
@@ -61,13 +64,10 @@ public class Enemy_health : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     /// <summary>
-    /// Cuando se llama, se le resta el daño pasado por parametro a Health.
-    /// Si Health llega a 0 el enmigo se destruye.
+    /// 
     /// </summary>
-    /// <param name="dmg"> Entero que se le resta a Health </param>
-    public void Damage(int dmg) {
-        Health -= dmg;
-        if (Health <= 0) Destroy(gameObject);
+    public void Attack() {
+
     }
 
     #endregion
@@ -81,5 +81,5 @@ public class Enemy_health : MonoBehaviour
 
     #endregion   
 
-} // class Enemy_health 
+} // class Enemy1_attack 
 // namespace

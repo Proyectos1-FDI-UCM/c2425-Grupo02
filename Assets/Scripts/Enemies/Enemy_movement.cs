@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy1 : MonoBehaviour
+public class Enemy_movement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -30,7 +30,8 @@ public class Enemy1 : MonoBehaviour
 
     GameObject _player;         //Jugador en la escena
     Rigidbody2D _rb;            //Componente rigidBody del enemigo
-    float _timer = 0f;          //Temporizador para calcular el estado del enemigo (descanso, perseguir, etc)
+    Animator _anim;             //Componente animator del enemigo
+    float _restTimer = 0f;      //Temporizador que cuenta el tiempo de descnaso
     bool _isResting = false;    //Bandera que marca si el enemigo está descansando
     bool _onRange = false;      //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
@@ -43,6 +44,7 @@ public class Enemy1 : MonoBehaviour
     void Start() {
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -52,7 +54,7 @@ public class Enemy1 : MonoBehaviour
             {
                 Debug.Log("Persiguiendo");
                 Vector2 player_position = _player.transform.position;
-                Vector2 dir = GetDirection((player_position - (Vector2)transform.position));
+                Vector2 dir = GetDirection(player_position - (Vector2)transform.position);
                 _rb.velocity = dir * MovementSpeed;
             }
             else
@@ -67,22 +69,22 @@ public class Enemy1 : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             Debug.Log("Descansando");
-            _timer += Time.deltaTime;
+            _restTimer += Time.deltaTime;
 
-            if (_timer >= RestTime)
+            if (_restTimer >= RestTime)
             {
-                _timer = 0f;
+                _restTimer = 0f;
                 _isResting = false;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        _onRange = true;
+        if(collision.GetComponent<Enemy_range>() != null) _onRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        _onRange = false;
+        if (collision.GetComponent<Enemy_range>() != null) _onRange = false;
     }
 
     #endregion
@@ -96,6 +98,7 @@ public class Enemy1 : MonoBehaviour
     #region Métodos Privados
     /// <summary>
     /// Esta función toma un vector y calcula su dirección.
+    /// Tiene un poco de margen en las direcciones no diagonales.
     /// </summary>
     /// <param name="v"> Vector cuya dirección se quiere calcular </param>
     /// <returns></returns>
@@ -103,24 +106,59 @@ public class Enemy1 : MonoBehaviour
         Vector2 res;
         float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
         ang = (ang + 360) % 360;
-        
-        if (ang == 0) res = Vector2.right;
 
-        else if (ang == 90) res = Vector2.up;
-
-        else if (ang == 180) res = Vector2.left;
-
-        else if (ang == 270) res = Vector2.down;
-
-        else if (ang <= 90 && ang > 0) res = (Vector2.right + Vector2.up).normalized;
-
+        //Derecha
+        if (ang <= 10 && ang >= 0) res = Vector2.right;
+        //Arriba
+        else if (ang <= 100 && ang >= 80) res = Vector2.up;
+        //Izquierda
+        else if (ang <= 190 && ang >= 170) res = Vector2.left;
+        //Abajo
+        else if (ang <= 280 && ang >= 260) res = Vector2.down;
+        //1er cuadrante
+        else if (ang <= 90 && ang >= 0) res = (Vector2.right + Vector2.up).normalized;
+        //2do cuadrante
         else if (ang <= 180 && ang > 90) res = (Vector2.up + Vector2.left).normalized;
-
+        //3er cuadrante
         else if (ang <= 270 && ang > 180) res = (Vector2.left + Vector2.down).normalized;
-
+        //4to cuadrante
         else res = (Vector2.down + Vector2.right).normalized;
 
+        SetAnim(res);
+
         return res;
+    }
+
+    void SetAnim(Vector2 v) {
+
+        if (v.x > 0)
+        {
+            _anim.SetBool("_MvSide", true);
+        }
+        else if (v.x < 0)
+        {
+            _anim.SetBool("_MvSide", true);
+        }
+        else
+        {
+            _anim.SetBool("_MvSide", false);
+        }
+
+        if (v.y > 0)
+        {
+            _anim.SetBool("_MvUp", true);
+            _anim.SetBool("_MvDown", false);
+        }
+        else if (v.y < 0)
+        {
+            _anim.SetBool("_MvUp", false);
+            _anim.SetBool("_MvDown", true);
+        }
+        else
+        {
+            _anim.SetBool("_MvUp", false);
+            _anim.SetBool("_MvDown", false);
+        }
     }
 
     void Attack() {
