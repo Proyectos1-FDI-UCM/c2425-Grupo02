@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy1 : MonoBehaviour
+public class Enemy_movement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -30,6 +30,7 @@ public class Enemy1 : MonoBehaviour
 
     GameObject _player;         //Jugador en la escena
     Rigidbody2D _rb;            //Componente rigidBody del enemigo
+    Animator _anim;             //Componente animator del enemigo
     float _restTimer = 0f;      //Temporizador que cuenta el tiempo de descnaso
     bool _isResting = false;    //Bandera que marca si el enemigo está descansando
     bool _onRange = false;      //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
@@ -43,6 +44,7 @@ public class Enemy1 : MonoBehaviour
     void Start() {
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -78,11 +80,11 @@ public class Enemy1 : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        _onRange = true;
+        if(collision.GetComponent<Enemy_range>() != null) _onRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        _onRange = false;
+        if (collision.GetComponent<Enemy_range>() != null) _onRange = false;
     }
 
     #endregion
@@ -96,6 +98,7 @@ public class Enemy1 : MonoBehaviour
     #region Métodos Privados
     /// <summary>
     /// Esta función toma un vector y calcula su dirección.
+    /// Tiene un poco de margen en las direcciones no diagonales.
     /// </summary>
     /// <param name="v"> Vector cuya dirección se quiere calcular </param>
     /// <returns></returns>
@@ -104,14 +107,14 @@ public class Enemy1 : MonoBehaviour
         float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
         ang = (ang + 360) % 360;
 
-        //0
-        if (ang <= 5 && ang >= -5) res = Vector2.right;
-        //90
-        else if (ang <= 95 && ang >= 85) res = Vector2.up;
-        //180
-        else if (ang <= 185 && ang >= 175) res = Vector2.left;
-        //270
-        else if (ang <= 275 && ang >= 265) res = Vector2.down;
+        //Derecha
+        if (ang <= 10 && ang >= 0) res = Vector2.right;
+        //Arriba
+        else if (ang <= 100 && ang >= 80) res = Vector2.up;
+        //Izquierda
+        else if (ang <= 190 && ang >= 170) res = Vector2.left;
+        //Abajo
+        else if (ang <= 280 && ang >= 260) res = Vector2.down;
         //1er cuadrante
         else if (ang <= 90 && ang >= 0) res = (Vector2.right + Vector2.up).normalized;
         //2do cuadrante
@@ -121,7 +124,41 @@ public class Enemy1 : MonoBehaviour
         //4to cuadrante
         else res = (Vector2.down + Vector2.right).normalized;
 
+        SetAnim(res);
+
         return res;
+    }
+
+    void SetAnim(Vector2 v) {
+
+        if (v.x > 0)
+        {
+            _anim.SetBool("_MvSide", true);
+        }
+        else if (v.x < 0)
+        {
+            _anim.SetBool("_MvSide", true);
+        }
+        else
+        {
+            _anim.SetBool("_MvSide", false);
+        }
+
+        if (v.y > 0)
+        {
+            _anim.SetBool("_MvUp", true);
+            _anim.SetBool("_MvDown", false);
+        }
+        else if (v.y < 0)
+        {
+            _anim.SetBool("_MvUp", false);
+            _anim.SetBool("_MvDown", true);
+        }
+        else
+        {
+            _anim.SetBool("_MvUp", false);
+            _anim.SetBool("_MvDown", false);
+        }
     }
 
     void Attack() {
