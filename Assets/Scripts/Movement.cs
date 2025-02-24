@@ -48,8 +48,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = InputManager.Instance.MovementVector * Speed * control;
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-       
+        Vector2 worldPos = rb.position + movement * Time.fixedDeltaTime;
 
         Vector2 lastDir = GetLastDir();
             
@@ -58,7 +57,7 @@ public class Movement : MonoBehaviour
 
         //TOROIDALIDAD
         Vector2 mapSize = LevelManager.Instance.GetMapSize();
-        Vector3 worldPos = transform.position;
+        
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         //obtiene posición de la bala y lo convierte al espacio de la cámara
         //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
@@ -69,7 +68,7 @@ public class Movement : MonoBehaviour
         else if (viewPos.y < 0) worldPos.y += mapSize.y; //de abajo a arriba
         else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
 
-        transform.position = worldPos;
+        rb.MovePosition(worldPos);
        // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
        // if (ddash == true) { control= 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
        // else { control = 1; }
