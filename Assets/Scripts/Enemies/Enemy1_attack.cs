@@ -24,15 +24,11 @@ public class Enemy1_attack : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
+
+    static Animator _anim;
 
     #endregion
     
@@ -49,7 +45,7 @@ public class Enemy1_attack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        _anim = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -66,7 +62,8 @@ public class Enemy1_attack : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public void Attack() {
+    public static void Attack(Vector2 dir) {
+        _anim.SetTrigger("_Attack");
 
     }
 

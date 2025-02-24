@@ -18,9 +18,10 @@ public class Enemy_movement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] float MovementSpeed;   //Velocidad de movimiento del enemigo
-    [SerializeField] float RestTime;        //Tiempo que el enemigo pasa quieto después de atacar
-    [SerializeField] float AttackCooldown;  //Tiempo que pasa entre cada uno de los tres ataques
+    //[SerializeField] Enemy1_attack AttackScript;    //Script de ataque correspondiente al enemigo
+    [SerializeField] float MovementSpeed;           //Velocidad de movimiento del enemigo
+    [SerializeField] float RestTime;                //Tiempo que el enemigo pasa quieto después de atacar
+    [SerializeField] float AttackCooldown;          //Tiempo que pasa entre cada uno de los tres ataques
 
     #endregion
 
@@ -28,12 +29,15 @@ public class Enemy_movement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    GameObject _player;         //Jugador en la escena
-    Rigidbody2D _rb;            //Componente rigidBody del enemigo
-    Animator _anim;             //Componente animator del enemigo
-    float _restTimer = 0f;      //Temporizador que cuenta el tiempo de descnaso
-    bool _isResting = false;    //Bandera que marca si el enemigo está descansando
-    bool _onRange = false;      //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
+    Enemy1_attack AttackScript;
+    GameObject _player;             //Jugador en la escena
+    Rigidbody2D _rb;                //Componente rigidBody del enemigo
+    Animator _anim;                 //Componente animator del enemigo
+    Vector2 _dir = Vector2.zero;    //Vector que marca la dirección hacia la que se mueve el enemigo
+    float _restTimer = 0f;          //Temporizador que cuenta el tiempo de descanso
+    float _dirTimer = 0f;           //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
+    bool _isResting = false;        //Bandera que marca si el enemigo está descansando
+    bool _onRange = false;          //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
     #endregion
 
@@ -45,30 +49,35 @@ public class Enemy_movement : MonoBehaviour
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        AttackScript = GetComponent<Enemy1_attack>();
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (!_isResting)
         {
             if (!_onRange)
             {
-                Debug.Log("Persiguiendo");
                 Vector2 player_position = _player.transform.position;
-                Vector2 dir = GetDirection(player_position - (Vector2)transform.position);
-                _rb.velocity = dir * MovementSpeed;
+
+                if (_dirTimer >= 0.25f)
+                {
+                    _dir = GetDirection(player_position - (Vector2)transform.position);
+                    _dirTimer = 0f;
+                }
+                else _dirTimer += Time.deltaTime;
+
+                _rb.velocity = _dir * MovementSpeed;
             }
             else
             {
                 _rb.velocity = Vector2.zero;
-                Attack();
-                Debug.Log("Ataque");
+                Enemy1_attack.Attack(_dir);
                 _isResting = true;
             }
         }
         else
         {
             _rb.velocity = Vector2.zero;
-            Debug.Log("Descansando");
             _restTimer += Time.deltaTime;
 
             if (_restTimer >= RestTime)
@@ -97,8 +106,9 @@ public class Enemy_movement : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     /// <summary>
-    /// Esta función toma un vector y calcula su dirección.
+    /// Esta función toma un vector y calcula su dirección (8 direcciones posibles).
     /// Tiene un poco de margen en las direcciones no diagonales.
+    /// También llama al método privado SetAnim.
     /// </summary>
     /// <param name="v"> Vector cuya dirección se quiere calcular </param>
     /// <returns></returns>
@@ -129,6 +139,10 @@ public class Enemy_movement : MonoBehaviour
         return res;
     }
 
+    /// <summary>
+    /// Dado un vector, lo evalua y se encarga de asignar el valor correcto a los booleanos del controlador de animaciones del enemigo.
+    /// </summary>
+    /// <param name="v"> Vector que va a ser evaluado </param>
     void SetAnim(Vector2 v) {
 
         if (v.x > 0)
@@ -159,10 +173,6 @@ public class Enemy_movement : MonoBehaviour
             _anim.SetBool("_MvUp", false);
             _anim.SetBool("_MvDown", false);
         }
-    }
-
-    void Attack() {
-
     }
 
     #endregion
