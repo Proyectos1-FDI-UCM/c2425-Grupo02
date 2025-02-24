@@ -49,14 +49,7 @@ public class Dash : MonoBehaviour
     void Update()
     {
         if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
-        {
-            
-
-                StartCoroutine(_Dash());
-
-            
-
-        }
+           StartCoroutine(_Dash());
     }
 
     public bool isdashing()   //booleano que detecta si se está dasheando
