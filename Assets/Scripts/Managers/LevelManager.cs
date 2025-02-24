@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     //atribuimos un GameObject al jugador
-    [SerializeField] GameObject Player; 
+    [SerializeField] GameObject Player;
 
     #endregion
 
@@ -74,16 +74,20 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
-    
+
     public Vector2 GetMapSize()
     {
         float mapWidth = 16;
         float mapHeight = 10;
+        if (SceneManager.GetActiveScene().name == "Adrián")
+        {
+            mapWidth = 50;
+            mapHeight = 50;
+        }
         Vector2 mapSize = new Vector2(mapWidth, mapHeight);
-
         return mapSize;
     }
-   
+
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -106,10 +110,10 @@ public class LevelManager : MonoBehaviour
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
-        if (Player != null)     
-            playerHealth.Heal(1);        
+        if (Player != null)
+            playerHealth.Heal(1);
         else
-            Debug.LogError("Player es null.");       
+            Debug.LogError("Player es null.");
     }
     /// <summary>
     /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
@@ -133,4 +137,4 @@ public class LevelManager : MonoBehaviour
 
     #endregion
 } // class LevelManager 
-// namespace
+  // namespace
