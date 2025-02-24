@@ -45,11 +45,12 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
-        
-        transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime * control;
-        
+        Vector2 movement = InputManager.Instance.MovementVector * Speed * control;
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+       
+
         Vector2 lastDir = GetLastDir();
             
         animator.SetFloat("moveX", lastDir.x);
