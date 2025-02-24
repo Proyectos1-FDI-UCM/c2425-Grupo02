@@ -71,6 +71,7 @@ public class InputManager : MonoBehaviour
     /// conocer el estado del botón)
     /// </summary>
     private InputAction _fire;
+    private InputAction _Dash;
 
     #endregion
 
@@ -201,6 +202,11 @@ public class InputManager : MonoBehaviour
         return _fire.WasReleasedThisFrame();
     }
 
+    public bool DashWasPressedThisFrame()
+    {
+        return _Dash.WasPressedThisFrame();
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -231,6 +237,7 @@ public class InputManager : MonoBehaviour
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
+        _Dash = _theController.Player.Dash;
     }
 
     /// <summary>
