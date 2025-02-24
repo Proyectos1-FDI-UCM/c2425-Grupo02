@@ -835,11 +835,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 335474201}
-  MaxRight: 0
-  MaxLeft: 0
-  MaxHight: 0
-  MinHight: 0
-  speed: 0
+  MaxRight: -18
+  MaxLeft: 18
+  MaxHight: -20
+  MinHight: 20
+  speed: 10
   runniing: 1
 --- !u!1001 &656303764
 PrefabInstance:
