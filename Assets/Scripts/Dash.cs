@@ -33,8 +33,8 @@ public class Dash : MonoBehaviour
 
     private Rigidbody2D rb;  //rigidbody para colisiones
     private Movement player;
-    private bool dash;   // detecta si está dasheando
-    private bool candash = true;   // si se puede dashear dash == true
+    public bool IsDashing { get; private set;}   // detecta si está dasheando
+    private bool canDash = true;   // si se puede dashear dash == true
 
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,19 +48,10 @@ public class Dash : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
+        if (InputManager.Instance.DashWasPressedThisFrame() && canDash && !IsDashing)   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
            StartCoroutine(_Dash());
     }
 
-    public bool isdashing()   //booleano que detecta si se está dasheando
-    {
-        bool ds = true;
-        if (!dash)
-        {
-            ds = false;
-        }
-        return ds;
-    }
 
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
@@ -95,42 +86,27 @@ public class Dash : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private IEnumerator _Dash()
     {
-        if (candash == true && dash == false)  // si se puede dashear y no se está dasheando
-        {
-            Vector2 lastDir = player.GetLastDir();
-            Vector2 dashpos = transform.position;
-            candash = false;
-            dash = true;
+        
+        canDash = false;
+        IsDashing = true;
 
-            if (lastDir.x > 0 && lastDir.y == 0) { dashpos.x = 1; dashpos.y = 0; }  //arriba, abajo, izq y der
-            else if (lastDir.x < 0 && lastDir.y == 0) { dashpos.x = -1; dashpos.y = 0; }
-            else if (lastDir.x == 0 && lastDir.y > 0) { dashpos.x = 0; dashpos.y = 1; }
-            else if (lastDir.x == 0 && lastDir.y < 0) { dashpos.x = 0; dashpos.y = -1; }
+        if (IsDashing) Debug.Log("dash se comunica");
 
-           // creo que no va por el movement, pero sería así 
-           //                II
-           //                II
-           //                vv
+        Vector2 dashDirection = player.GetLastDir();
+        rb.velocity = dashDirection * dashforce;
+        Debug.Log(rb.velocity);
 
-         //   else if (lastDir.x > 0 && lastDir.y > 0) { dashpos.x = 1; dashpos.y = 1; }  //arriba+der, arriba+izq, abajo+der y abajo+izq
-         //   else if (lastDir.x < 0 && lastDir.y > 0) { dashpos.x = -1; dashpos.y = 1; }
-         //   else if (lastDir.x > 0 && lastDir.y < 0) { dashpos.x = 1; dashpos.y = -1; }
-         //   else { dashpos.x = -1; dashpos.y = -1; }
+        yield return new WaitForSeconds(dashtime);
 
+        rb.velocity = Vector2.zero;
+        IsDashing = false;
+        Debug.Log(rb.velocity);
 
+        yield return new WaitForSeconds(dashtimec);
+        canDash = true;
 
-            rb.velocity = new Vector2(dashpos.x * dashforce, dashpos.y * dashforce); // velocidad del dash
-            yield return new WaitForSeconds(dashtime);   //espera a que pase el tiempo activo del dash
-            dash = false;
-            dashpos.x = dashpos.y = 0;    //cuando se deja de dashear, la velocidad se reestablece
-            rb.velocity = new Vector2(dashpos.x, dashpos.y);
+    }
+    #endregion
 
-            yield return new WaitForSeconds(dashtimec);   //cooldown 
-
-            candash = true;
-        }
-            }
-                #endregion
-
-            } 
+} 
 

@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb; //rigidbody para colisiones
     private Animator animator;
     private Dash dash;
-    private int control = 1;  //variable de control para que al hacer dash no se pueda mover el player
     private Vector2 lastDir;
 
     #endregion
@@ -47,10 +46,18 @@ public class Movement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        Vector2 movement = InputManager.Instance.MovementVector * Speed * control;
+
+        if (dash.IsDashing)
+        {
+            Debug.Log("dash funciona en movement");
+            return;
+
+        }
+
+        Vector2 movement = InputManager.Instance.MovementVector * Speed;
         Vector2 worldPos = rb.position + movement * Time.fixedDeltaTime;
 
-        Vector2 lastDir = GetLastDir();
+        lastDir = GetLastDir();
             
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
@@ -69,9 +76,9 @@ public class Movement : MonoBehaviour
         else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
 
         rb.MovePosition(worldPos);
-       // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
-       // if (ddash == true) { control= 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
-       // else { control = 1; }
+
+        
+
     }
 
     #endregion
