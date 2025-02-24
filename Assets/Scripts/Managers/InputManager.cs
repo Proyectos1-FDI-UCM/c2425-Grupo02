@@ -237,7 +237,7 @@ public class InputManager : MonoBehaviour
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
-        
+        _Dash = _theController.Player.Dash;
     }
 
     /// <summary>
