@@ -69,9 +69,9 @@ public class Movement : MonoBehaviour
         else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
 
         transform.position = worldPos;
-        bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
-        if (ddash == true) { control= 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
-        else { control = 1; }
+       // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
+       // if (ddash == true) { control= 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
+       // else { control = 1; }
     }
 
     #endregion
