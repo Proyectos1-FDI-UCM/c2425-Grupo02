@@ -56,6 +56,15 @@ public class Player_Health : MonoBehaviour
         Debug.Log("Vida curada: " + HealthAdded);
         Debug.Log("Vidas restantes: " + Health);
     }
+
+    /// <summary>
+    /// Método que resta un entero pasado por parámetro a las vidas del jugador.
+    /// </summary>
+    /// <param name="dmg"> Número que se le va a restar a Health </param>
+    public void Damage(int dmg) {
+        Health -= dmg;
+        Debug.Log("Salud restante" + Health);
+    }
     #endregion
     
     // ---- MÉTODOS PRIVADOS ----

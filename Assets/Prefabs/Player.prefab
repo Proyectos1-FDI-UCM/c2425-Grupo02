@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 8500329992247002119}
   - component: {fileID: 2671426413900228804}
   - component: {fileID: 7202741152605525682}
-  m_Layer: 0
+  - component: {fileID: -7514759568501163288}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -135,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4520baf07c0c446b366bb7580bbad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayIsPressed: 0
   bullet: {fileID: 4964547229709628306, guid: 23eb95d7d4d5d4b43995a41ada75f0f1, type: 3}
 --- !u!61 &2671426413900228804
 BoxCollider2D:
@@ -206,6 +206,19 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-7514759568501163288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960141397274321566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9812a2cf625df7549b99991e2bc71516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
