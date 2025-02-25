@@ -253,6 +253,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7202741152605525682, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202741152605525682, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -349,6 +357,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338439176471153100, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672102116566825938, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672102116566825938, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672102116566825938, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
+      propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}

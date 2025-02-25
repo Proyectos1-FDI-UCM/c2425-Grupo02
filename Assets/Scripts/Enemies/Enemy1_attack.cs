@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using System;
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -19,29 +20,22 @@ public class Enemy1_attack : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
+    [SerializeField] int Damage;   //Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    GameObject _hitbox;
-    GameObject _player;
-    Enemy_movement _mov;
-    Vector2 _dir;
-    Action _disableHitboxAct;
-    int _layer;
-    bool _activeHitbox = false;
+    GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
+    Enemy_movement _mov;            //Script de movimiento del enemigo
+    Vector2 _dir;                   //Dirección en la que se mueve el enemigo
 
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -49,17 +43,14 @@ public class Enemy1_attack : MonoBehaviour
     void Start()
     {
         _hitbox = transform.GetChild(0).gameObject;
-        _player = FindObjectOfType<Movement>().gameObject;
         _mov = GetComponent<Enemy_movement>();
-        _layer = _player.layer;
         _hitbox.SetActive(false);
-        _disableHitboxAct = DisableHitbox;
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
         if (!_hitbox.activeSelf) 
         {
@@ -67,30 +58,47 @@ public class Enemy1_attack : MonoBehaviour
             SetDir(_dir, 0.25f);
         }
     }
-    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.layer == _layer && _activeHitbox)
+        if(collision.gameObject.GetComponent<Player_Health>() != null)
         {
-            _player.GetComponent<Player_Health>();
+            collision.GetComponent<Player_Health>().Damage(Damage);
         }
     }
 
+    #endregion
+
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    /// <summary>
-    /// 
-    /// </summary>
-    public void Attack(Vector2 dir) {
-        _hitbox.SetActive(true);
-        Invoke("DisableHitbox", 0.25f);
+    
+    IEnumerator AttackCoroutine() {
+        for (int i = 0; i < 3; i++)
+        {
+            _hitbox.SetActive(true);
+            Invoke(nameof(DisableHitbox), 0.25f);
+            yield return new WaitForSecondsRealtime(0.3f);
+        }
     }
+    
+ 
+    /// <summary>
+    /// Método que activa la hitbox y la desactiva pasado un breve lapso de tiempo
+    /// </summary>
+    public void Attack() { 
+         StartCoroutine(AttackCoroutine());
+    }
+     
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
+    /// <summary>
+    /// Método que dictamina la posición y rotación de la hitbox del ataque
+    /// </summary>
+    /// <param name="v"> Vector de dirección del jugador. Es usado para determinar la posición y rotación de la hitbox </param>
+    /// <param name="offset"> Float que indica cuánto desplazamos la hitbox con respecto al centro del enemigo </param>
     void SetDir(Vector2 v, float offset) {
         Vector2 res;
         _hitbox.transform.rotation = transform.rotation;
@@ -112,6 +120,9 @@ public class Enemy1_attack : MonoBehaviour
         _hitbox.transform.localPosition = res;
     }
 
+    /// <summary>
+    /// Método que deshabilita la hitbox
+    /// </summary>
     void DisableHitbox() {
         _hitbox.SetActive(false);
     }

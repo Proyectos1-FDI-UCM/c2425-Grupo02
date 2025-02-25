@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -57,6 +58,7 @@ public class Enemy_movement : MonoBehaviour
     }
 
     void FixedUpdate() {
+        _rb.velocity = Vector2.zero;
         if (!_isResting)
         {
             if (!_onRange)
@@ -74,15 +76,13 @@ public class Enemy_movement : MonoBehaviour
             }
             else
             {
-                _rb.velocity = Vector2.zero;
-                AttackScript.Attack(_dir);
+                AttackScript.Attack();
                 _anim.SetTrigger("_Attack");
                 _isResting = true;
             }
         }
         else
         {
-            _rb.velocity = Vector2.zero;
             _restTimer += Time.deltaTime;
 
             if (_restTimer >= RestTime)
@@ -156,38 +156,42 @@ public class Enemy_movement : MonoBehaviour
     void SetAnim(Vector2 v) {
         _spriteRend.flipX = false;
 
+        string side = "_MvSide";
+        string up = "_MvUp";
+        string down = "_MvDown";
+
         if (v.x > 0)
         {
-            _anim.SetBool("_MvSide", true);
+            _anim.SetBool(side, true);
         }
         else if (v.x < 0)
         {
-            _anim.SetBool("_MvSide", true);
+            _anim.SetBool(side, true);
             _spriteRend.flipX = true;
             
         }
         else
         {
-            _anim.SetBool("_MvSide", false);
+            _anim.SetBool(side, false);
         }
 
         if (v.y > 0)
         {
-            _anim.SetBool("_MvUp", true);
-            _anim.SetBool("_MvDown", false);
+            _anim.SetBool(up, true);
+            _anim.SetBool(down, false);
         }
         else if (v.y < 0)
         {
-            _anim.SetBool("_MvUp", false);
-            _anim.SetBool("_MvDown", true);
+            _anim.SetBool(up, false);
+            _anim.SetBool(down, true);
         }
         else
         {
-            _anim.SetBool("_MvUp", false);
-            _anim.SetBool("_MvDown", false);
+            _anim.SetBool(up, false);
+            _anim.SetBool(down, false);
         }
     }
-
+     
     #endregion
 
 } // class Enemy1 
