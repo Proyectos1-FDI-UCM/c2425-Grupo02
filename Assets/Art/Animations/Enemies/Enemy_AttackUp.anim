@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy1_Walk_Up
+  m_Name: Enemy_AttackUp
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1552155072651806617, guid: 9187cde3bcd45664f9e12d33a827e0b0, type: 3}
+      value: {fileID: 3580311378854387737, guid: 53c24d43c0186a34fb1888a4414686fc, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1552155072651806617, guid: 9187cde3bcd45664f9e12d33a827e0b0, type: 3}
+    - {fileID: 3580311378854387737, guid: 53c24d43c0186a34fb1888a4414686fc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
