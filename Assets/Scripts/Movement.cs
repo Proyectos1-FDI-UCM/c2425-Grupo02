@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] private float Speed = 1.0f; //velocidad de movimiento
-
+    [SerializeField] private float RayPosMod; //modificador de la posición del raycast
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -28,6 +28,10 @@ public class Movement : MonoBehaviour
     private Animator animator;
     private Dash dash;
     private Vector2 lastDir;
+    //RAYCAST
+    private LayerMask obstaclesMask; //layer obstáculos
+    private float rayDistance = 1;
+    private Vector2 raycastPos;
 
     #endregion
 
@@ -39,6 +43,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
         animator = GetComponent<Animator>();
         dash = GetComponent<Dash>();    //tomamos el código del dash
+        obstaclesMask = LayerMask.GetMask(LayerMask.LayerToName(13)); //layer obstáculos
     }
 
     /// <summary>
@@ -51,34 +56,23 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("dash funciona en movement");
             return;
-
         }
 
-        Vector2 movement = InputManager.Instance.MovementVector * Speed;
-        Vector2 worldPos = rb.position + movement * Time.fixedDeltaTime;
-
         lastDir = GetLastDir();
-            
+
+        raycastPos = SetRaycastPos();
+        Debug.DrawRay(raycastPos, lastDir * rayDistance, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(raycastPos, lastDir, rayDistance, obstaclesMask);
+        Debug.Log("Obstacle distance hit: " + hit.distance);
+
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
 
-        //TOROIDALIDAD
-        Vector2 mapSize = LevelManager.Instance.GetMapSize();
-        
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
-        //obtiene posición de la bala y lo convierte al espacio de la cámara
-        //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
-        //(0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
-
-        if (viewPos.x > 1) worldPos.x -= mapSize.x; //de derecha a izquierda
-        else if (viewPos.x < 0) worldPos.x += mapSize.x; //de izquierda a derecha
-        else if (viewPos.y < 0) worldPos.y += mapSize.y; //de abajo a arriba
-        else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
-
-        rb.MovePosition(worldPos);
-
-        
-
+        if (hit.collider == null)
+        {
+            transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
+            ApplyToroidality();
+        }
     }
 
     #endregion
@@ -115,7 +109,32 @@ public class Movement : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+    private Vector2 SetRaycastPos()
+    {
+        raycastPos = transform.position;
+        if (lastDir.x == 1) raycastPos.x -= RayPosMod; //derecha
+        else if (lastDir.x == -1) raycastPos.x += RayPosMod; //izquierda;
+        else if (lastDir.y == -1) raycastPos.y += RayPosMod; //abajo;
+        else if (lastDir.y == 1) raycastPos.y -= RayPosMod; //arriba;
+        return raycastPos;
+    }
+    private void ApplyToroidality()
+    {
+        Vector2 mapSize = LevelManager.Instance.GetMapSize();
 
+        Vector2 worldPos = transform.position;
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        //obtiene posición de la bala y lo convierte al espacio de la cámara
+        //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
+        //(0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
+
+        if (viewPos.x > 1) worldPos.x -= mapSize.x; //de derecha a izquierda
+        else if (viewPos.x < 0) worldPos.x += mapSize.x; //de izquierda a derecha
+        else if (viewPos.y < 0) worldPos.y += mapSize.y; //de abajo a arriba
+        else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
+
+        transform.position = worldPos;
+    }
     #endregion
 
 } //class Movement

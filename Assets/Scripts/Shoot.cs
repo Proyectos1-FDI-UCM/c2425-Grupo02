@@ -26,7 +26,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     //[SerializeField] private bool displayIsPressed = false;
     [SerializeField] private GameObject bullet; //prefab de la bala
-    [SerializeField] private Vector2 posMod; //modificador posición de instancia de la bala
+    [SerializeField] private float posMod; //modificador posición de instancia de la bala
 
     #endregion
 
@@ -72,10 +72,10 @@ public class Shoot : MonoBehaviour
                 Vector3 instancePos = transform.position; //posición en la que se instancia la bala
                 
 
-                if (lastDir.x > 0) { instancePos.x += posMod.x; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
-                else if (lastDir.x < 0) { instancePos.x -= posMod.x; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
-                else if (lastDir.y > 0) { instancePos.y += posMod.y; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
-                else { instancePos.y -= posMod.y; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
+                if (lastDir.x > 0) { instancePos.x += posMod; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
+                else if (lastDir.x < 0) { instancePos.x -= posMod; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
+                else if (lastDir.y > 0) { instancePos.y += posMod; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
+                else { instancePos.y -= posMod; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
 
                 newBullet = Instantiate(bullet, instancePos, bulletRotation);
                 shootEnabled = false;
