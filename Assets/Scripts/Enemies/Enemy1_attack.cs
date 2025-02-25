@@ -71,23 +71,14 @@ public class Enemy1_attack : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     
-    IEnumerator AttackCoroutine() {
-        for (int i = 0; i < 3; i++)
-        {
-            _hitbox.SetActive(true);
-            Invoke(nameof(DisableHitbox), 0.25f);
-            yield return new WaitForSecondsRealtime(0.3f);
-        }
-    }
     
  
     /// <summary>
-    /// Método que activa la hitbox y la desactiva pasado un breve lapso de tiempo
+    /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
     /// </summary>
     public void Attack() { 
          StartCoroutine(AttackCoroutine());
     }
-     
 
     #endregion
 
@@ -125,6 +116,19 @@ public class Enemy1_attack : MonoBehaviour
     /// </summary>
     void DisableHitbox() {
         _hitbox.SetActive(false);
+    }
+
+    /// <summary>
+    /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator AttackCoroutine() {
+        for (int i = 0; i < 3; i++)
+        {
+            _hitbox.SetActive(true);
+            Invoke(nameof(DisableHitbox), 0.25f);
+            yield return new WaitForSecondsRealtime(0.3f);
+        }
     }
 
     #endregion   
