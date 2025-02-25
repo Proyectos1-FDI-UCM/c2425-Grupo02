@@ -26,6 +26,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     //[SerializeField] private bool displayIsPressed = false;
     [SerializeField] private GameObject bullet; //prefab de la bala
+    [SerializeField] private Vector2 posMod; //modificador posición de instancia de la bala
 
     #endregion
 
@@ -37,6 +38,10 @@ public class Shoot : MonoBehaviour
     private Movement playerMovement;
     private bool shootEnabled = true;
 
+    //RAYCAST
+    private LayerMask obstaclesMask; //layer obstáculos
+    private float rayDistance = 1;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,6 +50,7 @@ public class Shoot : MonoBehaviour
     void Awake()
     {
         playerMovement = GetComponent<Movement>();
+        obstaclesMask = LayerMask.GetMask(LayerMask.LayerToName(13)); //layer obstáculos
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -54,17 +60,22 @@ public class Shoot : MonoBehaviour
         if (InputManager.Instance.FireWasPressedThisFrame())
         {
             //Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed this frame");
+            Vector2 lastDir = playerMovement.GetLastDir();
 
-            if (shootEnabled)
+            //raycast
+            Debug.DrawRay(transform.position, lastDir * rayDistance, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDir, rayDistance, obstaclesMask);
+
+            if (hit.collider == null && shootEnabled) //dispara si el player no está mirando a un obstáculo adyacente y no hay otra bala instanciada
             {
-                Vector2 lastDir = playerMovement.GetLastDir();
                 Quaternion bulletRotation;
                 Vector3 instancePos = transform.position; //posición en la que se instancia la bala
+                
 
-                if (lastDir.x > 0) { instancePos.x += 1; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
-                else if (lastDir.x < 0) { instancePos.x -= 1; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
-                else if (lastDir.y > 0) { instancePos.y += 1; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
-                else { instancePos.y -= 1; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
+                if (lastDir.x > 0) { instancePos.x += posMod.x; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
+                else if (lastDir.x < 0) { instancePos.x -= posMod.x; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
+                else if (lastDir.y > 0) { instancePos.y += posMod.y; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
+                else { instancePos.y -= posMod.y; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
 
                 newBullet = Instantiate(bullet, instancePos, bulletRotation);
                 shootEnabled = false;
