@@ -33,8 +33,10 @@ public class Dash : MonoBehaviour
 
     private Rigidbody2D rb;  //rigidbody para colisiones
     private Movement player;
-    public bool IsDashing { get; private set;}   // detecta si está dasheando
-    private bool canDash = true;   // si se puede dashear dash == true
+    private bool dash;   // detecta si está dasheando
+    private bool candash = true;   // si se puede dashear dash == true
+    private Vector2 dashpos;
+
 
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,14 +46,32 @@ public class Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Movement>();
+        dashpos = transform.position;
+        
     }
 
     void Update()
     {
-        if (InputManager.Instance.DashWasPressedThisFrame() && canDash && !IsDashing)   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
-           StartCoroutine(_Dash());
+        if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
+        {
+
+
+            StartCoroutine(_Dash());
+
+
+
+        }
     }
 
+    public bool isdashing()   //booleano que detecta si se está dasheando
+    {
+        bool ds = true;
+        if (!dash)
+        {
+            ds = false;
+        }
+        return ds;
+    }
 
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
@@ -86,27 +106,38 @@ public class Dash : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private IEnumerator _Dash()
     {
-        
-        canDash = false;
-        IsDashing = true;
+        if (candash == true && dash == false)  // si se puede dashear y no se está dasheando
+        {
 
-        if (IsDashing) Debug.Log("dash se comunica");
 
-        Vector2 dashDirection = player.GetLastDir();
-        rb.velocity = dashDirection * dashforce;
-        Debug.Log(rb.velocity);
+            Vector2 lastDir = player.GetLastDir2(); 
+            candash = false;
+            dash = true;
 
-        yield return new WaitForSeconds(dashtime);
+            if (lastDir.x == 0 && lastDir.y == 0) { dashpos.x = 0; dashpos.y = 0; }  //arriba, abajo, izq y der y quieto
+            else if (lastDir.x < 0 && lastDir.y == 0) { dashpos.x = -1; dashpos.y = 0; }
+            else if (lastDir.x == 0 && lastDir.y > 0) { dashpos.x = 0; dashpos.y = 1; }
+            else if (lastDir.x == 0 && lastDir.y < 0) { dashpos.x = 0; dashpos.y = -1; }
+            else if (lastDir.x > 0 && lastDir.y == 0) { dashpos.x = 1; dashpos.y = 0; }
+            else if (lastDir.x > 0 && lastDir.y > 0) { dashpos.x = 1; dashpos.y = 1; }  //arriba+der, arriba+izq, abajo+der y abajo+izq
+            else if (lastDir.x < 0 && lastDir.y > 0) { dashpos.x = -1; dashpos.y = 1; }
+            else if (lastDir.x > 0 && lastDir.y < 0) { dashpos.x = 1; dashpos.y = -1; }
+            else if (lastDir.x < 0 && lastDir.y < 0) { dashpos.x = -1; dashpos.y = -1; }
 
-        rb.velocity = Vector2.zero;
-        IsDashing = false;
-        Debug.Log(rb.velocity);
 
-        yield return new WaitForSeconds(dashtimec);
-        canDash = true;
 
+            rb.velocity = new Vector2(dashpos.x * dashforce, dashpos.y * dashforce); // velocidad del dash
+            yield return new WaitForSeconds(dashtime);   //espera a que pase el tiempo activo del dash
+            dash = false;
+            lastDir = new Vector2(0, 0);
+            dashpos = new Vector2(0, 0);    //cuando se deja de dashear, la velocidad se reestablece
+            rb.velocity = new Vector2(dashpos.x, dashpos.y);
+
+            yield return new WaitForSeconds(dashtimec);   //cooldown 
+            candash = true;
+        }
     }
     #endregion
 
-} 
+}
 

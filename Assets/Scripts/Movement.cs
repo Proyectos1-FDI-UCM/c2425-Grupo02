@@ -27,7 +27,9 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb; //rigidbody para colisiones
     private Animator animator;
     private Dash dash;
+    private int control = 1;
     private Vector2 lastDir;
+    private Vector2 lastDir2;
     //RAYCAST
     private LayerMask obstaclesMask; //layer obstáculos
     private float rayDistance = 1;
@@ -52,12 +54,6 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (dash.IsDashing)
-        {
-            Debug.Log("dash funciona en movement");
-            return;
-        }
-
         lastDir = GetLastDir();
 
         raycastPos = SetRaycastPos();
@@ -70,9 +66,12 @@ public class Movement : MonoBehaviour
 
         if (hit.collider == null)
         {
-            transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime;
+            transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime * control;
             ApplyToroidality();
         }
+        bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
+        if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
+        else { control = 1; }
     }
 
     #endregion
@@ -80,7 +79,7 @@ public class Movement : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-    public Vector2 GetLastDir()
+    public Vector2 GetLastDir()   //lastdir para animaciones y disparo
     {
         Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
 
@@ -99,6 +98,24 @@ public class Movement : MonoBehaviour
             }
         }
         return lastDir;
+    }
+
+    public Vector2 GetLastDir2()  //lastdir para el dash
+    {
+        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
+
+
+            if (moveInput.x == 0 && moveInput.y > 0) lastDir2 = new Vector2(0, 1);
+            else if (moveInput.x == 0 && moveInput.y < 0) lastDir2 = new Vector2(0, -1);
+            else if (moveInput.x > 0 && moveInput.y == 0) lastDir2 = new Vector2(1, 0);
+            else if (moveInput.x < 0 && moveInput.y == 0) lastDir2 = new Vector2(-1, 0);
+            else if (moveInput.x > 0 &&  moveInput.y > 0) lastDir2 = new Vector2(1, 1);
+            else if (moveInput.x > 0 && moveInput.y < 0) lastDir2 = new Vector2(1, -1);
+            else if (moveInput.x < 0 && moveInput.y > 0) lastDir2 = new Vector2(-1, 1);
+            else if (moveInput.x < 0 && moveInput.y < 0) lastDir2 = new Vector2(-1, -1);
+            else lastDir2 = new Vector2(0, 0);
+
+        return lastDir2;
     }
 
     #endregion
@@ -134,6 +151,7 @@ public class Movement : MonoBehaviour
         else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
 
         transform.position = worldPos;
+
     }
     #endregion
 
