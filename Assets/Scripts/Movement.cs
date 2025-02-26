@@ -53,22 +53,14 @@ public class Movement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-
         lastDir = GetLastDir();
 
-        raycastPos = SetRaycastPos();
-        Debug.DrawRay(raycastPos, lastDir * rayDistance, Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(raycastPos, lastDir, rayDistance, obstaclesMask);
-        Debug.Log("Obstacle distance hit: " + hit.distance);
+        Vector2 movement = InputManager.Instance.MovementVector * Speed * control;
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
 
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
 
-        if (hit.collider == null)
-        {
-            transform.localPosition += (Vector3)InputManager.Instance.MovementVector * Speed * Time.deltaTime * control;
-            ApplyToroidality();
-        }
         bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
         if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
         else { control = 1; }
