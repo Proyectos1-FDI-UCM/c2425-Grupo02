@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4964547229709628306, guid: 23eb95d7d4d5d4b43995a41ada75f0f1, type: 3}
-  posMod: 1.1
+  posMod: 1.2
 --- !u!114 &7971365308914326993
 MonoBehaviour:
   m_ObjectHideFlags: 0
