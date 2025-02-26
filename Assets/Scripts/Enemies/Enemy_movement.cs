@@ -19,7 +19,6 @@ public class Enemy_movement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    //[SerializeField] Enemy1_attack AttackScript;    //Script de ataque correspondiente al enemigo
     [SerializeField] float MovementSpeed;           //Velocidad de movimiento del enemigo
     [SerializeField] float RestTime;                //Tiempo que el enemigo pasa quieto después de atacar
     [SerializeField] float AttackCooldown;          //Tiempo que pasa entre cada uno de los tres ataques
@@ -61,9 +60,9 @@ public class Enemy_movement : MonoBehaviour
         _rb.velocity = Vector2.zero;
         if (!_isResting)
         {
+            Vector2 player_position = _player.transform.position;
             if (!_onRange)
             {
-                Vector2 player_position = _player.transform.position;
 
                 if (_dirTimer >= 0.25f)
                 {
@@ -76,6 +75,8 @@ public class Enemy_movement : MonoBehaviour
             }
             else
             {
+                _dir = GetDirection(player_position - (Vector2)transform.position);
+                _rb.velocity = _dir * 0.001f;
                 AttackScript.Attack();
                 _anim.SetTrigger("_Attack");
                 _isResting = true;
