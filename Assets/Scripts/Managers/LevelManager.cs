@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
+    private int _questObjectsCount;
 
     #endregion
 
@@ -55,6 +56,7 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
+        _questObjectsCount = 0;
     }
 
     #endregion
@@ -120,6 +122,25 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
 
+    ///<summary>
+    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto
+    ///</summary>
+
+    public void OnQuestObjectCollected()
+    {
+        _questObjectsCount++;
+        Debug.Log("Objetos de misión obtenidos: " + _questObjectsCount);
+
+        if (_questObjectsCount == 1)
+        {
+            Debug.Log("Misión comenzada");
+            OnQuestFinished();
+        }
+    }
+    ///<summary>
+    ///Va actualizando el número de objetos de misión obtenidos por el jugador
+    /// </summary>
+
 
     #endregion
 
@@ -134,6 +155,16 @@ public class LevelManager : MonoBehaviour
     {
         // De momento no hay nada que inicializar
     }
+
+    
+    private void OnQuestFinished()
+    {
+        if (_questObjectsCount == 3)
+            Debug.Log("Misión terminada");
+       
+        
+    }
+
 
     #endregion
 } // class LevelManager 

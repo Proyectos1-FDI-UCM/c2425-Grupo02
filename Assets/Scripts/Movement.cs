@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
     private Vector2 lastDir2;
     //RAYCAST
     private LayerMask obstaclesMask; //layer obstáculos
-    private float rayDistance = 1;
     private Vector2 raycastPos;
 
     #endregion
