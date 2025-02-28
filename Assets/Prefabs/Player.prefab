@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  RayPosMod: 0.485
 --- !u!95 &8186444170964134507
 Animator:
   serializedVersion: 5
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4964547229709628306, guid: 23eb95d7d4d5d4b43995a41ada75f0f1, type: 3}
-  posMod: 1.2
+  posMod: 0
 --- !u!114 &7971365308914326993
 MonoBehaviour:
   m_ObjectHideFlags: 0

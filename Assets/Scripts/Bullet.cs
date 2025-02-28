@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
+    private Rigidbody2D rb;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -39,9 +39,9 @@ public class Bullet : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Start()
+    void Awake()
     {
-        
+        rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -61,10 +61,11 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += -transform.up * speed * Time.deltaTime;
-
+        //transform.position += -transform.up * speed * Time.deltaTime;
+        Vector2 bulletDir = -transform.up * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + bulletDir);
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         //obtiene posición de la bala y lo convierte al espacio de la cámara
         //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha

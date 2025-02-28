@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] private float Speed = 1.0f; //velocidad de movimiento
-    [SerializeField] private float RayPosMod; //modificador de la posición del raycast
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,8 +30,6 @@ public class Movement : MonoBehaviour
     private Vector2 lastDir;
     private Vector2 lastDir2;
     //RAYCAST
-    private LayerMask obstaclesMask; //layer obstáculos
-    private Vector2 raycastPos;
 
     #endregion
 
@@ -44,7 +41,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
         animator = GetComponent<Animator>();
         dash = GetComponent<Dash>();    //tomamos el código del dash
-        obstaclesMask = LayerMask.GetMask(LayerMask.LayerToName(13)); //layer obstáculos
     }
 
     /// <summary>
@@ -59,7 +55,6 @@ public class Movement : MonoBehaviour
 
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
-
        // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
         //if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
         //else { control = 1; }
