@@ -60,9 +60,9 @@ public class Movement : MonoBehaviour
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
 
-        bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
-        if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
-        else { control = 1; }
+       // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
+        //if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
+        //else { control = 1; }
     }
 
     #endregion
@@ -117,15 +117,7 @@ public class Movement : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private Vector2 SetRaycastPos()
-    {
-        raycastPos = transform.position;
-        if (lastDir.x == 1) raycastPos.x -= RayPosMod; //derecha
-        else if (lastDir.x == -1) raycastPos.x += RayPosMod; //izquierda;
-        else if (lastDir.y == -1) raycastPos.y += RayPosMod; //abajo;
-        else if (lastDir.y == 1) raycastPos.y -= RayPosMod; //arriba;
-        return raycastPos;
-    }
+
     private void ApplyToroidality()
     {
         Vector2 mapSize = LevelManager.Instance.GetMapSize();
