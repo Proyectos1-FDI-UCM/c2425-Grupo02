@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-    private int _questObjectsCount;
+    private int _questObjectsCount; 
 
     #endregion
 
@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
         }
         _questObjectsCount = 0;
     }
-
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -76,15 +76,30 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
-
+    /*
+    Para cuando tengamos que mantener la toroidalidad activada solo si es un espacio exterior
+    public bool Outside()
+    {
+        return SceneManager.GetActiveScene().buildIndex == (índice escena);
+    }
+    */
     public Vector2 GetMapSize()
     {
-        float mapWidth = 16;
-        float mapHeight = 10;
-        if (SceneManager.GetActiveScene().name == "Adrián")
+        float mapWidth, mapHeight;
+        if (SceneManager.GetActiveScene().buildIndex == 2) //escena toroidalidad Lucía
+        {
+            mapWidth = 16;
+            mapHeight = 10;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 3) //escena cámara Adrián
         {
             mapWidth = 50;
             mapHeight = 50;
+        }
+        else
+        {
+            mapWidth = 16;
+            mapHeight = 10;
         }
         Vector2 mapSize = new Vector2(mapWidth, mapHeight);
         return mapSize;
