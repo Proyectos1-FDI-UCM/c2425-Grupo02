@@ -32,7 +32,7 @@ public class Enemy_Spawn : MonoBehaviour {
     #region Atributos Privados (private fields)
 
     IntGrid _grid;                              //Cuadrícula
-    Dictionary<int, Vector2Int> _tileDict;      //Diccionario con la posición de cada tile asociada a un índice
+    Dictionary<int, Vector2Int> _cellDict;      //Diccionario con la posición de cada celda asociada a un índice
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
@@ -56,7 +56,7 @@ public class Enemy_Spawn : MonoBehaviour {
         SetUniverse();
 
         //Debug
-        SpawnEnemies(EnemyNumber);
+        SpawnEnemies();
     }
 
     #endregion
@@ -66,7 +66,7 @@ public class Enemy_Spawn : MonoBehaviour {
 
     public void SubstractEnemy() {
         _currentEnemies--;
-        if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies(EnemyNumber);
+        if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies();
     }
 
     #endregion
@@ -76,11 +76,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <summary>
     /// Método que se encarga de instanciar enemigos
     /// </summary>
-    void SpawnEnemies(int enemy_n) {
-        List<int> spawnList = SpawnList(enemy_n);
+    void SpawnEnemies() {
+        List<int> spawnList = SpawnList(EnemyNumber);
         foreach (int n in spawnList)
         {
-            Vector2 pos = _tileDict[n];
+            Vector2 pos = _cellDict[n];
             Instantiate(Enemy, pos, Quaternion.identity);
         }
         _currentEnemies = EnemyNumber;
@@ -94,7 +94,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <param name="enemy_n"> número de enemigos que se van a instanciar </param>
     /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
     List<int> SpawnList(int enemy_n) {
-        int size = _tileDict.Keys.Count;
+        int size = _cellDict.Keys.Count;
         if (enemy_n > size) enemy_n = size;
 
         List<int> res = new List<int>();
@@ -109,12 +109,12 @@ public class Enemy_Spawn : MonoBehaviour {
     }
 
     void SetDict() {
-        _tileDict = new Dictionary<int, Vector2Int>();
+        _cellDict = new Dictionary<int, Vector2Int>();
 
         int it = 0;
         foreach (Vector2Int pos in _grid.GetCells())
         {
-            _tileDict[it] = pos;
+            _cellDict[it] = pos;
             it++;
         }
     }
@@ -122,7 +122,7 @@ public class Enemy_Spawn : MonoBehaviour {
     //Aqui tengo que definir qué celdas no son válidas
     void SetUniverse() {
         _universe = new List<int>();
-        for (int i = 0; i < _tileDict.Count; i++)
+        for (int i = 0; i < _cellDict.Count; i++)
         {
             _universe.Add(i);
         }
