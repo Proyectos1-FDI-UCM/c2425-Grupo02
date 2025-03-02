@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy_movement : MonoBehaviour
+public class Enemy_Movement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -29,7 +28,7 @@ public class Enemy_movement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Enemy1_attack AttackScript;
+    Enemy1_Attack AttackScript;
     SpriteRenderer _spriteRend;
     GameObject _player;                     //Jugador en la escena
     Rigidbody2D _rb;                        //Componente rigidBody del enemigo
@@ -51,8 +50,8 @@ public class Enemy_movement : MonoBehaviour
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        AttackScript = GetComponent<Enemy1_attack>();
-        _rangeLayer = FindObjectOfType<Enemy_range>().gameObject.layer;
+        AttackScript = GetComponent<Enemy1_Attack>();
+        _rangeLayer = FindObjectOfType<Enemy_Range>().gameObject.layer;
         _spriteRend = GetComponent<SpriteRenderer>();
     }
 

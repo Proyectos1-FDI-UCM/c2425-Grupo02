@@ -15,7 +15,7 @@ using UnityEngine;
 /// 
 /// El propósito de este script es asociarlo a ese objeto vacío para que persiga al jugador.
 /// </summary>
-public class Enemy_range : MonoBehaviour
+public class Enemy_Range : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)

@@ -15,7 +15,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy1_attack : MonoBehaviour
+public class Enemy1_Attack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -28,7 +28,7 @@ public class Enemy1_attack : MonoBehaviour
     #region Atributos Privados (private fields)
 
     GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
-    Enemy_movement _mov;            //Script de movimiento del enemigo
+    Enemy_Movement _mov;            //Script de movimiento del enemigo
     Vector2 _dir;                   //Dirección en la que se mueve el enemigo
 
     #endregion
@@ -43,7 +43,7 @@ public class Enemy1_attack : MonoBehaviour
     void Start()
     {
         _hitbox = transform.GetChild(0).gameObject;
-        _mov = GetComponent<Enemy_movement>();
+        _mov = GetComponent<Enemy_Movement>();
         _hitbox.SetActive(false);
     }
 
