@@ -110,6 +110,7 @@ public class Enemy_Spawn : MonoBehaviour {
         }
     }
 
+    //Aqui tengo que definir qué celdas no son válidas
     void SetUniverse() {
         _universe = new List<int>();
         for (int i = 0; i < _tileDict.Count; i++)
