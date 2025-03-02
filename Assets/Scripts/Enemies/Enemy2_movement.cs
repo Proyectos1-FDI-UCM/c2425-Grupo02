@@ -90,7 +90,7 @@ public class Enemy2_movement : MonoBehaviour
             }
             else
             {
-                if(rechTimer >= 3f)
+                if(rechTimer >= 5f)
                 {
                     rechTimer = 0f;
                     _rechargingAttack = false;

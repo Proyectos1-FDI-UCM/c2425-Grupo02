@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1267319840171475516}
   - component: {fileID: 1494446690198024481}
   m_Layer: 12
-  m_Name: DebugHitbox
+  m_Name: DebugHitbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
