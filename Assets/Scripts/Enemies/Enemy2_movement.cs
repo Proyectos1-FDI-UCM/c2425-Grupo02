@@ -43,6 +43,7 @@ public class Enemy2_movement : MonoBehaviour
     bool _isResting = false;                //Bandera que marca si el enemigo está descansando
     bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
     bool _rechargingAttack = false;         //Bandera que marca si el enemigo está en la fase de recargar su ataque
+    float rechTimer = 0f;
 
     #endregion
 
@@ -61,31 +62,57 @@ public class Enemy2_movement : MonoBehaviour
 
     void FixedUpdate() {
         _rb.velocity = Vector2.zero;
-        if (!_isResting && !_rechargingAttack)
+        if (!_isResting)
         {
-            Vector2 player_position = _player.transform.position;
-            if (!_onRange)
-            {
+            if (!_rechargingAttack)
+            { 
+                Vector2 player_position = _player.transform.position;
+                if (!_onRange)
+                {
 
-                if (_dirTimer >= 0.25f)
+                    if (_dirTimer >= 0.25f)
+                    {
+                        _dir = GetDirection_AttackTime(player_position - (Vector2)transform.position);
+                        _dirTimer = 0f;
+                    }
+                    else _dirTimer += Time.deltaTime;
+
+                    _rb.velocity = _dir * MovementSpeed;
+                }
+                else
                 {
                     _dir = GetDirection_AttackTime(player_position - (Vector2)transform.position);
-                    _dirTimer = 0f;
+                    _rb.velocity = _dir * 0.001f;
+                    AttackScript.Attack();
+                    _anim.SetTrigger("_Attack");
+                    _isResting = true;
                 }
-                else _dirTimer += Time.deltaTime;
-
-                _rb.velocity = _dir * MovementSpeed;
             }
             else
             {
-                _dir = GetDirection_AttackTime(player_position - (Vector2)transform.position);
-                _rb.velocity = _dir * 0.001f;
-                AttackScript.Attack();
-                _anim.SetTrigger("_Attack");
-                _isResting = true;
+                if(rechTimer >= 3f)
+                {
+                    rechTimer = 0f;
+                    _rechargingAttack = false;
+                }
+                else
+                {
+                    Vector2 player_position = _player.transform.position;
+
+                    if (_dirTimer >= 0.25f)
+                    {
+                        _dir = GetDirection_RunawayTime(player_position - (Vector2)transform.position);
+                        _dirTimer = 0f;
+                    }
+                    else _dirTimer += Time.deltaTime;
+
+                    _rb.velocity = _dir * MovementSpeed;
+
+                    rechTimer += Time.deltaTime;
+                }
             }
         }
-        else if (_isResting && !_rechargingAttack)
+        else if (_isResting)
         {
             _restTimer += Time.deltaTime;
 
@@ -95,21 +122,6 @@ public class Enemy2_movement : MonoBehaviour
                 _isResting = false;
                 _rechargingAttack = true;
             }
-        }
-        else if (!_isResting && _rechargingAttack)
-        {
-            Vector2 player_position = _player.transform.position;
-
-            if (_dirTimer >= 0.25f)
-            {
-                _dir = GetDirection_RunawayTime(player_position - (Vector2)transform.position);
-                _dirTimer = 0f;
-            }
-            else _dirTimer += Time.deltaTime;
-
-            _rb.velocity = _dir * MovementSpeed;
-            CooldownRoutine();
-            Console.Write(_attackAgainTimer);
         }
     }
 

@@ -45,17 +45,6 @@ public class Enemy2_attack : MonoBehaviour
         _hitbox.SetActive(false);
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update() {
-        if (!_hitbox.activeSelf)
-        {
-            _dir = _mov.GetDir();
-            SetDir(_dir, 0.25f);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<Player_Health>() != null)
         {
@@ -82,32 +71,7 @@ public class Enemy2_attack : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    /// <summary>
-    /// Método que dictamina la posición y rotación de la hitbox del ataque
-    /// </summary>
-    /// <param name="v"> Vector de dirección del jugador. Es usado para determinar la posición y rotación de la hitbox </param>
-    /// <param name="offset"> Float que indica cuánto desplazamos la hitbox con respecto al centro del enemigo </param>
-    void SetDir(Vector2 v, float offset) {
-        Vector2 res;
-        _hitbox.transform.rotation = transform.rotation;
-
-        if (v.y == 0)
-        {
-            if (v.x > 0) res = new Vector2(offset, 0);
-            else if (v.x < 0) res = new Vector2(-offset, 0);
-            else res = Vector2.zero;
-        }
-        else
-        {
-            if (v.y > 0) res = new Vector2(0, offset);
-            else res = new Vector2(0, -offset);
-
-            _hitbox.transform.Rotate(0, 0, 90, Space.World);
-
-        }
-        _hitbox.transform.localPosition = res;
-    }
-
+ 
     /// <summary>
     /// Método que deshabilita la hitbox
     /// </summary>
