@@ -24,15 +24,11 @@ public class Debug_Enemy : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
+
+    Enemy_Spawn _spawn; 
 
     #endregion
     
@@ -49,7 +45,7 @@ public class Debug_Enemy : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        _spawn = FindObjectOfType<Enemy_Spawn>();
     }
 
     /// <summary>
@@ -59,6 +55,15 @@ public class Debug_Enemy : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<Player_Health>() != null)
+        {
+            _spawn.SubstractEnemy();
+            Destroy(gameObject);
+        }
+    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -70,7 +75,7 @@ public class Debug_Enemy : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -78,7 +83,7 @@ public class Debug_Enemy : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class Debug_Enemy 
 // namespace
