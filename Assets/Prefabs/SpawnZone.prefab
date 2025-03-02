@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 3855646056992642259, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
   EnemyNumber: 4
+  Iterations: 3

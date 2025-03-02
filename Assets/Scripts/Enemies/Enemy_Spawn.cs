@@ -24,15 +24,18 @@ public class Enemy_Spawn : MonoBehaviour {
 
     [SerializeField] GameObject Enemy;          //Enemigo qque se va a instanciar por tanda
     [SerializeField] int EnemyNumber;           //Número de enemigos que se van a instanciar por tanda
+    [SerializeField] int Iterations;            //Número de tandas de enemigos que se quieren instanciar
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    IntGrid _grid;                              //Componente TileMap del Spawn
+    IntGrid _grid;                              //Cuadrícula
     Dictionary<int, Vector2Int> _tileDict;      //Diccionario con la posición de cada tile asociada a un índice
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
+    int _currentIteration = 0;                  //Número de tanda de enemigos
+    int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
 
     #endregion
 
@@ -61,22 +64,28 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-    /// <summary>
-    /// Método que se encarga de instanciar enemigos
-    /// </summary>
-    public void SpawnEnemies(int enemy_n) {
-        List<int> spawnList = SpawnList(enemy_n);
-        foreach (int n in spawnList)
-        {
-            Vector2 pos = _tileDict[n];
-            Instantiate(Enemy, pos, Quaternion.identity);
-        }
+    public void SubstractEnemy() {
+        _currentEnemies--;
+        if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies(EnemyNumber);
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+    /// <summary>
+    /// Método que se encarga de instanciar enemigos
+    /// </summary>
+    void SpawnEnemies(int enemy_n) {
+        List<int> spawnList = SpawnList(enemy_n);
+        foreach (int n in spawnList)
+        {
+            Vector2 pos = _tileDict[n];
+            Instantiate(Enemy, pos, Quaternion.identity);
+        }
+        _currentEnemies = EnemyNumber;
+        _currentIteration++;
+    }
 
     /// <summary>
     /// Método que dado un número de enemigos devuelve un arrray de enteros con los índices a los que deberá acceder la función
