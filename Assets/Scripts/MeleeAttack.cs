@@ -101,9 +101,9 @@ public class MeleeAttack : MonoBehaviour
 
         foreach(Collider2D collider in enemies)
         {
-            if(collider.GetComponent<Enemy_health>() != null)
+            if(collider.GetComponent<Enemy_Health>() != null)
             {
-                collider.GetComponent<Enemy_health>().Damage(damage);
+                collider.GetComponent<Enemy_Health>().Damage(damage);
             }
         }
 
