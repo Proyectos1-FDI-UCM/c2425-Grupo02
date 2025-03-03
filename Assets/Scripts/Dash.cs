@@ -31,12 +31,12 @@ public class Dash : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    private Rigidbody2D rb;  //rigidbody para colisiones
-    private Movement player;
-    private bool dash;   // detecta si está dasheando
-    private bool candash = true;   // si se puede dashear dash == true
-    private Vector2 dashpos;
-
+    private Rigidbody2D rb;         //rigidbody para colisiones
+    private Movement player;        //script de movimiento del jugador
+    private bool dash;              // detecta si está dasheando
+    private bool candash = true;    // si se puede dashear dash == true
+    Vector2 raytest;
+    bool greenRay = true;
 
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,18 +46,40 @@ public class Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Movement>();
-        dashpos = transform.position;
     }
 
     void Update()
     {
+       
         if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
         {
             StartCoroutine(_Dash());
         }
+        raytest = player.GetLastDir2().normalized;
+        Ray2D ray = new Ray2D(rb.position, raytest);
+        RaycastHit2D rayHit = Physics2D.Raycast(rb.position, raytest, dashDistance);
+        //Physics2D.Raycast(raytest, rayHit);
+        if (rayHit.collider != null)
+        {
+            Debug.DrawRay(rb.position, raytest * dashDistance, Color.green);
+            candash = true;
+        }
+        else
+        {
+            Debug.DrawRay(rb.position, raytest * dashDistance, Color.red);
+            candash = false;
+        }
+        Debug.Log(raytest);
+
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        greenRay = false;
+    }
 
+    private void OnCollisionExit2D(Collision2D collision) {
+        greenRay = true;
+    }
 
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
@@ -112,8 +134,6 @@ public class Dash : MonoBehaviour
             yield return new WaitForSeconds(dashtime);   //espera a que pase el tiempo activo del dash
             dash = false;
             lastDir = new Vector2(0, 0);
-            dashpos = new Vector2(0, 0);    //cuando se deja de dashear, la velocidad se reestablece
-            rb.velocity = new Vector2(dashpos.x, dashpos.y);
 
             yield return new WaitForSeconds(dashtimec);   //cooldown 
             candash = true;
