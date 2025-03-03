@@ -73,6 +73,11 @@ public class InputManager : MonoBehaviour
     private InputAction _fire;
     private InputAction _Dash;
 
+    /// <summary>
+    /// Acción para pausar el juego y así acceder al menú. 
+    /// </summary>
+    private InputAction _pause;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -207,6 +212,16 @@ public class InputManager : MonoBehaviour
         return _Dash.WasPressedThisFrame();
     }
 
+    /// <summary>
+    /// Método para saber si el botón de pausa se ha pulsado.
+    /// Devolverá true en todos los frames en los que se mantenga pulsado
+    /// <returns>True, si el botón está pulsado</returns>
+    /// </summary>
+    public bool PauseWasPressedThisFrame()
+    {
+        return _pause.WasPressedThisFrame();
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -238,6 +253,9 @@ public class InputManager : MonoBehaviour
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
         _Dash = _theController.Player.Dash;
+
+        // Cacheamos la acción de pausa.
+        _pause = _theController.Player.Pause;
     }
 
     /// <summary>
