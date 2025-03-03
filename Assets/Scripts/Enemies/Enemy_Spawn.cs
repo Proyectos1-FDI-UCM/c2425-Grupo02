@@ -51,7 +51,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start() {
-        _grid = new IntGrid(5, 5, 1);
+        _grid = new IntGrid(5, 5, 1, gameObject);
         SetDict();
         SetUniverse();
 
