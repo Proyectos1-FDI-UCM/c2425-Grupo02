@@ -56,8 +56,8 @@ public class Player_Interact : MonoBehaviour
     /// </summary>
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, playerMovement.GetLastDir(), rayDist, interactives);  //creamos el raycast
-        if (hit.collider != null && InputManager.Instance.InteractWasPressedThisFrame())
+        //RaycastHit2D hit = Physics2D.Raycast(rb.position, playerMovement.GetLastDir(), rayDist, interactives);  //creamos el raycast
+        //if (hit.collider != null && InputManager.Instance.InteractWasPressedThisFrame())
         {
 
         }

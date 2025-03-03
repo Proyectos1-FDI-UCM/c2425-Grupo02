@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -17,7 +18,9 @@ public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private GameObject dialogueUI;
+    //[SerializeField] private GameObject dialogueUI;
+    [SerializeField] private Canvas MissionCompletedCanvas;
+    
 
     #endregion
 
@@ -46,7 +49,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        MissionCompletedCanvas.gameObject.SetActive(false); //interfaz desactivada
     }
 
     /// <summary>
@@ -72,13 +75,18 @@ public class UIManager : MonoBehaviour
     {
         return _instance != null;
     }
+
+    public void Inform()
+    {
+        MissionCompletedCanvas.gameObject.SetActive(true);
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     private void Init()
     {
-        dialogueUI.SetActive(false);
+       // dialogueUI.SetActive(false);
     }
 
     #endregion   

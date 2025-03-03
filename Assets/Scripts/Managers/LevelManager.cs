@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     //atribuimos un GameObject al jugador
-    [SerializeField] GameObject Player;
+   
 
     #endregion
 
@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-    private int _questObjectsCount; 
+   
 
     #endregion
 
@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
-        _questObjectsCount = 0;
+        
     }
     
     #endregion
@@ -115,43 +115,8 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    ///<summary>
-    ///Lo llamamos desde Healing_GameObjects si el jugador 
-    ///colisiona contra dicho objeto
-    ///</summary>
-    public void HealCollected(GameObject Player)
-    {
-        Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
-        if (Player != null)
-            playerHealth.Heal(1);
-        else
-            Debug.LogError("Player es null.");
-    }
-    /// <summary>
-    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
-    /// </summary>
-    /// <returns></returns>
-
-    ///<summary>
-    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto
-    ///</summary>
-
-    public void OnQuestObjectCollected()
-    {
-        _questObjectsCount++;
-        Debug.Log("Objetos de misión obtenidos: " + _questObjectsCount);
-
-        if (_questObjectsCount == 1)
-        {
-            Debug.Log("Misión comenzada");
-            OnQuestFinished();
-        }
-    }
-    ///<summary>
-    ///Va actualizando el número de objetos de misión obtenidos por el jugador
-    /// </summary>
-
+   
 
     #endregion
 
@@ -168,13 +133,7 @@ public class LevelManager : MonoBehaviour
     }
 
     
-    private void OnQuestFinished()
-    {
-        if (_questObjectsCount == 3)
-            Debug.Log("Misión terminada");
-       
-        
-    }
+  
 
 
     #endregion

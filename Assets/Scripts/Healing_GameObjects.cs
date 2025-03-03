@@ -86,7 +86,7 @@ public class Healing_GameObjects : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Movement>() != null)
         {
-            LevelManager.Instance.HealCollected(collision.gameObject);
+            GameManager.Instance.HealCollected(collision.gameObject);
             Destroy(gameObject);
         }
     }

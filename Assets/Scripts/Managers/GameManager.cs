@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-
+    [SerializeField] GameObject Player;
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static GameManager _instance;
+    private int _questObjectsCount;
+    private UIManager _uiManager;
+
 
     #endregion
 
@@ -56,6 +59,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     protected void Awake()
     {
+        _questObjectsCount = 0;
+
+
         if (_instance != null)
         {
             // No somos la primera instancia. Se supone que somos un
@@ -123,9 +129,51 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>Cierto si hay instancia creada.</returns>
 
-  
 
-   
+    ///<summary>
+    ///Lo llamamos desde Healing_GameObjects si el jugador 
+    ///colisiona contra dicho objeto
+    ///</summary>
+    public void HealCollected(GameObject Player)
+    {
+        Player_Health playerHealth = Player.GetComponent<Player_Health>();
+
+        if (Player != null)
+            playerHealth.Heal(1);
+        else
+            Debug.LogError("Player es null.");
+    }
+    /// <summary>
+    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
+    /// </summary>
+    /// <returns></returns>
+    /// 
+    ///<summary>
+    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto
+    ///</summary>
+
+    public void OnQuestObjectCollected()
+    {
+        _questObjectsCount++;
+        Debug.Log("Objetos de misión obtenidos: " + _questObjectsCount);
+
+        if (_questObjectsCount == 1)
+            Debug.Log("Misión comenzada");
+                    
+        else if (_questObjectsCount == 3)
+        {
+            if (_uiManager != null)
+            {
+                _uiManager.Inform();
+            }
+            Debug.Log("Misión terminada");
+        }
+    }
+    ///<summary>
+    ///Va actualizando el número de objetos de misión obtenidos por el jugador
+    /// </summary>
+
+
     public static bool HasInstance()
     {
         return _instance != null;
@@ -174,7 +222,7 @@ public class GameManager : MonoBehaviour
         // De momento no hay que transferir ningún estado
         // entre escenas
     }
-
+ 
     #endregion
 } // class GameManager 
 // namespace

@@ -84,7 +84,7 @@ public class Quest_Objects : MonoBehaviour
     {     
         if (collision.gameObject.GetComponent<Movement>() != null)
         {
-            LevelManager.Instance.OnQuestObjectCollected() ;
+            GameManager.Instance.OnQuestObjectCollected() ;
             Destroy(gameObject);
         }
     }
