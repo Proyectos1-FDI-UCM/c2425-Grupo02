@@ -19,6 +19,7 @@ public class IntGrid
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
+    Vector2Int _origin;             //Vector con la posición de origen local
     int _width;                     //Anchura de la cuadrícula
     int _height;                    //Altura de la cuadrícula
     int _cellSize;                  //Tamaño de cada celda del grid
@@ -31,7 +32,9 @@ public class IntGrid
     
     //Constructor
 
-    public IntGrid(int width, int height, int cellSize) {
+    public IntGrid(int width, int height, int cellSize, GameObject gameObject) {
+        Vector3 org = gameObject.transform.position;
+        _origin = new Vector2Int(Mathf.FloorToInt(org.x), Mathf.FloorToInt(org.y));
         _width = width;
         _height = height;
         _cellSize = cellSize;
@@ -41,7 +44,7 @@ public class IntGrid
         {
             for (int j = 0; j < height; j++) 
             {
-                _cells[i, j] = GetPos(i, j);
+                _cells[i, j] = GetPos(i + _origin.x, j + _origin.y);
             }
         }
     }
