@@ -22,11 +22,13 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] GameObject Enemy;          //Enemigo qque se va a instanciar por tanda
-    [SerializeField] int EnemyNumber;           //Número de enemigos que se van a instanciar por tanda
-    [SerializeField] int Iterations;            //Número de tandas de enemigos que se quieren instanciar
-    [SerializeField] int GridWidth = 5;         //Ancho de la cuadrícula que define la zona de spawn
-    [SerializeField] int GridHeight = 5;        //Alto de la cuadrícula que define la zona de spawn
+    [SerializeField] GameObject Enemy;                      //Enemigo qque se va a instanciar por tanda
+    [SerializeField] int EnemyNumber;                       //Número de enemigos que se van a instanciar por tanda
+    [SerializeField] int Iterations;                        //Número de tandas de enemigos que se quieren instanciar
+    [SerializeField] int GridWidth = 5;                     //Ancho de la cuadrícula que define la zona de spawn
+    [SerializeField] int GridLength = 5;                    //Alto de la cuadrícula que define la zona de spawn
+    [SerializeField] int CellSize = 1;                      //Tamaño de cada celda del IntGrid
+    [SerializeField] List<Vector2Int> BannedCells = new();  //Lista con las celdas en las que no pueden aparecer enemigos
 
     #endregion
 
@@ -36,6 +38,7 @@ public class Enemy_Spawn : MonoBehaviour {
     IntGrid _grid;                              //Cuadrícula
     Dictionary<int, Vector2Int> _cellDict;      //Diccionario con la posición de cada celda asociada a un índice
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
+    HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
     bool _firstEnabled = false;                 //Booleano que indica si se ha activado la zone de spawn por primera vez
@@ -54,8 +57,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start() {
-        _grid = new IntGrid(GridWidth, GridHeight, 1, gameObject);
-        if (EnemyNumber > GridWidth * GridHeight) EnemyNumber = GridWidth * GridHeight;
+        _grid = new IntGrid(GridWidth, GridLength, CellSize, gameObject);
+        if (EnemyNumber >= GridWidth * GridLength) EnemyNumber = GridWidth * GridLength;
+        if (EnemyNumber == GridWidth * GridLength) EnemyNumber -= BannedCells.Count;
+        if (EnemyNumber < 0) EnemyNumber = 0;
+        _bannedCells = BannedCells.ToHashSet();
         SetDict();
         SetUniverse();
 
@@ -100,7 +106,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
     List<int> SpawnList() {
         int size = _cellDict.Keys.Count;
-        List<int> res = new List<int>();
+        List<int> res = new List<int>(_cellDict.Count);
         
         for (int i = 0; i < EnemyNumber; i++)
         {
@@ -115,16 +121,29 @@ public class Enemy_Spawn : MonoBehaviour {
         _cellDict = new Dictionary<int, Vector2Int>();
 
         int it = 0;
+        /*
         foreach (Vector2Int pos in _grid.GetCells())
         {
             _cellDict[it] = pos;
             it++;
         }
+         */
+
+        for (int i = 0; i < GridWidth; i++)
+        {
+            for(int j = 0;  j < GridLength; j++)
+            {
+                if (!_bannedCells.Contains(new Vector2Int(i, j)))
+                {
+                    _cellDict[it] = _grid.GetCells()[i, j];
+                    it++;
+                }
+            }
+        }
     }
 
-    //Aqui tengo que definir qué celdas no son válidas
     void SetUniverse() {
-        _universe = new List<int>();
+        _universe = new List<int>(_cellDict.Count);
         for (int i = 0; i < _cellDict.Count; i++)
         {
             _universe.Add(i);
@@ -132,8 +151,7 @@ public class Enemy_Spawn : MonoBehaviour {
     }
 
     List<int> GetComplementary(List<int> list, List<int> U) {
-        List<int> res = new List<int>();
-        res =  U.Except(list).ToList();
+        List<int> res = U.Except(list).ToList();
         return res;
     }
 

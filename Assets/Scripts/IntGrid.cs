@@ -13,15 +13,14 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class IntGrid
-{
+public class IntGrid {
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
     Vector2Int _origin;             //Vector con la posición de origen local
     int _width;                     //Anchura de la cuadrícula
-    int _height;                    //Altura de la cuadrícula
+    int _length;                    //Altura de la cuadrícula
     int _cellSize;                  //Tamaño de cada celda del grid
     Vector2Int[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales o globales, dependiendo del constructor
 
@@ -36,19 +35,19 @@ public class IntGrid
     /// Constructor no asociado a un GameObject. Las coordenadas de las celdas son globales
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
-    /// <param name="height"> Alto de la cuadrícula </param>
+    /// <param name="length"> Alto de la cuadrícula </param>
     /// <param name="cellSize"> Tamaño de cada celda </param>
-    public IntGrid(int width, int height, int cellSize) {
+    public IntGrid(int width, int length, int cellSize) {
         _width = width;
-        _height = height;
+        _length = length;
         _cellSize = cellSize;
-        _cells = new Vector2Int[width, height];
+        _cells = new Vector2Int[width, length];
 
         for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < length; j++)
             {
-                _cells[i, j] = GetPos(i, j);
+                _cells[i, j] = GetWorldPos(i, j);
             }
         }
     }
@@ -57,31 +56,29 @@ public class IntGrid
     /// Constructor asociado a un GameObject. Las posiciones de las celdas son locales del GameObject
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
-    /// <param name="height"> Alto de la cuadrícula </param>
+    /// <param name="length"> Alto de la cuadrícula </param>
     /// <param name="cellSize"> Tamaño de cada celda </param>
     /// <param name="gameObject"> GameObject que contendrá la cuadrícula </param>
-    public IntGrid(int width, int height, int cellSize, GameObject gameObject) {
+    public IntGrid(int width, int length, int cellSize, GameObject gameObject) {
         Vector3 org = gameObject.transform.position;
         _origin = new Vector2Int(Mathf.FloorToInt(org.x), Mathf.FloorToInt(org.y));
         _width = width;
-        _height = height;
+        _length = length;
         _cellSize = cellSize;
-        _cells = new Vector2Int[width, height];
+        _cells = new Vector2Int[width, length];
 
         for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < height; j++) 
+            for (int j = 0; j < length; j++)
             {
-                _cells[i, j] = GetPos(i + _origin.x, j + _origin.y);
+                _cells[i, j] = GetLocalPos(i, j);
             }
         }
     }
 
-    /*
-    public bool Contains() {
+    public void DebugGrid() {
 
     }
-     */
 
     //Getters
 
@@ -94,7 +91,7 @@ public class IntGrid
     }
 
     public int GetHeight() {
-        return _height;
+        return _length;
     }
 
     public int GetCellSize() {
@@ -110,9 +107,15 @@ public class IntGrid
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    private Vector2Int GetPos(int x, int y) {
+    private Vector2Int GetWorldPos(int x, int y) {
         x += _cellSize / 2;
         y += _cellSize / 2;
+        return new Vector2Int(x, y) * _cellSize;
+    }
+
+    private Vector2Int GetLocalPos(int x, int y) {
+        x += _origin.x + _cellSize / 2; 
+        y += _origin.y + _cellSize / 2;
         return new Vector2Int(x, y) * _cellSize;
     }
 
