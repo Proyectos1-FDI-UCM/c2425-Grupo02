@@ -19,7 +19,7 @@ public class Dash : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float dashtime = 0.1f;  //tiempo que dura el dash
     [SerializeField] private float dashtimec = 1.5f;   //cooldown entre cada dash
-    [SerializeField] private float dashDistance = 1f;  // velocidad del dash
+    [SerializeField] private float dashDistance = 1f;  // distancia de tp de dash
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -31,12 +31,11 @@ public class Dash : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    private Rigidbody2D rb;  //rigidbody para colisiones
-    private Movement player;
-    private bool dash;   // detecta si está dasheando
-    private bool candash = true;   // si se puede dashear dash == true
-    private Vector2 dashpos;
-
+    private Rigidbody2D rb;         //rigidbody para colisiones
+    private Movement player;        //script de movimiento del jugador
+    private bool dash;              // detecta si está dasheando
+    private bool candash = true;    // si se puede dashear dash == true
+    Vector2 raylong;                //
 
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,17 +45,20 @@ public class Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<Movement>();
-        dashpos = transform.position;
     }
 
     void Update()
     {
+
         if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
         {
             StartCoroutine(_Dash());
         }
-    }
 
+        raycast();
+
+
+    }
 
 
     // Por defecto están los típicos (Update y Start) pero:
@@ -98,23 +100,40 @@ public class Dash : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    private void raycast()
+    {
+        raylong = player.GetLastDir2().normalized;  
+        LayerMask layerMask = LayerMask.GetMask("Obstacles");   //layers detectadas por el raycast (obstáculos)
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, raylong, dashDistance, layerMask);  //creamos el raycast
+
+        if (hit.collider != null)   //si el rayo colisiona con un obstáculos:
+        {
+            candash = false;
+            Debug.DrawRay(rb.position, raylong * dashDistance, Color.red);  //color del rayo = rojo
+
+        }
+        else   //si no
+        {
+            Debug.DrawRay(transform.position, raylong * dashDistance, Color.green);   //color del rayo = rojo
+            candash = true;
+
+        }
+    }
+
     private IEnumerator _Dash()
     {
         if (candash == true && dash == false)  // si se puede dashear y no se está dasheando
         {
 
-            Vector2 lastDir = player.GetLastDir2();
+            Vector2 lastDir = player.GetLastDir2();  //método público del script movement que detecta la última posición del jugador
             candash = false;
             dash = true;
 
-            rb.position += lastDir.normalized * dashDistance; // velocidad del dash
-            rb.MovePosition(rb. position);
+            rb.position += lastDir.normalized * dashDistance; // se cambia la posición 
+            rb.MovePosition(rb. position);                    //se mueve al jugador a la posición establecida
             yield return new WaitForSeconds(dashtime);   //espera a que pase el tiempo activo del dash
-            dash = false;
-            lastDir = new Vector2(0, 0);
-            dashpos = new Vector2(0, 0);    //cuando se deja de dashear, la velocidad se reestablece
-            rb.velocity = new Vector2(dashpos.x, dashpos.y);
-
+            dash = false;  //no está dasheando
             yield return new WaitForSeconds(dashtimec);   //cooldown 
             candash = true;
         }
