@@ -23,15 +23,43 @@ public class IntGrid
     int _width;                     //Anchura de la cuadrícula
     int _height;                    //Altura de la cuadrícula
     int _cellSize;                  //Tamaño de cada celda del grid
-    Vector2Int[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales
+    Vector2Int[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales o globales, dependiendo del constructor
 
     #endregion
-    
+
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    
+
     //Constructor
 
+    /// <summary>
+    /// Constructor no asociado a un GameObject. Las coordenadas de las celdas son globales
+    /// </summary>
+    /// <param name="width"> Ancho de la cuadrícula </param>
+    /// <param name="height"> Alto de la cuadrícula </param>
+    /// <param name="cellSize"> Tamaño de cada celda </param>
+    public IntGrid(int width, int height, int cellSize) {
+        _width = width;
+        _height = height;
+        _cellSize = cellSize;
+        _cells = new Vector2Int[width, height];
+
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                _cells[i, j] = GetPos(i, j);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Constructor asociado a un GameObject. Las posiciones de las celdas son locales del GameObject
+    /// </summary>
+    /// <param name="width"> Ancho de la cuadrícula </param>
+    /// <param name="height"> Alto de la cuadrícula </param>
+    /// <param name="cellSize"> Tamaño de cada celda </param>
+    /// <param name="gameObject"> GameObject que contendrá la cuadrícula </param>
     public IntGrid(int width, int height, int cellSize, GameObject gameObject) {
         Vector3 org = gameObject.transform.position;
         _origin = new Vector2Int(Mathf.FloorToInt(org.x), Mathf.FloorToInt(org.y));
@@ -78,7 +106,6 @@ public class IntGrid
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    //Cambiarlo a coordenadas locales
     private Vector2Int GetPos(int x, int y) {
         x += _cellSize / 2;
         y += _cellSize / 2;
