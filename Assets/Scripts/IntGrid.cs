@@ -85,6 +85,10 @@ public class IntGrid
 
     //Getters
 
+    public Vector2Int GetOrigin() {
+        return _origin;
+    }
+
     public int GetWidth() {
         return _width;
     }

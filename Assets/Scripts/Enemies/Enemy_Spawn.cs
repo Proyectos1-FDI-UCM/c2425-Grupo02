@@ -25,6 +25,8 @@ public class Enemy_Spawn : MonoBehaviour {
     [SerializeField] GameObject Enemy;          //Enemigo qque se va a instanciar por tanda
     [SerializeField] int EnemyNumber;           //Número de enemigos que se van a instanciar por tanda
     [SerializeField] int Iterations;            //Número de tandas de enemigos que se quieren instanciar
+    [SerializeField] int GridWidth = 5;         //Ancho de la cuadrícula que define la zona de spawn
+    [SerializeField] int GridHeight = 5;        //Alto de la cuadrícula que define la zona de spawn
 
     #endregion
 
@@ -36,6 +38,7 @@ public class Enemy_Spawn : MonoBehaviour {
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
+    bool _firstEnabled = false;                 //Booleano que indica si se ha activado la zone de spawn por primera vez
 
     #endregion
 
@@ -51,7 +54,8 @@ public class Enemy_Spawn : MonoBehaviour {
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start() {
-        _grid = new IntGrid(5, 5, 1, gameObject);
+        _grid = new IntGrid(GridWidth, GridHeight, 1, gameObject);
+        if (EnemyNumber > GridWidth * GridHeight) EnemyNumber = GridWidth * GridHeight;
         SetDict();
         SetUniverse();
 
@@ -67,6 +71,7 @@ public class Enemy_Spawn : MonoBehaviour {
     public void SubstractEnemy() {
         _currentEnemies--;
         if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies();
+        else if (_currentIteration >= Iterations) gameObject.SetActive(false);
     }
 
     #endregion
@@ -77,7 +82,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// Método que se encarga de instanciar enemigos
     /// </summary>
     void SpawnEnemies() {
-        List<int> spawnList = SpawnList(EnemyNumber);
+        List<int> spawnList = SpawnList();
         foreach (int n in spawnList)
         {
             Vector2 pos = _cellDict[n];
@@ -93,13 +98,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     /// <param name="enemy_n"> número de enemigos que se van a instanciar </param>
     /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
-    List<int> SpawnList(int enemy_n) {
+    List<int> SpawnList() {
         int size = _cellDict.Keys.Count;
-        if (enemy_n > size) enemy_n = size;
-
         List<int> res = new List<int>();
         
-        for (int i = 0; i < enemy_n; i++)
+        for (int i = 0; i < EnemyNumber; i++)
         {
             List<int> random_pool = GetComplementary(res, _universe);
             int index = Random.Range(0, random_pool.Count);
