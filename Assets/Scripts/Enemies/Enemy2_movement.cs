@@ -56,7 +56,7 @@ public class Enemy2_movement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         AttackScript = GetComponent<Enemy2_attack>();
-        _rangeLayer = FindObjectOfType<Enemy_range>().gameObject.layer;
+        _rangeLayer = FindObjectOfType<Enemy_Range>().gameObject.layer;
         _spriteRend = GetComponent<SpriteRenderer>();
     }
 
