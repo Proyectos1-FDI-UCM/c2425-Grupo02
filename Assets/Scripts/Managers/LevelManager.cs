@@ -86,12 +86,8 @@ public class LevelManager : MonoBehaviour
     public Vector2 GetMapSize()
     {
         float mapWidth, mapHeight;
-        if (SceneManager.GetActiveScene().buildIndex == 2) //escena toroidalidad Lucía
-        {
-            mapWidth = 16;
-            mapHeight = 10;
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 3) //escena cámara Adrián
+        
+        if (SceneManager.GetActiveScene().buildIndex == 3) //escena cámara Adrián
         {
             mapWidth = 50;
             mapHeight = 50;

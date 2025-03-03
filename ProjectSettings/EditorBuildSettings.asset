@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 20527f57389d748ee93839d6d77bce46
   - enabled: 1
-    path: Assets/Scenes/LUC_toroidalidad.unity
+    path: Assets/Scenes/LUC_dialogues.unity
     guid: 4a3254ed4b7299540b4cb25b4484d8e3
   m_configObjects: {}
