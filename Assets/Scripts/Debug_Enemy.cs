@@ -48,14 +48,6 @@ public class Debug_Enemy : MonoBehaviour
         _spawn = FindObjectOfType<Enemy_Spawn>();
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<Player_Health>() != null)
         {

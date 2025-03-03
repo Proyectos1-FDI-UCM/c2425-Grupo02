@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3855646056992642259, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
       propertyPath: m_Name
-      value: Debug_Wind (5) Variant
+      value: Debug_Wind
       objectReference: {fileID: 0}
     - target: {fileID: 4812987022243018140, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
       propertyPath: m_LocalScale.x
@@ -75,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 7820462602696906406, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019697386579444565, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5686275
       objectReference: {fileID: 0}
     - target: {fileID: 9019697386579444565, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
       propertyPath: m_Color.b
