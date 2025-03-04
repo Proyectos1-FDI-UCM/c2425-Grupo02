@@ -23,7 +23,7 @@ public class WindZone : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] float windForce = 10f;
-    [SerializeField] Vector2 windAngle = new Vector2(0, 0);
+    [SerializeField] Vector2 windDirection = new Vector2(0, 0);
 
     #endregion
 
@@ -69,7 +69,7 @@ public class WindZone : MonoBehaviour
         if (playerInWindArea && playerRb != null)
         {
             // Usa ForceMode2D.Force para una aplicación continua
-            playerRb.AddForce(windAngle * windForce, ForceMode2D.Force);
+            playerRb.AddForce(windDirection * windForce);
         }
     }
     #endregion
