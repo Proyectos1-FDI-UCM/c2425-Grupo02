@@ -41,7 +41,7 @@ public class Enemy_Spawn : MonoBehaviour {
     HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
-    bool _firstEnabled = false;                 //Booleano que indica si se ha activado la zone de spawn por primera vez
+    //bool _firstEnabled = false;                 //Booleano que indica si se ha activado la zone de spawn por primera vez
 
     #endregion
 
@@ -105,7 +105,6 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <param name="enemy_n"> número de enemigos que se van a instanciar </param>
     /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
     List<int> SpawnList() {
-        int size = _cellDict.Keys.Count;
         List<int> res = new List<int>(_cellDict.Count);
         
         for (int i = 0; i < EnemyNumber; i++)
@@ -121,14 +120,6 @@ public class Enemy_Spawn : MonoBehaviour {
         _cellDict = new Dictionary<int, Vector2Int>();
 
         int it = 0;
-        /*
-        foreach (Vector2Int pos in _grid.GetCells())
-        {
-            _cellDict[it] = pos;
-            it++;
-        }
-         */
-
         for (int i = 0; i < GridWidth; i++)
         {
             for(int j = 0;  j < GridLength; j++)
