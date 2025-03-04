@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
 
         //if (outsideScene) 
         //{
-            ApplyToroidality();
+        ApplyToroidality();
         //}
     }
 
@@ -86,7 +86,6 @@ public class Movement : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
     public Vector2 GetLastDir()   //lastdir para animaciones y disparo
     {
         Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
@@ -137,21 +136,6 @@ public class Movement : MonoBehaviour
 
     private void ApplyToroidality()
     {
-        /*
-        Vector2 worldPos = transform.position;
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
-        //obtiene posición de la bala y lo convierte al espacio de la cámara
-        //(0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
-        //(0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
-
-        if (viewPos.x > 1) worldPos.x -= mapSize.x; //de derecha a izquierda
-        else if (viewPos.x < 0) worldPos.x += mapSize.x; //de izquierda a derecha
-        else if (viewPos.y < 0) worldPos.y += mapSize.y; //de abajo a arriba
-        else if (viewPos.y > 1) worldPos.y -= mapSize.y; //de arriba a abajo
-
-        transform.position = worldPos;
-        */
-
         Vector2 offset = Vector2.zero;
         if (transform.position.x > mapSize.x / 2) offset.x = -mapSize.x; //de derecha a izquierda
         else if (transform.position.x < -mapSize.x / 2) offset.x = mapSize.x;//de izquierda a derecha

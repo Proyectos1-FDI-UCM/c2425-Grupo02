@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7202741152605525682}
   - component: {fileID: -3825090876467817064}
   - component: {fileID: 8817307848201008442}
+  - component: {fileID: 2379040561895637319}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -252,3 +253,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc47b96fd6167e643b605323a97f6487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2379040561895637319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960141397274321566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96b453e32773d9459828648091b4a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8186444170964134507}
+  scytheLocation: {fileID: 7679255306354555500}
+  playerLocation: {fileID: 7679255306354555500}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 1
+  attackRadius: 1
+  cooldownTime: 1
+  player: {fileID: 3960141397274321566}

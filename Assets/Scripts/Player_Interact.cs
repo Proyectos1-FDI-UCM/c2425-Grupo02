@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 // Añadir aquí el resto de directivas using
 
 
@@ -30,7 +31,7 @@ public class Player_Interact : MonoBehaviour
     private Rigidbody2D rb;
     private Movement playerMovement;
     private float rayDist = 1f;
-    private LayerMask interactives;
+    private LayerMask interactives; //layer de NPCs interactuables
 
     #endregion
     
@@ -48,6 +49,7 @@ public class Player_Interact : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerMovement = GetComponent<Movement>();
         interactives = LayerMask.GetMask(LayerMask.LayerToName(14));
     }
 
@@ -56,27 +58,23 @@ public class Player_Interact : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(rb.position, playerMovement.GetLastDir(), rayDist, interactives);  //creamos el raycast
-        //if (hit.collider != null && InputManager.Instance.InteractWasPressedThisFrame())
+        //raycast para comprobar si el jugador está mirando hacia un NPC interactuable
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, playerMovement.GetLastDir(), rayDist, interactives);
+        if (hit.collider != null && InputManager.Instance.InteractWasPressedThisFrame()) //si pulsa botón de interación y el raycast colisiona con un NPC interactuable
         {
-
+            hit.collider.gameObject.GetComponent<Interactive>().SetDialogues(); //llama a la función de diálogos del NPC
+            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
         }
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    
+
     private void Interact()
     {
 
