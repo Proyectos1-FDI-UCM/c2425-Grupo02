@@ -63,7 +63,7 @@ public class Player_Health : MonoBehaviour
     /// <param name="dmg"> Número que se le va a restar a Health </param>
     public void Damage(int dmg) {
         Health -= dmg;
-        Debug.Log("Salud restante" + Health);
+        //Debug.Log("Salud restante" + Health);
     }
     #endregion
     

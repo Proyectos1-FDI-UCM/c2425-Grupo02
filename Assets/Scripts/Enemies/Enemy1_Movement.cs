@@ -13,35 +13,42 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy_Movement : MonoBehaviour
+public class Enemy1_Movement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
+    [SerializeField] float SpawnTime;               //Tiempo que tarda en spawnear el enemigo
     [SerializeField] float MovementSpeed;           //Velocidad de movimiento del enemigo
     [SerializeField] float RestTime;                //Tiempo que el enemigo pasa quieto después de atacar
-    [SerializeField] float AttackCooldown;          //Tiempo que pasa entre cada uno de los tres ataques
+    [SerializeField] int EnemyRangeLayer;           //Layer de rango del enemigo
 
     #endregion
-
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Enemy1_Attack AttackScript;
+    Enemy1_Attack _attack;
     SpriteRenderer _spriteRend;
     GameObject _player;                     //Jugador en la escena
     Rigidbody2D _rb;                        //Componente rigidBody del enemigo
     Animator _anim;                         //Componente animator del enemigo
+    Vector2 _playerPosition;
     Vector2 _dir = Vector2.zero;            //Vector que marca la dirección hacia la que se mueve el enemigo
+    float _spawnTimer = 0f;                 //Temporizador que lleva la cuenta del tiempo que lleva spawneando el enemigo
     float _restTimer = 0f;                  //Temporizador que cuenta el tiempo de descanso
     float _dirTimer = 0f;                   //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
-    int _rangeLayer;                        //Entero que representa la capa donde esta el objeto que marca el rango efctivo del enemigo
-    bool _isResting = false;                //Bandera que marca si el enemigo está descansando
     bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
-    #endregion
+    enum State {
+        Spawning,
+        Chasing,
+        Resting
+    }
 
+    State _currentState = State.Spawning;
+
+    #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -50,55 +57,45 @@ public class Enemy_Movement : MonoBehaviour
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        AttackScript = GetComponent<Enemy1_Attack>();
-        _rangeLayer = FindObjectOfType<Enemy_Range>().gameObject.layer;
+        _attack = GetComponent<Enemy1_Attack>();
         _spriteRend = GetComponent<SpriteRenderer>();
+
+        //Debug
+        _currentState = State.Chasing;
     }
 
     void FixedUpdate() {
         _rb.velocity = Vector2.zero;
-        if (!_isResting)
+        _playerPosition = _player.transform.position;
+        if (_dirTimer >= 0.25f)
         {
-            Vector2 player_position = _player.transform.position;
-            if (!_onRange)
-            {
-
-                if (_dirTimer >= 0.25f)
-                {
-                    _dir = GetDirection(player_position - (Vector2)transform.position);
-                    _dirTimer = 0f;
-                }
-                else _dirTimer += Time.deltaTime;
-
-                _rb.velocity = _dir * MovementSpeed;
-            }
-            else
-            {
-                _dir = GetDirection(player_position - (Vector2)transform.position);
-                _rb.velocity = _dir * 0.001f;
-                AttackScript.Attack();
-                _anim.SetTrigger("_Attack");
-                _isResting = true;
-            }
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position);
+            _dirTimer = 0f;
         }
-        else
-        {
-            _restTimer += Time.deltaTime;
+        else _dirTimer += Time.deltaTime;
 
-            if (_restTimer >= RestTime)
-            {
-                _restTimer = 0f;
-                _isResting = false;
-            }
+        switch (_currentState)
+        {
+            case State.Spawning:
+                SpawningState();
+                break;
+
+            case State.Chasing:
+                ChasingState();
+                break;
+            
+            case State.Resting:
+                RestingState();
+                break;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.layer == _rangeLayer) _onRange = true;
+        if(collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.layer == _rangeLayer) _onRange = false;
+        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = false;
     }
 
     #endregion
@@ -114,13 +111,14 @@ public class Enemy_Movement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
     /// <summary>
     /// Esta función toma un vector y calcula su dirección (8 direcciones posibles).
     /// Tiene un poco de margen en las direcciones no diagonales.
     /// También llama al método privado SetAnim.
     /// </summary>
-    /// <param name="v"> Vector cuya dirección se quiere calcular </param>
-    /// <returns></returns>
+    /// <param name="v"> Vector2 cuya dirección se quiere calcular </param>
+    /// <returns> Vector2 con la dirección hacia la que mira el enemigo </returns>
     Vector2 GetDirection(Vector2 v) {
         Vector2 res;
         float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
@@ -191,7 +189,50 @@ public class Enemy_Movement : MonoBehaviour
             _anim.SetBool(down, false);
         }
     }
-     
+
+    //States
+    
+    void SpawningState() {
+        Collider2D collider = gameObject.GetComponent<Collider2D>();
+        collider.enabled = false;
+
+        if (_spawnTimer >= SpawnTime)
+        {
+            collider.enabled = true;
+            _currentState = State.Chasing;
+        }
+        else _spawnTimer = Time.deltaTime;
+    }
+
+    void ChasingState() {
+
+        if (!_onRange)
+        { 
+            //Chasing
+            _rb.velocity = _dir * MovementSpeed;
+        }
+        else
+        {
+            //Attack
+            if (!_attack.IsAttacking()) {
+                _rb.velocity = _dir * 0f;
+                _attack.Attack();
+                _anim.SetTrigger("_Attack");
+                _currentState = State.Resting;
+            }
+        }
+    }
+
+    void RestingState() {
+        _restTimer += Time.deltaTime;
+
+        if (_restTimer >= RestTime)
+        {
+            _restTimer = 0f;
+            _currentState = State.Chasing;
+        }
+    }
+
     #endregion
 
 } // class Enemy1 
