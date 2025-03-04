@@ -516,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -389.664, y: -127.952}
+  m_AnchoredPosition: {x: -391, y: 49.111}
   m_SizeDelta: {x: 380.591, y: 98.222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996394808
@@ -755,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.67, y: -363.026}
+  m_AnchoredPosition: {x: 190, y: -177}
   m_SizeDelta: {x: 1434.274, y: 239.066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145644880
@@ -1458,13 +1458,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424508132928810656}
   m_SourcePrefab: {fileID: 100100000, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
 --- !u!1 &424508132928810645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
   m_PrefabInstance: {fileID: 424508132928810644}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &424508132928810652 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8186444170964134507, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+  m_PrefabInstance: {fileID: 424508132928810644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &424508132928810655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+  m_PrefabInstance: {fileID: 424508132928810644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &424508132928810656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424508132928810645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96b453e32773d9459828648091b4a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 424508132928810652}
+  scytheLocation: {fileID: 424508132928810655}
+  playerLocation: {fileID: 424508132928810655}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 1
+  attackRadius: 1
+  cooldownTime: 1
+  player: {fileID: 0}
 --- !u!1001 &4988194449490358982
 PrefabInstance:
   m_ObjectHideFlags: 0
