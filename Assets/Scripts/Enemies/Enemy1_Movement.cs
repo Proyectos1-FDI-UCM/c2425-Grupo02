@@ -59,9 +59,6 @@ public class Enemy1_Movement : MonoBehaviour
         _anim = GetComponent<Animator>();
         _attack = GetComponent<Enemy1_Attack>();
         _spriteRend = GetComponent<SpriteRenderer>();
-
-        //Debug
-        _currentState = State.Chasing;
     }
 
     void FixedUpdate() {
@@ -201,7 +198,7 @@ public class Enemy1_Movement : MonoBehaviour
             collider.enabled = true;
             _currentState = State.Chasing;
         }
-        else _spawnTimer = Time.deltaTime;
+        else _spawnTimer += Time.deltaTime;
     }
 
     void ChasingState() {
@@ -214,12 +211,10 @@ public class Enemy1_Movement : MonoBehaviour
         else
         {
             //Attack
-            if (!_attack.IsAttacking()) {
-                _rb.velocity = _dir * 0f;
-                _attack.Attack();
-                _anim.SetTrigger("_Attack");
-                _currentState = State.Resting;
-            }
+            _rb.velocity = _dir * 0f;
+            _attack.Attack();
+            _anim.SetTrigger("_Attack");
+            _currentState = State.Resting;
         }
     }
 

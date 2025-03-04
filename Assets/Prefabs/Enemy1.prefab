@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
+  AttackCooldown: 0.3
 --- !u!114 &8896923243272300699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148d6af35d95c7748823ff9d7207bc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTime: 1
+  SpawnTime: 20
   MovementSpeed: 2.5
   RestTime: 3
   EnemyRangeLayer: 11

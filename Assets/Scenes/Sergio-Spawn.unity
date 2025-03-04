@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e33e01ec70e04582af05f46ca63b3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
 --- !u!4 &666015850
 Transform:
   m_ObjectHideFlags: 0
@@ -804,7 +803,7 @@ PrefabInstance:
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: Enemy
       value: 
-      objectReference: {fileID: 3855646056992642259, guid: 36d46249268b11c41bf00336db3f1940, type: 3}
+      objectReference: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: CellSize
       value: 1
@@ -822,12 +821,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
+      propertyPath: Iterations
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: gridHeight
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: EnemyNumber
-      value: 100000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: BannedCells.Array.size

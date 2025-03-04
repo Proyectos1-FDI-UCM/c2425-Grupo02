@@ -69,10 +69,6 @@ public class Enemy1_Attack : MonoBehaviour
          if(!_attacking) StartCoroutine(AttackCoroutine());
     }
 
-    public bool IsAttacking() {
-        return _attacking;
-    }
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
