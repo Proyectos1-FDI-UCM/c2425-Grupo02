@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148d6af35d95c7748823ff9d7207bc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTime: 20
+  SpawnTime: 5
   MovementSpeed: 2.5
   RestTime: 3
   EnemyRangeLayer: 11

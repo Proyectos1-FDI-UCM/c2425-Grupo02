@@ -41,7 +41,7 @@ public class Enemy_Spawn : MonoBehaviour {
     HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
-    //bool _firstEnabled = false;                 //Booleano que indica si se ha activado la zone de spawn por primera vez
+    //bool _firstEnabled = false;               //Booleano que indica si se ha activado la zone de spawn por primera vez
 
     #endregion
 
