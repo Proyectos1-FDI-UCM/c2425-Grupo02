@@ -56,13 +56,11 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
-        
+
+        _player = FindObjectOfType<Player_Health>().gameObject;
+
     }
 
-    void Start() {
-        _player = FindObjectOfType<Player_Health>().gameObject;
-    }
-    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
