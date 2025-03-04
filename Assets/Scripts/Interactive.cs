@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Componente de los diálogos de NPCs
+// Componente de los nombres y diálogos de  los NPCs correspondientes
 // Lucía Mei Domínguez López
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
@@ -24,16 +24,14 @@ public class Interactive : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private string charName = "NPC"; //nombre NPC
+    private bool interactionDone = false;
+    //arrays de diálogos
+    private string[] firstDialogues = {"Hola, quiero encargarte una misión.", "Busca 3 paquetes y entrégamelos.", "A ver si los encuentras :P"};
+    private string[] secondDialogues = { "Ya has hablado conmigo, ¿qué más quieres que te diga? :/" };
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,11 +61,18 @@ public class Interactive : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    public void SetDialogues() //el NPC le pasa su nombre y diálogos a la UI
+    {
+        if (!interactionDone) //diálogo que se manda si es la primera vez que interactúa con él
+        {
+            UIManager.Instance.InitDialogues(charName, firstDialogues);
+            interactionDone = true;
+        }
+        else //diálogo que se muestra si ya ha interactuado con él
+        {
+            UIManager.Instance.InitDialogues(charName, secondDialogues);
+        }
+    }
 
     #endregion
     

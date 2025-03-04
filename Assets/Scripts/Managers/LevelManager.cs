@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     //atribuimos un GameObject al jugador
-   
+    [SerializeField] private GameObject player;
 
     #endregion
 
@@ -101,6 +101,22 @@ public class LevelManager : MonoBehaviour
         return mapSize;
     }
 
+    public void EnablePlayerControls()
+    {
+        player.GetComponent<Movement>().enabled = true;
+        player.GetComponent<Shoot>().enabled = true;
+        player.GetComponent<MeleeAttack>().enabled = true;
+        player.GetComponent<Dash>().enabled = true;
+        player.GetComponent<Player_Interact>().enabled = true;
+    }
+    public void DisablePlayerControls()
+    {
+        player.GetComponent<Movement>().enabled = false;
+        player.GetComponent<Shoot>().enabled = false;
+        player.GetComponent<MeleeAttack>().enabled = false;
+        player.GetComponent<Dash>().enabled = false;
+        player.GetComponent<Player_Interact>().enabled = false;
+    }
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
