@@ -45,6 +45,11 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         dash = GetComponent<Dash>();    //tomamos el código del dash
     }
+    private void Start()
+    {
+        mapSize = LevelManager.Instance.GetMapSize();
+        Debug.Log("mapsize: " + mapSize);
+    }
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

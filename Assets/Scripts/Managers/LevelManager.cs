@@ -87,7 +87,7 @@ public class LevelManager : MonoBehaviour
     {
         float mapWidth, mapHeight;
         
-        if (SceneManager.GetActiveScene().buildIndex == 3) //escena cámara Adrián
+        if (SceneManager.GetActiveScene().buildIndex == 2) //escena cámara Adrián
         {
             mapWidth = 50;
             mapHeight = 50;
