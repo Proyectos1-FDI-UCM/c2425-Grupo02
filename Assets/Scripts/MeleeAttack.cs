@@ -10,8 +10,8 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Gestiona la acción de ataque del jugador, así como su tiempo de enfriamiento.
+/// 
 /// </summary>
 public class MeleeAttack : MonoBehaviour
 {
