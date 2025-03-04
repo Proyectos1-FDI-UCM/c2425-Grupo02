@@ -21,41 +21,19 @@ public class Enemy_Health : MonoBehaviour
     [SerializeField] int Health; //Vidas del enemigo
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
+
+    Enemy_Spawn _spawn;         //Spawn que instanció al enemigo
 
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
     
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-    
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-        
-    }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -67,7 +45,15 @@ public class Enemy_Health : MonoBehaviour
     /// <param name="dmg"> Entero que se le resta a Health </param>
     public void Damage(int dmg) {
         Health -= dmg;
-        if (Health <= 0) Destroy(gameObject);
+        if (Health <= 0)
+        {
+            _spawn.SubstractEnemy();
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetSpawn(Enemy_Spawn spawn) {
+        _spawn = spawn;
     }
 
     #endregion

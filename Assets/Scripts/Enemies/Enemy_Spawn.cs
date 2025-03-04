@@ -10,6 +10,7 @@ using System;
 using UnityEngine;
 using System.Linq;
 using Random = UnityEngine.Random;
+using static UnityEngine.EventSystems.EventTrigger;
 // Añadir aquí el resto de directivas using
 
 
@@ -92,7 +93,8 @@ public class Enemy_Spawn : MonoBehaviour {
         foreach (int n in spawnList)
         {
             Vector2 pos = _cellDict[n];
-            Instantiate(Enemy, pos, Quaternion.identity);
+            GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
+            enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
         }
         _currentEnemies = EnemyNumber;
         _currentIteration++;
