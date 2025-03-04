@@ -28,7 +28,13 @@ public class LevelManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     //atribuimos un GameObject al jugador
+<<<<<<< HEAD
     [SerializeField] private GameObject player;
+=======
+   
+    [SerializeField] float MapWidth;
+    [SerializeField] float MapHeight;
+>>>>>>> camara_sergio
 
     #endregion
 
@@ -85,6 +91,7 @@ public class LevelManager : MonoBehaviour
     */
     public Vector2 GetMapSize()
     {
+<<<<<<< HEAD
         float mapWidth, mapHeight;
         
         if (SceneManager.GetActiveScene().buildIndex == 2) //escena cámara Adrián
@@ -99,6 +106,9 @@ public class LevelManager : MonoBehaviour
         }
         Vector2 mapSize = new Vector2(mapWidth, mapHeight);
         return mapSize;
+=======
+        return new Vector2(MapWidth, MapHeight);
+>>>>>>> camara_sergio
     }
 
     public void EnablePlayerControls()

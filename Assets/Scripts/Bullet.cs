@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        //transform.position += -transform.up * speed * Time.deltaTime;
+        //transform.position += -transform.up * Speed * Time.deltaTime;
         Vector2 bulletDir = -transform.up * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + bulletDir);
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
