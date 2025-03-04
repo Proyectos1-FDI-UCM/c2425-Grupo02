@@ -144,7 +144,7 @@ public class UIManager : MonoBehaviour
     {
         dialogueUI.gameObject.SetActive(false); //desactivamos caja de diálogos
         dialogueOnGoing = false; //ya no hay un diálogo en curso
-        LevelManager.Instance.EnablePlayerControls(); //LevelManager habilita los controles del player
+        LevelManager.Instance.EnablePlayerControls(); //LevelManager habilita los controles del _player
     }
     #endregion   
 

@@ -24,13 +24,13 @@ public class MeleeAttack : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     [SerializeField]
-    private Animator animator; // Componente Animator del Player
+    private Animator animator; // Componente Animator del _player
 
     [SerializeField]
-    private Transform scytheLocation; // Posición de la guadaña con respecto a Player
+    private Transform scytheLocation; // Posición de la guadaña con respecto a _player
 
     [SerializeField]
-    private Transform playerLocation; // Posición de Player
+    private Transform playerLocation; // Posición de _player
 
     [SerializeField]
     private LayerMask enemyLayer; // Capa en la que se encuentran los enemigos

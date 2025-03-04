@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
         if (Player != null)
             playerHealth.Heal(1);
         else
-            Debug.LogError("Player es null.");
+            Debug.LogError("_player es null.");
     }
     /// <summary>
     /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida

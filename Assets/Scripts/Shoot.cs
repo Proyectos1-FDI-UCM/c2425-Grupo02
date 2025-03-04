@@ -58,7 +58,7 @@ public class Shoot : MonoBehaviour
             //Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed this frame");
             Vector2 lastDir = playerMovement.GetLastDir();
             
-            if (noBulletInGame) //dispara si el player no está mirando a un obstáculo adyacente y no hay otra bala instanciada
+            if (noBulletInGame) //dispara si el _player no está mirando a un obstáculo adyacente y no hay otra bala instanciada
             {
                 Quaternion bulletRotation;
                 Vector3 instancePos = transform.position; //posición en la que se instancia la bala

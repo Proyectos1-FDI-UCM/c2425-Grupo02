@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
         animator.SetFloat("moveX", lastDir.x);
         animator.SetFloat("moveY", lastDir.y);
         // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
-        //if (ddash == true) { control = 0; }  //si está dasheando el player no puede moverse, si no lo hace si puede
+        //if (ddash == true) { control = 0; }  //si está dasheando el _player no puede moverse, si no lo hace si puede
         //else { control = 1; }
 
         //if (outsideScene) 

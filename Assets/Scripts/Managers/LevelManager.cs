@@ -27,14 +27,8 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    //atribuimos un GameObject al jugador
-<<<<<<< HEAD
-    [SerializeField] private GameObject player;
-=======
-   
     [SerializeField] float MapWidth;
     [SerializeField] float MapHeight;
->>>>>>> camara_sergio
 
     #endregion
 
@@ -46,7 +40,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-   
+    GameObject _player;
 
     #endregion
 
@@ -63,6 +57,10 @@ public class LevelManager : MonoBehaviour
             Init();
         }
         
+    }
+
+    void Start() {
+        _player = FindObjectOfType<Player_Health>().gameObject;
     }
     
     #endregion
@@ -91,41 +89,24 @@ public class LevelManager : MonoBehaviour
     */
     public Vector2 GetMapSize()
     {
-<<<<<<< HEAD
-        float mapWidth, mapHeight;
-        
-        if (SceneManager.GetActiveScene().buildIndex == 2) //escena cámara Adrián
-        {
-            mapWidth = 50;
-            mapHeight = 50;
-        }
-        else
-        {
-            mapWidth = 16;
-            mapHeight = 10;
-        }
-        Vector2 mapSize = new Vector2(mapWidth, mapHeight);
-        return mapSize;
-=======
         return new Vector2(MapWidth, MapHeight);
->>>>>>> camara_sergio
     }
 
     public void EnablePlayerControls()
     {
-        player.GetComponent<Movement>().enabled = true;
-        player.GetComponent<Shoot>().enabled = true;
-        player.GetComponent<MeleeAttack>().enabled = true;
-        player.GetComponent<Dash>().enabled = true;
-        player.GetComponent<Player_Interact>().enabled = true;
+        _player.GetComponent<Movement>().enabled = true;
+        _player.GetComponent<Shoot>().enabled = true;
+        _player.GetComponent<MeleeAttack>().enabled = true;
+        _player.GetComponent<Dash>().enabled = true;
+        _player.GetComponent<Player_Interact>().enabled = true;
     }
     public void DisablePlayerControls()
     {
-        player.GetComponent<Movement>().enabled = false;
-        player.GetComponent<Shoot>().enabled = false;
-        player.GetComponent<MeleeAttack>().enabled = false;
-        player.GetComponent<Dash>().enabled = false;
-        player.GetComponent<Player_Interact>().enabled = false;
+        _player.GetComponent<Movement>().enabled = false;
+        _player.GetComponent<Shoot>().enabled = false;
+        _player.GetComponent<MeleeAttack>().enabled = false;
+        _player.GetComponent<Dash>().enabled = false;
+        _player.GetComponent<Player_Interact>().enabled = false;
     }
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
