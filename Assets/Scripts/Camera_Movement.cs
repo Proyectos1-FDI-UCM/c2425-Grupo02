@@ -13,100 +13,66 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Camara : MonoBehaviour
-{
+public class Camara : MonoBehaviour {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject target;
 
-    [SerializeField] float MaxRight;
-    [SerializeField] float MaxLeft;
-
-    [SerializeField] float MaxHight;
-    [SerializeField] float MinHight;
-
-    [SerializeField] float speed;
-
-    [SerializeField] bool runniing = true;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private float playerPositionX;
-    private float playerPositionY;
 
-    private float PosX;
-    private float PosY;
+    LevelManager _level;
+    GameObject _player;
+    Vector2 _position;
+    Camera _cam;
+    float _xLimit;
+    float _yLimit;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Awake()
-    {
-        PosX = playerPositionX + MaxRight;
-        PosY = playerPositionY + MaxLeft;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(PosX, PosY, -1), 1);
+    void Start() {
+        _cam = GetComponent<Camera>();
+        _level = FindObjectOfType<LevelManager>();
+        _player = FindObjectOfType<Player_Health>().gameObject;
+        Vector2 limits = _level.GetMapSize() / 2;
+        float height = _cam.orthographicSize;
+        float width = height * _cam.aspect;
+        _xLimit = limits.x - width;
+        _yLimit = limits.y - height;
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
-    {
+    void Update() {
         MoveCamera();
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    
+
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    void MoveCamera()
-    {
-        if (runniing)
-        {
-            if (target)
-            {
-                playerPositionX = target.transform.position.x;
-                playerPositionY = target.transform.position.y;
-
-                if (playerPositionX > MaxRight && playerPositionX < MaxLeft)
-                {
-                    PosX = playerPositionX;
-                }
-
-                if (playerPositionY > MaxHight && playerPositionY < MinHight)
-                {
-                    PosY = playerPositionY;
-                }
-            }
-
-            transform.position = Vector3.Lerp(transform.position, new Vector3(PosX, PosY, -1), speed * Time.deltaTime);
-        }
-
+    
+    void MoveCamera() {
+        _position = _player.transform.position;
+        _position.x = Mathf.Clamp(_position.x, -_xLimit, _xLimit);
+        _position.y = Mathf.Clamp(_position.y, -_yLimit, _yLimit);
+        transform.position = new Vector3( _position.x, _position.y, -10);
+        Debug.Log(_xLimit);
     }
 
     #endregion
 
 } // class Camara 
+
+

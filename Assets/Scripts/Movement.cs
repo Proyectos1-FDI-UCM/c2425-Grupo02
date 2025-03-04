@@ -79,6 +79,7 @@ public class Movement : MonoBehaviour
         //if (outsideScene) 
         //{
             ApplyToroidality();
+
         //}
     }
 

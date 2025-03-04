@@ -51,7 +51,6 @@ public class Debug_Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<Player_Health>() != null)
         {
-            _spawn.SubstractEnemy();
             Destroy(gameObject);
         }
     }

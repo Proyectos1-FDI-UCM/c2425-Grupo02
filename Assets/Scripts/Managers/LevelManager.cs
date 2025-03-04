@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
 
     //atribuimos un GameObject al jugador
    
+    [SerializeField] float MapWidth;
+    [SerializeField] float MapHeight;
 
     #endregion
 
@@ -85,20 +87,7 @@ public class LevelManager : MonoBehaviour
     */
     public Vector2 GetMapSize()
     {
-        float mapWidth, mapHeight;
-        
-        if (SceneManager.GetActiveScene().buildIndex == 3) //escena cámara Adrián
-        {
-            mapWidth = 50;
-            mapHeight = 50;
-        }
-        else
-        {
-            mapWidth = 16;
-            mapHeight = 10;
-        }
-        Vector2 mapSize = new Vector2(mapWidth, mapHeight);
-        return mapSize;
+        return new Vector2(MapWidth, MapHeight);
     }
 
     /// <summary>
