@@ -108,14 +108,12 @@ public class IntGrid {
     #region Métodos Privados
 
     private Vector2Int GetWorldPos(int x, int y) {
-        x += _cellSize / 2;
-        y += _cellSize / 2;
         return new Vector2Int(x, y) * _cellSize;
     }
 
     private Vector2Int GetLocalPos(int x, int y) {
-        x += _origin.x + _cellSize / 2; 
-        y += _origin.y + _cellSize / 2;
+        x += _origin.x; 
+        y += _origin.y;
         return new Vector2Int(x, y) * _cellSize;
     }
 

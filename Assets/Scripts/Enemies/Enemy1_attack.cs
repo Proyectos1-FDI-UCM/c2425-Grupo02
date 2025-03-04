@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
 using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
@@ -20,7 +19,8 @@ public class Enemy1_Attack : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] int Damage;   //Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
+    [SerializeField] int Damage;            //Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
+    [SerializeField] float AttackCooldown;  //Tiempo que pasa entre cada golpe del ataque
 
     #endregion
 
@@ -28,8 +28,9 @@ public class Enemy1_Attack : MonoBehaviour
     #region Atributos Privados (private fields)
 
     GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
-    Enemy_Movement _mov;            //Script de movimiento del enemigo
+    Enemy1_Movement _mov;            //Script de movimiento del enemigo
     Vector2 _dir;                   //Dirección en la que se mueve el enemigo
+    bool _attacking = false;
 
     #endregion
     
@@ -43,20 +44,8 @@ public class Enemy1_Attack : MonoBehaviour
     void Start()
     {
         _hitbox = transform.GetChild(0).gameObject;
-        _mov = GetComponent<Enemy_Movement>();
+        _mov = GetComponent<Enemy1_Movement>();
         _hitbox.SetActive(false);
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        if (!_hitbox.activeSelf) 
-        {
-            _dir = _mov.GetDir();
-            SetDir(_dir, 0.25f);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -77,7 +66,11 @@ public class Enemy1_Attack : MonoBehaviour
     /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
     /// </summary>
     public void Attack() { 
-         StartCoroutine(AttackCoroutine());
+         if(!_attacking) StartCoroutine(AttackCoroutine());
+    }
+
+    public bool IsAttacking() {
+        return _attacking;
     }
 
     #endregion
@@ -112,23 +105,22 @@ public class Enemy1_Attack : MonoBehaviour
     }
 
     /// <summary>
-    /// Método que deshabilita la hitbox
-    /// </summary>
-    void DisableHitbox() {
-        _hitbox.SetActive(false);
-    }
-
-    /// <summary>
     /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
     /// </summary>
     /// <returns></returns>
     IEnumerator AttackCoroutine() {
+        _attacking = true;
+        _dir = _mov.GetDir();
+        SetDir(_dir, 0.25f);
+
         for (int i = 0; i < 3; i++)
         {
             _hitbox.SetActive(true);
-            Invoke(nameof(DisableHitbox), 0.25f);
-            yield return new WaitForSecondsRealtime(0.3f);
+            yield return new WaitForSecondsRealtime(0.1f);
+            _hitbox.SetActive(false);
+            yield return new WaitForSecondsRealtime(AttackCooldown);
         }
+        _attacking = false;
     }
 
     #endregion   
