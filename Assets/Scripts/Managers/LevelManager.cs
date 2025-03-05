@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] float MapWidth;
     [SerializeField] float MapHeight;
+    [SerializeField] private GameObject DebugNPC;
 
     #endregion
 
@@ -96,7 +97,7 @@ public class LevelManager : MonoBehaviour
         _player.GetComponent<Shoot>().enabled = true;
         _player.GetComponent<MeleeAttack>().enabled = true;
         _player.GetComponent<Dash>().enabled = true;
-        _player.GetComponent<Player_Interact>().enabled = true;
+        //_player.GetComponent<Player_Interact>().enabled = true;
     }
     public void DisablePlayerControls()
     {
@@ -104,7 +105,16 @@ public class LevelManager : MonoBehaviour
         _player.GetComponent<Shoot>().enabled = false;
         _player.GetComponent<MeleeAttack>().enabled = false;
         _player.GetComponent<Dash>().enabled = false;
-        _player.GetComponent<Player_Interact>().enabled = false;
+        //_player.GetComponent<Player_Interact>().enabled = false;
+        Debug.Log("Melee Attack: " + _player.GetComponent<MeleeAttack>().enabled);
+    }
+    public void EnableInteractive()
+    {
+        DebugNPC.GetComponent<Interactive>().enabled = true;
+    }
+    public void DisableInteractive()
+    {
+        DebugNPC.GetComponent<Interactive>().enabled = false;
     }
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y

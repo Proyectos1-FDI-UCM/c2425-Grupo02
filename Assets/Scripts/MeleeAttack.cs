@@ -44,9 +44,6 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField]
     private float cooldownTime = 1f; // Tiempo de enfriamiento del ataque
 
-    [SerializeField]
-    private GameObject player; // GameObject del jugador
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -58,12 +55,18 @@ public class MeleeAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    Movement _movement;
     private float cooldownTimer = 0f; // Tiempo que debe transcurrir para poder llamar al método Attack
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+
+    private void Start()
+    {
+        _movement = GetComponent<Movement>();
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -89,11 +92,11 @@ public class MeleeAttack : MonoBehaviour
     /// Método llamado en Update si se presiona el botón de ataque y el tiempo de enfriamiento ha transcurrido.
     /// Genera una colisión circular en la dirección en la que mira el jugador a través del GameObject Scythe. 
     /// </summary>
-    public void Attack()
+    private void Attack()
     {
         animator.SetTrigger("Attack");
 
-        Vector2 lastDir = player.GetComponent<Movement>().GetLastDir();
+        Vector2 lastDir = _movement.GetLastDir();
 
         scytheLocation.position = playerLocation.transform.position + new Vector3(lastDir.x, lastDir.y, 0);
 

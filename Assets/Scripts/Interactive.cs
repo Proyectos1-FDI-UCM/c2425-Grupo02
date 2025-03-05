@@ -28,7 +28,8 @@ public class Interactive : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private string charName = "NPC"; //nombre NPC
-    private bool interactionDone = false;
+    private bool interactionDone = false; //si es true, activa los nuevos diálogos
+    private bool canStart = false;
     //arrays de diálogos
     private string[] firstDialogues = {"Hola, quiero encargarte una misión.", "Busca 3 paquetes y entrégamelos.", "A ver si los encuentras :P"};
     private string[] secondDialogues = { "Ya has hablado conmigo, ¿qué más quieres que te diga? :/" };
@@ -49,13 +50,29 @@ public class Interactive : MonoBehaviour
     {
         
     }
-
+    private void OnEnable()
+    {
+        
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        canStart = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        canStart = false;
+    }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        
+        if (canStart && InputManager.Instance.InteractWasPressedThisFrame())
+        {
+            SetDialogues();
+            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
+            LevelManager.Instance.DisableInteractive(); //LevelManager deshabilita que el NPC cambie diálogos
+        }
     }
     #endregion
 
@@ -73,9 +90,7 @@ public class Interactive : MonoBehaviour
             UIManager.Instance.InitDialogues(charName, secondDialogues);
         }
     }
-
     #endregion
-    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -83,7 +98,7 @@ public class Interactive : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class Interactive 
 // namespace

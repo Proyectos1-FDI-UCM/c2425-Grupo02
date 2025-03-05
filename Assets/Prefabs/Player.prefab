@@ -17,10 +17,9 @@ GameObject:
   - component: {fileID: 2671426413900228804}
   - component: {fileID: 7202741152605525682}
   - component: {fileID: -3825090876467817064}
-  - component: {fileID: 8817307848201008442}
   - component: {fileID: 3499110812841003916}
   - component: {fileID: 5273173829293789927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -243,18 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
---- !u!114 &8817307848201008442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3960141397274321566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc47b96fd6167e643b605323a97f6487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3499110812841003916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,11 +259,10 @@ MonoBehaviour:
   playerLocation: {fileID: 7679255306354555500}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   damage: 1
   attackRadius: 1
   cooldownTime: 1
-  player: {fileID: 0}
 --- !u!114 &5273173829293789927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393538452114866729}
   - component: {fileID: 43040128413744480}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: Enemy1_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

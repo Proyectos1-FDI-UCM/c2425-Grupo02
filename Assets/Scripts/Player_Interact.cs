@@ -28,11 +28,12 @@ public class Player_Interact : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    /*
     private Rigidbody2D rb;
     private Movement playerMovement;
     private float rayDist = 1f;
     private LayerMask interactives; //layer de NPCs interactuables
-
+    */
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,6 +47,7 @@ public class Player_Interact : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+    /*
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,9 +65,10 @@ public class Player_Interact : MonoBehaviour
         if (hit.collider != null && InputManager.Instance.InteractWasPressedThisFrame()) //si pulsa botón de interación y el raycast colisiona con un NPC interactuable
         {
             hit.collider.gameObject.GetComponent<Interactive>().SetDialogues(); //llama a la función de diálogos del NPC
-            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
         }
     }
+    */
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -75,10 +78,7 @@ public class Player_Interact : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    private void Interact()
-    {
-
-    }
+    
     #endregion   
 
 } // class Player_Interact 

@@ -108,6 +108,7 @@ public class UIManager : MonoBehaviour
     //PROTOSISTEMA DE DIÁLOGOS
     public void InitDialogues(string name, string[] dialogues) //la UI recibe el nombre y los diálogos del NPC y los inicializa en sus atributos correspondientes
     {
+        Debug.Log("dialogue extension:" + dialogues.Length);
         dialogueUI.gameObject.SetActive(true); //activa la caja de diálogos
         currentName = name;
         currentDialogues = new string[dialogues.Length]; //inicializa su array de diálogos con el mismo tamaño que el array del NPC
@@ -117,6 +118,7 @@ public class UIManager : MonoBehaviour
         //mostramos el nombre y el primer diálogo
         nameText.text = currentName;
         dialogueText.text = currentDialogues[i];
+        Debug.Log(currentDialogues.Length);
         dialogueOnGoing = true; //hay un diálogo en curso
         justStarted = true; //acaba de empezar el diálogo
     }
@@ -145,6 +147,7 @@ public class UIManager : MonoBehaviour
         dialogueUI.gameObject.SetActive(false); //desactivamos caja de diálogos
         dialogueOnGoing = false; //ya no hay un diálogo en curso
         LevelManager.Instance.EnablePlayerControls(); //LevelManager habilita los controles del _player
+        LevelManager.Instance.EnableInteractive(); //LevelManager deshabilita que el NPC cambie diálogos
     }
     #endregion   
 
