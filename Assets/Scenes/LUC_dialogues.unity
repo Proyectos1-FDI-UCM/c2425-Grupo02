@@ -1176,6 +1176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MissionCompletedCanvas: {fileID: 0}
+  dialogueUI: {fileID: 0}
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
 --- !u!4 &1548166545
 Transform:
   m_ObjectHideFlags: 0
@@ -1534,6 +1537,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 424508132928810645}
+    - target: {fileID: 7710305553888194875, guid: af73f79c959392e42ae8b772f6676d9c, type: 3}
+      propertyPath: MapWidth
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710305553888194875, guid: af73f79c959392e42ae8b772f6676d9c, type: 3}
+      propertyPath: MapHeight
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
