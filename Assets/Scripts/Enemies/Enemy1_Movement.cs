@@ -63,16 +63,9 @@ public class Enemy1_Movement : MonoBehaviour
 
     void FixedUpdate() {
         _rb.velocity = Vector2.zero;
-        _playerPosition = _player.transform.position;
-        if (_dirTimer >= 0.25f)
-        {
-            _dir = GetDirection(_playerPosition - (Vector2)transform.position);
-            _dirTimer = 0f;
-        }
-        else _dirTimer += Time.deltaTime;
 
         switch (_currentState)
-        {
+        { 
             case State.Spawning:
                 SpawningState();
                 break;
@@ -202,6 +195,13 @@ public class Enemy1_Movement : MonoBehaviour
     }
 
     void ChasingState() {
+        _playerPosition = _player.transform.position;
+        if (_dirTimer >= 0.25f)
+        {
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position);
+            _dirTimer = 0f;
+        }
+        else _dirTimer += Time.deltaTime;
 
         if (!_onRange)
         { 
