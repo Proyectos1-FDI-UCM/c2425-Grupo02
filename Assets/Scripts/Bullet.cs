@@ -46,10 +46,10 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Debug_Enemy>() != null)
+        if (collision.gameObject.GetComponent<Enemy_Health>() != null)
         {
-            Destroy(collision.gameObject);
-        }        
+            collision.gameObject.GetComponent<Enemy_Health>().Damage(1);
+        }
         Destroy(gameObject);
     }
 
@@ -76,9 +76,9 @@ public class Bullet : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-   
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -86,7 +86,7 @@ public class Bullet : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class Bullet 
 // namespace

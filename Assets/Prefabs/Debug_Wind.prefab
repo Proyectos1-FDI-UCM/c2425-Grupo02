@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4928187470235471785}
   - component: {fileID: 4126051500931276304}
   - component: {fileID: 294571532563496307}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Debug_Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,4 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windForce: 10
-  windAngle: {x: -10, y: 0}
+  windDirection: {x: 0, y: 0}

@@ -72,24 +72,15 @@ public class Enemy2_attack : MonoBehaviour
     #region Métodos Privados
 
  
-    /// <summary>
-    /// Método que deshabilita la hitbox
-    /// </summary>
-    void DisableHitbox() {
-        _hitbox.SetActive(false);
-    }
 
     /// <summary>
     /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
     /// </summary>
     /// <returns></returns>
     IEnumerator AttackCoroutine() {
-        for (int i = 0; i < 3; i++)
-        {
-            _hitbox.SetActive(true);
-            Invoke(nameof(DisableHitbox), 0.25f);
-            yield return new WaitForSecondsRealtime(0.3f);
-        }
+        _hitbox.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.3f);
+        _hitbox.SetActive(false);
     }
 
     #endregion   

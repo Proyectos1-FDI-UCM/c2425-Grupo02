@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5343650424591756040}
   - component: {fileID: 1867573054999203760}
   - component: {fileID: 9141613902406950352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Debug_Quest_Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}

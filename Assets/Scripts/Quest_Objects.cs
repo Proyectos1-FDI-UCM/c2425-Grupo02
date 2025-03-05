@@ -24,7 +24,7 @@ public class Quest_Objects : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,29 +35,20 @@ public class Quest_Objects : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
+        if (collision.gameObject.GetComponent<Movement>() != null)
+        {
+            GameManager.Instance.OnQuestObjectCollected();
+            Destroy(gameObject);
+        }
     }
     #endregion
 
@@ -80,14 +71,7 @@ public class Quest_Objects : MonoBehaviour
     /// objeto curativo.
     /// </summary>
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {     
-        if (collision.gameObject.GetComponent<Movement>() != null)
-        {
-            GameManager.Instance.OnQuestObjectCollected() ;
-            Destroy(gameObject);
-        }
-    }
+
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
