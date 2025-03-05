@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8817307848201008442}
   - component: {fileID: 3499110812841003916}
   - component: {fileID: 5273173829293789927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -355,4 +355,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
