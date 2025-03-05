@@ -1176,9 +1176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MissionCompletedCanvas: {fileID: 0}
-  dialogueUI: {fileID: 0}
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
+  dialogueUI: {fileID: 1711991813}
+  nameText: {fileID: 996394808}
+  dialogueText: {fileID: 1145644880}
 --- !u!4 &1548166545
 Transform:
   m_ObjectHideFlags: 0
