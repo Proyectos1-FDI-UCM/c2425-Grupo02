@@ -108,7 +108,7 @@ public class Enemy1_Attack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttackCoroutine() {
         _attacking = true;
-        _rb.mass += 1000;
+        _rb.mass += 9 * 1000;
         _dir = _mov.GetDir();
         SetDir(_dir, 0.25f);
 
@@ -119,7 +119,7 @@ public class Enemy1_Attack : MonoBehaviour
             _hitbox.SetActive(false);
             yield return new WaitForSecondsRealtime(AttackCooldown);
         }
-        _rb.mass -= 1000;
+        _rb.mass -= 9 * 1000;
         _attacking = false;
     }
 

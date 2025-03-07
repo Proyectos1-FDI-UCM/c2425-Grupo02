@@ -6,11 +6,9 @@
 //---------------------------------------------------------
 
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using System.Linq;
 using Random = UnityEngine.Random;
-using static UnityEngine.EventSystems.EventTrigger;
 // Añadir aquí el resto de directivas using
 
 
@@ -26,9 +24,6 @@ public class Enemy_Spawn : MonoBehaviour {
     [SerializeField] GameObject Enemy;                      //Enemigo qque se va a instanciar por tanda
     [SerializeField] int EnemyNumber;                       //Número de enemigos que se van a instanciar por tanda
     [SerializeField] int Iterations;                        //Número de tandas de enemigos que se quieren instanciar
-    [SerializeField] int GridWidth = 5;                     //Ancho de la cuadrícula que define la zona de spawn
-    [SerializeField] int GridLength = 5;                    //Alto de la cuadrícula que define la zona de spawn
-    [SerializeField] int CellSize = 1;                      //Tamaño de cada celda del IntGrid
     [SerializeField] List<Vector2Int> BannedCells = new();  //Lista con las celdas en las que no pueden aparecer enemigos
 
     #endregion
@@ -36,10 +31,13 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    IntGrid _grid;                              //Cuadrícula
-    Dictionary<int, Vector2Int> _cellDict;      //Diccionario con la posición de cada celda asociada a un índice
+    SpriteRenderer _sprite;
+    CustomGrid _grid;                              //Cuadrícula
+    Dictionary<int, Vector2> _cellDict;      //Diccionario con la posición de cada celda asociada a un índice
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
     HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
+    int _gridWidth;                     //Ancho de la cuadrícula que define la zona de spawn
+    int _gridLength;                    //Alto de la cuadrícula que define la zona de spawn
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
     //bool _firstEnabled = false;               //Booleano que indica si se ha activado la zone de spawn por primera vez
@@ -58,9 +56,14 @@ public class Enemy_Spawn : MonoBehaviour {
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start() {
-        _grid = new IntGrid(GridWidth, GridLength, CellSize, gameObject);
-        if (EnemyNumber >= GridWidth * GridLength) EnemyNumber = GridWidth * GridLength;
-        if (EnemyNumber == GridWidth * GridLength) EnemyNumber -= BannedCells.Count;
+        _sprite = GetComponent<SpriteRenderer>();
+        _gridWidth = Mathf.FloorToInt(_sprite.size.x);
+        _gridLength = Mathf.FloorToInt(_sprite.size.y);
+        _sprite.forceRenderingOff = true;
+
+        _grid = new CustomGrid(_gridWidth, _gridLength, 1, gameObject);
+        if (EnemyNumber >= _gridWidth * _gridLength) EnemyNumber = _gridWidth * _gridLength;
+        if (EnemyNumber == _gridWidth * _gridLength) EnemyNumber -= BannedCells.Count;
         if (EnemyNumber < 0) EnemyNumber = 0;
         _bannedCells = BannedCells.ToHashSet();
         SetDict();
@@ -93,6 +96,7 @@ public class Enemy_Spawn : MonoBehaviour {
         foreach (int n in spawnList)
         {
             Vector2 pos = _cellDict[n];
+            Debug.Log("Insatnciado en: " + pos);
             GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
             enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
         }
@@ -119,12 +123,12 @@ public class Enemy_Spawn : MonoBehaviour {
     }
 
     void SetDict() {
-        _cellDict = new Dictionary<int, Vector2Int>();
+        _cellDict = new Dictionary<int, Vector2>();
 
         int it = 0;
-        for (int i = 0; i < GridWidth; i++)
+        for (int i = 0; i < _gridWidth; i++)
         {
-            for(int j = 0;  j < GridLength; j++)
+            for(int j = 0;  j < _gridLength; j++)
             {
                 if (!_bannedCells.Contains(new Vector2Int(i, j)))
                 {

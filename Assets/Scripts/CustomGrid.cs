@@ -13,16 +13,16 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class IntGrid {
+public class CustomGrid {
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Vector2Int _origin;             //Vector con la posición de origen local
+    Vector2 _origin;             //Vector con la posición de origen local
     int _width;                     //Anchura de la cuadrícula
     int _length;                    //Altura de la cuadrícula
     int _cellSize;                  //Tamaño de cada celda del grid
-    Vector2Int[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales o globales, dependiendo del constructor
+    Vector2[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales o globales, dependiendo del constructor
 
     #endregion
 
@@ -37,11 +37,11 @@ public class IntGrid {
     /// <param name="width"> Ancho de la cuadrícula </param>
     /// <param name="length"> Alto de la cuadrícula </param>
     /// <param name="cellSize"> Tamaño de cada celda </param>
-    public IntGrid(int width, int length, int cellSize) {
+    public CustomGrid(int width, int length, int cellSize) {
         _width = width;
         _length = length;
         _cellSize = cellSize;
-        _cells = new Vector2Int[width, length];
+        _cells = new Vector2[width, length];
 
         for (int i = 0; i < width; i++)
         {
@@ -59,13 +59,14 @@ public class IntGrid {
     /// <param name="length"> Alto de la cuadrícula </param>
     /// <param name="cellSize"> Tamaño de cada celda </param>
     /// <param name="gameObject"> GameObject que contendrá la cuadrícula </param>
-    public IntGrid(int width, int length, int cellSize, GameObject gameObject) {
-        Vector3 org = gameObject.transform.position;
-        _origin = new Vector2Int(Mathf.FloorToInt(org.x), Mathf.FloorToInt(org.y));
+    public CustomGrid(int width, int length, int cellSize, GameObject gameObject) {
+        Vector2 org = gameObject.transform.position;
+        _origin = new(org.x, org.y);
+        Debug.Log("org: " + _origin);
         _width = width;
         _length = length;
         _cellSize = cellSize;
-        _cells = new Vector2Int[width, length];
+        _cells = new Vector2[width, length];
 
         for (int i = 0; i < width; i++)
         {
@@ -76,13 +77,9 @@ public class IntGrid {
         }
     }
 
-    public void DebugGrid() {
-
-    }
-
     //Getters
 
-    public Vector2Int GetOrigin() {
+    public Vector2 GetOrigin() {
         return _origin;
     }
 
@@ -98,7 +95,7 @@ public class IntGrid {
         return _cellSize;
     }
 
-    public Vector2Int[,] GetCells() {
+    public Vector2[,] GetCells() {
         return _cells;
     }
 
@@ -107,14 +104,16 @@ public class IntGrid {
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    private Vector2Int GetWorldPos(int x, int y) {
-        return new Vector2Int(x, y) * _cellSize;
+    private Vector2 GetWorldPos(float x, float y) {
+        x += _cellSize * 0.5f;
+        y += _cellSize * 0.5f;
+        return new Vector2(x, y) * _cellSize;
     }
 
-    private Vector2Int GetLocalPos(int x, int y) {
-        x += _origin.x; 
-        y += _origin.y;
-        return new Vector2Int(x, y) * _cellSize;
+    private Vector2 GetLocalPos(float x, float y) {
+        x += _origin.x + _cellSize * 0.5f;
+        y += _origin.y + _cellSize * 0.5f;
+        return new Vector2(x, y) * _cellSize;
     }
 
     #endregion   
