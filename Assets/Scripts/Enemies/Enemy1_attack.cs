@@ -28,6 +28,7 @@ public class Enemy1_Attack : MonoBehaviour
     #region Atributos Privados (private fields)
 
     GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
+    Rigidbody2D _rb;
     Enemy1_Movement _mov;            //Script de movimiento del enemigo
     Vector2 _dir;                   //Dirección en la que se mueve el enemigo
     bool _attacking = false;
@@ -46,6 +47,7 @@ public class Enemy1_Attack : MonoBehaviour
         _hitbox = transform.GetChild(0).gameObject;
         _mov = GetComponent<Enemy1_Movement>();
         _hitbox.SetActive(false);
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -106,6 +108,7 @@ public class Enemy1_Attack : MonoBehaviour
     /// <returns></returns>
     IEnumerator AttackCoroutine() {
         _attacking = true;
+        _rb.mass += 1000;
         _dir = _mov.GetDir();
         SetDir(_dir, 0.25f);
 
@@ -116,6 +119,7 @@ public class Enemy1_Attack : MonoBehaviour
             _hitbox.SetActive(false);
             yield return new WaitForSecondsRealtime(AttackCooldown);
         }
+        _rb.mass -= 1000;
         _attacking = false;
     }
 
