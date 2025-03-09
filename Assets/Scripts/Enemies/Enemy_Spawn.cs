@@ -96,7 +96,6 @@ public class Enemy_Spawn : MonoBehaviour {
         foreach (int n in spawnList)
         {
             Vector2 pos = _cellDict[n];
-            Debug.Log(n);
             GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
             enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
         }

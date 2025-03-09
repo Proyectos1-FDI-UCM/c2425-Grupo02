@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
@@ -46,15 +47,12 @@ public class Enemy_StateMachine : MonoBehaviour {
     SpriteRenderer _spriteRend;             //Componente sprite renderer del enemigo
     GameObject _player;                     //Jugador en la escena
     Rigidbody2D _rb;                        //Componente RigidBody2D del enemigo
-    RigidbodyConstraints2D _constraints;    //Restricciones dadas inicialmente para el componente RigidBody2D
+    RigidbodyConstraints2D _constraints;    //Restricciones aplicadas inicialmente para el componente RigidBody2D
     Animator _anim;                         //Componente animator del enemigo
     Vector2 _playerPosition;                //Posición del jugador en la escena
     Vector2 _dir;                           //Vector que marca la dirección hacia la que se mueve el enemigo
-    float _spawnTimer = 0f;                 //Temporizador que lleva la cuenta del tiempo que lleva spawneando el enemigo
     float _dirTimer = 0f;                   //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
     bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
-    bool _attacking = false;
-    bool _resting = false;
 
     enum State {
         Spawning,
@@ -63,7 +61,8 @@ public class Enemy_StateMachine : MonoBehaviour {
         Resting
     }
 
-    State _currentState = State.Spawning;
+    State _currentState;
+    State _lastState;
 
     #endregion
 
@@ -71,6 +70,8 @@ public class Enemy_StateMachine : MonoBehaviour {
     #region Métodos de MonoBehaviour
 
     void Start() {
+        _currentState = State.Spawning;
+        _lastState = State.Resting;
         _attack = GetComponent<IAttack>();
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
@@ -80,26 +81,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _rb.velocity = Vector2.zero;
-
-        switch (_currentState)
-        {
-            case State.Spawning:
-                SpawningState();
-                break;
-
-            case State.Chasing:
-                ChasingState();
-                break;
-
-            case State.Attacking:
-                AttackingState();
-                break;
-
-            case State.Resting:
-                RestingState();
-                break;
-        }
+        SetState();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -123,6 +105,31 @@ public class Enemy_StateMachine : MonoBehaviour {
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
+    void SetState() {
+        if (_currentState != _lastState)
+        {
+            _rb.velocity = Vector2.zero;
+            switch (_currentState)
+            {
+                case State.Chasing:
+                    ChasingState();
+                    break;
+
+                case State.Attacking:
+                    AttackingState();
+                    break;
+
+                case State.Resting:
+                    RestingState();
+                    break;
+
+                case State.Spawning:
+                    SpawningState();
+                    break;
+            }
+        }
+    }
 
     /// <summary>
     /// Esta función toma un vector y calcula su dirección (8 direcciones posibles).
@@ -215,59 +222,60 @@ public class Enemy_StateMachine : MonoBehaviour {
     //States
 
     void SpawningState() {
-        Collider2D collider = gameObject.GetComponent<Collider2D>();
-        collider.enabled = false;
-
-        if (_spawnTimer >= SpawnTime)
-        {
-            collider.enabled = true;
-            _currentState = State.Chasing;
-        }
-        else _spawnTimer += Time.deltaTime;
+        StartCoroutine(Spawning());
     }
 
     void ChasingState() {
-        SetDir();
-        _rb.velocity = _dir * MovementSpeed;
+        _lastState = State.Spawning;
         if (_onRange) _currentState = State.Attacking;
+        else
+        {
+            SetDir();
+            _rb.velocity = _dir * MovementSpeed;
+        }
     }
 
     void AttackingState() {
-        if (!_attacking)
-        {
-            SetDir();
-            StartCoroutine(Attacking());
-        }
+        _playerPosition = _player.transform.position;
+        _dir = GetDirection(_playerPosition - (Vector2)transform.position);
+        _rb.velocity = _dir * 0f;
+        StartCoroutine(Attacking());
     }
 
     void RestingState() {
-        if (!_resting)
-        {
-            StartCoroutine(Resting());
-        }
+        StartCoroutine(Resting());
+    }
+
+    IEnumerator Spawning() {
+        Collider2D collider = gameObject.GetComponent<Collider2D>();
+        collider.enabled = false;
+
+        yield return new WaitForSeconds(SpawnTime);
+
+        collider.enabled = true;
+
+        _currentState = State.Chasing;
     }
 
     IEnumerator Attacking() {
-            _attacking = true;
-            _anim.SetTrigger("_Attack");
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _lastState = State.Attacking;
+        _anim.SetTrigger("_Attack");
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            yield return _attack.Attack();
+        yield return _attack.Attack();
 
-            _rb.constraints = _constraints;
-            _attacking = false;
-            _currentState = State.Resting;
+        _rb.constraints = _constraints;
+        _currentState = State.Resting;
     }
 
     IEnumerator Resting() {
-        _resting = true;
+        _lastState = State.Resting;
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         yield return new WaitForSeconds(RestTime);
 
         _rb.constraints = _constraints;
         _currentState = State.Chasing;
-        _resting = false;
     }
 
     #endregion

@@ -48,7 +48,6 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         mapSize = LevelManager.Instance.GetMapSize();
-        Debug.Log("mapsize: " + mapSize);
     }
     void OnEnable()
     {
