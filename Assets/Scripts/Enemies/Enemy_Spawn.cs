@@ -32,12 +32,12 @@ public class Enemy_Spawn : MonoBehaviour {
     #region Atributos Privados (private fields)
 
     SpriteRenderer _sprite;
-    CustomGrid _grid;                              //Cuadrícula
-    Dictionary<int, Vector2> _cellDict;      //Diccionario con la posición de cada celda asociada a un índice
+    CustomGrid _grid;                           //Cuadrícula
+    Dictionary<int, Vector2> _cellDict;         //Diccionario con la posición de cada celda asociada a un índice
     List<int> _universe;                        //Lista con números del 0 a EnemyNumber
     HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
-    int _gridWidth;                     //Ancho de la cuadrícula que define la zona de spawn
-    int _gridLength;                    //Alto de la cuadrícula que define la zona de spawn
+    int _gridWidth;                              //Ancho de la cuadrícula que define la zona de spawn
+    int _gridLength;                            //Alto de la cuadrícula que define la zona de spawn
     int _currentIteration = 0;                  //Número de tanda de enemigos
     int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
     //bool _firstEnabled = false;               //Booleano que indica si se ha activado la zone de spawn por primera vez
@@ -96,7 +96,7 @@ public class Enemy_Spawn : MonoBehaviour {
         foreach (int n in spawnList)
         {
             Vector2 pos = _cellDict[n];
-            Debug.Log("Insatnciado en: " + pos);
+            Debug.Log(n);
             GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
             enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
         }

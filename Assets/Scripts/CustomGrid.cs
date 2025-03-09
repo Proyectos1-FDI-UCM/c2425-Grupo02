@@ -62,7 +62,6 @@ public class CustomGrid {
     public CustomGrid(int width, int length, int cellSize, GameObject gameObject) {
         Vector2 org = gameObject.transform.position;
         _origin = new(org.x, org.y);
-        Debug.Log("org: " + _origin);
         _width = width;
         _length = length;
         _cellSize = cellSize;

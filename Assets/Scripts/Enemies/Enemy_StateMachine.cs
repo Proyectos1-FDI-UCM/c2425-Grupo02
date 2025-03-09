@@ -5,16 +5,30 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase pública de la que heredará la clase de comportamiento de cada enemigo
+/// Esta clase se encarga de asignar uno de tres estados (spawning, chasing y resting) al enemigo.
+///     
+///     Spawning: Al ser instanciado en escena, el enemigo no se moverá ni tendrá collider durante el tiempo especificado por SpawnTime.
+///               Después de esto, pasará a chasing.
+///     
+///     Chasing: El enemigo perseguirá al jugador hasta llegar a rango para atacarlo.
+///              Al llegar a rango de ataque, pasará a attacking.
+///                 
+///     Attacking: El enemigo ejecutará una corrutina de ataque que variará dependiendo de la clase de ataque del enemigo.
+///                Después de esto, pasará a resting.
+///     
+///     Resting: Se activa una corrutina durante la que el enemigo no se moverá ni podrá ser movido pero si tendrá colisiones.
+///              Después de esto, volverá a chasing.
+///                 
+/// Más estados podrán ser añadidos en las clases que hereden de esta.
 /// </summary>
-public class Enemy1_Movement : MonoBehaviour
-{
+public class Enemy_StateMachine : MonoBehaviour {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
@@ -28,21 +42,24 @@ public class Enemy1_Movement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Enemy1_Attack _attack;
-    SpriteRenderer _spriteRend;
+    IAttack _attack;                        //Interfaz de script de ataque del enemigo
+    SpriteRenderer _spriteRend;             //Componente sprite renderer del enemigo
     GameObject _player;                     //Jugador en la escena
-    Rigidbody2D _rb;                        //Componente rigidBody del enemigo
+    Rigidbody2D _rb;                        //Componente RigidBody2D del enemigo
+    RigidbodyConstraints2D _constraints;    //Restricciones dadas inicialmente para el componente RigidBody2D
     Animator _anim;                         //Componente animator del enemigo
-    Vector2 _playerPosition;
-    Vector2 _dir = Vector2.zero;            //Vector que marca la dirección hacia la que se mueve el enemigo
+    Vector2 _playerPosition;                //Posición del jugador en la escena
+    Vector2 _dir;                           //Vector que marca la dirección hacia la que se mueve el enemigo
     float _spawnTimer = 0f;                 //Temporizador que lleva la cuenta del tiempo que lleva spawneando el enemigo
-    float _restTimer = 0f;                  //Temporizador que cuenta el tiempo de descanso
     float _dirTimer = 0f;                   //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
     bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
+    bool _attacking = false;
+    bool _resting = false;
 
     enum State {
         Spawning,
         Chasing,
+        Attacking,
         Resting
     }
 
@@ -54,10 +71,11 @@ public class Enemy1_Movement : MonoBehaviour
     #region Métodos de MonoBehaviour
 
     void Start() {
+        _attack = GetComponent<IAttack>();
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
+        _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
-        _attack = GetComponent<Enemy1_Attack>();
         _spriteRend = GetComponent<SpriteRenderer>();
     }
 
@@ -65,7 +83,7 @@ public class Enemy1_Movement : MonoBehaviour
         _rb.velocity = Vector2.zero;
 
         switch (_currentState)
-        { 
+        {
             case State.Spawning:
                 SpawningState();
                 break;
@@ -73,7 +91,11 @@ public class Enemy1_Movement : MonoBehaviour
             case State.Chasing:
                 ChasingState();
                 break;
-            
+
+            case State.Attacking:
+                AttackingState();
+                break;
+
             case State.Resting:
                 RestingState();
                 break;
@@ -81,7 +103,7 @@ public class Enemy1_Movement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
+        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -156,7 +178,7 @@ public class Enemy1_Movement : MonoBehaviour
         {
             _anim.SetBool(side, true);
             _spriteRend.flipX = true;
-            
+
         }
         else
         {
@@ -180,8 +202,18 @@ public class Enemy1_Movement : MonoBehaviour
         }
     }
 
+    void SetDir() {
+        _playerPosition = _player.transform.position;
+        if (_dirTimer >= 0.25f)
+        {
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position);
+            _dirTimer = 0f;
+        }
+        else _dirTimer += Time.deltaTime;
+    }
+
     //States
-    
+
     void SpawningState() {
         Collider2D collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = false;
@@ -195,37 +227,47 @@ public class Enemy1_Movement : MonoBehaviour
     }
 
     void ChasingState() {
-        _playerPosition = _player.transform.position;
-        if (_dirTimer >= 0.25f)
-        {
-            _dir = GetDirection(_playerPosition - (Vector2)transform.position);
-            _dirTimer = 0f;
-        }
-        else _dirTimer += Time.deltaTime;
+        SetDir();
+        _rb.velocity = _dir * MovementSpeed;
+        if (_onRange) _currentState = State.Attacking;
+    }
 
-        if (!_onRange)
-        { 
-            //Chasing
-            _rb.velocity = _dir * MovementSpeed;
-        }
-        else
+    void AttackingState() {
+        if (!_attacking)
         {
-            //Attack
-            _rb.velocity = _dir * 0f;
-            _attack.Attack();
-            _anim.SetTrigger("_Attack");
-            _currentState = State.Resting;
+            SetDir();
+            StartCoroutine(Attacking());
         }
     }
 
     void RestingState() {
-        _restTimer += Time.deltaTime;
-
-        if (_restTimer >= RestTime)
+        if (!_resting)
         {
-            _restTimer = 0f;
-            _currentState = State.Chasing;
+            StartCoroutine(Resting());
         }
+    }
+
+    IEnumerator Attacking() {
+            _attacking = true;
+            _anim.SetTrigger("_Attack");
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            yield return _attack.Attack();
+
+            _rb.constraints = _constraints;
+            _attacking = false;
+            _currentState = State.Resting;
+    }
+
+    IEnumerator Resting() {
+        _resting = true;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        yield return new WaitForSeconds(RestTime);
+
+        _rb.constraints = _constraints;
+        _currentState = State.Chasing;
+        _resting = false;
     }
 
     #endregion

@@ -14,7 +14,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy1_Attack : MonoBehaviour
+public class Enemy1_Attack : MonoBehaviour, IAttack
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -27,11 +27,10 @@ public class Enemy1_Attack : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
+    GameObject _hitbox;                         //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
     Rigidbody2D _rb;
-    Enemy1_Movement _mov;            //Script de movimiento del enemigo
-    Vector2 _dir;                   //Dirección en la que se mueve el enemigo
-    bool _attacking = false;
+    Enemy_StateMachine _stateMachine;           //Script de movimiento del enemigo
+    Vector2 _dir;                               //Dirección en la que se mueve el enemigo
 
     #endregion
     
@@ -45,7 +44,7 @@ public class Enemy1_Attack : MonoBehaviour
     void Start()
     {
         _hitbox = transform.GetChild(0).gameObject;
-        _mov = GetComponent<Enemy1_Movement>();
+        _stateMachine = GetComponent<Enemy_StateMachine>();
         _hitbox.SetActive(false);
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -67,10 +66,18 @@ public class Enemy1_Attack : MonoBehaviour
     /// <summary>
     /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
     /// </summary>
-    public void Attack() { 
-         if(!_attacking) StartCoroutine(AttackCoroutine());
-    }
+     public IEnumerator Attack() {
+        _dir = _stateMachine.GetDir();
+        SetDir(_dir, 0.25f);
 
+        for (int i = 0; i < 3; i++)
+        {
+            _hitbox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            _hitbox.SetActive(false);
+            yield return new WaitForSeconds(AttackCooldown);
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -106,22 +113,7 @@ public class Enemy1_Attack : MonoBehaviour
     /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
     /// </summary>
     /// <returns></returns>
-    IEnumerator AttackCoroutine() {
-        _attacking = true;
-        _rb.mass += 9 * 1000;
-        _dir = _mov.GetDir();
-        SetDir(_dir, 0.25f);
-
-        for (int i = 0; i < 3; i++)
-        {
-            _hitbox.SetActive(true);
-            yield return new WaitForSecondsRealtime(0.1f);
-            _hitbox.SetActive(false);
-            yield return new WaitForSecondsRealtime(AttackCooldown);
-        }
-        _rb.mass -= 9 * 1000;
-        _attacking = false;
-    }
+   
 
     #endregion   
 
