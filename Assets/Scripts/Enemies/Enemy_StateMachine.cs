@@ -253,7 +253,6 @@ public class Enemy_StateMachine : MonoBehaviour {
         yield return new WaitForSeconds(SpawnTime);
 
         collider.enabled = true;
-
         _currentState = State.Chasing;
     }
 
