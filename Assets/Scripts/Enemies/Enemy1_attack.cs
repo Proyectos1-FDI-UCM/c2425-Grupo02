@@ -66,7 +66,7 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// <summary>
     /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
     /// </summary>
-     public IEnumerator Attack() {
+    public IEnumerator Attack() {
         _dir = _stateMachine.GetDir();
         SetDir(_dir, 0.25f);
 

@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
 using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
@@ -33,43 +32,43 @@ public class Enemy_StateMachine : MonoBehaviour {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] float SpawnTime;               //Tiempo que tarda en spawnear el enemigo
-    [SerializeField] float MovementSpeed;           //Velocidad de movimiento del enemigo
-    [SerializeField] float RestTime;                //Tiempo que el enemigo pasa quieto después de atacar
-    [SerializeField] int EnemyRangeLayer;           //Layer de rango del enemigo
+    [SerializeField] protected float SpawnTime;               //Tiempo que tarda en spawnear el enemigo
+    [SerializeField] protected float MovementSpeed;           //Velocidad de movimiento del enemigo
+    [SerializeField] protected float RestTime;                //Tiempo que el enemigo pasa quieto después de atacar
+    [SerializeField] protected int EnemyRangeLayer;           //Layer de rango del enemigo
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
-    #region Atributos Privados (private fields)
+    #region Atributos Privados (protected fields)
 
-    IAttack _attack;                        //Interfaz de script de ataque del enemigo
-    SpriteRenderer _spriteRend;             //Componente sprite renderer del enemigo
-    GameObject _player;                     //Jugador en la escena
-    Rigidbody2D _rb;                        //Componente RigidBody2D del enemigo
-    RigidbodyConstraints2D _constraints;    //Restricciones aplicadas inicialmente para el componente RigidBody2D
-    Animator _anim;                         //Componente animator del enemigo
-    Vector2 _playerPosition;                //Posición del jugador en la escena
-    Vector2 _dir;                           //Vector que marca la dirección hacia la que se mueve el enemigo
-    float _dirTimer = 0f;                   //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
-    bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
+    protected IAttack _attack;                        //Interfaz de script de ataque del enemigo
+    protected SpriteRenderer _spriteRend;             //Componente sprite renderer del enemigo
+    protected GameObject _player;                     //Jugador en la escena
+    protected Rigidbody2D _rb;                        //Componente RigidBody2D del enemigo
+    protected RigidbodyConstraints2D _constraints;    //Restricciones aplicadas inicialmente para el componente RigidBody2D
+    protected Animator _anim;                         //Componente animator del enemigo
+    protected Vector2 _playerPosition;                //Posición del jugador en la escena
+    protected Vector2 _dir;                           //Vector que marca la dirección hacia la que se mueve el enemigo
+    protected float _dirTimer = 0f;                   //Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento
+    protected bool _onRange = false;                  //Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
 
-    enum State {
+    protected enum State {
         Spawning,
         Chasing,
         Attacking,
         Resting
     }
 
-    State _currentState;
-    State _lastState;
+    protected State _currentState;
+    protected State _lastState;
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    void Start() {
+    protected virtual void Start() {
         _currentState = State.Spawning;
         _lastState = State.Resting;
         _attack = GetComponent<IAttack>();
@@ -80,15 +79,15 @@ public class Enemy_StateMachine : MonoBehaviour {
         _spriteRend = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate() {
+    protected virtual void Update() {
         SetState();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    protected virtual void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
+    protected virtual void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject.layer == EnemyRangeLayer) _onRange = false;
     }
 
@@ -97,16 +96,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-    public Vector2 GetDir() {
-        return _dir;
-    }
-
-    #endregion
-
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-
-    void SetState() {
+     protected void SetState() {
         if (_currentState != _lastState)
         {
             _rb.velocity = Vector2.zero;
@@ -131,6 +121,17 @@ public class Enemy_StateMachine : MonoBehaviour {
         }
     }
 
+    public Vector2 GetDir() {
+        return _dir;
+    }
+
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+
+   
+
     /// <summary>
     /// Esta función toma un vector y calcula su dirección (8 direcciones posibles).
     /// Tiene un poco de margen en las direcciones no diagonales.
@@ -138,7 +139,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <param name="v"> Vector2 cuya dirección se quiere calcular </param>
     /// <returns> Vector2 con la dirección hacia la que mira el enemigo </returns>
-    Vector2 GetDirection(Vector2 v) {
+    protected Vector2 GetDirection(Vector2 v) {
         Vector2 res;
         float ang = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
         ang = (ang + 360) % 360;
@@ -170,7 +171,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// También se encarga de voltear el sprite si es necesario.
     /// </summary>
     /// <param name="v"> Vector que va a ser evaluado </param>
-    void SetAnim(Vector2 v) {
+    protected void SetAnim(Vector2 v) {
         _spriteRend.flipX = false;
 
         string side = "_MvSide";
@@ -209,7 +210,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         }
     }
 
-    void SetDir() {
+    protected void SetDir() {
         _playerPosition = _player.transform.position;
         if (_dirTimer >= 0.25f)
         {
@@ -221,11 +222,11 @@ public class Enemy_StateMachine : MonoBehaviour {
 
     //States
 
-    void SpawningState() {
+    protected virtual void SpawningState() {
         StartCoroutine(Spawning());
     }
 
-    void ChasingState() {
+    protected virtual void ChasingState() {
         _lastState = State.Spawning;
         if (_onRange) _currentState = State.Attacking;
         else
@@ -235,18 +236,18 @@ public class Enemy_StateMachine : MonoBehaviour {
         }
     }
 
-    void AttackingState() {
+    protected virtual void AttackingState() {
         _playerPosition = _player.transform.position;
         _dir = GetDirection(_playerPosition - (Vector2)transform.position);
         _rb.velocity = _dir * 0f;
         StartCoroutine(Attacking());
     }
 
-    void RestingState() {
+    protected virtual void RestingState() {
         StartCoroutine(Resting());
     }
 
-    IEnumerator Spawning() {
+    protected virtual IEnumerator Spawning() {
         Collider2D collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = false;
 
@@ -256,7 +257,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         _currentState = State.Chasing;
     }
 
-    IEnumerator Attacking() {
+    protected virtual IEnumerator Attacking() {
         _lastState = State.Attacking;
         _anim.SetTrigger("_Attack");
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -267,7 +268,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         _currentState = State.Resting;
     }
 
-    IEnumerator Resting() {
+    protected virtual IEnumerator Resting() {
         _lastState = State.Resting;
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 

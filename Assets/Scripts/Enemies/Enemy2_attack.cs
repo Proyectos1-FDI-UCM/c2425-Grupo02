@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,7 +15,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemy2_attack : MonoBehaviour
+public class Enemy2_attack : MonoBehaviour, IAttack
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -62,8 +63,11 @@ public class Enemy2_attack : MonoBehaviour
     /// <summary>
     /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
     /// </summary>
-    public void Attack() {
-        StartCoroutine(AttackCoroutine());
+
+    public IEnumerator Attack() {
+        _hitbox.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        _hitbox.SetActive(false);
     }
 
     #endregion
@@ -71,17 +75,7 @@ public class Enemy2_attack : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
- 
 
-    /// <summary>
-    /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator AttackCoroutine() {
-        _hitbox.SetActive(true);
-        yield return new WaitForSecondsRealtime(0.3f);
-        _hitbox.SetActive(false);
-    }
 
     #endregion   
 

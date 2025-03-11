@@ -275,18 +275,18 @@ PrefabInstance:
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: Enemy
       value: 
-      objectReference: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
+      objectReference: {fileID: 2679976604082022759, guid: c02dc88698d6c5144b479523a0da20f2, type: 3}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: EnemyNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0298533
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5016075
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z
