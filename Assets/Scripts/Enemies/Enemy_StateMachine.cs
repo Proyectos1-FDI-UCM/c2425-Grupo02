@@ -79,7 +79,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         _spriteRend = GetComponent<SpriteRenderer>();
     }
 
-    protected virtual void Update() {
+    protected virtual void FixedUpdate() {
         SetState();
     }
 

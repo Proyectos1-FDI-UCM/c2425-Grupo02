@@ -35,8 +35,7 @@ public class Enemy2_Behaviour : Enemy_StateMachine
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    protected override void Update() {
-        Debug.Log(_baseState);
+    protected override void FixedUpdate() {
         if (_baseState) SetState();
         else
         {
