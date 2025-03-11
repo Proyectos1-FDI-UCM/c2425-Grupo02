@@ -171,7 +171,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// También se encarga de voltear el sprite si es necesario.
     /// </summary>
     /// <param name="v"> Vector que va a ser evaluado </param>
-    protected void SetAnim(Vector2 v) {
+    protected virtual void SetAnim(Vector2 v) {
         _spriteRend.flipX = false;
 
         string side = "_MvSide";
