@@ -24,10 +24,11 @@ public class Camara : MonoBehaviour {
 
     LevelManager _level;
     GameObject _player;
-    Vector2 _position;
+    Vector2 _playerPosition;
     Camera _cam;
     float _xLimit;
     float _yLimit;
+    Vector2 _maxDistance = new Vector2(5, 5);       //Máxima distancia que se puede separar la cámara del jugador
 
     #endregion
 
@@ -64,11 +65,18 @@ public class Camara : MonoBehaviour {
     #region Métodos Privados
     
     void MoveCamera() {
-        _position = _player.transform.position;
-        _position.x = Mathf.Clamp(_position.x, -_xLimit, _xLimit);
-        _position.y = Mathf.Clamp(_position.y, -_yLimit, _yLimit);
-        transform.position = new Vector3( _position.x, _position.y, -10);
-        Debug.Log(_xLimit);
+        _playerPosition = _player.transform.position;
+        _playerPosition.x = Mathf.Clamp(_playerPosition.x, -_xLimit, _xLimit);
+        _playerPosition.y = Mathf.Clamp(_playerPosition.y, -_yLimit, _yLimit);
+        Vector2 dis = _playerPosition - (Vector2)transform.position;
+        if (Mathf.Abs(dis.x) >= _maxDistance.x || Mathf.Abs(dis.y) >= _maxDistance.y)
+        {
+            transform.position = new Vector3(_playerPosition.x, _playerPosition.y, -10);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(_playerPosition.x, _playerPosition.y, -10), Time.deltaTime * 3f);
+        }
     }
 
     #endregion

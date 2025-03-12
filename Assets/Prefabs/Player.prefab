@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b3221f625ffa4d89319ba17b36c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashtime: 0.15
+  dashtime: 1.5
   dashtimec: 1.5
-  dashDistance: 1
+  dashDistance: 1.5
 --- !u!61 &2671426413900228804
 BoxCollider2D:
   m_ObjectHideFlags: 0
