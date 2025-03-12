@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Main_Menu.unity
     guid: 88ab91c3c24f24d8789e651802f2b486
   - enabled: 0
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Debug_Scenes/Level1.unity
     guid: 20527f57389d748ee93839d6d77bce46
   - enabled: 0
-    path: "Assets/Scenes/Adri\xE1n.unity"
+    path: "Assets/Scenes/Debug_Scenes/Adri\xE1n.unity"
     guid: 537e8b60f9cbadb42b61ba3a56b49ec9
   - enabled: 1
-    path: Assets/Scenes/EscenaCombate.unity
+    path: Assets/Scenes/Debug_Scenes/EscenaCombate.unity
     guid: 6c692b84a75903f418ce6cbcf590b791
   - enabled: 1
-    path: Assets/Scenes/EscenaMision.unity
+    path: Assets/Scenes/Debug_Scenes/EscenaMision.unity
     guid: ffba9c655baad55498b141e0b86ba1d7
   m_configObjects: {}
