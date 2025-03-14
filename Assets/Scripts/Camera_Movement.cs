@@ -28,7 +28,7 @@ public class Camara : MonoBehaviour {
     Camera _cam;
     float _xLimit;
     float _yLimit;
-    Vector2 _maxDistance = new Vector2(5, 5);       //Máxima distancia que se puede separar la cámara del jugador
+    Vector2 _maxDistance = new Vector2(15, 15);       //Máxima distancia que se puede separar la cámara del jugador
 
     #endregion
 
@@ -49,7 +49,7 @@ public class Camara : MonoBehaviour {
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update() {
+    void FixedUpdate() {
         MoveCamera();
     }
     #endregion
