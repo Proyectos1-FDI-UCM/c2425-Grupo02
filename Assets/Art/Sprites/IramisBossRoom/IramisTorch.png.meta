@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f30cd74d97fd8f84ba64d50fbb6efba2
+guid: 7e3903c6aa2115d48817cfd3451a11b8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss Torch_0
+      name: IramisTorch_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e721de33ef303549b85797c86133246
-      internalID: 1679613092
+      spriteID: 7b1012c9abfb8a749a0b3e3419463ef1
+      internalID: 1790223125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss Torch_1
+      name: IramisTorch_1
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f240d8a6c94d68f4b855bce371961b19
-      internalID: 58005007
+      spriteID: f648dbc23e8877645a9cd793972b2223
+      internalID: 1494075096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss Torch_2
+      name: IramisTorch_2
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf652de281dd80f4ab902cdbfc7b7d4d
-      internalID: 1334750594
+      spriteID: 405fd9a12c42b154e991e77e231542bc
+      internalID: -1975847598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss Torch_3
+      name: IramisTorch_3
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98256c0728c7be844b6573bc3b88bb80
-      internalID: -2058738816
+      spriteID: 9a870aaa50e779c448175b94d4675a1b
+      internalID: -1695514359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss Torch_4
+      name: IramisTorch_4
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9aa1211f2df521429f05161bf382a9f
-      internalID: 920688039
+      spriteID: 4c0a08c63807b9440a7ea2620573737d
+      internalID: 1180723711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss Torch_5
+      name: IramisTorch_5
       rect:
         serializedVersion: 2
         x: 240
         y: 0
         width: 48
-        height: 48
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1e77858e8d40884599fe892e14db481
-      internalID: 711800438
+      spriteID: 82184fc05253cb541a527b25f051abfe
+      internalID: -1735736761
       vertices: []
       indices: 
       edges: []
@@ -233,12 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss Torch_0: 1679613092
-      Boss Torch_1: 58005007
-      Boss Torch_2: 1334750594
-      Boss Torch_3: -2058738816
-      Boss Torch_4: 920688039
-      Boss Torch_5: 711800438
+      IramisTorch_0: 1790223125
+      IramisTorch_1: 1494075096
+      IramisTorch_2: -1975847598
+      IramisTorch_3: -1695514359
+      IramisTorch_4: 1180723711
+      IramisTorch_5: -1735736761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
