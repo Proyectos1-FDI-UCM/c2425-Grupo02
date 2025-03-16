@@ -33,15 +33,16 @@ public class Interactive : MonoBehaviour
     //arrays de diálogos
     private string[] firstDialogues = {"Hola, quiero encargarte una misión.", "Busca 3 paquetes y entrégamelos.", "A ver si los encuentras :P"};
     private string[] secondDialogues = { "Ya has hablado conmigo, ¿qué más quieres que te diga? :/" };
+    private string[] options = { "Opción 1", "Opción 2" };
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -82,12 +83,12 @@ public class Interactive : MonoBehaviour
     {
         if (!interactionDone) //diálogo que se manda si es la primera vez que interactúa con él
         {
-            UIManager.Instance.InitDialogues(charName, firstDialogues);
+            UIManager.Instance.InitDialogues(charName, firstDialogues, false);
             interactionDone = true;
         }
         else //diálogo que se muestra si ya ha interactuado con él
         {
-            UIManager.Instance.InitDialogues(charName, secondDialogues);
+            UIManager.Instance.InitDialogues(charName, secondDialogues, true);
         }
     }
     #endregion

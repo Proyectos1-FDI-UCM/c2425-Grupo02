@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/labyrinth_3.unity
     guid: eb192ddfdae022444823129e1ef6a640
+  - enabled: 1
+    path: Assets/Scenes/Bad_Ending.unity
+    guid: cc222052caa02f94cb9c65b40996cf21
   m_configObjects: {}
