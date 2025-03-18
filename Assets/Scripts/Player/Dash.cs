@@ -20,22 +20,25 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashtime = 0.1f;  //tiempo que dura el dash
     [SerializeField] private float dashtimec = 1.5f;   //cooldown entre cada dash
     [SerializeField] private float dashDistance = 1f;  // distancia de tp de dash
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+                                                       // Documentar cada atributo que aparece aquí.
+                                                       // El convenio de nombres de Unity recomienda que los atributos
+                                                       // públicos y de inspector se nombren en formato PascalCase
+                                                       // (palabras con primera letra mayúscula, incluida la primera letra)
+                                                       // Ejemplo: MaxHealthPoints
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
-    private Rigidbody2D rb;         //rigidbody para colisiones
-    private Movement player;        //script de movimiento del jugador
-    private bool dash;              // detecta si está dasheando
-    private bool candash = true;    // si se puede dashear dash == true
-    Vector2 raylong;                //
+    /// <summary>
+    /// __dash -> detecta si el jugador está o no dasheando
+    /// _candash -> detecta si el jugador puede o no hacer dash
+    /// </summary>
+    private Rigidbody2D _rb;        
+    private Movement _player;        
+    private bool _dash;             
+    private bool _candash = true;   
+    Vector2 raylong;                
 
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,99 +46,83 @@ public class Dash : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        player = GetComponent<Movement>();
+        _rb = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Movement>();
     }
 
+    /// <summary>
+    /// si se pulsa el botón de dash, se inicia el dash
+    /// raycast que evita el dash al estar a una determinada distancia de obstáculos
+    /// </summary>
     void Update()
     {
 
-        if (InputManager.Instance.DashWasPressedThisFrame())   //si se pulsa cualquier shift o el r1 del mando de ps4/5 se activa el dash
+        if (InputManager.Instance.DashWasPressedThisFrame())   
         {
-            StartCoroutine(_Dash());
+            StartCoroutine(Dashh());
         }
 
-        raycast();
+        Raycast();
 
 
     }
-
-
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
 
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-    public bool isdashing()   //booleano que detecta si se está dasheando
-    {
-        bool ds = true;
-        if (!dash)
-        {
-            ds = false;
-        }
-        return ds;
-    }
+
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
 
-    private void raycast()
+
+    /// <summary>
+    /// Raycast que se activa al entrar en contacto con objetos de determinadas capas
+    /// La longuitud del raycast depende de la distancia del dash
+    /// Si el raycast se activa, se puede hacer dash
+    /// </summary>
+    private void Raycast()
     {
-        raylong = player.GetLastDir2().normalized;  
-        LayerMask layerMask = LayerMask.GetMask("Obstacles");   //layers detectadas por el raycast (obstáculos)
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, raylong, dashDistance, layerMask);  //creamos el raycast
+        raylong = _player.GetLastDir2().normalized;  
+        LayerMask layerMask = LayerMask.GetMask("Obstacles");  
+        RaycastHit2D hit = Physics2D.Raycast(_rb.position, raylong, dashDistance, layerMask); 
 
-        if (hit.collider != null)   //si el rayo colisiona con un obstáculos:
+        if (hit.collider != null)  
         {
-            candash = false;
-            Debug.DrawRay(rb.position, raylong * dashDistance, Color.red);  //color del rayo = rojo
+            _candash = false;
+            Debug.DrawRay(_rb.position, raylong * dashDistance, Color.red);  
 
         }
         else   //si no
         {
-            Debug.DrawRay(transform.position, raylong * dashDistance, Color.green);   //color del rayo = rojo
-            candash = true;
+            Debug.DrawRay(transform.position, raylong * dashDistance, Color.green);  
+            _candash = true;
 
         }
     }
 
-    private IEnumerator _Dash()
+    /// <summary>
+    /// Corrutina del dash, que regula lo que tarda en hacer el dash y el countdown del dash  
+    /// lastDar es un método público del script movement que detecta la última posición del jugador
+    /// </summary>
+    private IEnumerator Dashh()
     {
-        if (candash == true && dash == false)  // si se puede dashear y no se está dasheando
+        if (_candash == true && _dash == false)  
         {
 
-            Vector2 lastDir = player.GetLastDir2();  //método público del script movement que detecta la última posición del jugador
-            candash = false;
-            dash = true;
+            Vector2 lastDir = _player.GetLastDir2();  
+            _candash = false;
+            _dash = true;
 
-            rb.position += lastDir.normalized * dashDistance; // se cambia la posición 
-            rb.MovePosition(rb. position);                    //se mueve al jugador a la posición establecida
-            yield return new WaitForSeconds(dashtime);   //espera a que pase el tiempo activo del dash
-            dash = false;  //no está dasheando
-            yield return new WaitForSeconds(dashtimec);   //cooldown 
-            candash = true;
+            _rb.position += lastDir.normalized * dashDistance;
+            _rb.MovePosition(_rb. position);                   
+            yield return new WaitForSeconds(dashtime);  
+            _dash = false;  //no está dasheando
+            yield return new WaitForSeconds(dashtimec);  
+            _candash = true;
         }
     }
     #endregion
