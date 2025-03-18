@@ -360,7 +360,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Establece "Attacking" como el último estado, activa la animación de ataque 
     /// y congela la posición del enemigo durante su duración.
-    /// Establece "Resting" como el estado actual
+    /// Establece "Resting" como el estado actual y devuelve las restricciones iniciales al rigidbody
     /// </summary>
     /// <returns> Espera a que la corrutina de ataque del script de ataque del enemigo acabe </returns>
     protected virtual IEnumerator Attacking() {
@@ -370,6 +370,7 @@ public class Enemy_StateMachine : MonoBehaviour {
 
         yield return _attack.Attack();
 
+        _rb.constraints = _constraints;
         _currentState = State.Resting;
     }
 
@@ -381,12 +382,13 @@ public class Enemy_StateMachine : MonoBehaviour {
     }
 
     /// <summary>
-    /// Establece "Resting" como el último estado.
+    /// Establece "Resting" como el último estado y congela la posición del rigidbody.
     /// Al acabar, aplica al rigidbody sus restricciones iniciales y establece "Chasing" como el estado actual
     /// </summary>
     /// <returns> La duración de la corrutina viene dada por el atributo serializado "RestTime" </returns>
     protected virtual IEnumerator Resting() {
         _lastState = State.Resting;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         yield return new WaitForSeconds(RestTime);
 

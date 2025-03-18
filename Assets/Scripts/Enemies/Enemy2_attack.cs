@@ -28,7 +28,6 @@ public class Enemy2_attack : MonoBehaviour, IAttack
     #region Atributos Privados (private fields)
 
     GameObject _hitbox;             //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
-    Enemy2_movement _mov;            //Script de movimiento del enemigo
     Vector2 _dir;                   //Dirección en la que se mueve el enemigo
 
     #endregion
@@ -42,7 +41,6 @@ public class Enemy2_attack : MonoBehaviour, IAttack
     /// </summary>
     void Start() {
         _hitbox = transform.GetChild(0).gameObject;
-        _mov = GetComponent<Enemy2_movement>();
         _hitbox.SetActive(false);
     }
 
