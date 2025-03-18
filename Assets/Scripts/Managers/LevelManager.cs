@@ -26,10 +26,14 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-
-    [SerializeField] float MapWidth = 0f;
-    [SerializeField] float MapHeight = 0f;
-    [SerializeField] private GameObject DebugNPC;
+    /// <summary>
+    /// MapWidth -> ancho del mapa de la escena
+    /// MapHeight -> alto del mapa de la escena
+    /// NPC -> gameObject del NPC interactuable
+    /// </summary>
+    [SerializeField] float MapWidth;
+    [SerializeField] float MapHeight;
+    [SerializeField] GameObject NPC;
 
     #endregion
 
@@ -86,35 +90,49 @@ public class LevelManager : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex == (índice escena);
     }
     */
+
+    /// <summary>
+    /// Devuelve las dimensiones del mapa de la escena
+    /// </summary>
+    /// <returns></returns>
     public Vector2 GetMapSize()
     {
         return new Vector2(MapWidth, MapHeight);
     }
-
+    /// <summary>
+    /// Activa los controles del player
+    /// </summary>
     public void EnablePlayerControls()
     {
         _player.GetComponent<Movement>().enabled = true;
         _player.GetComponent<Shoot>().enabled = true;
         _player.GetComponent<MeleeAttack>().enabled = true;
         _player.GetComponent<Dash>().enabled = true;
-        //_player.GetComponent<Player_Interact>().enabled = true;
     }
+    /// <summary>
+    /// Activa el NPC para que actualice los diálogos
+    /// </summary>
+    public void EnableNPC()
+    {
+        NPC.GetComponent<Minos>().enabled = true;
+    }
+    /// <summary>
+    /// Desactiva los controles del player
+    /// </summary>
     public void DisablePlayerControls()
     {
         _player.GetComponent<Movement>().enabled = false;
         _player.GetComponent<Shoot>().enabled = false;
         _player.GetComponent<MeleeAttack>().enabled = false;
         _player.GetComponent<Dash>().enabled = false;
-        //_player.GetComponent<Player_Interact>().enabled = false;
-        Debug.Log("Melee Attack: " + _player.GetComponent<MeleeAttack>().enabled);
     }
-    public void EnableInteractive()
+    /// <summary>
+    /// Desactiva el NPC. Es necesario para que el NPC no actualice los diálogos mientras hay un diálogo en curso, así que 
+    /// NO BORRAR
+    /// </summary>
+    public void DisableNPC()
     {
-        DebugNPC.GetComponent<Interactive>().enabled = true;
-    }
-    public void DisableInteractive()
-    {
-        DebugNPC.GetComponent<Interactive>().enabled = false;
+        NPC.GetComponent<Minos>().enabled = false;
     }
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y

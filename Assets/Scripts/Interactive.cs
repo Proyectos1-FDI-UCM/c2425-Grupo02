@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Componente de los nombres y diálogos de  los NPCs correspondientes
+// Componente de los nombres y diálogos de los NPCs para el sistema de diálogos
 // Lucía Mei Domínguez López
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
@@ -10,8 +10,8 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase padre que la que heredan los NPCs que contiene un string de nombre, un array de strings donde se guardan los diálogos y los métodos necesarios para 
+/// mandar la información que debe mostrar la UI en la caja de diálogos
 /// </summary>
 public class Interactive : MonoBehaviour
 {
@@ -27,77 +27,59 @@ public class Interactive : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private string charName = "NPC"; //nombre NPC
-    private bool interactionDone = false; //si es true, activa los nuevos diálogos
-    private bool canStart = false;
-    //arrays de diálogos
-    private string[] firstDialogues = {"Hola, quiero encargarte una misión.", "Busca 3 paquetes y entrégamelos.", "A ver si los encuentras :P"};
-    private string[] secondDialogues = { "Ya has hablado conmigo, ¿qué más quieres que te diga? :/" };
-    private string[] options = { "Opción 1", "Opción 2" };
+    /// <summary>
+    /// _name -> nombre del NPC que la UI mostrará en la caja de diálogos
+    /// _canStart -> indica si el player puede interactuar con el NPC
+    /// _dialogues -> diálogo guardado en un array de strings
+    /// _options -> opciones de diálogo que puede elegir guardadas en un array de strings
+    /// </summary>
+    private string _name; 
+    private bool _canStart = false;
+    private string[] _dialogues;
+    private string[] _options = { "Opción 1", "Opción 2" };
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-        
-    }
-    private void OnEnable()
-    {
-        
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        canStart = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        canStart = false;
-    }
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        if (canStart && InputManager.Instance.InteractWasPressedThisFrame())
-        {
-            SetDialogues();
-            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
-            LevelManager.Instance.DisableInteractive(); //LevelManager deshabilita que el NPC cambie diálogos
-        }
-    }
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void SetDialogues() //el NPC le pasa su nombre y diálogos a la UI
+    /// <summary>
+    /// Getters y setters para modificar los nombres, diálogos y opciones en las clases hijas de NPCs
+    /// </summary>
+    public bool CanStart
     {
-        if (!interactionDone) //diálogo que se manda si es la primera vez que interactúa con él
-        {
-            UIManager.Instance.InitDialogues(charName, firstDialogues, false);
-            interactionDone = true;
-        }
-        else //diálogo que se muestra si ya ha interactuado con él
-        {
-            UIManager.Instance.InitDialogues(charName, secondDialogues, true);
-        }
+        get { return _canStart; }
+        protected set { _canStart = value; }
+    }
+    public string Name
+    {
+        get { return _name; }
+        protected set { _name = value; }
+    }
+    public string[] Dialogues
+    {
+        get { return _dialogues; }
+        protected set { _dialogues = value; }
+    }
+    public string[] Options
+    {
+        get { return _options; }
+        protected set { _options = value; }
+    }
+    /// <summary>
+    /// El NPC le pasa su nombre y diálogos a la UI. Está en virtual para que en cada hija se puedan modificar 
+    /// las condiciones para mostrar un diálogo u otro
+    /// </summary>
+    public virtual void SetDialogues()
+    {
+        UIManager.Instance.InitDialogues(_name, _dialogues, false);
     }
     #endregion
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
 
     #endregion
 

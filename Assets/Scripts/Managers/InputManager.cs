@@ -216,6 +216,7 @@ public class InputManager : MonoBehaviour
 
     public bool InteractWasPressedThisFrame()
     {
+        Debug.Log("Interact was pressed this frame");
         return _interact.WasPressedThisFrame();
     }
 

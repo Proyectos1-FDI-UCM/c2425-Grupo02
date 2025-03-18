@@ -40,10 +40,13 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Instancia única de la clase (singleton).
+    /// _questObjectsCount -> contador objetos de misión
+    /// _questState -> indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
     /// </summary>
     private static GameManager _instance;
     private int _questObjectsCount;
     private UIManager _uiManager;
+    private int _questState = 0;
 
 
     #endregion
@@ -129,6 +132,24 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>Cierto si hay instancia creada.</returns>
 
+    /// <summary>
+    /// Getter para obtener el estado de la misión
+    /// </summary>
+    public int QuestState
+    {
+        get { return _questState; }
+    }
+    /// <summary>
+    /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
+    /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
+    /// </summary>
+    public void UpdateState()
+    {
+        if (_questState == 0)
+        {
+            _questState = 1;
+        }
+    }
 
     ///<summary>
     ///Lo llamamos desde Healing_GameObjects si el jugador 
@@ -162,6 +183,7 @@ public class GameManager : MonoBehaviour
                     
         else if (_questObjectsCount == 3)
         {
+            _questState = 2;
             if (UIManager.HasInstance())
             {
                 UIManager.Instance.Inform();
