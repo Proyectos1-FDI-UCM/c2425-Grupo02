@@ -64,6 +64,11 @@ public class Camara : MonoBehaviour {
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     
+    /// <summary>
+    /// Si la distancia entre el jugador y la cámara es menor que _maxDistance, esta se mueve siguiendo al jugador suavemente.
+    /// En caso contrario, se transporta instantáneamente hasta el jugador.
+    /// La cámara no puede moverse más allá de los límites del mapa (marcados por el level manager)
+    /// </summary>
     void MoveCamera() {
         _playerPosition = _player.transform.position;
         _playerPosition.x = Mathf.Clamp(_playerPosition.x, -_xLimit, _xLimit);

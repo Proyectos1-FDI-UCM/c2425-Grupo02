@@ -11,14 +11,18 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Interfaz de ataque de los enemigos. Sirve para que varios enemigos, 
+/// con scripts de ataque distintos, puedan heredar de la misma clase
 /// </summary>
 public interface IAttack
 {
     // ---- MÉTODOS ----
     #region Métodos
 
+    /// <summary>
+    /// Corrutina de ataque (presente en el script de ataque) del enemigo
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Attack();
 
     #endregion   

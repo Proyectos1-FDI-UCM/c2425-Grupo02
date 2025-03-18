@@ -68,7 +68,7 @@ public class Enemy2_Behaviour : Enemy_StateMachine
         _playerPosition = _player.transform.position;
         if (_dirTimer >= 0.25f)
         {
-            _dir = GetDirection((Vector2)transform.position - _playerPosition);
+            _dir = GetDirection((Vector2)transform.position - _playerPosition, _tolerance);
             _dirTimer = 0f;
         }
         else _dirTimer += Time.deltaTime;
