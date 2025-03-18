@@ -27,8 +27,8 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] float MapWidth = 0;
-    [SerializeField] float MapHeight = 0;
+    [SerializeField] float MapWidth = 0f;
+    [SerializeField] float MapHeight = 0f;
     [SerializeField] private GameObject DebugNPC;
 
     #endregion

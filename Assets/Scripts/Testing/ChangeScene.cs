@@ -59,9 +59,13 @@ public class ChangeScene : MonoBehaviour
     {
         GameManager.Instance.ChangeScene(nextScene);
     }
+    public void ChangeToBadEnding()
+    {
+        GameManager.Instance.ChangeScene(10);
+    }
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -69,7 +73,7 @@ public class ChangeScene : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class ChangeScene 
 // namespace

@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private GameObject options;
+    [SerializeField] private TextMeshProUGUI option1Text;
+    [SerializeField] private TextMeshProUGUI option2Text;
 
     #endregion
 
@@ -35,9 +38,11 @@ public class UIManager : MonoBehaviour
 
     //PROTOSISTEMA DE DIÁLOGOS
     private bool dialogueOnGoing = false;
+    private bool optionsOnGoing = false;
     private bool justStarted = false;
     private string currentName;
     private string[] currentDialogues;
+    private string[] currentOptions;
     private int i; //índice para array de diálogos
 
     #endregion
@@ -76,7 +81,7 @@ public class UIManager : MonoBehaviour
         {
             justStarted = false;
         }
-        else if (dialogueOnGoing && InputManager.Instance.InteractWasPressedThisFrame()) //si hay un diálogo en curso y pulsa el botón de interacción
+        else if (dialogueOnGoing && InputManager.Instance.InteractWasPressedThisFrame() && !optionsOnGoing) //si hay un diálogo en curso y pulsa el botón de interacción
                                                                                          //se pasa al siguiente diálogo
         { 
             NextDialogue();
@@ -106,13 +111,23 @@ public class UIManager : MonoBehaviour
     #endregion
 
     //PROTOSISTEMA DE DIÁLOGOS
-    public void InitDialogues(string name, string[] dialogues) //la UI recibe el nombre y los diálogos del NPC y los inicializa en sus atributos correspondientes
+    public void InitDialogues(string name, string[] dialogues, bool decisions) //la UI recibe el nombre y los diálogos del NPC y los inicializa en sus atributos correspondientes
     {
         Debug.Log("dialogue extension:" + dialogues.Length);
         dialogueUI.gameObject.SetActive(true); //activa la caja de diálogos
+        if (!decisions)
+        {
+            options.gameObject.SetActive(false);
+        }
+        else
+        {
+            optionsOnGoing = true;
+            optionsDialogue();
+        }
         currentName = name;
         currentDialogues = new string[dialogues.Length]; //inicializa su array de diálogos con el mismo tamaño que el array del NPC
         Array.Copy(dialogues, 0, currentDialogues, 0, dialogues.Length); //copiamos el array de diálogos del NPC al array de diálogos de la UI para que los pueda usar
+
         i = 0; //inicializamos el índice que se va a usar para pasar los diálogos
 
         //mostramos el nombre y el primer diálogo
@@ -122,7 +137,18 @@ public class UIManager : MonoBehaviour
         dialogueOnGoing = true; //hay un diálogo en curso
         justStarted = true; //acaba de empezar el diálogo
     }
-
+    public void optionsDialogue() //la UI recibe el nombre y los diálogos del NPC y los inicializa en sus atributos correspondientes
+    {
+        Debug.Log("Estamos en lo de options");
+        option1Text.text = "Final malo";
+        option2Text.text = "Nada";
+        options.gameObject.SetActive(true);
+    }
+    public void optionSelected()
+    {
+        optionsOnGoing = false;
+        NextDialogue();
+    }
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     private void Init()
@@ -145,6 +171,7 @@ public class UIManager : MonoBehaviour
     private void EndDialogue()
     {
         dialogueUI.gameObject.SetActive(false); //desactivamos caja de diálogos
+        options.gameObject.SetActive(false);
         dialogueOnGoing = false; //ya no hay un diálogo en curso
         LevelManager.Instance.EnablePlayerControls(); //LevelManager habilita los controles del _player
         LevelManager.Instance.EnableInteractive(); //LevelManager deshabilita que el NPC cambie diálogos

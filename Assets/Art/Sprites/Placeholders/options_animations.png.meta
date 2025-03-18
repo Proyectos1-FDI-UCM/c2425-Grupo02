@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e3903c6aa2115d48817cfd3451a11b8
+guid: f3634de8ba8f8634a8b18603d5ce32ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IramisTorch_0
+      name: options_animations_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 56
+        width: 137
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b1012c9abfb8a749a0b3e3419463ef1
-      internalID: 1790223125
+      spriteID: c6e179819b735fa4490cb05cb372a072
+      internalID: 482943146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IramisTorch_1
+      name: options_animations_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 137
         y: 0
-        width: 48
-        height: 56
+        width: 137
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,92 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f648dbc23e8877645a9cd793972b2223
-      internalID: 1494075096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IramisTorch_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 405fd9a12c42b154e991e77e231542bc
-      internalID: -1975847598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IramisTorch_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a870aaa50e779c448175b94d4675a1b
-      internalID: -1695514359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IramisTorch_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c0a08c63807b9440a7ea2620573737d
-      internalID: 1180723711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IramisTorch_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82184fc05253cb541a527b25f051abfe
-      internalID: -1735736761
+      spriteID: e1ba237f6e8ce144c9a69cda711cc8e8
+      internalID: -1094057381
       vertices: []
       indices: 
       edges: []
@@ -233,12 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IramisTorch_0: 1790223125
-      IramisTorch_1: 1494075096
-      IramisTorch_2: -1975847598
-      IramisTorch_3: -1695514359
-      IramisTorch_4: 1180723711
-      IramisTorch_5: -1735736761
+      options_animations_0: 482943146
+      options_animations_1: -1094057381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

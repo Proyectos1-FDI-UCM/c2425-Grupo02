@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Componente de los nombres y diálogos de  los NPCs correspondientes
-// Lucía Mei Domínguez López
+// Script que cambia la escena del juego al colisionar con un GameObject.
+// Jorge Augusto Blanco Fernandez
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Interactive : MonoBehaviour
+public class SceneExit : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,26 +23,29 @@ public class Interactive : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    #endregion
+    [SerializeField]
+    private int scene;
 
+    #endregion
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private string charName = "NPC"; //nombre NPC
-    private bool interactionDone = false; //si es true, activa los nuevos diálogos
-    private bool canStart = false;
-    //arrays de diálogos
-    private string[] firstDialogues = {"Hola, quiero encargarte una misión.", "Busca 3 paquetes y entrégamelos.", "A ver si los encuentras :P"};
-    private string[] secondDialogues = { "Ya has hablado conmigo, ¿qué más quieres que te diga? :/" };
-    private string[] options = { "Opción 1", "Opción 2" };
-    #endregion
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
 
+    #endregion
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -51,47 +54,26 @@ public class Interactive : MonoBehaviour
     {
         
     }
-    private void OnEnable()
-    {
-        
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        canStart = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        canStart = false;
-    }
+
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        if (canStart && InputManager.Instance.InteractWasPressedThisFrame())
-        {
-            SetDialogues();
-            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
-            LevelManager.Instance.DisableInteractive(); //LevelManager deshabilita que el NPC cambie diálogos
-        }
+        
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void SetDialogues() //el NPC le pasa su nombre y diálogos a la UI
-    {
-        if (!interactionDone) //diálogo que se manda si es la primera vez que interactúa con él
-        {
-            UIManager.Instance.InitDialogues(charName, firstDialogues, false);
-            interactionDone = true;
-        }
-        else //diálogo que se muestra si ya ha interactuado con él
-        {
-            UIManager.Instance.InitDialogues(charName, secondDialogues, true);
-        }
-    }
+    // Documentar cada método que aparece aquí con ///<summary>
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
+    // Ejemplo: GetPlayerController
+
     #endregion
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -99,7 +81,20 @@ public class Interactive : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    /// <summary>
+    /// Si se colisiona con el Player, se llama al GameManager para cambiar a la escena del juego indicada.
+    /// </summary>
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        Debug.Log("adsnmjasdnoas");
 
-} // class Interactive 
+        if (collider2D.GetComponent<Movement>() != null)
+        {
+            GameManager.Instance.ChangeScene(scene);
+        }
+    }
+
+    #endregion   
+
+} // class SceneExit 
 // namespace
