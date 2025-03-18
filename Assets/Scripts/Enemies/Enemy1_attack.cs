@@ -11,29 +11,55 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase de ataque del enemigo. Contiene un método público que se llamará desde el script de comportamiento del enemigo
+/// cuando tenga que atacar. Extiende "IAttack"
 /// </summary>
 public class Enemy1_Attack : MonoBehaviour, IAttack
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] int Damage;            //Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
-    [SerializeField] float AttackCooldown;  //Tiempo que pasa entre cada golpe del ataque
+    /// <summary>
+    /// Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
+    /// </summary>
+    [SerializeField] int Damage;
+    /// <summary>
+    /// Tiempo que pasa entre cada golpe del ataque
+    /// </summary>
+    [SerializeField] float AttackCooldown;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    GameObject _hitbox;                         //Objeto que contiene el collider del ataque (desde ahora será llamado "hitbox" en los comentarios)
-    Rigidbody2D _rb;
-    Enemy_StateMachine _stateMachine;           //Script de movimiento del enemigo
-    Vector2 _dir;                               //Dirección en la que se mueve el enemigo
+    /// <summary>
+    /// Objeto hijo del enemigo que tiene la hitbox del atque
+    /// </summary>
+    GameObject _hitbox;
+    /// <summary>
+    /// Máquina de estados del enemigo
+    /// </summary>
+    Enemy_StateMachine _stateMachine;
+    /// <summary>
+    /// Dirección en la que se mueve el enemigo
+    /// </summary>
+    Vector2 _dir;    
+    /// <summary>
+    /// Número de veces que golpea el enemigo por ataque
+    /// </summary>
+    int _timesAttack = 3;
+    /// <summary>
+    /// Distancia que se mueve la hitbox del centro del enemigo cuando va a golpear
+    /// </summary>
+    float _hitboxOffset = 0.25f;
+    /// <summary>
+    /// Tiempo que está activo el trigger de la hitbox durante cada golpe del ataque
+    /// </summary>
+    float _hitboxActiveTime = 0.1f;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -46,9 +72,12 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
         _hitbox = transform.GetChild(0).gameObject;
         _stateMachine = GetComponent<Enemy_StateMachine>();
         _hitbox.SetActive(false);
-        _rb = GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// Si la hitbox colisiona con el jugador, llama el método para dañarle
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.GetComponent<Player_Health>() != null)
         {
@@ -61,23 +90,24 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     
-    
- 
     /// <summary>
-    /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo.
+    /// Método que llama a la corrutina encargada de activar la hitbox y la desactiva pasado un breve lapso de tiempo 
+    /// (tantas veces como _timesAttack indique).
+    /// Antes de eso, también mueve la hitbox de ataque llamando al método "SetDir"
     /// </summary>
     public IEnumerator Attack() {
         _dir = _stateMachine.GetDir();
-        SetDir(_dir, 0.25f);
+        SetDir(_dir, _hitboxOffset);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < _timesAttack; i++)
         {
             _hitbox.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(_hitboxActiveTime);
             _hitbox.SetActive(false);
             yield return new WaitForSeconds(AttackCooldown);
         }
     }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -108,12 +138,6 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
         }
         _hitbox.transform.localPosition = res;
     }
-
-    /// <summary>
-    /// Corrutina que activa y desactiva la hitbox 3 veces seguidas
-    /// </summary>
-    /// <returns></returns>
-   
 
     #endregion   
 

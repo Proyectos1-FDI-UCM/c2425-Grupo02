@@ -88,11 +88,11 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Tolerancia para salir de las direcciones no diagonales en el metodo "SetDir"
     /// </summary>
-    protected int _tolerance;
+    protected int _tolerance = 15;
     /// <summary>
     /// Indica el tiempo máximo que tiene que pasar para que el enemigo cambie su dirección
     /// </summary>
-    protected float _dirTime;
+    protected float _dirTime = 0.25f;
     /// <summary>
     /// Temporizador que cuenta el tiempo necesario para que el enemigo cambie su dirección de movimiento.
     /// Se aplica en la función "SetDir"
@@ -129,8 +129,7 @@ public class Enemy_StateMachine : MonoBehaviour {
 
     /// <summary>
     /// Se accede al jugador en escena y se accede a los componentes necesarios del enemigo.
-    /// Se entra en el estado "Spawning" y se define "Resting" como _lastState.
-    /// Se definen _tolerance y _dirTime
+    /// Se entra en el estado "Spawning" y se define "Resting" como _lastState
     /// </summary>
     protected virtual void Start() {
         _currentState = State.Spawning;
@@ -141,8 +140,6 @@ public class Enemy_StateMachine : MonoBehaviour {
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
         _spriteRend = GetComponent<SpriteRenderer>();
-        _tolerance = 15;
-        _dirTime = 0.25f;
     }
 
     /// <summary>

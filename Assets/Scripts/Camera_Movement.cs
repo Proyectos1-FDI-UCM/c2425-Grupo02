@@ -21,20 +21,44 @@ public class Camara : MonoBehaviour {
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
+    /// <summary>
+    /// LevelManager de la escena
+    /// </summary>
     LevelManager _level;
+    /// <summary>
+    /// Jugador en la escena
+    /// </summary>
     GameObject _player;
+    /// <summary>
+    /// Posición del jugador en la escena
+    /// </summary>
     Vector2 _playerPosition;
+    /// <summary>
+    /// Componente camera
+    /// </summary>
     Camera _cam;
+    /// <summary>
+    /// Longitud horizontal del mapa (límite horizontal)
+    /// </summary>
     float _xLimit;
+    /// <summary>
+    /// Longitud vertical del mapa (límite vertical)
+    /// </summary>
     float _yLimit;
-    Vector2 _maxDistance = new Vector2(15, 15);       //Máxima distancia que se puede separar la cámara del jugador
+    /// <summary>
+    /// Máxima distancia que se puede separar la cámara del jugador antes de transportarse directamente a él
+    /// </summary>
+    Vector2 _maxDistance = new Vector2(15, 15);
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
+    /// <summary>
+    /// Se obtienen componentes de la cámara, así como el level manager y jugador de la escena.
+    /// Se establecen los límites del mapa.
+    /// </summary>
     void Start() {
         _cam = GetComponent<Camera>();
         _level = FindObjectOfType<LevelManager>();
@@ -47,7 +71,7 @@ public class Camara : MonoBehaviour {
     }
 
     /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// En cada frame (fijo) se llama a "MoveCamera"
     /// </summary>
     void FixedUpdate() {
         MoveCamera();
