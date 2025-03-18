@@ -45736,7 +45736,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 28
-      m_TileSpriteIndex: 44
+      m_TileSpriteIndex: 45
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -46516,7 +46516,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 30
-      m_TileSpriteIndex: 43
+      m_TileSpriteIndex: 44
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -49893,12 +49893,12 @@ Tilemap:
     m_Data: {fileID: 14059995, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1097541922, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1526509673, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 521301402, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1789138215, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 2
@@ -101866,9 +101866,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e33e01ec70e04582af05f46ca63b3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapWidth: 100
-  MapHeight: 100
-  DebugNPC: {fileID: 0}
+  MapWidth: 75
+  MapHeight: 60
+  NPC: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
