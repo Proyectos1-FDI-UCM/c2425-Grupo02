@@ -1,6 +1,6 @@
 // ---------------------------------------------------------
 // Componente de movimiento del jugador
-// Isabel Serrano Martín
+// Isabel Serrano Martín y Lucía Mei Domínguez López
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -19,15 +19,21 @@ public class Movement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] private float Speed = 1.0f; //velocidad de movimiento
+    /// <summary>
+    /// Velocidad del movimiento
+    /// </summary>
+    [SerializeField] private float Speed = 1.0f; 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Rigidbody2D rb; //rigidbody para colisiones
+
+    /// <summary>
+    /// Rigidbody para el movimiento
+    /// </summary>
+    private Rigidbody2D rb; 
     private Animator animator;
     private Dash dash;
-    private int control = 1;
     private Vector2 lastDir;
     private Vector2 lastDir2;
     //private bool outsideScene;    Para cuando tengamos que mantener la toroidalidad activada solo si es un espacio exterior
@@ -41,7 +47,8 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>(); //inicializamos rigidbody
+        //inicializamos rigidbody
+        rb = GetComponent<Rigidbody2D>(); 
         animator = GetComponent<Animator>();
         dash = GetComponent<Dash>();    //tomamos el código del dash
     }
@@ -67,11 +74,15 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
+    
+
     void FixedUpdate()
     {
         lastDir = GetLastDir();
 
-        Vector2 movement = InputManager.Instance.MovementVector * Speed * control;
+        Vector2 movement = InputManager.Instance.MovementVector * Speed;
+
+        //hacerlo con rb.velocity
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
 
         animator.SetFloat("moveX", lastDir.x);

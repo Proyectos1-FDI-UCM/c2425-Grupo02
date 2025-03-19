@@ -10,15 +10,17 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Gestiona la vida del jugador, contiene métodos que suman o quitan vida
+/// dependiendo de con qué colisiona el jugador
 /// </summary>
 public class Player_Health : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    //cantidad de vidas del jugador
+    /// <summary>
+    /// Cantidad de vidas del jugador
+    /// </summary>
     [SerializeField]
     private int Health;
 
@@ -32,16 +34,6 @@ public class Player_Health : MonoBehaviour
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// Inicialización de las vidas del jugador    
-    /// </summary>
-    void Start()
-    {
-        Health = 3; 
-    }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -50,6 +42,7 @@ public class Player_Health : MonoBehaviour
     /// <summary>
     /// Curación del jugador utilizando objetos del juego.
     /// </summary>
+    ///  <param name="HealthAdded"> Número que se le va a sumar a Health </param>
     public void Heal(int HealthAdded)
     {
         Health += HealthAdded;
