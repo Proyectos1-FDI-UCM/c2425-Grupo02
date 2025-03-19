@@ -35656,8 +35656,8 @@ Tilemap:
   - first: {x: 1, y: -49, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 18
-      m_TileSpriteIndex: 18
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -78195,8 +78195,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: e9cff0de36903a04f8ccb4aebe0caa2c, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 7e8ab7733c4af0741a9dd00237970336, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 4cf4d1cd42e99fc4d9ed6692e9642368, type: 2}
   - m_RefCount: 4
@@ -78211,7 +78211,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7b485400613151e419fae5bfc8e31383, type: 2}
   - m_RefCount: 716
     m_Data: {fileID: 11400000, guid: 9e9121f57940abe4f93208f1b7c5dd27, type: 2}
-  - m_RefCount: 42
+  - m_RefCount: 41
     m_Data: {fileID: 11400000, guid: 328f2cb18f2717b4d8daf349b640626e, type: 2}
   - m_RefCount: 44
     m_Data: {fileID: 11400000, guid: 979060a3a758dee42863c3c0c0a746a5, type: 2}
@@ -78250,8 +78250,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1196168164, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -258682754, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 14
@@ -78266,7 +78266,7 @@ Tilemap:
     m_Data: {fileID: -87085347, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 716
     m_Data: {fileID: -352887074, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
-  - m_RefCount: 42
+  - m_RefCount: 41
     m_Data: {fileID: -1845607101, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 44
     m_Data: {fileID: 204624192, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
@@ -103505,7 +103505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 124
   MapHeight: 120
-  DebugNPC: {fileID: 0}
+  NPC: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
