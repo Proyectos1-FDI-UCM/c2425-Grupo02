@@ -27,13 +27,17 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     /// <summary>
-    /// MapWidth -> ancho del mapa de la escena
-    /// MapHeight -> alto del mapa de la escena
-    /// NPC -> gameObject del NPC interactuable
+    /// Ancho del mapa de la escena
     /// </summary>
     [SerializeField] float MapWidth;
+    /// <summary>
+    /// alto del mapa de la escena
+    /// </summary>
     [SerializeField] float MapHeight;
-    [SerializeField] GameObject NPC;
+    /// <summary>
+    /// Array de NPCs interactuables
+    /// </summary>
+    [SerializeField] GameObject[] NPCs;
 
     #endregion
 
@@ -83,13 +87,6 @@ public class LevelManager : MonoBehaviour
             return _instance;
         }
     }
-    /*
-    Para cuando tengamos que mantener la toroidalidad activada solo si es un espacio exterior
-    public bool Outside()
-    {
-        return SceneManager.GetActiveScene().buildIndex == (índice escena);
-    }
-    */
 
     /// <summary>
     /// Devuelve las dimensiones del mapa de la escena
@@ -110,11 +107,14 @@ public class LevelManager : MonoBehaviour
         _player.GetComponent<Dash>().enabled = true;
     }
     /// <summary>
-    /// Activa el NPC para que actualice los diálogos
+    /// Activa los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
     /// </summary>
     public void EnableNPC()
     {
-        NPC.GetComponent<Minos>().enabled = true;
+        foreach (GameObject NPC in NPCs)
+        {
+            NPC.GetComponent<Interactive>().enabled = true;
+        }
     }
     /// <summary>
     /// Desactiva los controles del player
@@ -127,12 +127,14 @@ public class LevelManager : MonoBehaviour
         _player.GetComponent<Dash>().enabled = false;
     }
     /// <summary>
-    /// Desactiva el NPC. Es necesario para que el NPC no actualice los diálogos mientras hay un diálogo en curso, así que 
-    /// NO BORRAR
+    /// Desactiva los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
     /// </summary>
     public void DisableNPC()
     {
-        NPC.GetComponent<Minos>().enabled = false;
+        foreach (GameObject NPC in NPCs)
+        {
+            NPC.GetComponent<Interactive>().enabled = false;
+        }
     }
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -146,11 +148,6 @@ public class LevelManager : MonoBehaviour
     {
         return _instance != null;
     }
-
-
-
-   
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -164,11 +161,6 @@ public class LevelManager : MonoBehaviour
     {
         // De momento no hay nada que inicializar
     }
-
-    
-  
-
-
     #endregion
 } // class LevelManager 
   // namespace

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8657037399419366107}
   - component: {fileID: -5939631738169499955}
   - component: {fileID: 2759214053293523838}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: interactive_NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2b0a64588922744ad546334288c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueScripts: []
 --- !u!61 &2759214053293523838
 BoxCollider2D:
   m_ObjectHideFlags: 0
