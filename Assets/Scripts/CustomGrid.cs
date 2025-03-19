@@ -20,11 +20,26 @@ public class CustomGrid {
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Vector2 _origin;             //Vector con la posición de origen local
-    int _width;                     //Anchura de la cuadrícula
-    int _length;                    //Altura de la cuadrícula
-    int _cellSize;                  //Tamaño de cada celda del grid
-    Vector2[,] _cells;           //Array bidimiensional con la posición central de cada celda en coordenadas locales o globales, dependiendo del constructor
+    /// <summary>
+    /// Origen del objeto que cotiene el grid
+    /// </summary>
+    Vector2 _origin;         
+    /// <summary>
+    /// Anchira de la cudrícula
+    /// </summary>
+    int _width;          
+    /// <summary>
+    /// Altura de la cuadrícula
+    /// </summary>
+    int _length;
+    /// <summary>
+    /// Tamaño de cada celda
+    /// </summary>
+    int _cellSize;
+    /// <summary>
+    /// Array que contiene las celdas
+    /// </summary>
+    Vector2[,] _cells;          
 
     #endregion
 
@@ -34,7 +49,7 @@ public class CustomGrid {
     //Constructor
 
     /// <summary>
-    /// Constructor no asociado a un GameObject. Las coordenadas de las celdas son globales
+    /// Constructor no asociado a un GameObject.
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
     /// <param name="length"> Alto de la cuadrícula </param>
@@ -55,7 +70,7 @@ public class CustomGrid {
     }
 
     /// <summary>
-    /// Constructor asociado a un GameObject. Las posiciones de las celdas son locales del GameObject
+    /// Constructor asociado a un GameObject.
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
     /// <param name="length"> Alto de la cuadrícula </param>
@@ -80,6 +95,10 @@ public class CustomGrid {
 
     //Getters
 
+    /// <summary>
+    /// Devuelve 
+    /// </summary>
+    /// <returns></returns>
     public Vector2 GetOrigin() {
         return _origin;
     }
