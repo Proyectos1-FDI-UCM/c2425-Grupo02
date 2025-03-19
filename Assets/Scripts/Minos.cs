@@ -78,19 +78,21 @@ public class Minos : Interactive
             { "Oye, tú, se nos han perdido unos paquetes.",
             "Tienes que buscarlos que buscarlos en el bosque ese que huele a choto.",
             "¿A qué esperas? Mueve el culo. -_-" };
+            UIManager.Instance.InitDialogues(Name, Dialogues, false);
         }
         else if(GameManager.Instance.QuestState == 1)
         {
             Dialogues = new string[]
             { "¿Qué haces aquí? Todavía te faltan paquetes." };
+            UIManager.Instance.InitDialogues(Name, Dialogues, true);
         }
         else if (GameManager.Instance.QuestState == 2)
         {
             Dialogues = new string[]
             { "Madre mía, ¡¡¡has tardado un siglo para traerme unos malditos paquetes!!!",
             "Espabila, que la vida te va a comer."};
+            UIManager.Instance.InitDialogues(Name, Dialogues, false);
         }
-        UIManager.Instance.InitDialogues(Name, Dialogues, false);
     }
 
     #endregion

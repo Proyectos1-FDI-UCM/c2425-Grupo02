@@ -41,7 +41,23 @@ public class Interactive : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        CanStart = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CanStart = false;
+    }
+    void Update()
+    {
+        if (CanStart && InputManager.Instance.InteractWasPressedThisFrame())
+        {
+            SetDialogues();
+            LevelManager.Instance.DisablePlayerControls(); //LevelManager deshabilita los controles
+            LevelManager.Instance.DisableNPC();
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
