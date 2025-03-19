@@ -707,7 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 30
   MapHeight: 20
-  DebugNPC: {fileID: 0}
+  NPC: {fileID: 0}
 --- !u!4 &1687490901
 Transform:
   m_ObjectHideFlags: 0
@@ -798,11 +798,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.x
-      value: 12.123339
+      value: 2.3849277
       objectReference: {fileID: 0}
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.y
-      value: 6.173647
+      value: 2.355748
       objectReference: {fileID: 0}
     - target: {fileID: 175193201247443623, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Name
@@ -812,13 +812,17 @@ PrefabInstance:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 2679976604082022759, guid: c02dc88698d6c5144b479523a0da20f2, type: 3}
+    - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
+      propertyPath: EnemyNumber
+      value: 80000
+      objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.091104
+      value: 3.6473
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2267
+      value: 0.5912
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z

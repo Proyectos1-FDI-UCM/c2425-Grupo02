@@ -10,8 +10,10 @@ using UnityEngine;
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase que define una cuadrícula conformada por celdas.
+/// Las celdas se guardan en un array bidimensional en el que los índices coinciden con la posición relativa
+/// de cada celda en la cuadrícula.
+/// Cada celda contiene un vector con las coordenadas (globales) de su centro
 /// </summary>
 public class CustomGrid {
 

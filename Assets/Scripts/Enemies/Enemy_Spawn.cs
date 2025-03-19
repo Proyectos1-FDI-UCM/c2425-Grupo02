@@ -9,39 +9,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Random = UnityEngine.Random;
-// Añadir aquí el resto de directivas using
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase que se encarga de definir un a zona en la que spawnean enemigos aleatoriamente.
+/// Desde el editor se define una zona mediante un sprite, y se indican un tipo de enemigo, el número de enemigos
+/// que se spawnean por iteración y el número de iteraciones.
+/// Cada vez que se derrotan a todos los enemigos de una iteración salen a la vez todos los de la siguiente iteración
 /// </summary>
 public class Enemy_Spawn : MonoBehaviour {
 
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] GameObject Enemy;                      //Enemigo qque se va a instanciar por tanda
-    [SerializeField] int EnemyNumber;                       //Número de enemigos que se van a instanciar por tanda
-    [SerializeField] int Iterations;                        //Número de tandas de enemigos que se quieren instanciar
-    [SerializeField] List<Vector2Int> BannedCells = new();  //Lista con las celdas en las que no pueden aparecer enemigos
+    /// <summary>
+    /// Enemigo que se va a instanciar
+    /// </summary>
+    [SerializeField] GameObject Enemy;
+    /// <summary>
+    /// Número de enemigos que se van a spawnear
+    /// </summary>
+    [SerializeField] int EnemyNumber;
+    /// <summary>
+    /// Número de iteraciones del spawn
+    /// </summary>
+    [SerializeField] int Iterations;
+    /// <summary>
+    /// Lista con las celdas en las que no pueden spawnear enemigos
+    /// </summary>
+    [SerializeField] List<Vector2Int> BannedCells = new();
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
+    /// <summary>
+    /// Sprite de la zona del spawn
+    /// </summary>
     SpriteRenderer _sprite;
-    CustomGrid _grid;                           //Cuadrícula
-    Dictionary<int, Vector2> _cellDict;         //Diccionario con la posición de cada celda asociada a un índice
-    List<int> _universe;                        //Lista con números del 0 a EnemyNumber
-    HashSet<Vector2Int> _bannedCells = new();   //Conversióna set de BannedCells
-    int _gridWidth;                              //Ancho de la cuadrícula que define la zona de spawn
-    int _gridLength;                            //Alto de la cuadrícula que define la zona de spawn
-    int _currentIteration = 0;                  //Número de tanda de enemigos
-    int _currentEnemies;                        //Número de enemigos actualmente vivos en escena instanciados por este spawn
-    //bool _firstEnabled = false;               //Booleano que indica si se ha activado la zone de spawn por primera vez
-
+    /// <summary>
+    /// Cuadrícula que delimita la zona de spawn
+    /// </summary>
+    CustomGrid _grid;
+    /// <summary>
+    /// Diccionario que asigna a un índice a cada celda en la que puede spawnear un enemigo
+    /// </summary>
+    Dictionary<int, Vector2> _cellDict;
+    /// <summary>
+    /// Lista de celdas en las que no puede spawnear un enemigo
+    /// </summary>
+    HashSet<Vector2Int> _bannedCells = new();
+    /// <summary>
+    /// Universo de celdas disponibles, para calcular la pool de celdas disponibles en las que pueden instanciarse enemigos.
+    /// Esto es para que no salgan dos enemigos en la misma celda
+    /// </summary>
+    List<int> _universe;
+    /// <summary>
+    /// Ancho de la cuadrícula
+    /// </summary>
+    int _gridWidth; 
+    /// <summary>
+    /// Alto de la cuadrícula
+    /// </summary>
+    int _gridLength;   
+    /// <summary>
+    /// Iteración actual del spawn (empieza siempre en 0)
+    /// </summary>
+    int _currentIteration = 0; 
+    /// <summary>
+    /// Enemigos vivos spawneados por el spawn
+    /// </summary>
+    int _currentEnemies;                       
+    
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -52,8 +91,8 @@ public class Enemy_Spawn : MonoBehaviour {
     // - Hay que borrar los que no se usen 
 
     /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
+    /// Se obtienen los componentes del objeto necesarios y se limita el número de enemigos a spawnear para que no se rompa.
+    /// También se calcula el diccionario de celdas disponibles
     /// </summary>
     void Start() {
         _sprite = GetComponent<SpriteRenderer>();
@@ -67,7 +106,6 @@ public class Enemy_Spawn : MonoBehaviour {
         if (EnemyNumber < 0) EnemyNumber = 0;
         _bannedCells = BannedCells.ToHashSet();
         SetDict();
-        SetUniverse();
 
         //Debug
         SpawnEnemies();
@@ -78,6 +116,9 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
+    /// <summary>
+    /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactiva el spawn
+    /// </summary>
     public void SubstractEnemy() {
         _currentEnemies--;
         if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies();
@@ -89,7 +130,7 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     /// <summary>
-    /// Método que se encarga de instanciar enemigos
+    /// Método que se encarga de instanciar enemigos y avanzar de iteración
     /// </summary>
     void SpawnEnemies() {
         List<int> spawnList = SpawnList();
@@ -106,6 +147,8 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <summary>
     /// Método que dado un número de enemigos devuelve un arrray de enteros con los índices a los que deberá acceder la función
     /// SpawnEnemies en _tileDict para saber en qué tiles instanciar a los enemigos
+    ///
+    /// También se encarga de obtener una lista con todas las celdas que no se encuentren en _bannedCells (universo)
     /// </summary>
     /// <param name="enemy_n"> número de enemigos que se van a instanciar </param>
     /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
@@ -121,8 +164,12 @@ public class Enemy_Spawn : MonoBehaviour {
         return res;
     }
 
+    /// <summary>
+    /// Método que se encarga de obtener un diccionario que asigna un índice a cada celda que no se encuentre en _bannedCells
+    /// </summary>
     void SetDict() {
         _cellDict = new Dictionary<int, Vector2>();
+        _universe = new List<int>();
 
         int it = 0;
         for (int i = 0; i < _gridWidth; i++)
@@ -132,20 +179,19 @@ public class Enemy_Spawn : MonoBehaviour {
                 if (!_bannedCells.Contains(new Vector2Int(i, j)))
                 {
                     _cellDict[it] = _grid.GetCells()[i, j];
+                    _universe.Add(it);
                     it++;
                 }
             }
         }
     }
 
-    void SetUniverse() {
-        _universe = new List<int>(_cellDict.Count);
-        for (int i = 0; i < _cellDict.Count; i++)
-        {
-            _universe.Add(i);
-        }
-    }
-
+    /// <summary>
+    /// Método que se encarga de obtener la lista complementaria de una lista respecto a un universo
+    /// </summary>
+    /// <param name="list"> Lista de la que se va a calcular la complementaria </param>
+    /// <param name="U"> Lista universo </param>
+    /// <returns></returns>
     List<int> GetComplementary(List<int> list, List<int> U) {
         List<int> res = U.Except(list).ToList();
         return res;
