@@ -15,10 +15,27 @@ MonoBehaviour:
   Name: Minos
   Sprite: {fileID: 21300000, guid: 8432f8297ec9970498be56ddce28300e, type: 3}
   Lines:
-  - DialogueText: "Oye, t\xFA, se nos han perdido unos paquetes."
+  - DialogueText: "Buenas. \xBFQui\xE9n eres?"
     Options: []
-  - DialogueText: Tienes que buscarlos en el bosque ese que huele a choto.
+  - DialogueText: "Yo soy Minos, el portero del sitio ese que ves ah\xED detr\xE1s.
+      Hoy celebramos una fiesta organizada por Iramis."
     Options: []
-  - DialogueText: "\xBFA qu\xE9 esperas? Mueve el culo"
+  - DialogueText: "Ella es la que lleva las tiendas aqu\xED, es una mujer... interesante."
     Options: []
+  - DialogueText: "Es una s\xFAcubo, mejor dicho. Le gusta organizar fiestas con
+      \"sorpresa\"."
+    Options: []
+  - DialogueText: "Mira, se nos han perdido unos paquetes *important\xEDsimos* para
+      la fiesta."
+    Options: []
+  - DialogueText: "Se los ha llevado la tormenta al bosque que est\xE1 al este de
+      aqu\xED."
+    Options: []
+  - DialogueText: "Si consigues los paquetes y me los traes te dejo pasar, \xBFtrato
+      hecho?"
+    Options:
+    - OptionText: De acuerdo
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
+    - OptionText: Altoke mirey
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
   Ending: 0
