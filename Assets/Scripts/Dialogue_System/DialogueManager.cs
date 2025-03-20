@@ -148,6 +148,10 @@ public class DialogueManager : MonoBehaviour
                 _currentDialogue = dialogueScripts[2];
             }
         }
+        else
+        {
+            _currentDialogue = dialogueScripts[0];
+        }
     }
     /// <summary>
     /// Inicializa el índice de líneas de diálogo a 0 y muestra el nombre, el sprite y la primera línea de diálogo en pantalla
