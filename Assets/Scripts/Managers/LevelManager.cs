@@ -37,8 +37,6 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// Array de NPCs interactuables
     /// </summary>
-    [SerializeField] GameObject[] NPCs;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -111,9 +109,10 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void EnableNPC()
     {
-        foreach (GameObject NPC in NPCs)
+        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        foreach (Interactive NPC in NPCs)
         {
-            NPC.GetComponent<Interactive>().enabled = true;
+            NPC.enabled = true;
         }
     }
     /// <summary>
@@ -131,9 +130,10 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void DisableNPC()
     {
-        foreach (GameObject NPC in NPCs)
+        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        foreach (Interactive NPC in NPCs)
         {
-            NPC.GetComponent<Interactive>().enabled = false;
+            NPC.enabled = false;
         }
     }
     /// <summary>
