@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: MissionCompleted
   m_EditorClassIdentifier: 
   Name: Minos
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 8432f8297ec9970498be56ddce28300e, type: 3}
   Lines:
   - DialogueText: "Madre m\xEDa, \xA1\xA1\xA1has tardado un siglo para traerme unos
       malditos paquetes!!!"
     Options: []
   - DialogueText: Espabila, que la vida te va a comer.
     Options: []
+  Ending: 0

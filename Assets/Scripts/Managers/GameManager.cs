@@ -123,14 +123,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    /// <summary>
-    /// Devuelve cierto si la instancia del singleton está creada y
-    /// falso en otro caso.
-    /// Lo normal es que esté creada, pero puede ser útil durante el
-    /// cierre para evitar usar el GameManager que podría haber sido
-    /// destruído antes de tiempo.
-    /// </summary>
-    /// <returns>Cierto si hay instancia creada.</returns>
 
     /// <summary>
     /// Getter para obtener el estado de la misión

@@ -45,11 +45,11 @@ public class UIManager : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// 
-    /// Desactiva el canvas de diálogos y de misión al inicio
+    /// Desactiva el canvas de diálogos, opciones y de misión al inicio
     /// </summary>
     void Start()
     {
-        MissionCompletedCanvas.gameObject.SetActive(false); //interfaz desactivada
+        MissionCompletedCanvas.gameObject.SetActive(false);
         dialogueUI.SetActive(false);
     }
     #endregion
@@ -87,6 +87,9 @@ public class UIManager : MonoBehaviour
     {
         dialogueUI.SetActive(false);
     }
+
+
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

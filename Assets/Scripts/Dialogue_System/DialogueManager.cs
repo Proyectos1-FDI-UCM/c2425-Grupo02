@@ -9,6 +9,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static DialogueScript;
 // Añadir aquí el resto de directivas using
 
 
@@ -20,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private TextMeshProUGUI NameText;
-    [SerializeField] private Image DialogueSprite;
+    [SerializeField]private Image DialogueSprite;
     [SerializeField] private TextMeshProUGUI DialogueText;
     [SerializeField] private GameObject Options;
     [SerializeField] private TextMeshProUGUI Option1Text;
@@ -30,6 +31,12 @@ public class DialogueManager : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private static DialogueManager _instance;
+    private DialogueOption _currentOption1;
+    private DialogueOption _currentOption2;
+
+    /// <summary>
+    /// Diálogo actual que se muestra en la UI
+    /// </summary>
     private DialogueScript _currentDialogue;
     /// <summary>
     /// Indica si hay un diálogo en curso. Sirve para poder pasar diálogos solo si hay diálogoss
@@ -58,6 +65,10 @@ public class DialogueManager : MonoBehaviour
             // Somos la primera y única instancia
             _instance = this;
         }
+    }
+    private void Start()
+    {
+        Options.SetActive(false);
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -100,42 +111,24 @@ public class DialogueManager : MonoBehaviour
         return _instance != null;
     }
     /// <summary>
-    /// Elige qué diálogos muestra y establece el nombre del personaje, el sprite y la línea de diálogo. Indica que hay un diálogo en curso y que acaba de empezar
+    /// Elige qué diálogos muestra y establece el nombre del personaje, el sprite y la línea de diálogo. 
+    /// Luego indica que hay un diálogo en curso y que acaba de empezar.
     /// </summary>
     /// <param name="dialogueScripts"></param>
-    public void InitDialogues(DialogueScript[] dialogueScripts)
+    public void StartInteraction(DialogueScript[] dialogueScripts)
     {
         ChooseDialogue(dialogueScripts);
-        _i = 0;
-        NameText.text = _currentDialogue.CharName;
-        DialogueSprite.sprite = _currentDialogue.CharSprite;
-        DialogueText.text = _currentDialogue.CharDialogue[_i].CharLine;
+        InitDialogues();
         _dialogueOnGoing = true;
         _justStarted = true;
-    }
-
-    public void optionsDialogue()
-    {
-        Debug.Log("Estamos en lo de options");
-        Option1Text.text = "Final malo";
-        Option2Text.text = "Nada";
-        Options.gameObject.SetActive(true);
-    }
-    public void optionSelected()
-    {
-        _optionsOnGoing = false;
-        NextLine();
     }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+
     /// <summary>
-    /// Elige qué diálogo va a mostrar según el estado del juego
+    /// Elige qué diálogo va a mostrar según el nombre del personaje y el estado del juego
     /// </summary>
     /// <param name="dialogueScripts"></param>
     private void ChooseDialogue(DialogueScript[] dialogueScripts)
@@ -157,30 +150,103 @@ public class DialogueManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// Si se encuentra en el último diálogo, pasa al siguiente, pero si no finaliza el diálogo
+    /// Inicializa el índice de líneas de diálogo a 0 y muestra el nombre, el sprite y la primera línea de diálogo en pantalla
+    /// </summary>
+    private void InitDialogues()
+    {
+        _i = 0;
+        NameText.text = _currentDialogue.CharName;
+        DialogueSprite.sprite = _currentDialogue.CharSprite;
+        DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
+    }
+
+    /// <summary>
+    /// Si no se encuentra en la última línea de diálogo, pasa al siguiente. 
+    /// En caso contrario, carga las opciones si hay o termina el diálogo si no las hay
     /// </summary>
     private void NextLine()
     {
-        if (_i < _currentDialogue.CharDialogue.Length - 1)
+        if (_i < _currentDialogue.CharLines.Length - 1)
         {
             _i++;
-            DialogueText.text = _currentDialogue.CharDialogue[_i].CharLine;
+            DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
+        }
+        else if (_currentDialogue.CharLines[_i].CharOptions.Length > 0)
+        {
+            LoadOptions();
         }
         else
         {
             EndDialogue();
         }
     }
-
     /// <summary>
-    /// Al final el diálogo, se desactiva la caja de diálogos, se indica que ya no hay un diálogo en curso, el levelmanager habilita los controles del player,
-    /// habilita al NPC para que pueda actualizar sus diálogos y se actualiza el estado del juego.
+    /// Muestra UI de decisiones
+    /// </summary>
+    private void ShowOptions()
+    {
+        Options.SetActive(true);
+    }
+    /// <summary>
+    /// Oculta UI de decisiones
+    /// </summary>
+    private void HideOptions()
+    {
+        Options.SetActive(false);
+    }
+    /// <summary>
+    /// Se muestra la UI de decisiones, se borran los listeners de los botones, asignamos la opción correspondiente a cada botón
+    /// y se le añade un listener que se usará para cargar el siguiente diálogo. Después, se asigna el valor de las opciones 1 y 2 actuales
+    /// y se muestran sus textos correspondientes en pantalla
+    /// </summary>
+    private void LoadOptions()
+    {
+        Options.SetActive(true);
+        Button[] buttons = Options.GetComponentsInChildren<Button>();
+        for (int i = 0; i < buttons.Length; i++) 
+        {
+            buttons[i].onClick.RemoveAllListeners();
+            DialogueOption chosenOption = _currentDialogue.CharLines[_i].CharOptions[i];
+            buttons[i].onClick.AddListener(() => LoadNextDialogue(chosenOption));
+        }
+        _optionsOnGoing = true;
+        _currentOption1 = _currentDialogue.CharLines[_i].CharOptions[0];
+        _currentOption2 = _currentDialogue.CharLines[_i].CharOptions[1];
+        Option1Text.text = _currentOption1.CharOptionText;
+        Option2Text.text = _currentOption2.CharOptionText;
+    }
+    /// <summary>
+    /// Carga el siguiente diálogo según la decisión que haya tomado el jugador, oculta la UI de decisiones, inicializa el siguiente diálogo
+    /// y marca que ya no hay opciones en curso
+    /// </summary>
+    private void LoadNextDialogue(DialogueOption option)
+    {
+        if (option == _currentOption1)
+        {
+            _currentDialogue = _currentOption1.Next;
+        }
+        else
+        {
+            _currentDialogue = _currentOption2.Next;
+        }
+        HideOptions();
+        InitDialogues();
+        _optionsOnGoing = false;
+    }
+    /// <summary>
+    /// Si el diálogo lleva a un final del juego, carga la escena que te muestra qué final has obtenido.
+    /// Al final del diálogo, se desactiva la caja de diálogos, se indica que ya no hay un diálogo en curso, 
+    /// el levelmanager habilita los controles del player y
+    /// habilita al NPC para que pueda actualizar sus diálogos y el GameManager actualiza el estado del juego.
     /// </summary>
     private void EndDialogue()
     {
-        UIManager.Instance.HideDialogueUI();
-        Options.gameObject.SetActive(false);
+        if (_currentDialogue.GameEnding == true)
+        {
+            GameManager.Instance.ChangeScene(10);
+        }
         _dialogueOnGoing = false;
+        UIManager.Instance.HideDialogueUI();
         LevelManager.Instance.EnablePlayerControls();
         LevelManager.Instance.EnableNPC();
         GameManager.Instance.UpdateState();

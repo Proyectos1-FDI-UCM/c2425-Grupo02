@@ -18,6 +18,8 @@ public class DialogueScript : ScriptableObject
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private string Name;
     [SerializeField] private Sprite Sprite;
+    [SerializeField] private DialogueLine[] Lines;
+    [SerializeField] private bool Ending;
 
     /// <summary>
     /// CLase para la línea de diálogo. Contiene la línea de diálogo y el array de opciones
@@ -30,9 +32,13 @@ public class DialogueScript : ScriptableObject
         /// <summary>
         /// Getter para obtener la línea de diálogo del NPC
         /// </summary>
-        public string CharLine
+        public string CharLineText
         {
             get { return DialogueText; }
+        }
+        public DialogueOption[] CharOptions
+        {
+            get { return Options; }
         }
     }
     /// <summary>
@@ -42,10 +48,25 @@ public class DialogueScript : ScriptableObject
     public class DialogueOption
     {
         [SerializeField] [TextArea(2, 5)] private string OptionText;
+        /// <summary>
+        /// El siguiente diálogo que se carga después de elegir una opción
+        /// </summary>
         [SerializeField] private DialogueScript NextDialogue;
+        /// <summary>
+        /// Getter del texto de opción
+        /// </summary>
+        public string CharOptionText
+        {
+            get { return OptionText; }
+        }
+        /// <summary>
+        /// Getter del siguiente diálogo
+        /// </summary>
+        public DialogueScript Next
+        {
+            get { return NextDialogue; }
+        }
     }
-
-    [SerializeField] private DialogueLine[] Lines;
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -67,9 +88,13 @@ public class DialogueScript : ScriptableObject
     /// <summary>
     /// Getter para obtener los diálogos del NPC
     /// </summary>
-    public DialogueLine[] CharDialogue
+    public DialogueLine[] CharLines
     {
         get { return Lines; }
+    }
+    public bool GameEnding
+    {
+        get { return Ending; }
     }
     #endregion
 } // class DialogueScript 
