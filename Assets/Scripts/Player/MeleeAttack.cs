@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -107,6 +108,11 @@ public class MeleeAttack : MonoBehaviour
             if(collider.GetComponent<Enemy_Health>() != null)
             {
                 collider.GetComponent<Enemy_Health>().Damage(damage);
+            }
+
+            if (collider.GetComponent<Pillar>() != null)
+            {
+                collider.GetComponent<Pillar>().Damage(damage);
             }
         }
 
