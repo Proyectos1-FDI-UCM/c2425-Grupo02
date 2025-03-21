@@ -234,6 +234,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &247501391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: DialogueScripts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: DialogueScripts.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: bd7f881f3aa4e9b41b195768c2ea44aa, type: 2}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: DialogueScripts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 42e954aa41f10b84384a15c76045b650, type: 2}
+    - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Name
+      value: SporaOutParty
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1764418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Color.r
+      value: 0.41438395
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a102c922515be3e47b9de16aa069e773, type: 3}
 --- !u!114 &337169882 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5712073308370871497, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
@@ -417,11 +498,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &534879130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
-  m_PrefabInstance: {fileID: 819046914}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &656303764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24906,8 +24982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 36
   MapHeight: 26
-  NPCs:
-  - {fileID: 534879130}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
@@ -25390,3 +25464,4 @@ SceneRoots:
   - {fileID: 7975473956328002048}
   - {fileID: 819046914}
   - {fileID: 1403788603}
+  - {fileID: 247501391}

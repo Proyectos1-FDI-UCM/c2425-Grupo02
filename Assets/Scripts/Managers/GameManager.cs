@@ -42,12 +42,13 @@ public class GameManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// _questObjectsCount -> contador objetos de misión
     /// _questState -> indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
+    /// -dialogueState -> indica las veces que has hablado con un mismo NPC
     /// </summary>
     private static GameManager _instance;
     private int _questObjectsCount;
     private UIManager _uiManager;
     private int _questState = 0;
-
+    private int _dialogueState = 0;
 
     #endregion
 
@@ -131,6 +132,11 @@ public class GameManager : MonoBehaviour
     {
         get { return _questState; }
     }
+
+    public int DialogueState
+    {
+        get { return _dialogueState; }
+    }
     /// <summary>
     /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
     /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
@@ -141,6 +147,17 @@ public class GameManager : MonoBehaviour
         {
             _questState = 1;
         }
+
+        if (_dialogueState == 0)
+        {
+            _dialogueState = 1;
+        }
+        else
+        {
+            _dialogueState = 2;
+        }
+
+
     }
 
     ///<summary>

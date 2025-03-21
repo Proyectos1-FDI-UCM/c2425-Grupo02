@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
     /// índice para el array de diálogos
     /// </summary>
     private int _i;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -118,6 +119,7 @@ public class DialogueManager : MonoBehaviour
     public void StartInteraction(DialogueScript[] dialogueScripts)
     {
         ChooseDialogue(dialogueScripts);
+        DialoguesNumber(dialogueScripts);
         InitDialogues();
         _dialogueOnGoing = true;
         _justStarted = true;
@@ -152,6 +154,43 @@ public class DialogueManager : MonoBehaviour
         {
             _currentDialogue = dialogueScripts[0];
         }
+    }
+
+    private void DialoguesNumber(DialogueScript[] dialogueScripts)
+    {
+        if (dialogueScripts[0].CharName == "Spora")
+        {
+            if (GameManager.Instance.DialogueState == 0)
+            {
+                _currentDialogue = dialogueScripts[0];
+
+            }
+            else if (GameManager.Instance.DialogueState == 1)
+            {
+                _currentDialogue = dialogueScripts[1];
+
+            }
+            else
+            {
+                _currentDialogue = dialogueScripts[2];
+            }
+        }
+
+        if (dialogueScripts[0].CharName == "Spora ")
+        {
+            if (GameManager.Instance.DialogueState == 0)
+            {
+                _currentDialogue = dialogueScripts[0];
+                
+            }
+            else if (GameManager.Instance.DialogueState == 1)
+            {
+                _currentDialogue = dialogueScripts[1];
+            }
+        }
+
+
+
     }
     /// <summary>
     /// Inicializa el índice de líneas de diálogo a 0 y muestra el nombre, el sprite y la primera línea de diálogo en pantalla
