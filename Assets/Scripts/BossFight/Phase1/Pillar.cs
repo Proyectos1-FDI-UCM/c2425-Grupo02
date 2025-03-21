@@ -19,6 +19,8 @@ public class Pillar : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] int PillarHealth; //Vida del pilar
+    [SerializeField] int PillarID;
+    [SerializeField] GameObject Boss;   
 
     #endregion
 
@@ -31,7 +33,6 @@ public class Pillar : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private int RemainingPillar = 4;
-
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -66,6 +67,7 @@ public class Pillar : MonoBehaviour
         PillarHealth -= dmg;
         if (PillarHealth <= 0)
         {
+            Boss.GetComponent<Boss_Life_Phase1>().SetPillarBool(PillarID);
             Destroy(gameObject);
         }
     }
@@ -77,15 +79,8 @@ public class Pillar : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnPillarDestroy()
-    {
-        RemainingPillar -= 1;
-        if(RemainingPillar == 0)
-        {
-            Destroy()
-        }
-    
-    }
+   
+   
     #endregion
 
 } // class NewBehaviourScript 

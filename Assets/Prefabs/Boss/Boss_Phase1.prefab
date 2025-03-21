@@ -93,6 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2880673796690416501}
+  - component: {fileID: 7343583397502697899}
+  - component: {fileID: 3863966078146110029}
   m_Layer: 0
   m_Name: Boss_Phase1
   m_TagString: Untagged
@@ -116,3 +118,32 @@ Transform:
   - {fileID: 6131870451687008821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7343583397502697899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344345683723096334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78af952ff65bce844a9147725746af10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3863966078146110029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344345683723096334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46bdd0c759e3d043b01178c9cae1160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHealth: 5
+  Pillar1: 0
+  Pillar2: 0
+  Pillar3: 0
+  Pillar4: 0

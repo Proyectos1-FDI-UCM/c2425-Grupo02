@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617eb7384423e14ca7a67cc4460309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
+  PillarHealth: 5
+  PillarID: 0
+  Boss: {fileID: 5344345683723096334, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
 --- !u!61 &-3470657860340909486
 BoxCollider2D:
   m_ObjectHideFlags: 0

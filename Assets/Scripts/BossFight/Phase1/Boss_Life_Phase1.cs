@@ -23,8 +23,14 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    [SerializeField] int BossHealth; //Vida del Boss
+
+    [SerializeField] bool Pillar1;
+    [SerializeField] bool Pillar2;
+    [SerializeField] bool Pillar3;
+    [SerializeField] bool Pillar4;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,21 +41,24 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        
+        Pillar1 = false;
+        Pillar2 = false;
+        Pillar3 = false;
+        Pillar4 = false;
     }
 
     /// <summary>
@@ -69,6 +78,28 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public void SetPillarBool(int pillar)
+    {
+        switch (pillar)
+        {
+            case 1:
+                Pillar1 = true;
+                Debug.Log("Pillar 1 destroyed");
+                break;
+            case 2:
+                Pillar2 = true;
+                Debug.Log("Pillar 2 destroyed");
+                break;
+            case 3:
+                Pillar3 = true;
+                Debug.Log("Pillar 3 destroyed");
+                break;
+            case 4:
+                Pillar4 = true;
+                Debug.Log("Pillar 4 destroyed");
+                break;
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
