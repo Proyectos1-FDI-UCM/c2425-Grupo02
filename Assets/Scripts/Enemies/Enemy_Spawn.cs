@@ -129,6 +129,7 @@ public class Enemy_Spawn : MonoBehaviour {
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
     /// <summary>
     /// Método que se encarga de instanciar enemigos y avanzar de iteración
     /// </summary>
@@ -143,6 +144,23 @@ public class Enemy_Spawn : MonoBehaviour {
         _currentEnemies = EnemyNumber;
         _currentIteration++;
     }
+
+    /*
+    /// <summary>
+    /// Método que se encarga de instanciar enemigos y avanzar de iteración
+    /// </summary>
+    void SpawnEnemies() {
+        List<int> spawnList = SpawnList();
+        foreach (int n in spawnList)
+        {
+            Vector2 pos = _cellDict[n];
+            GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
+            enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
+        }
+        _currentEnemies = EnemyNumber;
+        _currentIteration++;
+    }
+     */
 
     /// <summary>
     /// Método que dado un número de enemigos devuelve un arrray de enteros con los índices a los que deberá acceder la función
