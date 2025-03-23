@@ -107,9 +107,13 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected bool _onRange = false;
     /// <summary>
+    /// Booleano que indica si ya hay una instancia de la corrutina de ataque ejecutándose 
+    /// </summary>
+    protected bool _attacking = false;
+
+    /// <summary>
     /// Enumerado con cad uno de los estados en los que puede estar el enemigo
     /// </summary>
-   
     protected enum State {
         Spawning,
         Chasing,
@@ -121,10 +125,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Estado actual del enemigo
     /// </summary>
     protected State _currentState;
-    /// <summary>
-    /// Último estado en el que estuvo el enemigo antes de estar en el actual
-    /// </summary>
-    protected State _lastState;
 
     #endregion
 
@@ -137,7 +137,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected virtual void Start() {
         _currentState = State.Spawning;
-        _lastState = State.Resting;
         _attack = GetComponent<IAttack>();
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
@@ -177,30 +176,27 @@ public class Enemy_StateMachine : MonoBehaviour {
     #region Métodos públicos
 
     /// <summary>
-    /// Se comprueba que el último estado es distinto al actual, y si esto se cumple, se entra en el estado correspondiente
+    /// Método que ejecuta una acción dependiendo del estadop actual ("_currentState") del enemigo
     /// </summary>
      protected void SetState() {
-        if (_currentState != _lastState)
+        _rb.velocity = Vector2.zero;
+        switch (_currentState)
         {
-            _rb.velocity = Vector2.zero;
-            switch (_currentState)
-            {
-                case State.Chasing:
-                    ChasingState();
-                    break;
+            case State.Chasing:
+                ChasingState();
+                break;
 
-                case State.Attacking:
-                    AttackingState();
-                    break;
+            case State.Attacking:
+                AttackingState();
+                break;
 
-                case State.Resting:
-                    RestingState();
-                    break;
+            case State.Resting:
+                RestingState();
+                break;
 
-                case State.Spawning:
-                    SpawningState();
-                    break;
-            }
+            case State.Spawning:
+                SpawningState();
+                break;
         }
     }
 
@@ -342,7 +338,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Si el jugador está a rango, entra en el estado "Attacking", si no lo persigue
     /// </summary>
     protected virtual void ChasingState() {
-        _lastState = State.Spawning;
         if (_onRange) _currentState = State.Attacking;
         else
         {
@@ -352,13 +347,16 @@ public class Enemy_StateMachine : MonoBehaviour {
     }
 
     /// <summary>
-    /// Busca la dirección del jugador, y comienza la corrutina "Attacking"
+    /// Si no hay una instancia de la corrutina de ataque ejecutándose, busca la dirección del jugador, y comienza la corrutina "Attacking"
     /// </summary>
     protected virtual void AttackingState() {
-        _playerPosition = _player.transform.position;
-        _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
-        _rb.velocity = _dir * 0f;
-        StartCoroutine(Attacking());
+        if (!_attacking)
+        {
+            _playerPosition = _player.transform.position;
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
+            _rb.velocity = _dir * 0f;
+            StartCoroutine(Attacking());
+        }
     }
 
     /// <summary>
@@ -368,7 +366,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <returns> Espera a que la corrutina de ataque del script de ataque del enemigo acabe </returns>
     protected virtual IEnumerator Attacking() {
-        _lastState = State.Attacking;
+        _attacking = true;
         _anim.SetTrigger("_Attack");
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
@@ -376,6 +374,7 @@ public class Enemy_StateMachine : MonoBehaviour {
 
         _rb.constraints = _constraints;
         _currentState = State.Resting;
+        _attacking = false;
     }
 
     /// <summary>
@@ -384,7 +383,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// resetea la variable "_restTimer" y asigna el estado "Chasing" a "_currentState"
     /// </summary>
     protected virtual void RestingState() {
-        _lastState = State.Resting;
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         if (_restTimer < RestTime)
