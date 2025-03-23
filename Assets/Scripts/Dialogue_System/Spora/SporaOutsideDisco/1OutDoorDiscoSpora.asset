@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 1OutDoorDiscoSpora
   m_EditorClassIdentifier: 
-  Name: 'Spora '
+  Name: Spora
   Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
   - DialogueText: "Este se\xF1or... es Minos\r\nHas tenido suerte encontr\xE1ndolo,

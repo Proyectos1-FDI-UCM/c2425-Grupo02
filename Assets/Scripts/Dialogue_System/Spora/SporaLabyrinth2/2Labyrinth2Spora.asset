@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
-  m_Name: 2OutDoorDiscoSpora
+  m_Name: 2Labyrinth2Spora
   m_EditorClassIdentifier: 
   Name: Spora
   Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
-  - DialogueText: "Recuerdo cuando Minos era un chaval, \r\niba de malote pero luego
-      escuchaba Camela.\r\n"
-    Options: []
-  - DialogueText: "Las apariencias enga\xF1an, nunca lo olvides."
+  - DialogueText: "Obviamente no iba enserio, me s\xE9 este laberinto de pe a pa.\nNi
+      una palabra, \xBFvale?"
     Options: []
   Ending: 0
