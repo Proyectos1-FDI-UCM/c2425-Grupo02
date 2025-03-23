@@ -64,7 +64,11 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Jugador en la escena
     /// </summary>
-    protected GameObject _player;   
+    protected GameObject _player;
+    /// <summary>
+    /// Collider del enemigo
+    /// </summary>
+    protected Collider2D _collider;
     /// <summary>
     /// Componente rigidbody del enemigo
     /// </summary>
@@ -103,6 +107,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected float _restTimer = 0f;
     /// <summary>
+    /// Variable que guarda el tiempo que lleva el enemigo en el estado "Spawning"
+    /// </summary>
+    protected float _spawnTimer = 0f;
+    /// <summary>
     /// Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
     /// </summary>
     protected bool _onRange = false;
@@ -133,7 +141,7 @@ public class Enemy_StateMachine : MonoBehaviour {
 
     /// <summary>
     /// Se accede al jugador en escena y se accede a los componentes necesarios del enemigo.
-    /// Se entra en el estado "Spawning" y se define "Resting" como _lastState
+    /// Se entra en el estado "Spawning" y se desactiva el collider del enemigo ("_collider")
     /// </summary>
     protected virtual void Start() {
         _currentState = State.Spawning;
@@ -143,6 +151,8 @@ public class Enemy_StateMachine : MonoBehaviour {
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
         _spriteRend = GetComponent<SpriteRenderer>();
+        _collider = gameObject.GetComponent<Collider2D>();
+        _collider.enabled = false;
     }
 
     /// <summary>
@@ -158,7 +168,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <param name="collision"> collider del objeto con el que se activó el triggger </param>
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
+        if (collision.gameObject.layer == EnemyRangeLayer)
+        {
+            _onRange = true;
+        }
     }
 
     /// <summary>
@@ -167,7 +180,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <param name="collision">  collider del objeto con el que se activó el triggger </param>
     protected virtual void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = false;
+        if (collision.gameObject.layer == EnemyRangeLayer)
+        {
+            _onRange = false;
+        }
     }
 
     #endregion
@@ -198,7 +214,7 @@ public class Enemy_StateMachine : MonoBehaviour {
                 SpawningState();
                 break;
         }
-    }
+     }
 
     /// <summary>
     /// Método público para obtener la dirección en la que se mueve el enemigo
@@ -229,21 +245,43 @@ public class Enemy_StateMachine : MonoBehaviour {
         ang = (ang + 360) % 360;
 
         //Derecha
-        if (ang <= 0 + t && ang >= 0 || ang <= 360 && ang >= 360 - t) res = Vector2.right;
+        if (ang <= 0 + t && ang >= 0 || ang <= 360 && ang >= 360 - t)
+        {
+            res = Vector2.right;
+        }
         //Arriba
-        else if (ang <= 90 + t && ang >= 90 - t) res = Vector2.up;
-        //Izquierda
-        else if (ang <= 180 + t && ang >= 180 - t) res = Vector2.left;
+        else if (ang <= 90 + t && ang >= 90 - t)
+        {
+            res = Vector2.up;
+        }//Izquierda
+        else if (ang <= 180 + t && ang >= 180 - t)
+        {
+            res = Vector2.left;
+        }
         //Abajo
-        else if (ang <= 270 + t && ang >= 270 - t) res = Vector2.down;
-        //1er cuadrante
-        else if (ang <= 90 && ang >= 0) res = (Vector2.right + Vector2.up).normalized;
+        else if (ang <= 270 + t && ang >= 270 - t)
+        {
+            res = Vector2.down;
+        }//1er cuadrante
+        else if (ang <= 90 && ang >= 0)
+        {
+            res = (Vector2.right + Vector2.up).normalized;
+        }
         //2do cuadrante
-        else if (ang <= 180 && ang > 90) res = (Vector2.up + Vector2.left).normalized;
+        else if (ang <= 180 && ang > 90)
+        {
+            res = (Vector2.up + Vector2.left).normalized;
+        }
         //3er cuadrante
-        else if (ang <= 270 && ang > 180) res = (Vector2.left + Vector2.down).normalized;
+        else if (ang <= 270 && ang > 180)
+        {
+            res = (Vector2.left + Vector2.down).normalized;
+        }
         //4to cuadrante
-        else res = (Vector2.down + Vector2.right).normalized;
+        else
+        {
+            res = (Vector2.down + Vector2.right).normalized;
+        }
 
         SetAnim(res);
 
@@ -312,25 +350,18 @@ public class Enemy_StateMachine : MonoBehaviour {
     //States
 
     /// <summary>
-    /// Inicia la corrutina "Spawning"
+    /// Espear a que pase el timepo dado por "SpawnTime", y cuando acaba, activa el collider del enemigo y asigna elestado "Chasing" a "_currentState"
     /// </summary>
     protected virtual void SpawningState() {
-        StartCoroutine(Spawning());
-    }
-
-    /// <summary>
-    /// Corrutina que desactiva el collider del enemigo durante su duración.
-    /// Cuando acaba, establece el estado "Chasing" como estado actual
-    /// </summary>
-    /// <returns> La duración viene dada por el atributo serializado "SpawnTime" </returns>
-    protected virtual IEnumerator Spawning() {
-        Collider2D collider = gameObject.GetComponent<Collider2D>();
-        collider.enabled = false;
-
-        yield return new WaitForSeconds(SpawnTime);
-
-        collider.enabled = true;
-        _currentState = State.Chasing;
+        if(_spawnTimer < SpawnTime)
+        {
+            _spawnTimer += Time.deltaTime;
+        }
+        else
+        {
+            _collider.enabled = true;
+            _currentState = State.Chasing;
+        }
     }
 
     /// <summary>
@@ -338,7 +369,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Si el jugador está a rango, entra en el estado "Attacking", si no lo persigue
     /// </summary>
     protected virtual void ChasingState() {
-        if (_onRange) _currentState = State.Attacking;
+        if (_onRange)
+        {
+            _currentState = State.Attacking;
+        }
         else
         {
             SetDir();

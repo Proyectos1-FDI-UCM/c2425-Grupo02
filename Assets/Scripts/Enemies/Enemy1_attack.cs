@@ -120,7 +120,6 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// <param name="offset"> Float que indica cuánto desplazamos la hitbox con respecto al centro del enemigo </param>
     void SetDir(Vector2 v, float offset) {
         Vector2 res;
-        _hitbox.transform.rotation = transform.rotation;
 
         if(v.y == 0)
         {
@@ -132,9 +131,6 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
         {
             if (v.y > 0) res = new Vector2(0, offset);
             else res = new Vector2(0, -offset);
-
-            _hitbox.transform.Rotate(0, 0, 90, Space.World);
-
         }
         _hitbox.transform.localPosition = res;
     }
