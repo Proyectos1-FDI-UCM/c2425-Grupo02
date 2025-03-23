@@ -88,7 +88,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Tolerancia para salir de las direcciones no diagonales en el metodo "SetDir"
     /// </summary>
-    protected int _tolerance = 15;
+    protected int _tolerancy = 15;
     /// <summary>
     /// Indica el tiempo máximo que tiene que pasar para que el enemigo cambie su dirección
     /// </summary>
@@ -99,13 +99,17 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected float _dirTimer = 0f;
     /// <summary>
+    /// Variable que guarda el tiempo que lleva el enemigo en el estado "Resting" (se debe resetear al cambiar de estado)
+    /// </summary>
+    protected float _restTimer = 0f;
+    /// <summary>
     /// Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
     /// </summary>
     protected bool _onRange = false;
-
     /// <summary>
     /// Enumerado con cad uno de los estados en los que puede estar el enemigo
     /// </summary>
+   
     protected enum State {
         Spawning,
         Chasing,
@@ -143,9 +147,9 @@ public class Enemy_StateMachine : MonoBehaviour {
     }
 
     /// <summary>
-    /// En cada frame (fijos) se ejecuta SetState()
+    /// En cada frame se ejecuta SetState()
     /// </summary>
-    protected virtual void FixedUpdate() {
+    protected virtual void Update() {
         SetState();
     }
 
@@ -296,14 +300,14 @@ public class Enemy_StateMachine : MonoBehaviour {
 
 
     /// <summary>
-    /// Cambia la dirección del enemigo con una restricción de tiempo
+    /// Cambia la dirección del enemigo (asignándole un vector a "_dir") con una restricción de tiempo
     /// </summary>
     /// <param name="t"> Tiempo necesario para que cambie la dirección de movimiento del enemigo </param>
-    protected void SetDir(float t) {
-        if (_dirTimer >= t)
+    protected void SetDir() {
+        if (_dirTimer >= _dirTime)
         {
             _playerPosition = _player.transform.position;
-            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerance);
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
             _dirTimer = 0f;
         }
         else _dirTimer += Time.deltaTime;
@@ -342,7 +346,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         if (_onRange) _currentState = State.Attacking;
         else
         {
-            SetDir(_dirTime);
+            SetDir();
             _rb.velocity = _dir * MovementSpeed;
         }
     }
@@ -352,7 +356,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected virtual void AttackingState() {
         _playerPosition = _player.transform.position;
-        _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerance);
+        _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
         _rb.velocity = _dir * 0f;
         StartCoroutine(Attacking());
     }
@@ -375,25 +379,24 @@ public class Enemy_StateMachine : MonoBehaviour {
     }
 
     /// <summary>
-    /// Inicia la corrutina "Resting"
+    /// Establece "Resting" como el último estado y congela la posición del rigidbody.
+    /// Espera el tiempo especificado por la variable serializada "RestTime", y acabado este tiempo, devuelve al rigidbody sus restricciones iniciales,
+    /// resetea la variable "_restTimer" y asigna el estado "Chasing" a "_currentState"
     /// </summary>
     protected virtual void RestingState() {
-        StartCoroutine(Resting());
-    }
-
-    /// <summary>
-    /// Establece "Resting" como el último estado y congela la posición del rigidbody.
-    /// Al acabar, aplica al rigidbody sus restricciones iniciales y establece "Chasing" como el estado actual
-    /// </summary>
-    /// <returns> La duración de la corrutina viene dada por el atributo serializado "RestTime" </returns>
-    protected virtual IEnumerator Resting() {
         _lastState = State.Resting;
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        yield return new WaitForSeconds(RestTime);
-
-        _rb.constraints = _constraints;
-        _currentState = State.Chasing;
+        if (_restTimer < RestTime)
+        {
+            _restTimer += Time.deltaTime;
+        }
+        else
+        {
+            _restTimer = 0f;
+            _rb.constraints = _constraints;
+            _currentState = State.Chasing;
+        }
     }
 
     #endregion
