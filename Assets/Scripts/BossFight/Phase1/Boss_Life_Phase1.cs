@@ -29,6 +29,8 @@ public class Boss_Life_Phase1 : MonoBehaviour
     [SerializeField] bool Pillar2;
     [SerializeField] bool Pillar3;
     [SerializeField] bool Pillar4;
+
+    [SerializeField] Vector3 CenterPosition;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,6 +41,11 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    private bool _pillar1Destroyed;
+    private bool _pillar2Destroyed;
+    private bool _pillar3Destroyed;
+    private bool _pillar4Destroyed;
 
     #endregion
 
@@ -59,6 +66,11 @@ public class Boss_Life_Phase1 : MonoBehaviour
         Pillar2 = false;
         Pillar3 = false;
         Pillar4 = false;
+
+        _pillar1Destroyed = false;
+        _pillar2Destroyed = false;
+        _pillar3Destroyed = false;
+        _pillar4Destroyed = false;
     }
 
     /// <summary>
@@ -66,7 +78,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        OnPillarDestroy();
     }
     #endregion
 
@@ -108,14 +120,34 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnPillarDestroy(Collision2D collision)
+    private void OnPillarDestroy()
     {
-        var Pillars = collision.gameObject.GetComponent<Pillar>();
-
-        if (Pillars != null)
+        if (Pillar1 && !_pillar1Destroyed)
         {
-
+            _pillar1Destroyed = true;
+            TeleportBossToCenter();
         }
+        else if (Pillar2 && !_pillar2Destroyed)
+        {
+            _pillar2Destroyed = true;
+            TeleportBossToCenter();
+        }
+        else if (Pillar3 && !_pillar3Destroyed)
+        {
+            _pillar3Destroyed = true;
+            TeleportBossToCenter();
+        }
+        else if (Pillar4 && !_pillar4Destroyed)
+        {
+            _pillar4Destroyed = true;
+            TeleportBossToCenter();
+        }
+    }
+
+    private void TeleportBossToCenter()
+    {
+        transform.position = CenterPosition;
+        Debug.Log("El jefe se ha teletransportado al centro de la sala.");
     }
     #endregion
 
