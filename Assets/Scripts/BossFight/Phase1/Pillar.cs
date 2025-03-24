@@ -48,7 +48,7 @@ public class Pillar : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject;
     }
 
     /// <summary>

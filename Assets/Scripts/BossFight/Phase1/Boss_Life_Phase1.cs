@@ -113,6 +113,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
         if (_isVulnerable == true)
         {
+            Debug.Log("El jefe ha sido golpeado");
             BossHealth -= dmg;
             HitCount++;
             if (BossHealth <= 0)
