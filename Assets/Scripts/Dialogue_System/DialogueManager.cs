@@ -167,39 +167,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void DialoguesNumber(DialogueScript[] dialogueScripts)
-    {
-        if (dialogueScripts[0].CharLines[0].CharName == "Spora")
-        {
-            if (GameManager.Instance.DialogueState == 0)
-            {
-                _currentDialogue = dialogueScripts[0];
-
-            }
-            else if (GameManager.Instance.DialogueState == 1)
-            {
-                _currentDialogue = dialogueScripts[1];
-
-            }
-            else
-            {
-                _currentDialogue = dialogueScripts[1];
-            }
-        }
-
-        if (dialogueScripts[0].CharLines[0].CharName == "Spora ")
-        {
-            if (GameManager.Instance.DialogueState == 0)
-            {
-                _currentDialogue = dialogueScripts[0];
-                
-            }
-            else if (GameManager.Instance.DialogueState == 1)
-            {
-                _currentDialogue = dialogueScripts[1];
-            }
-        }
-    }
 
     /// <summary>
     /// Inicializa el índice de líneas de diálogo a 0 y muestra el nombre, el sprite y la primera línea de diálogo en pantalla

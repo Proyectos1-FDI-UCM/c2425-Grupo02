@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 1Labyrinth3Spora
   m_EditorClassIdentifier: 
-  Name: Spora
-  Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
-  - DialogueText: "Ostras has llegado al final del laberinto, enhorabuena.\nEstoy...
-      tan orgulloso de ti... que r\xE1pido has progresado... (sniff sniff)"
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: 'Ostras has llegado al final del laberinto, enhorabuena.
+
+'
     Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Estoy... tan orgulloso de ti... que r\xE1pido has progresado...
+      (sniff sniff)\n"
+    Options: []
+  Read: 0
   Ending: 0

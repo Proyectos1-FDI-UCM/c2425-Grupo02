@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 4AkwardlyLPSpora
   m_EditorClassIdentifier: 
-  Name: Spora
-  Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
-  - DialogueText: "Los lujuriosos violentos...\r\nRealmente me dan pena, espero que
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Los lujuriosos violentos...\r\nRealmente me dan pena, espero que
       alg\xFAn d\xEDa puedan vivir en paz.\r\n"
     Options: []
+  Read: 0
   Ending: 0

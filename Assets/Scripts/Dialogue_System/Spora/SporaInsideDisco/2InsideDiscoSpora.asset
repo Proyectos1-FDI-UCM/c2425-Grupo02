@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 2InsideDiscoSpora
   m_EditorClassIdentifier: 
-  Name: Lilith
-  Sprite: {fileID: -8385780231414843149, guid: 9ec7be8f6ae3d974aad9004b1ef6e289, type: 3}
   Lines:
-  - DialogueText: Friki
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: 'Chaval otra copita maaaaaaaa............ '
     Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: ' *zzz*  *zzz*'
+    Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: 'Me ca-cago en la leche me he quedao sooooopaaaasss.
+
+'
+    Options: []
+  Read: 0
   Ending: 0

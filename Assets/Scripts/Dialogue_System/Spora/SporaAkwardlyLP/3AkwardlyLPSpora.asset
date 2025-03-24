@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 3AkwardlyLPSpora
   m_EditorClassIdentifier: 
-  Name: Spora
-  Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
-  - DialogueText: "Vaya, sigues con vida\r\nMe alegro...\r"
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Vaya, sigues con vida\r\nMe alegro...\r"
     Options: []
-  - DialogueText: "M\xE1s adelante encontrar\xE1s la entrada de la discoteca, muuucha
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "M\xE1s adelante encontrar\xE1s la entrada de la discoteca, muuucha
       suerte amigo mio.\r\r"
     Options: []
+  Read: 0
   Ending: 0

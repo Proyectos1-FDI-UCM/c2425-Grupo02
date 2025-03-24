@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: 2OutDoorDiscoSpora
   m_EditorClassIdentifier: 
-  Name: Spora
-  Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
   Lines:
-  - DialogueText: "Recuerdo cuando Minos era un chaval, \r\niba de malote pero luego
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Recuerdo cuando Minos era un chaval, \r\niba de malote pero luego
       escuchaba Camela.\r\n"
     Options: []
-  - DialogueText: "Las apariencias enga\xF1an, nunca lo olvides."
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Las apariencias enga\xF1an, nunca lo olvides."
     Options: []
+  Read: 0
   Ending: 0
