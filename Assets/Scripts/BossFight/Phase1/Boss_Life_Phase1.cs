@@ -41,7 +41,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private bool _isVulnerable;
+    private bool _isVulnerable = false;
 
     private int HitCount = 0;
 
@@ -64,8 +64,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
         Pillar2 = false;
         Pillar3 = false;
         Pillar4 = false;
-
-        _isVulnerable = false;
 
         HitCount = 0;
 
@@ -90,33 +88,16 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
     public void SetPillarBool(int pillar)
     {
-        switch (pillar)
-        {
-            case 1:
-                Pillar1 = true;
-                Debug.Log("Pillar 1 destroyed");
-                TeleportBossToCenter();
-                _isVulnerable = true;
-                break;
-            case 2:
-                Pillar2 = true;
-                Debug.Log("Pillar 2 destroyed");
-                TeleportBossToCenter(); 
-                _isVulnerable = true;
-                break;
-            case 3:
-                Pillar3 = true;
-                Debug.Log("Pillar 3 destroyed");
-                TeleportBossToCenter();
-                _isVulnerable = true;
-                break;
-            case 4:
-                Pillar4 = true;
-                Debug.Log("Pillar 4 destroyed");
-                TeleportBossToCenter();
-                _isVulnerable = true;
-                break;
-        }
+        Debug.Log($"Se ha llamado a SetPillarBool con pilar {pillar}");
+
+        if (pillar == 1) Pillar1 = true;
+        else if (pillar == 2) Pillar2 = true;
+        else if (pillar == 3) Pillar3 = true;
+        else if (pillar == 4) Pillar4 = true;
+
+        _isVulnerable = true;
+
+        Debug.Log($"Después de ejecutar SetPillarBool, isVulnerable = {_isVulnerable}");
     }
     #endregion
 
@@ -128,19 +109,26 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // mayúscula, incluida la primera letra)
     public void Damage(int dmg)
     {
-        if (!_isVulnerable) return;
-        BossHealth -= dmg;
-        HitCount++;
-        if (BossHealth <= 0)
+        Debug.Log("El jefe ha detectado colisión.");
+
+        if (_isVulnerable == true)
         {
-            Destroy(gameObject);
+            BossHealth -= dmg;
+            HitCount++;
+            if (BossHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+            if (HitCount == 5)
+            {
+                _isVulnerable = false;
+                HitCount = 0;
+            }
         }
 
-        if (HitCount == 5)
-        {
-            _isVulnerable = false;
-            HitCount = 0;
-        }
+        else Debug.Log("El jefe no es vulnerable en este momento.");
+
     }
 
     private void TeleportBossToCenter()
