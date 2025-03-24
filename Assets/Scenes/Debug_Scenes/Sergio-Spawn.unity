@@ -797,11 +797,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.x
-      value: 5.7640285
+      value: 9.3028755
       objectReference: {fileID: 0}
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.y
-      value: 5.13294
+      value: 7.7705894
       objectReference: {fileID: 0}
     - target: {fileID: 175193201247443623, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Name
@@ -813,15 +813,15 @@ PrefabInstance:
       objectReference: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: EnemyNumber
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8820143
+      value: -1.6514378
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5664699
+      value: -3.8852947
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z

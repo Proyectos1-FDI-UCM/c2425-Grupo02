@@ -77,11 +77,12 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// <summary>
     /// Si la hitbox colisiona con el jugador, llama el método para dañarle
     /// </summary>
-    /// <param name="collision"></param>
+    /// <param name="collision"> Colisión del objeto con el que se ha colisionado </param>
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.GetComponent<Player_Health>() != null)
+        Player_Health health = collision.GetComponent<Player_Health>();
+        if (health != null)
         {
-            collision.GetComponent<Player_Health>().Damage(Damage);
+            health.Damage(Damage);
         }
     }
 
@@ -123,14 +124,29 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
 
         if(v.y == 0)
         {
-            if (v.x > 0) res = new Vector2(offset, 0);
-            else if (v.x < 0) res = new Vector2(-offset, 0);
-            else res = Vector2.zero;
+            if (v.x > 0)
+            {
+                res = new Vector2(offset, 0);
+            }
+            else if (v.x < 0)
+            {
+                res = new Vector2(-offset, 0);
+            }
+            else
+            {
+                res = Vector2.zero;
+            }
         }
         else
         {
-            if (v.y > 0) res = new Vector2(0, offset);
-            else res = new Vector2(0, -offset);
+            if (v.y > 0)
+            {
+                res = new Vector2(0, offset);
+            }
+            else
+            {
+                res = new Vector2(0, -offset);
+            }
         }
         _hitbox.transform.localPosition = res;
     }
