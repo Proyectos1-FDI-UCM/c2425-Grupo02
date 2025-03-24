@@ -10,16 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
-  m_Name: NPC_1_1
+  m_Name: bottle_pyramid_guy
   m_EditorClassIdentifier: 
   Lines:
-  - Name: NPC_1
+  - Name: NPC
     Sprite: {fileID: 0}
-    DialogueText: Creo que me he pasado bebiendo...
+    DialogueText: "\xBFY bien? \xBFQu\xE9 opinas? Mola, \xBFeh?"
     Options: []
   - Name: Lilith
     Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
-    DialogueText: (Parece descompuesto. Mejor le dejo en paz...)
+    DialogueText: "\xBFEst\xE1s en una discoteca y lo primero que se te ocurre es
+      hacer una torre de botellas?"
     Options: []
-  Read: 1
+  - Name: NPC
+    Sprite: {fileID: 0}
+    DialogueText: "Lo s\xE9. \xBFA que soy lo m\xE1s?"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    DialogueText: ...
+    Options: []
+  Read: 0
   Ending: 0
