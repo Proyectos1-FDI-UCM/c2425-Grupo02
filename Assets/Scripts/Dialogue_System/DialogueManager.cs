@@ -172,7 +172,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                _currentDialogue = dialogueScripts[2];
+                _currentDialogue = dialogueScripts[1];
             }
         }
 
