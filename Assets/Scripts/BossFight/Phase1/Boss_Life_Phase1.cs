@@ -30,7 +30,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     [SerializeField] bool Pillar3;
     [SerializeField] bool Pillar4;
 
-    [SerializeField] Vector3 CenterPosition;
+    [SerializeField] Vector2 CenterPosition;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -41,11 +41,9 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private bool _isVulnerable;
 
-    private bool _pillar1Destroyed;
-    private bool _pillar2Destroyed;
-    private bool _pillar3Destroyed;
-    private bool _pillar4Destroyed;
+    private int HitCount = 0;
 
     #endregion
 
@@ -67,10 +65,10 @@ public class Boss_Life_Phase1 : MonoBehaviour
         Pillar3 = false;
         Pillar4 = false;
 
-        _pillar1Destroyed = false;
-        _pillar2Destroyed = false;
-        _pillar3Destroyed = false;
-        _pillar4Destroyed = false;
+        _isVulnerable = false;
+
+        HitCount = 0;
+
     }
 
     /// <summary>
@@ -78,7 +76,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     /// </summary>
     void Update()
     {
-        OnPillarDestroy();
+
     }
     #endregion
 
@@ -97,18 +95,26 @@ public class Boss_Life_Phase1 : MonoBehaviour
             case 1:
                 Pillar1 = true;
                 Debug.Log("Pillar 1 destroyed");
+                TeleportBossToCenter();
+                _isVulnerable = true;
                 break;
             case 2:
                 Pillar2 = true;
                 Debug.Log("Pillar 2 destroyed");
+                TeleportBossToCenter(); 
+                _isVulnerable = true;
                 break;
             case 3:
                 Pillar3 = true;
                 Debug.Log("Pillar 3 destroyed");
+                TeleportBossToCenter();
+                _isVulnerable = true;
                 break;
             case 4:
                 Pillar4 = true;
                 Debug.Log("Pillar 4 destroyed");
+                TeleportBossToCenter();
+                _isVulnerable = true;
                 break;
         }
     }
@@ -120,35 +126,29 @@ public class Boss_Life_Phase1 : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnPillarDestroy()
+    public void Damage(int dmg)
     {
-        if (Pillar1 && !_pillar1Destroyed)
+        if (!_isVulnerable) return;
+        BossHealth -= dmg;
+        HitCount++;
+        if (BossHealth <= 0)
         {
-            _pillar1Destroyed = true;
-            TeleportBossToCenter();
+            Destroy(gameObject);
         }
-        else if (Pillar2 && !_pillar2Destroyed)
+
+        if (HitCount == 5)
         {
-            _pillar2Destroyed = true;
-            TeleportBossToCenter();
-        }
-        else if (Pillar3 && !_pillar3Destroyed)
-        {
-            _pillar3Destroyed = true;
-            TeleportBossToCenter();
-        }
-        else if (Pillar4 && !_pillar4Destroyed)
-        {
-            _pillar4Destroyed = true;
-            TeleportBossToCenter();
+            _isVulnerable = false;
+            HitCount = 0;
         }
     }
 
     private void TeleportBossToCenter()
     {
-        transform.position = CenterPosition;
+        transform.position = new Vector3(CenterPosition.x, CenterPosition.y, transform.position.z);
         Debug.Log("El jefe se ha teletransportado al centro de la sala.");
     }
+
     #endregion
 
 } // class Boss_Life_Phase1 

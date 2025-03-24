@@ -36,7 +36,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private int PillarDestructed = 0;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----

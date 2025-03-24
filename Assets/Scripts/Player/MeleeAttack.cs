@@ -114,6 +114,11 @@ public class MeleeAttack : MonoBehaviour
             {
                 collider.GetComponent<Pillar>().Damage(damage);
             }
+
+            if (collider.GetComponent<Boss_Life_Phase1>() != null)
+            {
+                collider.GetComponent<Boss_Life_Phase1>().Damage(damage);
+            }
         }
 
         cooldownTimer = cooldownTime;

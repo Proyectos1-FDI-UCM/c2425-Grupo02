@@ -85456,7 +85456,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2880673796690416501, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.033164024
+      value: -13.62
       objectReference: {fileID: 0}
     - target: {fileID: 2880673796690416501, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -85493,6 +85493,14 @@ PrefabInstance:
     - target: {fileID: 2880673796690416501, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863966078146110029, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+      propertyPath: BossHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863966078146110029, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+      propertyPath: CenterPosition.y
+      value: 132
       objectReference: {fileID: 0}
     - target: {fileID: 5344345683723096334, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: m_Name
