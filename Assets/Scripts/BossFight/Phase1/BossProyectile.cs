@@ -1,11 +1,11 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Adrián Arbas Perdiguero
-// Astra Damnatorum
+// Responsable de la creación de este archivo
+// Nombre del juego
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
-
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,14 +14,20 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Pillar : MonoBehaviour
+public class BossProyectile : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] int PillarHealth; //Vida del pilar
-    [SerializeField] int PillarID;
-    [SerializeField] GameObject Boss;   
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // públicos y de inspector se nombren en formato PascalCase
+    // (palabras con primera letra mayúscula, incluida la primera letra)
+    // Ejemplo: MaxHealthPoints
+    [Range(1, 10)]
+    [SerializeField] private float speed = 10f;
 
+    [Range(1, 10)]
+    [SerializeField] private float lifeTime = 3f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -33,6 +39,7 @@ public class Pillar : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    private Rigidbody2D rb;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,33 +55,28 @@ public class Pillar : MonoBehaviour
     /// </summary>
     void Start()
     {
-        Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject;
+        rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, lifeTime);
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.velocity = transform.up * speed;
+        Destroy(gameObject, lifeTime);
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void Damage(int dmg)
-    {
-        bool _isVulnerable = Boss.GetComponent<Boss_Life_Phase1>().getIsVulnerable();
-        
-        if (!_isVulnerable) {
-        PillarHealth -= dmg;
-        if (PillarHealth <= 0)
-        {
-            Boss.GetComponent<Boss_Life_Phase1>().SetPillarBool(PillarID);
-            Destroy(gameObject);
-        }
-        }
-    }
+    // Documentar cada método que aparece aquí con ///<summary>
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
+    // Ejemplo: GetPlayerController
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -83,9 +85,17 @@ public class Pillar : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-   
-   
-    #endregion
 
-} // class NewBehaviourScript 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player_Health>() != null)
+        {
+            collision.gameObject.GetComponent<Player_Health>().Damage(1);
+        }
+
+        Destroy(gameObject);
+    }
+    #endregion   
+
+} // class BossProyectile 
 // namespace

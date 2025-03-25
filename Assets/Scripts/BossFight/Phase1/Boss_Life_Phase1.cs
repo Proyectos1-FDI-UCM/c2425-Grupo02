@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Adrián Arbas Perdiguero
+// ASTRA DAMNATORUM
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
@@ -98,6 +98,11 @@ public class Boss_Life_Phase1 : MonoBehaviour
         _isVulnerable = true;
 
         Debug.Log($"Después de ejecutar SetPillarBool, isVulnerable = {_isVulnerable}");
+    }
+
+    public bool getIsVulnerable()
+    {
+        return _isVulnerable;
     }
     #endregion
 

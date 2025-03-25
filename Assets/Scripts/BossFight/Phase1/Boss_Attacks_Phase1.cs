@@ -23,6 +23,17 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    [SerializeField] Transform target;
+    [SerializeField] float speed = 3f;
+    [SerializeField] float spinSpeed = 0.002f;
+
+    [SerializeField] GameObject bossProyectile;
+
+    [SerializeField] Transform firePosition;
+
+    [SerializeField] float fireRate;
+
+
 
 
     #endregion
@@ -36,22 +47,25 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    private float timeToFire;
+    private Rigidbody2D rb;
+
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     /// <summary>
@@ -59,8 +73,35 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if(!target)
+        {
+            GetTarget();
+        }
+
+        else RotateTowardsTarget();
+
+        Shoot();
     }
+
+    private void Shoot()
+    {
+        if (timeToFire <= 0f)
+        {
+            Debug.Log("Disparo");
+            Instantiate(bossProyectile, firePosition.position, firePosition.rotation);
+            timeToFire = fireRate;
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime;
+        }
+    }
+    /*
+    private void FixedUpdate()
+    {
+        rb.velocity = transform.up * speed;
+    }
+    */
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -72,7 +113,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -80,7 +121,23 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    private void RotateTowardsTarget()
+    {
+        Vector2 targetDirection = target.position - transform.position;
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
+        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.localRotation = Quaternion.Slerp(transform.rotation, q, spinSpeed);
+    }
 
-} // class BF 
-// namespace
+    private void GetTarget()
+    {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        #endregion
+
+    }
+    // class BF 
+    // namespace
+}
