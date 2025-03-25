@@ -799,17 +799,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnZone
       objectReference: {fileID: 0}
-    - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
-      propertyPath: LimitZone
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6514378
+      value: -9.651438
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8852947
+      value: -4.885295
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z
