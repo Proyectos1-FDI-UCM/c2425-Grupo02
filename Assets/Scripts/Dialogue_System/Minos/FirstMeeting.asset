@@ -13,35 +13,35 @@ MonoBehaviour:
   m_Name: FirstMeeting
   m_EditorClassIdentifier: 
   Lines:
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Buenas. \xBFQui\xE9n eres?"
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Yo soy Minos, el portero del sitio ese que ves ah\xED detr\xE1s.
       Hoy celebramos una fiesta organizada por Iramis."
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Ella es la que lleva las tiendas aqu\xED, es una mujer... interesante."
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Es una s\xFAcubo, mejor dicho. Le gusta organizar fiestas con
       \"sorpresa\"."
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Mira, se nos han perdido unos paquetes *important\xEDsimos* para
       la fiesta."
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Se los ha llevado la tormenta al bosque que est\xE1 al este de
       aqu\xED."
     Options: []
-  - Name: 
+  - Name: Minos
     Sprite: {fileID: 0}
     DialogueText: "Si consigues los paquetes y me los traes te dejo pasar, \xBFtrato
       hecho?"
