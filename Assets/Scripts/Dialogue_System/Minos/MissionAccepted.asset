@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: MissionAccepted
   m_EditorClassIdentifier: 
-  Name: Minos
-  Sprite: {fileID: 21300000, guid: 8432f8297ec9970498be56ddce28300e, type: 3}
   Lines:
-  - DialogueText: "Al l\xEDo payita~~"
+  - Name: Minos
+    Sprite: {fileID: 0}
+    DialogueText: "Al l\xEDo payita~~"
     Options: []
+  Read: 0
   Ending: 0

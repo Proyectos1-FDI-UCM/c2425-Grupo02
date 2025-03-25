@@ -5,7 +5,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 // Añadir aquí el resto de directivas using
 
 
@@ -39,7 +41,7 @@ public class CustomGrid {
     /// <summary>
     /// Array que contiene las celdas
     /// </summary>
-    Vector2[,] _cells;          
+    Vector2[,] _cells;
 
     #endregion
 
@@ -50,27 +52,18 @@ public class CustomGrid {
 
     /// <summary>
     /// Constructor no asociado a un GameObject.
+    /// LLama al método Initialize para inicializar los atributos comunes a ambos constructores
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
     /// <param name="length"> Alto de la cuadrícula </param>
     /// <param name="cellSize"> Tamaño de cada celda </param>
     public CustomGrid(int width, int length, int cellSize) {
-        _width = width;
-        _length = length;
-        _cellSize = cellSize;
-        _cells = new Vector2[width, length];
-
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < length; j++)
-            {
-                _cells[i, j] = GetWorldPos(i, j);
-            }
-        }
+        Initialize(width, length, cellSize);
     }
 
     /// <summary>
     /// Constructor asociado a un GameObject.
+    /// LLama al método Initialize para inicializar los atributos comunes a ambos constructores
     /// </summary>
     /// <param name="width"> Ancho de la cuadrícula </param>
     /// <param name="length"> Alto de la cuadrícula </param>
@@ -79,42 +72,47 @@ public class CustomGrid {
     public CustomGrid(int width, int length, int cellSize, GameObject gameObject) {
         Vector2 org = gameObject.transform.position;
         _origin = new(org.x, org.y);
-        _width = width;
-        _length = length;
-        _cellSize = cellSize;
-        _cells = new Vector2[width, length];
-
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < length; j++)
-            {
-                _cells[i, j] = GetLocalPos(i, j);
-            }
-        }
+        Initialize(width, length, cellSize);
     }
 
     //Getters
 
     /// <summary>
-    /// Devuelve 
+    /// Getter del punto de origen
     /// </summary>
-    /// <returns></returns>
+    /// <returns> El punto de origen de la cuadrícula </returns>
     public Vector2 GetOrigin() {
         return _origin;
     }
 
+    /// <summary>
+    /// Getter del ancho de la cuadrícula
+    /// </summary>
+    /// <returns> Ancho de la cuadrícula </returns>
     public int GetWidth() {
         return _width;
     }
 
+    /// <summary>
+    /// Getter del alto de la cuadrícula
+    /// </summary>
+    /// <returns> Alto de la cuadrícula </returns>
     public int GetHeight() {
         return _length;
     }
 
+    /// <summary>
+    /// Getter del tamaño de celda
+    /// </summary>
+    /// <returns> Tamaño de cada celda de la cuadrícula </returns>
     public int GetCellSize() {
         return _cellSize;
     }
 
+    /// <summary>
+    /// Getter del array que contiene las celdas 
+    /// </summary>
+    /// <returns> Array de celdas con la posición del centro de cada celda </returns>
     public Vector2[,] GetCells() {
         return _cells;
     }
@@ -124,16 +122,69 @@ public class CustomGrid {
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    private Vector2 GetWorldPos(float x, float y) {
+    /// <summary>
+    /// Se encarga de asociar los valores especificados en el constructor a los atributos básicos de la clase.
+    /// Si el atributo _origin es nulo, atribuye a cada celda coordenadas globales, 
+    /// en caso contrario serán coordenadas locales con respecto a un gameObject
+    /// </summary>
+    /// <param name="width"> Ancho de la cuadrícula </param>
+    /// <param name="length"> Alto de la cuadrícula </param>
+    /// <param name="cellSize"> Tamaño de cada celda </param>
+    void Initialize(int width, int length, int cellSize) {
+        _width = width;
+        _length = length;
+        _cellSize = cellSize;
+        _cells = new Vector2[width, length];
+
+        switch (_origin != null)
+        {
+            case true:
+            for (int i = 0; i < _width; i++)
+            {
+                for (int j = 0; j < _length; j++)
+                {
+                    _cells[i, j] = GetLocalPos(i, j);
+                }
+            }
+                break;
+
+            case false:
+            for (int i = 0; i < _width; i++)
+            {
+                for (int j = 0; j < _length; j++)
+                {
+                    _cells[i, j] = GetWorldPos(i, j);
+                }
+            }
+                break;
+        }        
+    }
+
+    /// <summary>
+    /// Obtiene las coordenadas globales del centro de una celda a partir de su posición relativa en la cuadrícula.
+    /// Se llama en el constructor no asociado a un gameObject para rellenar el array _cells
+    /// </summary>
+    /// <param name="x"> Índice x en el array bidimensional _cells </param>
+    /// <param name="y"> Índice y en el array bidimensional _cells </param>
+    /// <returns> Vector con las coordenadas cel centro de una celda </returns>
+    Vector2 GetWorldPos(float x, float y) {
         x += _cellSize * 0.5f;
         y += _cellSize * 0.5f;
         return new Vector2(x, y) * _cellSize;
     }
 
-    private Vector2 GetLocalPos(float x, float y) {
-        x += _origin.x + _cellSize * 0.5f;
-        y += _origin.y + _cellSize * 0.5f;
-        return new Vector2(x, y) * _cellSize;
+    /// <summary>
+    /// Obtiene las coordenadas locales con respecto a un gameObject del centro de una celda a partir de su posición relativa en la cuadrícula.
+    /// Se hace a partir del método GetWorldPos.
+    /// Se llama en el constructor asociado a un gameObject para rellenar el array _cells
+    /// </summary>
+    /// <param name="x"> Índice x en el array bidimensional _cells </param>
+    /// <param name="y"> Índice y en el array bidimensional _cells </param>
+    /// <returns> Vector con las coordenadas cel centro de una celda </returns>
+    Vector2 GetLocalPos(float x, float y) {
+        Vector2 pos = GetWorldPos(x, y);
+        pos += _origin;
+        return pos;
     }
 
     #endregion   

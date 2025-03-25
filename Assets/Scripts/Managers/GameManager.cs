@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     {
         get { return _questState; }
     }
+
     /// <summary>
     /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
     /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado

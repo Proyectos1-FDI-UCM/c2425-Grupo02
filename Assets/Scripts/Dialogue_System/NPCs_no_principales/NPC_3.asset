@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
+  m_Name: NPC_3
+  m_EditorClassIdentifier: 
+  Lines:
+  - Name: NPC_3
+    Sprite: {fileID: 0}
+    DialogueText: "No todos salen de ese club siendo la misma persona que entr\xF3.
+      T\xFA\u2026 tienes esa mirada de alguien que a\xFAn no lo entiende."
+    Options: []
+  Read: 1
+  Ending: 0

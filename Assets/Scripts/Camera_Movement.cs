@@ -71,9 +71,9 @@ public class Camara : MonoBehaviour {
     }
 
     /// <summary>
-    /// En cada frame (fijo) se llama a "MoveCamera"
+    /// Al final de cada frame se llama a "MoveCamera"
     /// </summary>
-    void FixedUpdate() {
+    void LateUpdate() {
         MoveCamera();
     }
     #endregion

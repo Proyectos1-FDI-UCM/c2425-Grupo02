@@ -15,7 +15,11 @@ using Random = UnityEngine.Random;
 /// Clase que se encarga de definir un a zona en la que spawnean enemigos aleatoriamente.
 /// Desde el editor se define una zona mediante un sprite, y se indican un tipo de enemigo, el número de enemigos
 /// que se spawnean por iteración y el número de iteraciones.
-/// Cada vez que se derrotan a todos los enemigos de una iteración salen a la vez todos los de la siguiente iteración
+/// Cada vez que se derrotan a todos los enemigos de una iteración salen a la vez todos los de la siguiente iteración.
+/// 
+/// La clase se basa en un diccionario "_cellDict" en el que las claves son indices y los valores son Vector2 que corresponden a 
+/// celdas de un objeto de tipo CustomGrid. Cuando se llama al método que instancia a los enemigos, se crea un array con todos los índices
+/// del diccionario (las claves) pero ordenados de forma aleatoria. Se accede a los valores del diccionario a través de este array
 /// </summary>
 public class Enemy_Spawn : MonoBehaviour {
 
@@ -35,6 +39,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     [SerializeField] int Iterations;
     /// <summary>
+    /// Si es true, los enemigos solo se instanciarán si el jugador entra en la zona de spawn, y además, este no podrá
+    /// salir de ahí hasta que se eliminen a los enemigos de todas las iteraciones.
+    /// </summary>
+    [SerializeField] bool LimitZone;
+    /// <summary>
     /// Lista con las celdas en las que no pueden spawnear enemigos
     /// </summary>
     [SerializeField] List<Vector2Int> BannedCells = new();
@@ -43,6 +52,10 @@ public class Enemy_Spawn : MonoBehaviour {
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    /// <summary>
+    /// Collider de la zona de spawn, para detectar cuándo entra el jugador
+    /// </summary>
+    BoxCollider2D _collider;
     /// <summary>
     /// Sprite de la zona del spawn
     /// </summary>
@@ -60,11 +73,6 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     HashSet<Vector2Int> _bannedCells = new();
     /// <summary>
-    /// Universo de celdas disponibles, para calcular la pool de celdas disponibles en las que pueden instanciarse enemigos.
-    /// Esto es para que no salgan dos enemigos en la misma celda
-    /// </summary>
-    List<int> _universe;
-    /// <summary>
     /// Ancho de la cuadrícula
     /// </summary>
     int _gridWidth; 
@@ -79,36 +87,42 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <summary>
     /// Enemigos vivos spawneados por el spawn
     /// </summary>
-    int _currentEnemies;                       
+    int _currentEnemies;
     
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
     /// <summary>
     /// Se obtienen los componentes del objeto necesarios y se limita el número de enemigos a spawnear para que no se rompa.
-    /// También se calcula el diccionario de celdas disponibles
+    /// También se ajusta el tamaño de la CustomGrid y el collider al tamaño del sprite, y se calcula el diccionario de celdas disponibles
     /// </summary>
     void Start() {
+        _collider = GetComponent<BoxCollider2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _gridWidth = Mathf.FloorToInt(_sprite.size.x);
         _gridLength = Mathf.FloorToInt(_sprite.size.y);
         _sprite.forceRenderingOff = true;
 
         _grid = new CustomGrid(_gridWidth, _gridLength, 1, gameObject);
-        if (EnemyNumber >= _gridWidth * _gridLength) EnemyNumber = _gridWidth * _gridLength;
+        if (EnemyNumber > _gridWidth * _gridLength) EnemyNumber = _gridWidth * _gridLength;
         if (EnemyNumber == _gridWidth * _gridLength) EnemyNumber -= BannedCells.Count;
         if (EnemyNumber < 0) EnemyNumber = 0;
         _bannedCells = BannedCells.ToHashSet();
         SetDict();
 
-        //Debug
+        StartSpawn();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="collision"> Colisión detectada por el trigger </param>
+    void OnTriggerEnter2D(Collider2D collision) {
         SpawnEnemies();
+        InstantiateLimitZone();
+        _collider.enabled = false;
     }
 
     #endregion
@@ -121,47 +135,89 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     public void SubstractEnemy() {
         _currentEnemies--;
-        if (_currentEnemies <= 0 && _currentIteration < Iterations) SpawnEnemies();
-        else if (_currentIteration >= Iterations) gameObject.SetActive(false);
+        if (_currentEnemies <= 0)
+        {
+            if (_currentIteration < Iterations)
+            {
+                SpawnEnemies();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
     /// <summary>
-    /// Método que se encarga de instanciar enemigos y avanzar de iteración
+    /// Método que se encarga de instanciar enemigos por primera vez si "LimitZone" es false, y también desactiva el collider del spawn.
+    /// En caso contrario, ajusta el tamaño del collider del spawn al tamaño de la CustomGrid
     /// </summary>
-    void SpawnEnemies() {
-        List<int> spawnList = SpawnList();
-        foreach (int n in spawnList)
+    void StartSpawn() {
+        if (!LimitZone)
         {
-            Vector2 pos = _cellDict[n];
-            GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
-            enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
+            SpawnEnemies();
+            _collider.enabled = false;
         }
-        _currentEnemies = EnemyNumber;
-        _currentIteration++;
+        else
+        {
+            Vector2 newSize = new(_grid.GetWidth(), _grid.GetHeight());
+            _collider.size = newSize;
+            _collider.transform.Translate(newSize / 2);
+        }
+    }
+
+    void InstantiateLimitZone() {
+        Vector2 origin = gameObject.transform.position;
+
+        Vector2[] arr = new Vector2[]
+        {
+            //izquierda
+            new(origin.x, origin.y + _grid.GetHeight() / 2),
+            //derecha
+            new(origin.x + _grid.GetWidth(), origin.y + _grid.GetHeight() / 2),
+            //arriba
+            new(origin.x + _grid.GetHeight() / 2, origin.y + _grid.GetHeight()),
+            //abajo
+            new(origin.x, origin.y + _grid.GetHeight())
+        };
+
+        for (int i = 0; i < 4; i++)
+        {
+            BoxCollider2D col = new();
+            if (i < 2)
+            {
+                col.size = new Vector2();
+            }
+            else
+            {
+                //col.size =
+            }
+            Instantiate(col, arr[i], Quaternion.identity);
+        }
     }
 
     /// <summary>
-    /// Método que dado un número de enemigos devuelve un arrray de enteros con los índices a los que deberá acceder la función
-    /// SpawnEnemies en _tileDict para saber en qué tiles instanciar a los enemigos
-    ///
-    /// También se encarga de obtener una lista con todas las celdas que no se encuentren en _bannedCells (universo)
+    /// Método que se encarga de instanciar enemigos y avanzar de iteración del spawn.
+    /// El método itera sobre un array de enteros que son las claves del diccionario de celdas, pero están desordenadas
+    /// de forma aleatoria
     /// </summary>
-    /// <param name="enemy_n"> número de enemigos que se van a instanciar </param>
-    /// <returns> array de enteros con tantos índices de _tileDict como enemigos se hayan indicado </returns>
-    List<int> SpawnList() {
-        List<int> res = new List<int>(_cellDict.Count);
-        
+    void SpawnEnemies() {
+        int[] cells = GetShuffledKeys();
+        int it = 0;
         for (int i = 0; i < EnemyNumber; i++)
         {
-            List<int> random_pool = GetComplementary(res, _universe);
-            int index = Random.Range(0, random_pool.Count);
-            res.Add(random_pool[index]);
+            Vector2 pos = _cellDict[cells[it]];
+            GameObject enemy = Instantiate(Enemy, pos, Quaternion.identity);
+            enemy.GetComponent<Enemy_Health>().SetSpawn(gameObject.GetComponent<Enemy_Spawn>());
+            it++;
         }
-        return res;
+        _currentEnemies = EnemyNumber;
+        _currentIteration++;
     }
 
     /// <summary>
@@ -169,17 +225,15 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     void SetDict() {
         _cellDict = new Dictionary<int, Vector2>();
-        _universe = new List<int>();
 
         int it = 0;
         for (int i = 0; i < _gridWidth; i++)
         {
-            for(int j = 0;  j < _gridLength; j++)
+            for (int j = 0;  j < _gridLength; j++)
             {
                 if (!_bannedCells.Contains(new Vector2Int(i, j)))
                 {
                     _cellDict[it] = _grid.GetCells()[i, j];
-                    _universe.Add(it);
                     it++;
                 }
             }
@@ -187,14 +241,38 @@ public class Enemy_Spawn : MonoBehaviour {
     }
 
     /// <summary>
-    /// Método que se encarga de obtener la lista complementaria de una lista respecto a un universo
+    /// Método que crea un array de enteros con las claves del diccionario "_cellDict" pero ordenadas de forma aleatoria
     /// </summary>
-    /// <param name="list"> Lista de la que se va a calcular la complementaria </param>
-    /// <param name="U"> Lista universo </param>
-    /// <returns></returns>
-    List<int> GetComplementary(List<int> list, List<int> U) {
-        List<int> res = U.Except(list).ToList();
+    /// <returns> Array con las claves de _cellDict desordenadas </returns>
+    int[] GetShuffledKeys() {
+        int[] res = new int[_cellDict.Count];
+
+        int it = 0;
+        foreach (int key in _cellDict.Keys)
+        {
+            res[it] = key;
+            it++;
+        }
+
+        Shuffle(ref res);
         return res;
+    }
+
+    /// <summary>
+    /// Método que se encarga de ordenar de forma aleatoria los elementos de un array.
+    /// Se recorre el array al revés y se va intercambiando el elemento de la última posición (no intercambiada aún) 
+    /// con el de otra posición aleatoria
+    /// </summary>
+    /// <param name="arr"> Array que se va a desordenar </param>
+    void Shuffle(ref int[] arr) {
+        
+        for (int i = arr.Length - 1; i >= 0; i--)
+        {
+            int index = Random.Range(0, i + 1);
+            int elem = arr[index];
+            arr[index] = arr[i];
+            arr[i] = elem;
+        }
     }
 
     #endregion   

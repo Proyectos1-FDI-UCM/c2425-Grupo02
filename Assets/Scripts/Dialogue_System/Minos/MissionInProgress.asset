@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: MissionInProgress
   m_EditorClassIdentifier: 
-  Name: Minos
-  Sprite: {fileID: 21300000, guid: 8432f8297ec9970498be56ddce28300e, type: 3}
   Lines:
-  - DialogueText: "Eeeyyyy, \xBFy los paquetes qu\xE9? No me digas que se te han
+  - Name: Minos
+    Sprite: {fileID: 0}
+    DialogueText: "Eeeyyyy, \xBFy los paquetes qu\xE9? No me digas que se te han
       olvidado"
     Options:
     - OptionText: "Seguir\xE9 buscando"
       NextDialogue: {fileID: 11400000, guid: 212051e0459252341a275b18f9e5b1e5, type: 2}
     - OptionText: No los voy a coger :b
       NextDialogue: {fileID: 11400000, guid: e237ca32cb6bfd94e8b921b9099a4358, type: 2}
+  Read: 0
   Ending: 0

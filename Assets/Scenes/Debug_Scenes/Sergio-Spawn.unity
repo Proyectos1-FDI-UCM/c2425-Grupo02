@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1877353031839403574, guid: e5d42105447194f508d3f39f9fa3e495, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 1877353031839403574, guid: e5d42105447194f508d3f39f9fa3e495, type: 3}
       propertyPath: m_LocalPosition.y
@@ -707,7 +707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 30
   MapHeight: 20
-  NPC: {fileID: 0}
 --- !u!4 &1687490901
 Transform:
   m_ObjectHideFlags: 0
@@ -745,11 +744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -796,33 +795,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
-      propertyPath: m_Size.x
-      value: 2.3849277
-      objectReference: {fileID: 0}
-    - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
-      propertyPath: m_Size.y
-      value: 2.355748
-      objectReference: {fileID: 0}
     - target: {fileID: 175193201247443623, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Name
       value: SpawnZone
       objectReference: {fileID: 0}
     - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
-      propertyPath: Enemy
-      value: 
-      objectReference: {fileID: 2679976604082022759, guid: c02dc88698d6c5144b479523a0da20f2, type: 3}
-    - target: {fileID: 296663917838678784, guid: fb40de61927154d41a877231748c6c16, type: 3}
-      propertyPath: EnemyNumber
-      value: 80000
+      propertyPath: LimitZone
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6473
+      value: -1.6514378
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5912
+      value: -3.8852947
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z

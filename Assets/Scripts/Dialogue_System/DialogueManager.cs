@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
     /// índice para el array de diálogos
     /// </summary>
     private int _i;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -133,19 +134,31 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogueScripts"></param>
     private void ChooseDialogue(DialogueScript[] dialogueScripts)
     {
-        if (dialogueScripts[0].CharName == "Minos")
+        if (dialogueScripts.Length > 1)
         {
-            if (GameManager.Instance.QuestState == 0)
+            if (dialogueScripts[0].CharLines[0].CharName == "Minos")
             {
-                _currentDialogue = dialogueScripts[0];
+                if (GameManager.Instance.QuestState == 0)
+                {
+                    _currentDialogue = dialogueScripts[0];
+                }
+                else if (GameManager.Instance.QuestState == 1)
+                {
+                    _currentDialogue = dialogueScripts[1];
+                }
+                else
+                {
+                    _currentDialogue = dialogueScripts[2];
+                }
             }
-            else if (GameManager.Instance.QuestState == 1)
+            else
             {
-                _currentDialogue = dialogueScripts[1];
-            }
-            else 
-            {
-                _currentDialogue = dialogueScripts[2];
+                int i = 0;
+                while (i < dialogueScripts.Length && dialogueScripts[i].IsRead == true)
+                {
+                    i++;
+                }
+                _currentDialogue = dialogueScripts[i];
             }
         }
         else
@@ -153,14 +166,16 @@ public class DialogueManager : MonoBehaviour
             _currentDialogue = dialogueScripts[0];
         }
     }
+
+
     /// <summary>
     /// Inicializa el índice de líneas de diálogo a 0 y muestra el nombre, el sprite y la primera línea de diálogo en pantalla
     /// </summary>
     private void InitDialogues()
     {
         _i = 0;
-        NameText.text = _currentDialogue.CharName;
-        DialogueSprite.sprite = _currentDialogue.CharSprite;
+        NameText.text = _currentDialogue.CharLines[_i].CharName;
+        DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
         DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
     }
 
@@ -173,6 +188,8 @@ public class DialogueManager : MonoBehaviour
         if (_i < _currentDialogue.CharLines.Length - 1)
         {
             _i++;
+            NameText.text = _currentDialogue.CharLines[_i].CharName;
+            DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
             DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
         }
         else if (_currentDialogue.CharLines[_i].CharOptions.Length > 0)
@@ -250,6 +267,7 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.ChangeScene(10);
         }
         _dialogueOnGoing = false;
+        _currentDialogue.IsRead = true;
         UIManager.Instance.HideDialogueUI();
         LevelManager.Instance.EnablePlayerControls();
         LevelManager.Instance.EnableNPC();
