@@ -39,6 +39,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     [SerializeField] int Iterations;
     /// <summary>
+    /// Si es true, los enemigos solo se instanciarán si el jugador entra en la zona de spawn, y además, este no podrá
+    /// salir de ahí hasta que se eliminen a los enemigos de todas las iteraciones.
+    /// </summary>
+    [SerializeField] bool LimitZone;
+    /// <summary>
     /// Lista con las celdas en las que no pueden spawnear enemigos
     /// </summary>
     [SerializeField] List<Vector2Int> BannedCells = new();
@@ -106,14 +111,20 @@ public class Enemy_Spawn : MonoBehaviour {
         _bannedCells = BannedCells.ToHashSet();
         SetDict();
 
-        //Debug
-        SpawnEnemies();
+        StartSpawn();
     }
 
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+
+    public void StartSpawn() {
+        if (!LimitZone)
+        {
+            SpawnEnemies();
+        }
+    } 
 
     /// <summary>
     /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactiva el spawn
