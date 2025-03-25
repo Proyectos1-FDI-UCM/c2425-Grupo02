@@ -12,12 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
   m_Name: FirstMeeting
   m_EditorClassIdentifier: 
-  Name: Minos
-  Sprite: {fileID: 0}
   Lines:
-  - DialogueText: "Oye, t\xFA, se nos han perdido unos paquetes."
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Buenas. \xBFQui\xE9n eres?"
     Options: []
-  - DialogueText: Tienes que buscarlos en el bosque ese que huele a choto.
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Yo soy Minos, el portero del sitio ese que ves ah\xED detr\xE1s.
+      Hoy celebramos una fiesta organizada por Iramis."
     Options: []
-  - DialogueText: "\xBFA qu\xE9 esperas? Mueve el culo"
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Ella es la que lleva las tiendas aqu\xED, es una mujer... interesante."
     Options: []
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Es una s\xFAcubo, mejor dicho. Le gusta organizar fiestas con
+      \"sorpresa\"."
+    Options: []
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Mira, se nos han perdido unos paquetes *important\xEDsimos* para
+      la fiesta."
+    Options: []
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Se los ha llevado la tormenta al bosque que est\xE1 al este de
+      aqu\xED."
+    Options: []
+  - Name: 
+    Sprite: {fileID: 0}
+    DialogueText: "Si consigues los paquetes y me los traes te dejo pasar, \xBFtrato
+      hecho?"
+    Options:
+    - OptionText: De acuerdo
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
+    - OptionText: Altoke mirey
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
+  Read: 0
+  Ending: 0

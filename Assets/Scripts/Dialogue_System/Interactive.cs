@@ -66,7 +66,7 @@ public class Interactive : MonoBehaviour
     /// </summary>
     private void StartDialogue()
     {
-        DialogueManager.Instance.InitDialogues(DialogueScripts);
+        DialogueManager.Instance.StartInteraction(DialogueScripts);
         UIManager.Instance.ShowDialogueUI();
     }
     #endregion

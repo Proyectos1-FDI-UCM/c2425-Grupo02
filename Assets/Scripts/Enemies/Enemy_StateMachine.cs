@@ -64,7 +64,11 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Jugador en la escena
     /// </summary>
-    protected GameObject _player;   
+    protected GameObject _player;
+    /// <summary>
+    /// Collider del enemigo
+    /// </summary>
+    protected Collider2D _collider;
     /// <summary>
     /// Componente rigidbody del enemigo
     /// </summary>
@@ -88,7 +92,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Tolerancia para salir de las direcciones no diagonales en el metodo "SetDir"
     /// </summary>
-    protected int _tolerance = 15;
+    protected int _tolerancy = 15;
     /// <summary>
     /// Indica el tiempo máximo que tiene que pasar para que el enemigo cambie su dirección
     /// </summary>
@@ -99,9 +103,21 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     protected float _dirTimer = 0f;
     /// <summary>
+    /// Variable que guarda el tiempo que lleva el enemigo en el estado "Resting" (se debe resetear al cambiar de estado)
+    /// </summary>
+    protected float _restTimer = 0f;
+    /// <summary>
+    /// Variable que guarda el tiempo que lleva el enemigo en el estado "Spawning"
+    /// </summary>
+    protected float _spawnTimer = 0f;
+    /// <summary>
     /// Bandera que marca si el enemigo está a la distancia necesaria del jugador para ejecutar su ataque
     /// </summary>
     protected bool _onRange = false;
+    /// <summary>
+    /// Booleano que indica si ya hay una instancia de la corrutina de ataque ejecutándose 
+    /// </summary>
+    protected bool _attacking = false;
 
     /// <summary>
     /// Enumerado con cad uno de los estados en los que puede estar el enemigo
@@ -117,10 +133,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Estado actual del enemigo
     /// </summary>
     protected State _currentState;
-    /// <summary>
-    /// Último estado en el que estuvo el enemigo antes de estar en el actual
-    /// </summary>
-    protected State _lastState;
 
     #endregion
 
@@ -129,23 +141,24 @@ public class Enemy_StateMachine : MonoBehaviour {
 
     /// <summary>
     /// Se accede al jugador en escena y se accede a los componentes necesarios del enemigo.
-    /// Se entra en el estado "Spawning" y se define "Resting" como _lastState
+    /// Se entra en el estado "Spawning" y se desactiva el collider del enemigo ("_collider")
     /// </summary>
     protected virtual void Start() {
         _currentState = State.Spawning;
-        _lastState = State.Resting;
         _attack = GetComponent<IAttack>();
         _player = FindObjectOfType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
         _spriteRend = GetComponent<SpriteRenderer>();
+        _collider = gameObject.GetComponent<Collider2D>();
+        _collider.enabled = false;
     }
 
     /// <summary>
-    /// En cada frame (fijos) se ejecuta SetState()
+    /// En cada frame se ejecuta SetState()
     /// </summary>
-    protected virtual void FixedUpdate() {
+    protected virtual void Update() {
         SetState();
     }
 
@@ -155,7 +168,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <param name="collision"> collider del objeto con el que se activó el triggger </param>
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = true;
+        if (collision.gameObject.layer == EnemyRangeLayer)
+        {
+            _onRange = true;
+        }
     }
 
     /// <summary>
@@ -164,7 +180,10 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <param name="collision">  collider del objeto con el que se activó el triggger </param>
     protected virtual void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.layer == EnemyRangeLayer) _onRange = false;
+        if (collision.gameObject.layer == EnemyRangeLayer)
+        {
+            _onRange = false;
+        }
     }
 
     #endregion
@@ -173,32 +192,29 @@ public class Enemy_StateMachine : MonoBehaviour {
     #region Métodos públicos
 
     /// <summary>
-    /// Se comprueba que el último estado es distinto al actual, y si esto se cumple, se entra en el estado correspondiente
+    /// Método que ejecuta una acción dependiendo del estadop actual ("_currentState") del enemigo
     /// </summary>
      protected void SetState() {
-        if (_currentState != _lastState)
+        _rb.velocity = Vector2.zero;
+        switch (_currentState)
         {
-            _rb.velocity = Vector2.zero;
-            switch (_currentState)
-            {
-                case State.Chasing:
-                    ChasingState();
-                    break;
+            case State.Chasing:
+                ChasingState();
+                break;
 
-                case State.Attacking:
-                    AttackingState();
-                    break;
+            case State.Attacking:
+                AttackingState();
+                break;
 
-                case State.Resting:
-                    RestingState();
-                    break;
+            case State.Resting:
+                RestingState();
+                break;
 
-                case State.Spawning:
-                    SpawningState();
-                    break;
-            }
+            case State.Spawning:
+                SpawningState();
+                break;
         }
-    }
+     }
 
     /// <summary>
     /// Método público para obtener la dirección en la que se mueve el enemigo
@@ -229,21 +245,43 @@ public class Enemy_StateMachine : MonoBehaviour {
         ang = (ang + 360) % 360;
 
         //Derecha
-        if (ang <= 0 + t && ang >= 0 || ang <= 360 && ang >= 360 - t) res = Vector2.right;
+        if (ang <= 0 + t && ang >= 0 || ang <= 360 && ang >= 360 - t)
+        {
+            res = Vector2.right;
+        }
         //Arriba
-        else if (ang <= 90 + t && ang >= 90 - t) res = Vector2.up;
-        //Izquierda
-        else if (ang <= 180 + t && ang >= 180 - t) res = Vector2.left;
+        else if (ang <= 90 + t && ang >= 90 - t)
+        {
+            res = Vector2.up;
+        }//Izquierda
+        else if (ang <= 180 + t && ang >= 180 - t)
+        {
+            res = Vector2.left;
+        }
         //Abajo
-        else if (ang <= 270 + t && ang >= 270 - t) res = Vector2.down;
-        //1er cuadrante
-        else if (ang <= 90 && ang >= 0) res = (Vector2.right + Vector2.up).normalized;
+        else if (ang <= 270 + t && ang >= 270 - t)
+        {
+            res = Vector2.down;
+        }//1er cuadrante
+        else if (ang <= 90 && ang >= 0)
+        {
+            res = (Vector2.right + Vector2.up).normalized;
+        }
         //2do cuadrante
-        else if (ang <= 180 && ang > 90) res = (Vector2.up + Vector2.left).normalized;
+        else if (ang <= 180 && ang > 90)
+        {
+            res = (Vector2.up + Vector2.left).normalized;
+        }
         //3er cuadrante
-        else if (ang <= 270 && ang > 180) res = (Vector2.left + Vector2.down).normalized;
+        else if (ang <= 270 && ang > 180)
+        {
+            res = (Vector2.left + Vector2.down).normalized;
+        }
         //4to cuadrante
-        else res = (Vector2.down + Vector2.right).normalized;
+        else
+        {
+            res = (Vector2.down + Vector2.right).normalized;
+        }
 
         SetAnim(res);
 
@@ -296,14 +334,14 @@ public class Enemy_StateMachine : MonoBehaviour {
 
 
     /// <summary>
-    /// Cambia la dirección del enemigo con una restricción de tiempo
+    /// Cambia la dirección del enemigo (asignándole un vector a "_dir") con una restricción de tiempo
     /// </summary>
     /// <param name="t"> Tiempo necesario para que cambie la dirección de movimiento del enemigo </param>
-    protected void SetDir(float t) {
-        if (_dirTimer >= t)
+    protected void SetDir() {
+        if (_dirTimer >= _dirTime)
         {
             _playerPosition = _player.transform.position;
-            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerance);
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
             _dirTimer = 0f;
         }
         else _dirTimer += Time.deltaTime;
@@ -312,25 +350,18 @@ public class Enemy_StateMachine : MonoBehaviour {
     //States
 
     /// <summary>
-    /// Inicia la corrutina "Spawning"
+    /// Espear a que pase el timepo dado por "SpawnTime", y cuando acaba, activa el collider del enemigo y asigna elestado "Chasing" a "_currentState"
     /// </summary>
     protected virtual void SpawningState() {
-        StartCoroutine(Spawning());
-    }
-
-    /// <summary>
-    /// Corrutina que desactiva el collider del enemigo durante su duración.
-    /// Cuando acaba, establece el estado "Chasing" como estado actual
-    /// </summary>
-    /// <returns> La duración viene dada por el atributo serializado "SpawnTime" </returns>
-    protected virtual IEnumerator Spawning() {
-        Collider2D collider = gameObject.GetComponent<Collider2D>();
-        collider.enabled = false;
-
-        yield return new WaitForSeconds(SpawnTime);
-
-        collider.enabled = true;
-        _currentState = State.Chasing;
+        if(_spawnTimer < SpawnTime)
+        {
+            _spawnTimer += Time.deltaTime;
+        }
+        else
+        {
+            _collider.enabled = true;
+            _currentState = State.Chasing;
+        }
     }
 
     /// <summary>
@@ -338,23 +369,28 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Si el jugador está a rango, entra en el estado "Attacking", si no lo persigue
     /// </summary>
     protected virtual void ChasingState() {
-        _lastState = State.Spawning;
-        if (_onRange) _currentState = State.Attacking;
+        if (_onRange)
+        {
+            _currentState = State.Attacking;
+        }
         else
         {
-            SetDir(_dirTime);
+            SetDir();
             _rb.velocity = _dir * MovementSpeed;
         }
     }
 
     /// <summary>
-    /// Busca la dirección del jugador, y comienza la corrutina "Attacking"
+    /// Si no hay una instancia de la corrutina de ataque ejecutándose, busca la dirección del jugador, y comienza la corrutina "Attacking"
     /// </summary>
     protected virtual void AttackingState() {
-        _playerPosition = _player.transform.position;
-        _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerance);
-        _rb.velocity = _dir * 0f;
-        StartCoroutine(Attacking());
+        if (!_attacking)
+        {
+            _playerPosition = _player.transform.position;
+            _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
+            _rb.velocity = _dir * 0f;
+            StartCoroutine(Attacking());
+        }
     }
 
     /// <summary>
@@ -364,7 +400,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// </summary>
     /// <returns> Espera a que la corrutina de ataque del script de ataque del enemigo acabe </returns>
     protected virtual IEnumerator Attacking() {
-        _lastState = State.Attacking;
+        _attacking = true;
         _anim.SetTrigger("_Attack");
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
@@ -372,28 +408,27 @@ public class Enemy_StateMachine : MonoBehaviour {
 
         _rb.constraints = _constraints;
         _currentState = State.Resting;
-    }
-
-    /// <summary>
-    /// Inicia la corrutina "Resting"
-    /// </summary>
-    protected virtual void RestingState() {
-        StartCoroutine(Resting());
+        _attacking = false;
     }
 
     /// <summary>
     /// Establece "Resting" como el último estado y congela la posición del rigidbody.
-    /// Al acabar, aplica al rigidbody sus restricciones iniciales y establece "Chasing" como el estado actual
+    /// Espera el tiempo especificado por la variable serializada "RestTime", y acabado este tiempo, devuelve al rigidbody sus restricciones iniciales,
+    /// resetea la variable "_restTimer" y asigna el estado "Chasing" a "_currentState"
     /// </summary>
-    /// <returns> La duración de la corrutina viene dada por el atributo serializado "RestTime" </returns>
-    protected virtual IEnumerator Resting() {
-        _lastState = State.Resting;
+    protected virtual void RestingState() {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        yield return new WaitForSeconds(RestTime);
-
-        _rb.constraints = _constraints;
-        _currentState = State.Chasing;
+        if (_restTimer < RestTime)
+        {
+            _restTimer += Time.deltaTime;
+        }
+        else
+        {
+            _restTimer = 0f;
+            _rb.constraints = _constraints;
+            _currentState = State.Chasing;
+        }
     }
 
     #endregion

@@ -123,14 +123,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    /// <summary>
-    /// Devuelve cierto si la instancia del singleton está creada y
-    /// falso en otro caso.
-    /// Lo normal es que esté creada, pero puede ser útil durante el
-    /// cierre para evitar usar el GameManager que podría haber sido
-    /// destruído antes de tiempo.
-    /// </summary>
-    /// <returns>Cierto si hay instancia creada.</returns>
 
     /// <summary>
     /// Getter para obtener el estado de la misión
@@ -139,6 +131,7 @@ public class GameManager : MonoBehaviour
     {
         get { return _questState; }
     }
+
     /// <summary>
     /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
     /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado

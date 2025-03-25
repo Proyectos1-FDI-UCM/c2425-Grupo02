@@ -18,14 +18,20 @@ public class Enemy_Health : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] int Health; //Vidas del enemigo
+    /// <summary>
+    /// Número de vidas del enemigo
+    /// </summary>
+    [SerializeField] int Health;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    Enemy_Spawn _spawn;         //Spawn que instanció al enemigo
+    /// <summary>
+    /// Spawn que instanció al enemigo
+    /// </summary>
+    Enemy_Spawn _spawn;
 
     #endregion
     
@@ -41,17 +47,25 @@ public class Enemy_Health : MonoBehaviour
     /// <summary>
     /// Cuando se llama, se le resta el daño pasado por parametro a Health.
     /// Si Health llega a 0 el enmigo se destruye.
+    /// Si el enemigo ha sido instanciado por un spawn, le comunica a dicho spawn si ha sido destruido
     /// </summary>
     /// <param name="dmg"> Entero que se le resta a Health </param>
     public void Damage(int dmg) {
         Health -= dmg;
         if (Health <= 0)
         {
-            _spawn.SubstractEnemy();
+            if(_spawn != null) 
+            {
+                _spawn.SubstractEnemy();
+            }
             Destroy(gameObject);
         }
     }
 
+    /// <summary>
+    /// Método que asigna al enemigo un spawn
+    /// </summary>
+    /// <param name="spawn"> Spawn que instanció al enemigo </param>
     public void SetSpawn(Enemy_Spawn spawn) {
         _spawn = spawn;
     }
@@ -60,10 +74,8 @@ public class Enemy_Health : MonoBehaviour
     
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+
+
 
     #endregion   
 

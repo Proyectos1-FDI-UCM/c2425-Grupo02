@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
+  m_Name: bottle_pyramid_guy
+  m_EditorClassIdentifier: 
+  Lines:
+  - Name: NPC
+    Sprite: {fileID: 0}
+    DialogueText: "\xBFY bien? \xBFQu\xE9 opinas? Mola, \xBFeh?"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    DialogueText: "\xBFEst\xE1s en una discoteca y lo primero que se te ocurre es
+      hacer una torre de botellas?"
+    Options: []
+  - Name: NPC
+    Sprite: {fileID: 0}
+    DialogueText: "Lo s\xE9. \xBFA que soy lo m\xE1s?"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    DialogueText: ...
+    Options: []
+  Read: 0
+  Ending: 0
