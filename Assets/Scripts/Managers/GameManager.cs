@@ -40,12 +40,16 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Instancia única de la clase (singleton).
-    /// _questObjectsCount -> contador objetos de misión
-    /// _questState -> indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
     /// </summary>
     private static GameManager _instance;
+    /// <summary>
+    /// contador objetos de misión
+    /// </summary>
     private int _questObjectsCount;
     private UIManager _uiManager;
+    /// <summary>
+    /// indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
+    /// </summary>
     private int _questState = 0;
 
 
@@ -145,8 +149,10 @@ public class GameManager : MonoBehaviour
     }
 
     ///<summary>
-    ///Lo llamamos desde Healing_GameObjects si el jugador 
-    ///colisiona contra dicho objeto
+    /// Lo llamamos desde Healing_GameObjects si el jugador 
+    /// Lo llamamos desde Healing_GameObjects si el jugador 
+    /// colisiona contra dicho objeto
+    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
     ///</summary>
     public void HealCollected(GameObject Player)
     {
@@ -158,7 +164,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("_player es null.");
     }
     /// <summary>
-    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
     /// </summary>
     /// <returns></returns>
     /// 
