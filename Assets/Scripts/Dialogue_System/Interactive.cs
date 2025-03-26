@@ -49,8 +49,7 @@ public class Interactive : MonoBehaviour
         if (_canStart && InputManager.Instance.InteractWasPressedThisFrame())
         {
             StartDialogue();
-            LevelManager.Instance.DisablePlayerControls();
-            LevelManager.Instance.DisableNPC();
+            LevelManager.Instance.DisableBehaviours();
         }
     }
     #endregion
