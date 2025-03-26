@@ -8,25 +8,21 @@
 using UnityEngine;
 
 /// <summary>
-/// Componente de prueba que se comunica con el InputManager
-/// para mostrar por consola los eventos de la acción Fire.
-/// Como los eventos IsPressed se muestran cada frame y
-/// saturan la consola, tenemos un tick en el editor para
-/// habilitarlos
+/// Clase que usa el player para instanciar una bala
 /// </summary>
 public class Shoot : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-
     /// <summary>
-    /// Si está activado, se muestran todos los eventos de que
-    /// la acción está siendo realizada (uno por frame)
+    /// prefab de la bala
     /// </summary>
-    //[SerializeField] private bool displayIsPressed = false;
-    [SerializeField] private GameObject bullet; //prefab de la bala
-    [SerializeField] private float posMod; //modificador posición de instancia de la bala
+    [SerializeField] private GameObject bullet;
+    /// <summary>
+    /// modificador posición de instancia de la bala
+    /// </summary>
+    [SerializeField] private float posMod;
 
 
     #endregion
@@ -50,43 +46,23 @@ public class Shoot : MonoBehaviour
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// 
+    /// Dispara si no hay otra bala instanciada
     /// </summary>
     void Update()
     {
         if (InputManager.Instance.FireWasPressedThisFrame())
         {
-            //Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed this frame");
-            Vector2 lastDir = playerMovement.GetLastDir();
-            
-            if (noBulletInGame) //dispara si el _player no está mirando a un obstáculo adyacente y no hay otra bala instanciada
+            if (noBulletInGame)
             {
-                Quaternion bulletRotation;
-                Vector3 instancePos = transform.position; //posición en la que se instancia la bala
-
-                if (lastDir.x > 0) { instancePos.x += posMod; bulletRotation = Quaternion.Euler(0, 0, 90); } //derecha
-                else if (lastDir.x < 0) { instancePos.x -= posMod; bulletRotation = Quaternion.Euler(0, 0, -90); } //izquierda
-                else if (lastDir.y > 0) { instancePos.y += posMod; bulletRotation = Quaternion.Euler(0, 0, 180); } //arriba
-                else { instancePos.y -= posMod; bulletRotation = Quaternion.Euler(0, 0, 0); } //abajo
-
-                newBullet = Instantiate(bullet, instancePos, bulletRotation);
-                noBulletInGame = false;
+                ShootNewBullet();
             }
         }
-        if (newBullet == null) noBulletInGame = true;
-
-        /*
-        if (InputManager.Instance.FireWasReleasedThisFrame())
-            Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was released this frame");
-
-        
-        if (displayIsPressed && InputManager.Instance.FireIsPressed())
+        if (newBullet == null)
         {
-            Debug.Log($"{Time.frameCount}[{Time.deltaTime}]: Fire was pressed");
-            
+            noBulletInGame = true;
         }
-        */
     }
-
 
     #endregion
 
@@ -94,18 +70,46 @@ public class Shoot : MonoBehaviour
 
     #region Métodos públicos
 
-
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
 
     #region Métodos Privados
+    /// <summary>
+    /// Se posiciona y gira la bala según la dirección en la que mira el player
+    /// instancePos -> posición en la que se instancia la bala
+    /// Orden en el que se comprueban las posiciones de la bala -> derecha, izquierda, arriba, abajo
+    /// </summary>
+    private void ShootNewBullet()
+    {
+        Vector2 lastDir = playerMovement.GetLastDir();
+        Quaternion bulletRotation;
+        Vector3 instancePos = transform.position;
 
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+        if (lastDir.x > 0)
+        {
+            instancePos.x += posMod; 
+            bulletRotation = Quaternion.Euler(0, 0, 90);
+        }
+        else if (lastDir.x < 0)
+        {
+            instancePos.x -= posMod; 
+            bulletRotation = Quaternion.Euler(0, 0, -90);
+        }
+        else if (lastDir.y > 0)
+        {
+            instancePos.y += posMod;
+            bulletRotation = Quaternion.Euler(0, 0, 180);
+        }
+        else
+        {
+            instancePos.y -= posMod;
+            bulletRotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        newBullet = Instantiate(bullet, instancePos, bulletRotation);
+        noBulletInGame = false;
+    }
 
     #endregion
 } // class TestFire 

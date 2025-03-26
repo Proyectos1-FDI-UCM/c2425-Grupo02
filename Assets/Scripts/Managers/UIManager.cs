@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
-
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
@@ -21,7 +20,7 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private Canvas MissionCompletedCanvas;
-    [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject DialogueUI;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,7 +30,9 @@ public class UIManager : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    /// <summary>
+    /// 
+    /// </summary>
     protected void Awake()
     {
         if (_instance == null)
@@ -50,7 +51,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         MissionCompletedCanvas.gameObject.SetActive(false);
-        dialogueUI.SetActive(false);
+        DialogueUI.SetActive(false);
     }
     #endregion
 
@@ -78,14 +79,14 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void ShowDialogueUI()
     {
-        dialogueUI.SetActive(true);
+        DialogueUI.SetActive(true);
     }
     /// <summary>
     /// Oculta UI de diálogos
     /// </summary>
     public void HideDialogueUI()
     {
-        dialogueUI.SetActive(false);
+        DialogueUI.SetActive(false);
     }
 
 
