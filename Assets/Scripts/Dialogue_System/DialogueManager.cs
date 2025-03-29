@@ -151,6 +151,18 @@ public class DialogueManager : MonoBehaviour
                     _currentDialogue = dialogueScripts[2];
                 }
             }
+            else if (dialogueScripts[0].CharLines[0].CharName == "Bartender")
+            {
+                if (!GameManager.Instance.SaveUsed)
+                {
+                    _currentDialogue = dialogueScripts[0];
+                    GameManager.Instance.UpdateSave();
+                }
+                else
+                {
+                    _currentDialogue = dialogueScripts[1];
+                }
+            }
             else
             {
                 int i = 0;

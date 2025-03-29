@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     /// indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
     /// </summary>
     private int _questState = 0;
+    private bool _saveUsed = false;
 
 
     #endregion
@@ -135,6 +136,10 @@ public class GameManager : MonoBehaviour
     {
         get { return _questState; }
     }
+    public bool SaveUsed
+    {
+        get { return _saveUsed; }
+    }
 
     /// <summary>
     /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
@@ -147,14 +152,18 @@ public class GameManager : MonoBehaviour
             _questState = 1;
         }
     }
+    public void UpdateSave()
+    {
+        _saveUsed = true;
+    }
 
-    ///<summary>
-    /// Lo llamamos desde Healing_GameObjects si el jugador 
-    /// Lo llamamos desde Healing_GameObjects si el jugador 
-    /// colisiona contra dicho objeto
-    /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
-    ///</summary>
-    public void HealCollected(GameObject Player)
+        ///<summary>
+        /// Lo llamamos desde Healing_GameObjects si el jugador 
+        /// Lo llamamos desde Healing_GameObjects si el jugador 
+        /// colisiona contra dicho objeto
+        /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
+        ///</summary>
+        public void HealCollected(GameObject Player)
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
