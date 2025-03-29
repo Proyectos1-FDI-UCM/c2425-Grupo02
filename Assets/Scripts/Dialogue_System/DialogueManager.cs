@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 int i = 0;
-                while (i < dialogueScripts.Length && dialogueScripts[i].IsRead == true)
+                while (i < dialogueScripts.Length - 1 && dialogueScripts[i].IsRead == true)
                 {
                     i++;
                 }
