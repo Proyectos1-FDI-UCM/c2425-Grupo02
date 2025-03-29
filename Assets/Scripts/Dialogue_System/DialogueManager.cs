@@ -269,7 +269,7 @@ public class DialogueManager : MonoBehaviour
         _dialogueOnGoing = false;
         _currentDialogue.IsRead = true;
         UIManager.Instance.HideDialogueUI();
-        LevelManager.Instance.DisableBehaviours();
+        LevelManager.Instance.EnableBehaviours();
         GameManager.Instance.UpdateState();
     }
     #endregion
