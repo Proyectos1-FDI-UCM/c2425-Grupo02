@@ -17,5 +17,5 @@ MonoBehaviour:
     Sprite: {fileID: 0}
     DialogueText: Si crees que te voy a regalar otra bebida lo llevas claro listilla.
     Options: []
-  Read: 1
+  Read: 0
   Ending: 0

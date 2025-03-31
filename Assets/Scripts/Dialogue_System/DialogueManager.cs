@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 int i = 0;
-                while (i < dialogueScripts.Length - 1 && dialogueScripts[i].IsRead == true)
+                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i]) == true)
                 {
                     i++;
                 }
@@ -268,6 +268,7 @@ public class DialogueManager : MonoBehaviour
     }
     /// <summary>
     /// Si el diálogo lleva a un final del juego, carga la escena que te muestra qué final has obtenido.
+    /// Si has tenido el primer diálogo con Minos, el estado del juego se actualiza para indicar que hay una misión en curso
     /// Al final del diálogo, se desactiva la caja de diálogos, se indica que ya no hay un diálogo en curso, 
     /// el levelmanager habilita los controles del player y
     /// habilita al NPC para que pueda actualizar sus diálogos y el GameManager actualiza el estado del juego.
@@ -278,11 +279,14 @@ public class DialogueManager : MonoBehaviour
         {
             GameManager.Instance.ChangeScene(10);
         }
+        else if (_currentDialogue.CharLines[0].CharName == "Minos")
+        {
+            GameManager.Instance.UpdateState();
+        }
         _dialogueOnGoing = false;
-        _currentDialogue.IsRead = true;
+        GameManager.Instance.MarkAsRead(_currentDialogue);
         UIManager.Instance.HideDialogueUI();
         LevelManager.Instance.EnableBehaviours();
-        GameManager.Instance.UpdateState();
     }
     #endregion
 

@@ -26,5 +26,5 @@ MonoBehaviour:
     Sprite: {fileID: 0}
     DialogueText: "Ni de co\xF1a. 50 pavos pa'l bolsillo."
     Options: []
-  Read: 1
+  Read: 0
   Ending: 0

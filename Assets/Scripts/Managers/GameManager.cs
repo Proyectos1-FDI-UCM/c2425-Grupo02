@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -52,7 +53,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int _questState = 0;
     private bool _saveUsed = false;
-
+    /// <summary>
+    /// Diccionario de diálogos leídos
+    /// </summary>
+    private Dictionary<DialogueScript,bool> _readDialogues = new Dictionary<DialogueScript, bool>();
 
     #endregion
 
@@ -177,9 +181,8 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     /// 
     ///<summary>
-    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto
+    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto. Va actualizando el número de objetos de misión obtenidos por el jugador
     ///</summary>
-
     public void OnQuestObjectCollected()
     {
         _questObjectsCount++;
@@ -203,9 +206,24 @@ public class GameManager : MonoBehaviour
         }
     }
     ///<summary>
-    ///Va actualizando el número de objetos de misión obtenidos por el jugador
+    ///Marca el diálogo como leído al finalizar
     /// </summary>
-
+    public void MarkAsRead(DialogueScript dialogue)
+    {
+        if (!_readDialogues.ContainsKey(dialogue))
+        {
+            _readDialogues.Add(dialogue, true);
+        }
+    }
+    /// <summary>
+    /// Comprueba si el diálogo ya ha sido leído
+    /// </summary>
+    /// <param name="dialogue"></param>
+    /// <returns></returns>
+    public bool HasBeenRead(DialogueScript dialogue)
+    {
+        return _readDialogues.ContainsKey(dialogue);
+    }
 
     public static bool HasInstance()
     {

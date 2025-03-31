@@ -18,5 +18,5 @@ MonoBehaviour:
     DialogueText: "La jefa... es una persona interesante. Suele traer de vez en cuando
       a sus \"acompa\xF1antes\"."
     Options: []
-  Read: 1
+  Read: 0
   Ending: 0

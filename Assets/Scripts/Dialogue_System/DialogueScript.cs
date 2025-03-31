@@ -18,7 +18,6 @@ public class DialogueScript : ScriptableObject
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] private DialogueLine[] Lines;
-    [SerializeField] private bool Read;
     [SerializeField] private bool Ending;
 
     /// <summary>
@@ -105,14 +104,6 @@ public class DialogueScript : ScriptableObject
     public bool GameEnding
     {
         get { return Ending; }
-    }
-    /// <summary>
-    /// Getter/setter para determinar si se ha leído el diálogo
-    /// </summary>
-    public bool IsRead
-    {
-        get { return Read; }
-        set { Read = value; }
     }
     #endregion
 } // class DialogueScript 

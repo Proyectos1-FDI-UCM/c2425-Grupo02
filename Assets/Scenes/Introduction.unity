@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1647502436}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10161,6 +10165,11 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!1 &1647502436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+  m_PrefabInstance: {fileID: 424508132928810644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1689221811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10700,7 +10709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5548344
+      value: -1.5631428
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y
