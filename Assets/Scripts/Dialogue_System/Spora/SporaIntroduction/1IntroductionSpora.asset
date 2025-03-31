@@ -28,7 +28,7 @@ MonoBehaviour:
 '
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: "Perd\xF3n se\xF1or champi\xF1\xF3n..."
     Options: []
   - Name: Spora
@@ -40,7 +40,7 @@ MonoBehaviour:
     DialogueText: "Y NO ME LLAMO SE\xD1OR CHAMPI\xD1\xD3N!!!!! Soy Spora!!!!!\n"
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: 'Yo soy Lilith.
 
 '
@@ -85,7 +85,7 @@ MonoBehaviour:
       un pecado del que ni siquiera t\xFA seas consciente...\r\n\r"
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: "\xBFC\xF3mo puedo salir de este sitio?"
     Options: []
   - Name: Spora
@@ -100,7 +100,7 @@ MonoBehaviour:
       con ella.\n\r"
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: "Supongo que me toca buscarla, \xBFsabes por d\xF3nde puedo salir
       de este bosque?\n"
     Options: []
