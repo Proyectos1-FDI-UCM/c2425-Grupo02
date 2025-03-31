@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Velocidad del movimiento
     /// </summary>
-    [SerializeField] private float Speed = 1.0f;
+    [SerializeField] private float Velocity;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,18 +31,18 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Rigidbody para el movimiento
     /// </summary>
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Dash dash;
+    private Rigidbody2D _rb;
+    private Animator _animator;
+    private Dash _dash;
     /// <summary>
     /// última dirección en la que mira el player que se obtiene en GetLastDir()
     /// </summary>
-    private Vector2 lastDir;
-    private Vector2 lastDir2;
+    private Vector2 _lastDir;
+    private Vector2 _lastDir2;
     /// <summary>
     /// vector que contiene las dimensiones del mapa
     /// </summary>
-    private Vector2 mapSize;
+    private Vector2 _mapSize;
 
     #endregion
 
@@ -53,16 +53,16 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        dash = GetComponent<Dash>();   
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _dash = GetComponent<Dash>();   
     }
     /// <summary>
     /// Coge el tamaño del mapa en el primer frame
     /// </summary>
     private void Start()
     {
-        mapSize = LevelManager.Instance.GetMapSize();
+        _mapSize = LevelManager.Instance.GetMapSize();
     }
     void OnEnable()
     {
@@ -81,22 +81,18 @@ public class Movement : MonoBehaviour
     /// <param name="mode"></param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mapSize = LevelManager.Instance.GetMapSize();
+        _mapSize = LevelManager.Instance.GetMapSize();
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void FixedUpdate()
     {
-        lastDir = GetLastDir();
-
-        Vector2 movement = InputManager.Instance.MovementVector * Speed;
-
-        //hacerlo con rb.velocity
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-
-        animator.SetFloat("moveX", lastDir.x);
-        animator.SetFloat("moveY", lastDir.y);
+        _lastDir = GetLastDir();
+        Vector2 movement = InputManager.Instance.MovementVector;
+        _rb.velocity = movement * Velocity;
+        _animator.SetFloat("moveX", _lastDir.x);
+        _animator.SetFloat("moveY", _lastDir.y);
         ApplyToroidality();
     }
 
@@ -119,16 +115,16 @@ public class Movement : MonoBehaviour
         {
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) 
             {
-                if (moveInput.x > 0) lastDir = new Vector2(1, 0); 
-                else lastDir = new Vector2(-1, 0); 
+                if (moveInput.x > 0) _lastDir = new Vector2(1, 0); 
+                else _lastDir = new Vector2(-1, 0); 
             }
             else 
             {
-                if (moveInput.y > 0) lastDir = new Vector2(0, 1);
-                else lastDir = new Vector2(0, -1); 
+                if (moveInput.y > 0) _lastDir = new Vector2(0, 1);
+                else _lastDir = new Vector2(0, -1); 
             }
         }
-        return lastDir;
+        return _lastDir;
     }
     /// <summary>
     /// lastdir para el dash
@@ -139,17 +135,17 @@ public class Movement : MonoBehaviour
         Vector2 moveInput = InputManager.Instance.MovementVector;
 
 
-        if (moveInput.x == 0 && moveInput.y > 0) lastDir2 = new Vector2(0, 1);
-        else if (moveInput.x == 0 && moveInput.y < 0) lastDir2 = new Vector2(0, -1);
-        else if (moveInput.x > 0 && moveInput.y == 0) lastDir2 = new Vector2(1, 0);
-        else if (moveInput.x < 0 && moveInput.y == 0) lastDir2 = new Vector2(-1, 0);
-        else if (moveInput.x > 0 && moveInput.y > 0) lastDir2 = new Vector2(1, 1);
-        else if (moveInput.x > 0 && moveInput.y < 0) lastDir2 = new Vector2(1, -1);
-        else if (moveInput.x < 0 && moveInput.y > 0) lastDir2 = new Vector2(-1, 1);
-        else if (moveInput.x < 0 && moveInput.y < 0) lastDir2 = new Vector2(-1, -1);
-        else lastDir2 = new Vector2(0, 0);
+        if (moveInput.x == 0 && moveInput.y > 0) _lastDir2 = new Vector2(0, 1);
+        else if (moveInput.x == 0 && moveInput.y < 0) _lastDir2 = new Vector2(0, -1);
+        else if (moveInput.x > 0 && moveInput.y == 0) _lastDir2 = new Vector2(1, 0);
+        else if (moveInput.x < 0 && moveInput.y == 0) _lastDir2 = new Vector2(-1, 0);
+        else if (moveInput.x > 0 && moveInput.y > 0) _lastDir2 = new Vector2(1, 1);
+        else if (moveInput.x > 0 && moveInput.y < 0) _lastDir2 = new Vector2(1, -1);
+        else if (moveInput.x < 0 && moveInput.y > 0) _lastDir2 = new Vector2(-1, 1);
+        else if (moveInput.x < 0 && moveInput.y < 0) _lastDir2 = new Vector2(-1, -1);
+        else _lastDir2 = new Vector2(0, 0);
 
-        return lastDir2;
+        return _lastDir2;
     }
 
     #endregion
@@ -164,23 +160,23 @@ public class Movement : MonoBehaviour
     private void ApplyToroidality()
     {
         Vector2 offset = Vector2.zero;
-        if (transform.position.x > mapSize.x / 2)
+        if (transform.position.x > _mapSize.x / 2)
         {
-            offset.x = -mapSize.x; 
+            offset.x = -_mapSize.x; 
         }
-        else if (transform.position.x < -mapSize.x / 2)
+        else if (transform.position.x < -_mapSize.x / 2)
         {
-            offset.x = mapSize.x;
+            offset.x = _mapSize.x;
         }
-        else if (transform.position.y > mapSize.y / 2)
+        else if (transform.position.y > _mapSize.y / 2)
         {
-            offset.y = -mapSize.y;
+            offset.y = -_mapSize.y;
         }
-        else if (transform.position.y < -mapSize.y / 2)
+        else if (transform.position.y < -_mapSize.y / 2)
         {
-            offset.y = mapSize.y;
+            offset.y = _mapSize.y;
         }
-        rb.transform.Translate(offset, Space.World);
+        _rb.transform.Translate(offset, Space.World);
     }
     #endregion
 
