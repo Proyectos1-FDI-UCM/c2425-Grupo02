@@ -47,6 +47,11 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy_Health>().Damage(1);
         }
+
+        if (collision.gameObject.GetComponent<Pillar>() != null)
+        {
+            Debug.Log("Debes golpear al pilar, dispararlo no será suficiente");
+        }
         Destroy(gameObject);
     }
 
