@@ -19,7 +19,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] Transform target; // Referencia al jugador.
-    [SerializeField] float speed = 3f; // Velocidad de movimiento del jefe (No se usa en este script).
     [SerializeField] float spinSpeed = 0.002f; // Velocidad de rotación del jefe.
 
     [SerializeField] GameObject bossProyectile; // Prefab del proyectil del jefe.
@@ -27,6 +26,8 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
 
     [SerializeField] float fireRate; // Tiempo entre disparos.
     [SerializeField] GameObject Boss; // Referencia al jefe en la escena.
+
+    [SerializeField] GameObject Spawner; // Referencia al spawner de enemigos.
 
     #endregion
 
@@ -73,6 +74,13 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         if (!_isVulnerable) // Si el jefe no es vulnerable, dispara.
         {
             Shoot();
+        }
+
+        int BoosLife = Boss.GetComponent<Boss_Life_Phase1>().getBossLife();
+
+        if (BoosLife <= 0)
+        {
+            Spawner.SetActive(false);
         }
     }
 

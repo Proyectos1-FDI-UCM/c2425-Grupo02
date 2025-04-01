@@ -99,6 +99,12 @@ public class Boss_Life_Phase1 : MonoBehaviour
         return _isVulnerable;
     }
 
+
+    public int getBossLife()
+    {
+        return BossHealth;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
