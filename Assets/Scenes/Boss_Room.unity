@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9830925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5344345683723096334, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+  m_PrefabInstance: {fileID: 1776439251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39292772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85568,6 +85573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Phase1
       objectReference: {fileID: 0}
+    - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 9830925}
     - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: speed
       value: 0

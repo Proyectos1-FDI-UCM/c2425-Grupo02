@@ -1,91 +1,98 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
+// Script que gestiona el comportamiento de los pilares en la fase 1 del combate.
+//
 // Adrián Arbas Perdiguero
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
-using UnityEngine;
-// Añadir aquí el resto de directivas using
-
+using System; // Biblioteca base de C# (aunque aquí no se usa realmente).
+using UnityEngine; // Necesario para trabajar con Unity (GameObjects, Transform, etc.).
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Este script representa un pilar en la fase 1 del combate.
+/// Cada pilar tiene vida, un identificador y está vinculado al jefe.
+/// Cuando un pilar es destruido, activa la vulnerabilidad del jefe.
 /// </summary>
 public class Pillar : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] int PillarHealth; //Vida del pilar
-    [SerializeField] int PillarID;
-    [SerializeField] GameObject Boss;   
+
+    [SerializeField] int PillarHealth; // Vida total del pilar.
+    [SerializeField] int PillarID; // Identificador único del pilar.
+    [SerializeField] GameObject Boss; // Referencia al jefe en la escena.
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
+
+    // No hay atributos privados en este momento, pero podrían añadirse si es necesario.
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
     /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
+    /// Se ejecuta cuando el objeto se activa en la escena.
+    /// Encuentra automáticamente al jefe en la escena y lo almacena en la variable `Boss`.
     /// </summary>
     void Start()
     {
-        Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject;
+        Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject; // Busca y guarda el jefe en la variable Boss.
     }
 
     /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// Se ejecuta en cada frame del juego.
+    /// Actualmente no tiene ninguna funcionalidad.
     /// </summary>
     void Update()
     {
-        
+        // En el futuro se podría añadir lógica aquí, pero por ahora el método está vacío.
     }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+
+    /// <summary>
+    /// Reduce la vida del pilar cuando recibe daño.
+    /// Si el pilar es destruido, notifica al jefe para que se vuelva vulnerable.
+    /// </summary>
+    /// <param name="dmg">Cantidad de daño recibido.</param>
     public void Damage(int dmg)
     {
+        // Obtenemos si el jefe es vulnerable en este momento.
         bool _isVulnerable = Boss.GetComponent<Boss_Life_Phase1>().getIsVulnerable();
-        
-        if (!_isVulnerable) {
-        PillarHealth -= dmg;
-        if (PillarHealth <= 0)
+
+        // Solo se puede dañar el pilar si el jefe NO es vulnerable.
+        if (!_isVulnerable)
         {
-            Boss.GetComponent<Boss_Life_Phase1>().SetPillarBool(PillarID);
-            Destroy(gameObject);
-        }
+            // Reducimos la vida del pilar.
+            PillarHealth -= dmg;
+
+            // Si la vida del pilar llega a 0, se destruye.
+            if (PillarHealth <= 0)
+            {
+                // Informamos al jefe de que este pilar ha sido destruido.
+                Boss.GetComponent<Boss_Life_Phase1>().SetPillarBool(PillarID);
+
+                // Destruimos el GameObject del pilar.
+                Destroy(gameObject);
+            }
         }
     }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-   
-   
+
+    // Actualmente no hay métodos privados en este script.
+
     #endregion
 
-} // class NewBehaviourScript 
-// namespace
+} // Fin de la clase Pillar
