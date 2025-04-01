@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Movimiento básico de las balas de Iramis
+// Jorge Augusto Blanco Fernández
 // Nombre del juego
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -76,7 +76,8 @@ public class IramisBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// Si colisiona con el jugador, le hace daño
+    /// Si colisiona con el jugador, le hace daño y se destruye
+    /// Si colisiona con otro objeto, se destruye
     /// </summary>
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -84,6 +85,7 @@ public class IramisBullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player_Health>().Damage(1);
         }
+
         Destroy(gameObject);
     }
     #endregion
@@ -96,6 +98,9 @@ public class IramisBullet : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    /// <summary>
+    /// Establece la velocidad indicada como velocidad de la bala
+    /// </summary>
     public void SetSpeed(float speedX, float speedY)
     {
         speed = new Vector2(speedX, speedY);

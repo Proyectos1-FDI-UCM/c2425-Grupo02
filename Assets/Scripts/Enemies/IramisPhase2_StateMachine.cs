@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Máquina de estados de Iramis
+// Jorge Augusto Blanco Fernández
 // Nombre del juego
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -25,7 +25,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     /// <summary>
-    /// Velocidad de movimiento del enemigo
+    /// Velocidad de movimiento de Iramis 
     /// </summary>
     [SerializeField] protected float MovementSpeed;
     /// <summary>
@@ -35,7 +35,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     /// <summary>
     /// Tiempo que dura el estado "Shooting"
     /// </summary>
-    [SerializeField] protected float ShootingTimeLimit;
+    [SerializeField] protected float ShootingTime;
     /// <summary>
     /// Tiempo que dura el estado "Resting" del enemigo
     /// </summary>
@@ -48,7 +48,6 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     /// GameObject del spawner de balas para el estado "Shooting"
     /// </summary>
     [SerializeField] protected GameObject ShotSpawner;
-
 
     #endregion
 
@@ -118,10 +117,6 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     /// Tiempo inicial de enfriamiento del estado "Shooting"
     /// </summary>
     protected float _shootThresholdTime = 0f;
-    /// <summary>
-    /// Tiempo inicial transcurrido del estado "Shooting"
-    /// </summary>
-    protected float _shootTime = 0f;
 
     /// <summary>
     /// Enumerado con cad uno de los estados en los que puede estar el enemigo
@@ -154,7 +149,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
 
     /// <summary>
     /// Se accede al jugador en escena y se accede a los componentes necesarios del enemigo.
-    /// Se entra en el estado "Spawning" y se define "Resting" como _lastState
+    /// Se entra en el estado "Resting" 
     /// </summary>
     protected virtual void Start()
     {
@@ -353,8 +348,8 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     //States
 
     /// <summary>
-    /// Establece "Spawning" como el último estado (para poder ser llamada varias veces en el update).
-    /// Si el jugador está a rango, entra en el estado "Attacking", si no lo persigue
+    /// Establece "Resting" como el último estado (para poder ser llamada varias veces en el update).
+    /// Si el jugador está a rango, entra en el estado "Attacking", si no, lo persigue
     /// </summary>
     protected virtual void ChasingState()
     {
@@ -369,7 +364,6 @@ public class IramisPhase2_StateMachine : MonoBehaviour
             if (_shoot == 1)
             {
                 _currentState = State.Shooting;
-                Instantiate(ShotSpawner, transform.position, Quaternion.identity);
             }
         }
 
@@ -416,18 +410,26 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     /// </summary>
     protected virtual void ShootingState()
     {
+        StartCoroutine(Shooting());
+    }
+
+    /// <summary>
+    /// Establece "Shooting" como el último estado, activa la animación de disparo 
+    /// Establece "Chasing" como el estado actual 
+    /// </summary>
+    /// <returns> La duración de la corrutina viene dada por el atributo serializado "ShootingTime"
+    protected virtual IEnumerator Shooting()
+    {
         _lastState = State.Shooting;
+        // _anim.SetTrigger("_Shooting"); (Por ahora no hay animación)
 
-        SetDir(_dirTime);
-        _rb.velocity = _dir * (MovementSpeed * 0.25f);
+        GameObject Spawner = Instantiate(ShotSpawner, this.transform);
+        Spawner.transform.position = transform.position;
 
-        if (_shootTime >= ShootingTimeLimit)
-        {
-            _shootTime = 0f;
-            _currentState = State.Chasing;
-        }
+        yield return new WaitForSeconds(ShootingTime);
 
-        else _shootTime += Time.deltaTime;
+        Destroy(Spawner);
+        _currentState = State.Chasing;
     }
 
     /// <summary>

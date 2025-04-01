@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8657443910449139153}
   - component: {fileID: 9085023557745712313}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IramisBulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4137843478474227722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2757095, y: 123.89147, z: -0.10412686}
+  m_LocalPosition: {x: 2.8199484, y: 130.98993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c812332ce1419ac41be59bd582e0bc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootCooldown: 0.5
+  _shootCooldown: 0.25
   _bulletSpeed: 3
-  _bulletNumber: 5
+  _bulletNumber: 7
   _bullet: {fileID: 8453960244556519447, guid: 28403d8276b3aac4abf6de5f57374dd5, type: 3}

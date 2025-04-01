@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Spawner de balas que utiliza Iramis
+// Jorge Augusto Blanco Fernández
 // Nombre del juego
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -36,7 +36,7 @@ public class IramisBulletSpawn : MonoBehaviour
     private float _bulletSpeed;
 
     /// <summary>
-    /// GameObject de la bala
+    /// Número de balas que se deben crear
     /// </summary>
     [SerializeField]
     private int _bulletNumber;
@@ -58,8 +58,14 @@ public class IramisBulletSpawn : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    /// <summary>
+    /// Cooldown del disparo inicalizado a 0
+    /// </summary>
     private float _shootCooldownTimer = 0f;
 
+    /// <summary>
+    /// Movimiento básico de las balas instanciadas
+    /// </summary>
     private IramisBullet _bulletMovement;
 
     #endregion
@@ -76,13 +82,13 @@ public class IramisBulletSpawn : MonoBehaviour
     /// </summary>
     void Update()
     {
-        _shootCooldownTimer -= Time.deltaTime;
-
-        if(_shootCooldownTimer <= 0f)
+        if (_shootCooldownTimer <= 0f)
         {
             RadialShot(transform.position, transform.up * _bulletSpeed);
             _shootCooldownTimer = _shootCooldown;
         }
+
+        else _shootCooldownTimer -= Time.deltaTime;
     }
     #endregion
 
@@ -134,7 +140,7 @@ public class IramisBulletSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Rota la velocidad de la bala la cantidad de grados indicada
+    /// Rota la posición de la bala con respecto al spawner la cantidad de grados indicada
     /// </summary>
     private Vector2 Rotate(Vector2 _originalVector, float _rotateAngleInDegrees)
     {
