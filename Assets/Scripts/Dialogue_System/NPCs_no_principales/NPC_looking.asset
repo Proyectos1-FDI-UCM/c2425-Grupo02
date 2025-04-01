@@ -22,7 +22,7 @@ MonoBehaviour:
     DialogueText: "Anda, parece que te est\xE1 llamando, \xBFle conoces?"
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: "No tengo ni idea de qui\xE9n es."
     Options: []
   Read: 0

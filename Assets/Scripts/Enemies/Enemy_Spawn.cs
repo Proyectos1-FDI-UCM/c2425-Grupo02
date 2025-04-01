@@ -44,6 +44,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     [SerializeField] bool LimitZone;
     /// <summary>
+    /// GameObject que contiene un collider. Se instancia cuando el jugador entra en la zona del spawn
+    /// si "LimitZone" es true
+    /// </summary>
+    [SerializeField] GameObject Limit;
+    /// <summary>
     /// Lista con las celdas en las que no pueden spawnear enemigos
     /// </summary>
     [SerializeField] List<Vector2Int> BannedCells = new();
@@ -52,6 +57,10 @@ public class Enemy_Spawn : MonoBehaviour {
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    /// <summary>
+    /// Collider de la zona de spawn, para detectar cuándo entra el jugador
+    /// </summary>
+    BoxCollider2D _collider;
     /// <summary>
     /// Sprite de la zona del spawn
     /// </summary>
@@ -90,22 +99,19 @@ public class Enemy_Spawn : MonoBehaviour {
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
     /// <summary>
     /// Se obtienen los componentes del objeto necesarios y se limita el número de enemigos a spawnear para que no se rompa.
-    /// También se calcula el diccionario de celdas disponibles
+    /// También se ajusta el tamaño de la CustomGrid y el collider al tamaño del sprite, y se calcula el diccionario de celdas disponibles
     /// </summary>
     void Start() {
+        _collider = GetComponent<BoxCollider2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _gridWidth = Mathf.FloorToInt(_sprite.size.x);
         _gridLength = Mathf.FloorToInt(_sprite.size.y);
         _sprite.forceRenderingOff = true;
 
         _grid = new CustomGrid(_gridWidth, _gridLength, 1, gameObject);
-        if (EnemyNumber >= _gridWidth * _gridLength) EnemyNumber = _gridWidth * _gridLength;
+        if (EnemyNumber > _gridWidth * _gridLength) EnemyNumber = _gridWidth * _gridLength;
         if (EnemyNumber == _gridWidth * _gridLength) EnemyNumber -= BannedCells.Count;
         if (EnemyNumber < 0) EnemyNumber = 0;
         _bannedCells = BannedCells.ToHashSet();
@@ -114,20 +120,24 @@ public class Enemy_Spawn : MonoBehaviour {
         StartSpawn();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="collision"> Colisión detectada por el trigger </param>
+    void OnTriggerEnter2D(Collider2D collision) {
+        SpawnEnemies();
+        InstantiateLimitZone();
+        _collider.enabled = false;
+    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-    public void StartSpawn() {
-        if (!LimitZone)
-        {
-            SpawnEnemies();
-        }
-    } 
-
     /// <summary>
-    /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactiva el spawn
+    /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactivan los colliders
+    /// que impiden que el jugador salga del spawn (en caso de que los hubiera)
     /// </summary>
     public void SubstractEnemy() {
         _currentEnemies--;
@@ -137,10 +147,6 @@ public class Enemy_Spawn : MonoBehaviour {
             {
                 SpawnEnemies();
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
         }
     }
 
@@ -148,6 +154,49 @@ public class Enemy_Spawn : MonoBehaviour {
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
+    /// <summary>
+    /// Método que se encarga de instanciar enemigos por primera vez si "LimitZone" es false, y también desactiva el collider del spawn.
+    /// En caso contrario, ajusta el tamaño del collider del spawn al tamaño de la CustomGrid
+    /// </summary>
+    void StartSpawn() {
+        if (!LimitZone)
+        {
+            SpawnEnemies();
+            _collider.enabled = false;
+        }
+        else
+        {
+            Vector2 newSize = new(_grid.GetWidth(), _grid.GetHeight());
+            _collider.size = newSize;
+            _collider.transform.Translate(newSize / 2);
+        }
+    }
+
+    /// <summary>
+    /// Instancia cuatro colliders (uno por dirección) que impiden que el jugador salga de la zona de spawn de enemigos.
+    /// Los guarda en un "_limitedZone" para poder destruirlos luego
+    /// </summary>
+    void InstantiateLimitZone() {
+        Vector2 origin = gameObject.transform.position;
+
+        Vector2[] arr = new Vector2[]
+        {
+            //izquierda
+            new(origin.x, origin.y + _grid.GetHeight() / 2),
+            //derecha
+            new(origin.x + _grid.GetWidth(), origin.y + _grid.GetHeight() / 2),
+            //arriba
+            new(origin.x + _grid.GetHeight() / 2, origin.y + _grid.GetHeight()),
+            //abajo
+            new(origin.x, origin.y + _grid.GetHeight() / 2)
+        };
+
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(Limit, arr[i], Quaternion.identity);
+        }
+    }
 
     /// <summary>
     /// Método que se encarga de instanciar enemigos y avanzar de iteración del spawn.
