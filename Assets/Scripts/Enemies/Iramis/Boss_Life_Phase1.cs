@@ -27,6 +27,9 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
     [SerializeField] Vector2 CenterPosition; // Posición central a la que se teletransportará el jefe.
 
+    [SerializeField]
+    GameObject IramisPhase2;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -134,6 +137,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
             // Si la vida del jefe llega a 0, lo destruimos.
             if (BossHealth <= 0)
             {
+                Instantiate(IramisPhase2, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 

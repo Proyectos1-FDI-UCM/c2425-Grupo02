@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 296663917838678784}
   - component: {fileID: -8103417857065930773}
   m_Layer: 0
-  m_Name: Boss_Phase1_SpawnZone
+  m_Name: IramisPhase1_SpawnZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

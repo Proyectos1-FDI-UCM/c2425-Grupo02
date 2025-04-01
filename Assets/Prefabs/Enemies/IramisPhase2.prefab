@@ -373,8 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 4
   ShootingThreshold: 5
-  ShootingTimeLimit: 8
-  RestTime: 3
+  ShootingTime: 4
+  RestTime: 2
   EnemyRangeLayer: 11
   ShotSpawner: {fileID: 4137843478474227722, guid: ab8b407ccb661ae459be91a7efc6743f, type: 3}
 --- !u!114 &-7132495290295374470
