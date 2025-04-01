@@ -19,12 +19,12 @@ MonoBehaviour:
       zoquete se dej\xF3 la cartera en el asiento trasero. "
     Options: []
   - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 049a54ff6f67c7440a589233d7f9d4b6, type: 3}
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
     DialogueText: "\xBFSe la devolviste?"
     Options: []
   - Name: NPC_4
     Sprite: {fileID: 0}
     DialogueText: "Ni de co\xF1a. 50 pavos pa'l bolsillo."
     Options: []
-  Read: 1
+  Read: 0
   Ending: 0

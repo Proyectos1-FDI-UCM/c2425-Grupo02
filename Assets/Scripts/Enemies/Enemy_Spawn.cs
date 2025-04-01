@@ -44,6 +44,11 @@ public class Enemy_Spawn : MonoBehaviour {
     /// </summary>
     [SerializeField] bool LimitZone;
     /// <summary>
+    /// GameObject que contiene un collider. Se instancia cuando el jugador entra en la zona del spawn
+    /// si "LimitZone" es true
+    /// </summary>
+    [SerializeField] GameObject Limit;
+    /// <summary>
     /// Lista con las celdas en las que no pueden spawnear enemigos
     /// </summary>
     [SerializeField] List<Vector2Int> BannedCells = new();
@@ -131,7 +136,8 @@ public class Enemy_Spawn : MonoBehaviour {
     #region Métodos públicos
 
     /// <summary>
-    /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactiva el spawn
+    /// Resta un enemigo al número de enemigos actuales. Si se ha completado la última iteración, se desactivan los colliders
+    /// que impiden que el jugador salga del spawn (en caso de que los hubiera)
     /// </summary>
     public void SubstractEnemy() {
         _currentEnemies--;
@@ -140,10 +146,6 @@ public class Enemy_Spawn : MonoBehaviour {
             if (_currentIteration < Iterations)
             {
                 SpawnEnemies();
-            }
-            else
-            {
-                gameObject.SetActive(false);
             }
         }
     }
@@ -171,6 +173,10 @@ public class Enemy_Spawn : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Instancia cuatro colliders (uno por dirección) que impiden que el jugador salga de la zona de spawn de enemigos.
+    /// Los guarda en un "_limitedZone" para poder destruirlos luego
+    /// </summary>
     void InstantiateLimitZone() {
         Vector2 origin = gameObject.transform.position;
 
@@ -183,21 +189,12 @@ public class Enemy_Spawn : MonoBehaviour {
             //arriba
             new(origin.x + _grid.GetHeight() / 2, origin.y + _grid.GetHeight()),
             //abajo
-            new(origin.x, origin.y + _grid.GetHeight())
+            new(origin.x, origin.y + _grid.GetHeight() / 2)
         };
 
         for (int i = 0; i < 4; i++)
         {
-            BoxCollider2D col = new();
-            if (i < 2)
-            {
-                col.size = new Vector2();
-            }
-            else
-            {
-                //col.size =
-            }
-            Instantiate(col, arr[i], Quaternion.identity);
+            Instantiate(Limit, arr[i], Quaternion.identity);
         }
     }
 

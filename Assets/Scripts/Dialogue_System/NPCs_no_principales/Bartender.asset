@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
-  m_Name: sleeping_guy
+  m_Name: Bartender
   m_EditorClassIdentifier: 
   Lines:
-  - Name: NPC
+  - Name: Bartender
     Sprite: {fileID: 0}
-    DialogueText: (...)
+    DialogueText: "Hola se\xF1orita, \xBFcansada de tanta fiesta?"
     Options: []
-  - Name: Lilith
-    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
-    DialogueText: "(Est\xE1 cao.)"
+  - Name: Bartender
+    Sprite: {fileID: 0}
+    DialogueText: "Deber\xEDas descansar un poco. Ten, a esta invita la casa."
     Options: []
   Read: 0
   Ending: 0

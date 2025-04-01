@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Velocidad del movimiento
     /// </summary>
-    [SerializeField] private float Speed = 1.0f; 
+    [SerializeField] private float Velocity;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,30 +31,38 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Rigidbody para el movimiento
     /// </summary>
-    private Rigidbody2D rb; 
-    private Animator animator;
-    private Dash dash;
-    private Vector2 lastDir;
-    private Vector2 lastDir2;
-    //private bool outsideScene;    Para cuando tengamos que mantener la toroidalidad activada solo si es un espacio exterior
-
-    private Vector2 mapSize;
+    private Rigidbody2D _rb;
+    private Animator _animator;
+    private Dash _dash;
+    /// <summary>
+    /// última dirección en la que mira el player que se obtiene en GetLastDir()
+    /// </summary>
+    private Vector2 _lastDir;
+    private Vector2 _lastDir2;
+    /// <summary>
+    /// vector que contiene las dimensiones del mapa
+    /// </summary>
+    private Vector2 _mapSize;
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    /// <summary>
+    /// Inicializamos rigidbody, el animator y el dash
+    /// </summary>
     private void Awake()
     {
-        //inicializamos rigidbody
-        rb = GetComponent<Rigidbody2D>(); 
-        animator = GetComponent<Animator>();
-        dash = GetComponent<Dash>();    //tomamos el código del dash
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _dash = GetComponent<Dash>();   
     }
+    /// <summary>
+    /// Coge el tamaño del mapa en el primer frame
+    /// </summary>
     private void Start()
     {
-        mapSize = LevelManager.Instance.GetMapSize();
+        _mapSize = LevelManager.Instance.GetMapSize();
     }
     void OnEnable()
     {
@@ -66,97 +74,109 @@ public class Movement : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    /// <summary>
+    /// Si cambia de escena, cambia el tamaño del mapa para que sea el de la escena que se ha cargado
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //outsideScene = LevelManager.Instance.Outside(); //comprueba si está en un exterior
-        mapSize = LevelManager.Instance.GetMapSize(); //obtiene el tamaño del mapa
+        _mapSize = LevelManager.Instance.GetMapSize();
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    
-
     void FixedUpdate()
     {
-        lastDir = GetLastDir();
-
-        Vector2 movement = InputManager.Instance.MovementVector * Speed;
-
-        //hacerlo con rb.velocity
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-
-        animator.SetFloat("moveX", lastDir.x);
-        animator.SetFloat("moveY", lastDir.y);
-        // bool ddash = dash.isdashing();   //la variable booleana ddash representa al método isdashing del scrpit dash, que detecta si se está en estado de dash o no
-        //if (ddash == true) { control = 0; }  //si está dasheando el _player no puede moverse, si no lo hace si puede
-        //else { control = 1; }
-
-        //if (outsideScene) 
-        //{
+        _lastDir = GetLastDir();
+        Vector2 movement = InputManager.Instance.MovementVector;
+        _rb.velocity = movement * Velocity;
+        _animator.SetFloat("moveX", _lastDir.x);
+        _animator.SetFloat("moveY", _lastDir.y);
         ApplyToroidality();
-        //}
     }
 
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public Vector2 GetLastDir()   //lastdir para animaciones y disparo
+    /// <summary>
+    /// Vector que muestra la última dirección en la que mira el player necesario para las animaciones y el disparo
+    /// Coge el vector de movimiento del player y comprueba si se mueve más en vertical 
+    /// y le asigna una de las cuatro direcciones que se comprueban en el
+    /// siguiente orden -> derecha, izquierda, arriba, abajo
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 GetLastDir()  
     {
-        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
+        Vector2 moveInput = InputManager.Instance.MovementVector; 
 
         if (moveInput != Vector2.zero)
         {
-            //mira si se mueve más en vertical o en horizontal
-            if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) //horizontal
+            if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) 
             {
-                if (moveInput.x > 0) lastDir = new Vector2(1, 0); //derecha
-                else lastDir = new Vector2(-1, 0); //izquierda
+                if (moveInput.x > 0) _lastDir = new Vector2(1, 0); 
+                else _lastDir = new Vector2(-1, 0); 
             }
-            else //vertical
+            else 
             {
-                if (moveInput.y > 0) lastDir = new Vector2(0, 1); //arriba
-                else lastDir = new Vector2(0, -1); //abajo
+                if (moveInput.y > 0) _lastDir = new Vector2(0, 1);
+                else _lastDir = new Vector2(0, -1); 
             }
         }
-        return lastDir;
+        return _lastDir;
     }
-
-    public Vector2 GetLastDir2()  //lastdir para el dash
+    /// <summary>
+    /// lastdir para el dash
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 GetLastDir2()  //
     {
-        Vector2 moveInput = InputManager.Instance.MovementVector; //vector movimiento
+        Vector2 moveInput = InputManager.Instance.MovementVector;
 
 
-            if (moveInput.x == 0 && moveInput.y > 0) lastDir2 = new Vector2(0, 1);
-            else if (moveInput.x == 0 && moveInput.y < 0) lastDir2 = new Vector2(0, -1);
-            else if (moveInput.x > 0 && moveInput.y == 0) lastDir2 = new Vector2(1, 0);
-            else if (moveInput.x < 0 && moveInput.y == 0) lastDir2 = new Vector2(-1, 0);
-            else if (moveInput.x > 0 &&  moveInput.y > 0) lastDir2 = new Vector2(1, 1);
-            else if (moveInput.x > 0 && moveInput.y < 0) lastDir2 = new Vector2(1, -1);
-            else if (moveInput.x < 0 && moveInput.y > 0) lastDir2 = new Vector2(-1, 1);
-            else if (moveInput.x < 0 && moveInput.y < 0) lastDir2 = new Vector2(-1, -1);
-            else lastDir2 = new Vector2(0, 0);
+        if (moveInput.x == 0 && moveInput.y > 0) _lastDir2 = new Vector2(0, 1);
+        else if (moveInput.x == 0 && moveInput.y < 0) _lastDir2 = new Vector2(0, -1);
+        else if (moveInput.x > 0 && moveInput.y == 0) _lastDir2 = new Vector2(1, 0);
+        else if (moveInput.x < 0 && moveInput.y == 0) _lastDir2 = new Vector2(-1, 0);
+        else if (moveInput.x > 0 && moveInput.y > 0) _lastDir2 = new Vector2(1, 1);
+        else if (moveInput.x > 0 && moveInput.y < 0) _lastDir2 = new Vector2(1, -1);
+        else if (moveInput.x < 0 && moveInput.y > 0) _lastDir2 = new Vector2(-1, 1);
+        else if (moveInput.x < 0 && moveInput.y < 0) _lastDir2 = new Vector2(-1, -1);
+        else _lastDir2 = new Vector2(0, 0);
 
-        return lastDir2;
+        return _lastDir2;
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
 
+    /// <summary>
+    /// Aplica la toroidalidad cuando el player se sale de los límites del mapa
+    /// Orden en el que se comprueban las posiciones del player -> derecha, izquierda, arriba, abajo
+    /// </summary>
     private void ApplyToroidality()
     {
         Vector2 offset = Vector2.zero;
-        if (transform.position.x > mapSize.x / 2) offset.x = -mapSize.x; //de derecha a izquierda
-        else if (transform.position.x < -mapSize.x / 2) offset.x = mapSize.x;//de izquierda a derecha
-        else if (transform.position.y > mapSize.y / 2) offset.y = -mapSize.y;//de arriba a abajo
-        else if (transform.position.y < -mapSize.y / 2) offset.y = mapSize.y;//de abajo a arriba
-        transform.Translate(offset, Space.World);
+        if (transform.position.x > _mapSize.x / 2)
+        {
+            offset.x = -_mapSize.x; 
+        }
+        else if (transform.position.x < -_mapSize.x / 2)
+        {
+            offset.x = _mapSize.x;
+        }
+        else if (transform.position.y > _mapSize.y / 2)
+        {
+            offset.y = -_mapSize.y;
+        }
+        else if (transform.position.y < -_mapSize.y / 2)
+        {
+            offset.y = _mapSize.y;
+        }
+        _rb.transform.Translate(offset, Space.World);
     }
     #endregion
 

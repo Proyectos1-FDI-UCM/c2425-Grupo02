@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 296663917838678784}
   - component: {fileID: -8103417857065930773}
   - component: {fileID: 2403523043757630571}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SpawnZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,8 @@ MonoBehaviour:
   Enemy: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
   EnemyNumber: 0
   Iterations: 3
-  LimitZone: 0
+  LimitZone: 1
+  Limit: {fileID: 2560512752081626522, guid: e590a5ceb15f43143b6184a30ee0892d, type: 3}
   BannedCells: []
 --- !u!212 &-8103417857065930773
 SpriteRenderer:

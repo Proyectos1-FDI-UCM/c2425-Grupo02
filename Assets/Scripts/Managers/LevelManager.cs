@@ -34,9 +34,7 @@ public class LevelManager : MonoBehaviour
     /// alto del mapa de la escena
     /// </summary>
     [SerializeField] float MapHeight;
-    /// <summary>
-    /// Array de NPCs interactuables
-    /// </summary>
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +45,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-    GameObject _player;
+    private GameObject _player;
 
     #endregion
 
@@ -87,56 +85,6 @@ public class LevelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Devuelve las dimensiones del mapa de la escena
-    /// </summary>
-    /// <returns></returns>
-    public Vector2 GetMapSize()
-    {
-        return new Vector2(MapWidth, MapHeight);
-    }
-    /// <summary>
-    /// Activa los controles del player
-    /// </summary>
-    public void EnablePlayerControls()
-    {
-        _player.GetComponent<Movement>().enabled = true;
-        _player.GetComponent<Shoot>().enabled = true;
-        _player.GetComponent<MeleeAttack>().enabled = true;
-        _player.GetComponent<Dash>().enabled = true;
-    }
-    /// <summary>
-    /// Activa los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
-    /// </summary>
-    public void EnableNPC()
-    {
-        Interactive[] NPCs = FindObjectsOfType<Interactive>();
-        foreach (Interactive NPC in NPCs)
-        {
-            NPC.enabled = true;
-        }
-    }
-    /// <summary>
-    /// Desactiva los controles del player
-    /// </summary>
-    public void DisablePlayerControls()
-    {
-        _player.GetComponent<Movement>().enabled = false;
-        _player.GetComponent<Shoot>().enabled = false;
-        _player.GetComponent<MeleeAttack>().enabled = false;
-        _player.GetComponent<Dash>().enabled = false;
-    }
-    /// <summary>
-    /// Desactiva los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
-    /// </summary>
-    public void DisableNPC()
-    {
-        Interactive[] NPCs = FindObjectsOfType<Interactive>();
-        foreach (Interactive NPC in NPCs)
-        {
-            NPC.enabled = false;
-        }
-    }
-    /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
     /// Lo normal es que esté creada, pero puede ser útil durante el
@@ -147,6 +95,33 @@ public class LevelManager : MonoBehaviour
     public static bool HasInstance()
     {
         return _instance != null;
+    }
+
+    /// <summary>
+    /// Devuelve las dimensiones del mapa de la escena
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 GetMapSize()
+    {
+        return new Vector2(MapWidth, MapHeight);
+    }
+
+    /// <summary>
+    /// Activa controles del player y el interactive de los NPCs
+    /// </summary>
+    public void EnableBehaviours()
+    {
+        EnablePlayerControls();
+        EnableNPC();
+    }
+
+    /// <summary>
+    /// Activa controles del player y el interactive de los NPCs
+    /// </summary>
+    public void DisableBehaviours()
+    {
+        DisablePlayerControls();
+        DisableNPC();
     }
     #endregion
 
@@ -160,6 +135,52 @@ public class LevelManager : MonoBehaviour
     private void Init()
     {
         // De momento no hay nada que inicializar
+    }
+
+    /// <summary>
+    /// Activa los controles del player
+    /// </summary>
+    private void EnablePlayerControls()
+    {
+        _player.GetComponent<Movement>().enabled = true;
+        _player.GetComponent<Shoot>().enabled = true;
+        _player.GetComponent<MeleeAttack>().enabled = true;
+        _player.GetComponent<Dash>().enabled = true;
+    }
+
+    /// <summary>
+    /// Activa los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
+    /// </summary>
+    private void EnableNPC()
+    {
+        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        foreach (Interactive NPC in NPCs)
+        {
+            NPC.enabled = true;
+        }
+    }
+
+    /// <summary>
+    /// Desactiva los controles del player
+    /// </summary>
+    private void DisablePlayerControls()
+    {
+        _player.GetComponent<Movement>().enabled = false;
+        _player.GetComponent<Shoot>().enabled = false;
+        _player.GetComponent<MeleeAttack>().enabled = false;
+        _player.GetComponent<Dash>().enabled = false;
+    }
+
+    /// <summary>
+    /// Desactiva los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
+    /// </summary>
+    private void DisableNPC()
+    {
+        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        foreach (Interactive NPC in NPCs)
+        {
+            NPC.enabled = false;
+        }
     }
     #endregion
 } // class LevelManager 
