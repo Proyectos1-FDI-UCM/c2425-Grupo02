@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 int i = 0;
-                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i]) == true)
+                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i]))
                 {
                     i++;
                 }
@@ -213,20 +213,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
         }
     }
-    /// <summary>
-    /// Muestra UI de decisiones
-    /// </summary>
-    private void ShowOptions()
-    {
-        Options.SetActive(true);
-    }
-    /// <summary>
-    /// Oculta UI de decisiones
-    /// </summary>
-    private void HideOptions()
-    {
-        Options.SetActive(false);
-    }
+
     /// <summary>
     /// Se muestra la UI de decisiones, se borran los listeners de los botones, asignamos la opción correspondiente a cada botón
     /// y se le añade un listener que se usará para cargar el siguiente diálogo. Después, se asigna el valor de las opciones 1 y 2 actuales
@@ -262,7 +249,7 @@ public class DialogueManager : MonoBehaviour
         {
             _currentDialogue = _currentOption2.Next;
         }
-        HideOptions();
+        Options.SetActive(false);
         InitDialogues();
         _optionsOnGoing = false;
     }
@@ -278,10 +265,6 @@ public class DialogueManager : MonoBehaviour
         if (_currentDialogue.GameEnding == true)
         {
             GameManager.Instance.ChangeScene(10);
-        }
-        else if (_currentDialogue.CharLines[0].CharName == "Minos")
-        {
-            GameManager.Instance.UpdateState();
         }
         _dialogueOnGoing = false;
         GameManager.Instance.MarkAsRead(_currentDialogue);
