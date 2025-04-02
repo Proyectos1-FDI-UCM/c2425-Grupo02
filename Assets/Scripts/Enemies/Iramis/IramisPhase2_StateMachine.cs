@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Máquina de estados de Iramis
 // Jorge Augusto Blanco Fernández
-// Nombre del juego
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
@@ -164,7 +164,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
         _spriteRend = GetComponent<SpriteRenderer>();
-        //AudioManager.Instance.ChangeMusic(Phase2Music);
+        AudioManager.Instance.ChangeMusic(Phase2Music);
     }
 
     /// <summary>
