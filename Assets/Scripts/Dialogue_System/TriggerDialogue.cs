@@ -41,7 +41,7 @@ public class TriggerDialogue : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        if (Dialogue[0].name == "BeforeMeeting" && !GameManager.Instance.SporaTrigger)
+        if (GameManager.Instance.TrigDialogueIsDisabled(GetComponents<Collider2D>()))
         {
             Collider2D[] dialogueColliders = GetComponents<Collider2D>();
             foreach (Collider2D collider in dialogueColliders)
