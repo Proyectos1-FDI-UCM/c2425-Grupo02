@@ -43,7 +43,9 @@ public class Movement : MonoBehaviour
     /// vector que contiene las dimensiones del mapa
     /// </summary>
     private Vector2 _mapSize;
-
+    /// <summary>
+    /// Posición donde va a aparecer el jugador al cargar una escena
+    /// </summary>
     private Vector2 _spawnPos;
 
     #endregion

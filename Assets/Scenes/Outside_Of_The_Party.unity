@@ -11224,11 +11224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 294543746800508630, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.04
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 294543746800508630, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 294543746800508630, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11269,6 +11269,14 @@ PrefabInstance:
     - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: scene
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+      propertyPath: SpawnPosition.x
+      value: 63.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+      propertyPath: SpawnPosition.y
+      value: -49.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25367,7 +25375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e33e01ec70e04582af05f46ca63b3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapWidth: 36
+  MapWidth: 40
   MapHeight: 26
 --- !u!4 &2038953465
 Transform:
