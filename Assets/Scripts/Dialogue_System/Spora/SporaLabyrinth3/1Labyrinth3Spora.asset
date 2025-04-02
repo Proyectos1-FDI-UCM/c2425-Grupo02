@@ -24,5 +24,9 @@ MonoBehaviour:
     DialogueText: "Estoy... tan orgulloso de ti... que r\xE1pido has progresado...
       (sniff sniff)\n"
     Options: []
-  Read: 0
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Era co\xF1a, espero que Minos est\xE9 contento tras haber recogido
+      lo que te ped\xEDa.\n"
+    Options: []
   Ending: 0
