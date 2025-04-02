@@ -3,7 +3,9 @@ guid: e3302491bf226e948a8d4598dd901d72
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ShotSpawner: {fileID: 4137843478474227722, guid: ab8b407ccb661ae459be91a7efc6743f, type: 3}
+  - Phase2Music: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

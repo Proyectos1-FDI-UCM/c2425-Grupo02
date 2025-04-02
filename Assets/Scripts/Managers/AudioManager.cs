@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
 // Jorge Augusto Blanco Fernández
-// Nombre del juego
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
@@ -63,20 +63,24 @@ public class AudioManager : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
 
+    /// Método llamado en un momento temprano de la inicialización.
+    /// En el momento de la carga, si ya hay otra instancia creada,
+    /// nos destruimos (al GameObject completo)
+    /// </summary>
     protected void Awake()
     {
-
         if (_instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
+
         else
         {
-            // Somos el primer AufioManager.
+            // Somos el primer AudioManager.
             // Queremos sobrevivir a cambios de escena.
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        } // if-else somos instancia nueva o no.
+            DontDestroyOnLoad(this);
+        }
     }
 
     /// <summary>
@@ -85,9 +89,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        musicSource.Stop();
-        musicSource.clip = backgroundMusic;
-        musicSource.Play();
+        ChangeMusic(backgroundMusic);
     }
 
     #endregion
@@ -100,6 +102,22 @@ public class AudioManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+
+    /// <summary>
+    /// Propiedad para acceder a la única instancia de la clase.
+    /// </summary>
+    public static AudioManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
+
+    /// <summary>
+    /// Cambia la música de fondo 
+    /// </summary>
     public void ChangeMusic(AudioClip newMusic)
     {
         musicSource.Stop();
