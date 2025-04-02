@@ -30,13 +30,13 @@ public class AudioManager : MonoBehaviour
     AudioSource sfxSource; // Fuente de sonidos
 
     [SerializeField]
-    public AudioClip backgroundMusic; // Música de fondo
+    private AudioClip backgroundMusic; // Música de fondo
 
     [SerializeField]
-    public AudioClip buttonSelected; // Sonido de seleccionar botón
+    private AudioClip buttonSelected; // Sonido de seleccionar botón
 
     [SerializeField]
-    public AudioClip buttonPressed;  // Sonido de presionar botón
+    private AudioClip buttonPressed;  // Sonido de presionar botón
 
     #endregion
 
@@ -49,6 +49,11 @@ public class AudioManager : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    /// <summary>
+    /// Instancia única de la clase (singleton).
+    /// </summary>
+    private static AudioManager _instance;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -58,23 +63,33 @@ public class AudioManager : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
 
+    protected void Awake()
+    {
+
+        if (_instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            // Somos el primer AufioManager.
+            // Queremos sobrevivir a cambios de escena.
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        } // if-else somos instancia nueva o no.
+    }
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
+        musicSource.Stop();
         musicSource.clip = backgroundMusic;
         musicSource.Play();
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -84,6 +99,13 @@ public class AudioManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+
+    public void ChangeMusic(AudioClip newMusic)
+    {
+        musicSource.Stop();
+        musicSource.clip = newMusic;
+        musicSource.Play();
+    }
 
     #endregion
     

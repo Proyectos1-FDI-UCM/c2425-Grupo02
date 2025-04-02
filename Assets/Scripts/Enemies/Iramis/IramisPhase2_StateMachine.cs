@@ -48,6 +48,10 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     /// GameObject del spawner de balas para el estado "Shooting"
     /// </summary>
     [SerializeField] protected GameObject ShotSpawner;
+    /// <summary>
+    /// AudioClip de la música de la fase 2
+    /// </summary>
+    [SerializeField] protected AudioClip Phase2Music;
 
     #endregion
 
@@ -160,6 +164,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
         _spriteRend = GetComponent<SpriteRenderer>();
+        //AudioManager.Instance.ChangeMusic(Phase2Music);
     }
 
     /// <summary>
