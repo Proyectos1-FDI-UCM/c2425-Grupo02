@@ -75,7 +75,7 @@ public class SceneExit : MonoBehaviour
         {
             GameManager.Instance.ChangeScene(scene);
             GameManager.Instance.SetSpawnPoint(SpawnPosition);
-            GameManager.Instance.SceneSwitch();
+            GameManager.Instance.SceneTransition();
         }
     }
 
