@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Componente para mostrar un diálogo cuando el jugador entra en un trigger
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Lucía Mei Domínguez López
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
