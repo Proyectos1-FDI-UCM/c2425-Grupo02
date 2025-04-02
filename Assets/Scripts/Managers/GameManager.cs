@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+   
 
     #endregion
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     /// Diccionario de diálogos leídos
     /// </summary>
     private Dictionary<DialogueScript,bool> _readDialogues = new Dictionary<DialogueScript, bool>();
-
+    private Vector2 _spawnPosition;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -229,6 +230,15 @@ public class GameManager : MonoBehaviour
     {
         return _instance != null;
     }
+
+    public void SetSpawnPoint(Vector2 spawn)
+    {
+        _spawnPosition = spawn;
+    }
+
+    public Vector2 GetSpawnPoint() { return _spawnPosition; }
+
+    public bool SceneSwitch() { return true; }
 
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
