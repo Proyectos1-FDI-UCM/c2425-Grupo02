@@ -62,9 +62,13 @@ public class GameManager : MonoBehaviour
     private int _questState = 0;
     private bool _saveUsed = false;
     /// <summary>
-    /// Diccionario de diálogos leídos
+    /// HashSet de diálogos leídos
     /// </summary>
-    private Dictionary<DialogueScript,bool> _readDialogues = new Dictionary<DialogueScript, bool>();
+    private HashSet<DialogueScript> _readDialogues = new HashSet<DialogueScript>();
+    /// <summary>
+    /// importante para que los trigger de diálogo no vuelvan a activarse si se regresa a la escena
+    /// </summary>
+    private HashSet<Collider2D[]> _disabledTrigDialogues = new HashSet<Collider2D[]>();
     /// <summary>
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
@@ -156,18 +160,6 @@ public class GameManager : MonoBehaviour
     {
         get { return _saveUsed; }
     }
-
-    /// <summary>
-    /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
-    /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
-    /// </summary>
-    public void UpdateState()
-    {
-        if (_questState == 0)
-        {
-            _questState = 1;
-        }
-    }
     public void UpdateSave()
     {
         _saveUsed = true;
@@ -226,10 +218,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MarkAsRead(DialogueScript dialogue)
     {
-        if (!_readDialogues.ContainsKey(dialogue))
+        if (!_readDialogues.Contains(dialogue))
         {
-            _readDialogues.Add(dialogue, true);
+            _readDialogues.Add(dialogue);
         }
+        UpdateState(dialogue);
     }
     /// <summary>
     /// Comprueba si el diálogo ya ha sido leído
@@ -238,9 +231,12 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     public bool HasBeenRead(DialogueScript dialogue)
     {
-        return _readDialogues.ContainsKey(dialogue);
+        return _readDialogues.Contains(dialogue);
     }
-
+    public bool TrigDialogueIsDisabled(Collider2D[] colliders)
+    {
+        return _disabledTrigDialogues.Contains(colliders);
+    }
     public static bool HasInstance()
     {
         return _instance != null;
@@ -315,7 +311,26 @@ public class GameManager : MonoBehaviour
         // De momento no hay que transferir ningún estado
         // entre escenas
     }
- 
+    /// <summary>
+    /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
+    /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
+    /// </summary>
+    private void UpdateState(DialogueScript dialogue)
+    {
+        if (dialogue.name == "1IntroductionSpora" || dialogue.name == "Scythe")
+        {
+            Collider2D[] colliders = FindObjectOfType<TriggerDialogue>().GetComponents<Collider2D>();
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
+            _disabledTrigDialogues.Add(colliders);
+        }
+        else if (dialogue.name == "FirstMeeting")
+        {
+            _questState = 1;
+        }
+    }
     #endregion
 } // class GameManager 
 // namespace

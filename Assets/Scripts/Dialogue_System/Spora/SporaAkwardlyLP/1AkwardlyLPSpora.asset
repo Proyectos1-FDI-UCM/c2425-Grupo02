@@ -13,19 +13,26 @@ MonoBehaviour:
   m_Name: 1AkwardlyLPSpora
   m_EditorClassIdentifier: 
   Lines:
-  - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "Dije que te iba a seguir, \xBFrecuerdas?\r\nAdelante, eres libre
-      de hacer lo que te plazca.\r"
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\xBFVas a estar observ\xE1ndome todo el rato?\r\n\r"
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "Hay algunos lujuriosos violentos por el camino.\r\nEs la oportunidad
-      perfecta para que pongas.\r"
+    DialogueText: "Dije que te iba a seguir, \xBFya te has olvidado?\r\n\r"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "No, pero...\r"
+    Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Madre m\xEDa, todos iguales. En fin, eres libre de hacer lo que
+      te plazca. Hay algunos lujuriosos violentos por el camino. Es la oportunidad
+      perfecta para que pongas a prueba tus habilidades.\r"
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
     DialogueText: "Mucha suerte, es posible que la necesites...\r"
     Options: []
-  Read: 0
   Ending: 0
