@@ -24,6 +24,8 @@ public class Player_Health : MonoBehaviour
     [SerializeField]
     private int Health;
 
+    [SerializeField] private UIManager uiManager;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -33,6 +35,12 @@ public class Player_Health : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+
+    private void FixedUpdate()
+    {
+        OnPlayerDestroy();
+    }
+
 
     #endregion
 
@@ -58,14 +66,23 @@ public class Player_Health : MonoBehaviour
         Health -= dmg;
         Debug.Log("Salud restante" + Health);
     }
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+    // mayúscula, incluida la primera letra)Ç
+
+    private void OnPlayerDestroy()
+    {
+        if (Health <= 0)
+        {
+            uiManager.ShowDeathMessage();
+        }
+    }
 
     #endregion   
 

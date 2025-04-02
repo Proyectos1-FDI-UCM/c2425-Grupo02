@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private Canvas MissionCompletedCanvas;
-    [SerializeField] private GameObject DialogueUI;
+    [SerializeField] GameObject DialogueUI;
+    [SerializeField] private TextMeshProUGUI mainText;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -68,6 +69,17 @@ public class UIManager : MonoBehaviour
     public static bool HasInstance()
     {
         return _instance != null;
+    }
+
+    public void ShowDeathMessage()
+    {
+        InformLose("HAS MUERTO");
+    }
+
+    public void InformLose(string message)
+    {
+        mainText.text = message;
+        mainText.gameObject.SetActive(true);
     }
 
     public void Inform()
