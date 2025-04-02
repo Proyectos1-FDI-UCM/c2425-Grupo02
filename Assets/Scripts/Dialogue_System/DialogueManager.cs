@@ -241,6 +241,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadNextDialogue(DialogueOption option)
     {
+        Debug.Log("Funciona???");
         if (option == _currentOption1)
         {
             _currentDialogue = _currentOption1.Next;
