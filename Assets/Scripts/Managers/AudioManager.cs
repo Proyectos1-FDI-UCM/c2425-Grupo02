@@ -32,12 +32,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip backgroundMusic; // Música de fondo
 
-    [SerializeField]
-    private AudioClip buttonSelected; // Sonido de seleccionar botón
-
-    [SerializeField]
-    private AudioClip buttonPressed;  // Sonido de presionar botón
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -53,6 +47,11 @@ public class AudioManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static AudioManager _instance;
+
+    /// <summary>
+    /// Sonido que se desea que suene
+    /// </summary>
+    private AudioClip sfx; 
 
     #endregion
 
@@ -125,8 +124,16 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    /// <summary>
+    /// Cambia la música de fondo 
+    /// </summary>
+    public void PlayAudio(AudioClip sfx, float volume)
+    {
+        sfxSource.PlayOneShot(sfx, volume);
+    }
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -134,7 +141,7 @@ public class AudioManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class AudioManager 
 // namespace

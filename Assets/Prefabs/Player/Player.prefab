@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8186444170964134507}
+  meleeSFX: {fileID: 8300000, guid: 7855aacd319e5c04abaff50f14a99087, type: 3}
   scytheLocation: {fileID: 4034218537986736139}
   playerLocation: {fileID: 7679255306354555500}
   enemyLayer:
