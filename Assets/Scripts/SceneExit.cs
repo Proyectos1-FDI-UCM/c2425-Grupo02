@@ -73,9 +73,10 @@ public class SceneExit : MonoBehaviour
 
         if (collider2D.GetComponent<Movement>() != null)
         {
+            UIManager.Instance.SceneTransition();
             GameManager.Instance.ChangeScene(scene);
             GameManager.Instance.SetSpawnPoint(SpawnPosition);
-            GameManager.Instance.SceneSwitch();
+            
         }
     }
 

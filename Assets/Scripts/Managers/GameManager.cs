@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+    [SerializeField] Animator FaderAnimator;
    
 
     #endregion
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
     private Vector2 _spawnPosition;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -251,7 +253,13 @@ public class GameManager : MonoBehaviour
     /// <returns>Coordenadas de aparición del jugador</returns>
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
 
-    public bool SceneSwitch() { return true; }
+    public void SceneTransition()
+    {
+        if (FaderAnimator != null)
+        {
+            FaderAnimator.SetTrigger("FadeOut");
+        }
+    }
 
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
@@ -273,8 +281,9 @@ public class GameManager : MonoBehaviour
         //
         // En realidad... todo esto es algo antiguo por lo que lo mismo ya está resuelto)
         System.GC.Collect();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(index);   
         System.GC.Collect();
+       
     } // ChangeScene
 
     #endregion

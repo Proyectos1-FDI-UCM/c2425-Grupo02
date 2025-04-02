@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private Canvas MissionCompletedCanvas;
     [SerializeField] private GameObject DialogueUI;
+    [SerializeField] private Animator FaderAnimator;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -87,6 +88,14 @@ public class UIManager : MonoBehaviour
     public void HideDialogueUI()
     {
         DialogueUI.SetActive(false);
+    }
+
+    public void SceneTransition()
+    {
+        if (FaderAnimator != null)
+        {
+            FaderAnimator.SetTrigger("FadeOut");
+        }
     }
 
 

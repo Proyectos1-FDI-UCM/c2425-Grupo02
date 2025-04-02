@@ -19578,6 +19578,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1533712388}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: FaderAnimator
+      value: 
+      objectReference: {fileID: 1998592172}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: MissionCompletedCanvas
       value: 
       objectReference: {fileID: 1998592171}
@@ -19642,6 +19646,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1666857898}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: FaderAnimator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: SpawnPosition.x
       value: 2
@@ -95446,6 +95454,11 @@ PrefabInstance:
 --- !u!223 &1998592171 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8730285117953929982, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 1998592170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1998592172 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2042052405628604769, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
   m_PrefabInstance: {fileID: 1998592170}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038953463
