@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
     /// Diccionario de diálogos leídos
     /// </summary>
     private Dictionary<DialogueScript,bool> _readDialogues = new Dictionary<DialogueScript, bool>();
+    /// <summary>
+    /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
+    /// </summary>
     private Vector2 _spawnPosition;
     #endregion
 
@@ -231,11 +234,21 @@ public class GameManager : MonoBehaviour
         return _instance != null;
     }
 
+
+    /// <summary>
+    /// Cuando el jugador entra en el trigger que manda al cambio de escena, 
+    /// este manda una posición al GameManager y lo guarda en una variable global
+    /// </summary>
+    /// <param name="spawn">Determina donde va a aparecer el jugador en escena</param>
     public void SetSpawnPoint(Vector2 spawn)
     {
         _spawnPosition = spawn;
     }
 
+    /// <summary>
+    /// Manda la información de aparición al script de movimiento del jugador
+    /// </summary>
+    /// <returns>Coordenadas de aparición del jugador</returns>
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
 
     public bool SceneSwitch() { return true; }

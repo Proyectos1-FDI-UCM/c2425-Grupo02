@@ -84115,6 +84115,14 @@ PrefabInstance:
       propertyPath: scene
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+      propertyPath: SpawnPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+      propertyPath: SpawnPosition.y
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
