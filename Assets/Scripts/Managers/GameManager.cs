@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] Animator FaderAnimator;
+
+    /// <summary>
+    /// Sonido de curación del jugador
+    /// </summary>
+    [SerializeField]
+    private AudioClip healSFX;
    
 
     #endregion
@@ -177,10 +183,14 @@ public class GameManager : MonoBehaviour
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
-        if (Player != null)
+        if (Player != null) 
+        {
             playerHealth.Heal(1);
-        else
-            Debug.LogError("_player es null.");
+            AudioManager.Instance.PlayAudio(healSFX, 0.5f);
+        }
+
+        else Debug.LogError("_player es null.");
+
     }
     /// <summary>
     /// </summary>

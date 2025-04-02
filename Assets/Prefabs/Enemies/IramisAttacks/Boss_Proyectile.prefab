@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6849501656384796657}
   - component: {fileID: 4288721823194985567}
   - component: {fileID: 7983527845809008246}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Boss_Proyectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 470132789681457140}
   - component: {fileID: 8369557582056983437}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
