@@ -4711,7 +4711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.354599
+      value: -13.362375
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44010,7 +44010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921574575384451119, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_Name
-      value: Debug_Wind (1)
+      value: Wind (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.x
@@ -62067,6 +62067,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36678ca987a191040a1494e83a5e4091, type: 3}
+--- !u!1001 &1075932451
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1329412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.033072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247746590485691582, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600473623569194023, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: m_Name
+      value: Quest_Object
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
 --- !u!1 &1159134663
 GameObject:
   m_ObjectHideFlags: 0
@@ -72237,7 +72294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Debug_Heal
+      value: Heal
       objectReference: {fileID: 0}
     - target: {fileID: 4675450585902311869, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_SortingOrder
@@ -72266,7 +72323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921574575384451119, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_Name
-      value: Debug_Wind
+      value: Wind
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.x
@@ -72762,3 +72819,4 @@ SceneRoots:
   - {fileID: 845574375}
   - {fileID: 1172923827}
   - {fileID: 1369048577}
+  - {fileID: 1075932451}

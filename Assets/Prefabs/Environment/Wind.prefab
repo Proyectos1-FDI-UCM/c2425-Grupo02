@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4126051500931276304}
   - component: {fileID: 294571532563496307}
   m_Layer: 16
-  m_Name: Debug_Wind
+  m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
