@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private Dictionary<DialogueScript,bool> _readDialogues = new Dictionary<DialogueScript, bool>();
     /// <summary>
+    /// importante para que el trigger de diálogo de Spora no vuelva a activarse si se regresa a la escena
+    /// </summary>
+    private bool _sporaTrigger = true;
+    /// <summary>
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
     private Vector2 _spawnPosition;
@@ -150,17 +154,12 @@ public class GameManager : MonoBehaviour
     {
         get { return _saveUsed; }
     }
-
     /// <summary>
-    /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
-    /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
+    /// Getter para obtener el estado del trigger del diálogo de Spora
     /// </summary>
-    public void UpdateState()
+    public bool SporaTrigger
     {
-        if (_questState == 0)
-        {
-            _questState = 1;
-        }
+        get { return _sporaTrigger; }
     }
     public void UpdateSave()
     {
@@ -220,6 +219,7 @@ public class GameManager : MonoBehaviour
         {
             _readDialogues.Add(dialogue, true);
         }
+        UpdateState(dialogue);
     }
     /// <summary>
     /// Comprueba si el diálogo ya ha sido leído
@@ -305,7 +305,26 @@ public class GameManager : MonoBehaviour
         // De momento no hay que transferir ningún estado
         // entre escenas
     }
- 
+    /// <summary>
+    /// Actualiza las variables del juego al finalizar el diálogo si es necesario.
+    /// En el diálogo de Minos, al terminar el primer diálogo se cambia _questState a 1 porque la misión ya ha comenzado
+    /// </summary>
+    private void UpdateState(DialogueScript dialogue)
+    {
+        if (dialogue.name == "1IntroductionSpora")
+        {
+            Collider2D[] dialogueColliders = FindObjectOfType<TriggerDialogue>().GetComponents<Collider2D>();
+            foreach (Collider2D collider in dialogueColliders)
+            {
+                collider.enabled = false;
+                _sporaTrigger = false;
+            }
+        }
+        else if (dialogue.name == "FirstMeeting")
+        {
+            _questState = 1;
+        }
+    }
     #endregion
 } // class GameManager 
 // namespace
