@@ -28,6 +28,9 @@ public class MeleeAttack : MonoBehaviour
     private Animator animator; // Componente Animator del _player
 
     [SerializeField]
+    private AudioClip meleeSFX; // Sonido de ataque del jugador
+
+    [SerializeField]
     private Transform scytheLocation; // Posición de la guadaña con respecto a _player
 
     [SerializeField]
@@ -96,6 +99,7 @@ public class MeleeAttack : MonoBehaviour
     private void Attack()
     {
         animator.SetTrigger("Attack");
+        AudioManager.Instance.PlayAudio(meleeSFX, 0.3f);
 
         Vector2 lastDir = _movement.GetLastDir();
 
