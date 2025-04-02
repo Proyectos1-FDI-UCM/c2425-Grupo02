@@ -44,6 +44,8 @@ public class Movement : MonoBehaviour
     /// </summary>
     private Vector2 _mapSize;
 
+    private Vector2 _spawnPos;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,6 +65,10 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         _mapSize = LevelManager.Instance.GetMapSize();
+        _spawnPos = GameManager.Instance.GetSpawnPoint();
+        _rb.transform.position = _spawnPos;
+        _rb.velocity = Vector2.zero;
+       
     }
     void OnEnable()
     {
