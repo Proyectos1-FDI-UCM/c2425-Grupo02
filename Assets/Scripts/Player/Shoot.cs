@@ -23,6 +23,10 @@ public class Shoot : MonoBehaviour
     /// modificador posición de instancia de la bala
     /// </summary>
     [SerializeField] private float posMod;
+    /// <summary>
+    /// Sonido del proyectil
+    /// </summary>
+    [SerializeField] private AudioClip proyectileSFX;
 
 
     #endregion
@@ -109,6 +113,7 @@ public class Shoot : MonoBehaviour
 
         newBullet = Instantiate(bullet, instancePos, bulletRotation);
         noBulletInGame = false;
+        AudioManager.Instance.PlayAudio(proyectileSFX, 0.5f);
     }
 
     #endregion
