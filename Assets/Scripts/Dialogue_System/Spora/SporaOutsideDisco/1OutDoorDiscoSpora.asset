@@ -13,14 +13,32 @@ MonoBehaviour:
   m_Name: 1OutDoorDiscoSpora
   m_EditorClassIdentifier: 
   Lines:
-  - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "Este se\xF1or... es Minos\r\nHas tenido suerte encontr\xE1ndolo,
-      es un buen tipo.\r\n"
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\xBFQui\xE9n es ese se\xF1or con cuernos? Me da mala espina.\r\n"
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "An\xEDmate a hablar con \xE9l, no te har\xE1 nada."
+    DialogueText: "Es Minos, el portero de la discoteca. Si quieres entrar vas a
+      tener que hablar con \xE9l.\r\n"
     Options: []
-  Read: 0
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\xBFCrees que me dejar\xE1 pasar?\r\n"
+    Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Int\xE9ntalo, no te har\xE1 nada\u2026 O quiz\xE1s s\xED.\r\n"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\u2026"
+    Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: 'Es brooooma. Minos es un buen tipo mientras no busques bronca
+      con los invitados.
+
+'
+    Options: []
   Ending: 0
