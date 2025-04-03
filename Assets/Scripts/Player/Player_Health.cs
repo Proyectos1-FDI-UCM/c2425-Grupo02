@@ -24,6 +24,9 @@ public class Player_Health : MonoBehaviour
     [SerializeField]
     private int Health;
 
+    [SerializeField]
+    private int scene;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -57,6 +60,11 @@ public class Player_Health : MonoBehaviour
     public void Damage(int dmg) {
         Health -= dmg;
         Debug.Log("Salud restante" + Health);
+
+        if (Health <= 0)
+        {
+            GameManager.Instance.ChangeScene(scene);
+        }
     }
     #endregion
     
