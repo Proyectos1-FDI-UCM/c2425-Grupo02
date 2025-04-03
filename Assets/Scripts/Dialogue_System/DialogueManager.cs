@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 int i = 0;
-                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i]))
+                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i].name))
                 {
                     i++;
                 }
@@ -241,7 +241,6 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadNextDialogue(DialogueOption option)
     {
-        Debug.Log("Funciona???");
         if (option == _currentOption1)
         {
             _currentDialogue = _currentOption1.Next;
@@ -268,7 +267,7 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.ChangeScene(10);
         }
         _dialogueOnGoing = false;
-        GameManager.Instance.MarkAsRead(_currentDialogue);
+        GameManager.Instance.MarkAsRead(_currentDialogue.name);
         UIManager.Instance.HideDialogueUI();
         LevelManager.Instance.EnableBehaviours();
     }

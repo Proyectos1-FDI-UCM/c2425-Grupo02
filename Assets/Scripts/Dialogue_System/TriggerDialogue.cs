@@ -41,7 +41,7 @@ public class TriggerDialogue : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        if (GameManager.Instance.TrigDialogueIsDisabled(GetComponents<Collider2D>()))
+        if (GameManager.Instance.TrigDialogueIsDisabled(TriggerName))
         {
             Collider2D[] dialogueColliders = GetComponents<Collider2D>();
             foreach (Collider2D collider in dialogueColliders)
@@ -69,7 +69,10 @@ public class TriggerDialogue : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public string TriggerName
+    {
+        get { return Dialogue[0].name; }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
