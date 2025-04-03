@@ -22,6 +22,11 @@ public class Enemy2_attack : MonoBehaviour, IAttack
 
     [SerializeField] int Damage;   //Cantidad de vidas que resta el enemigo al jugador con cada golpe de su ataque
 
+    /// Sonido de daño al jugador
+    /// </summary>
+    [SerializeField]
+    private AudioClip LilithInjuredSFX;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,6 +52,7 @@ public class Enemy2_attack : MonoBehaviour, IAttack
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<Player_Health>() != null)
         {
+            AudioManager.Instance.PlayAudio(LilithInjuredSFX, 0.5f);
             collision.GetComponent<Player_Health>().Damage(Damage);
         }
     }
