@@ -221,6 +221,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadOptions()
     {
+        _optionsOnGoing = true;
         Options.SetActive(true);
         Button[] buttons = Options.GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++) 
@@ -229,7 +230,6 @@ public class DialogueManager : MonoBehaviour
             DialogueOption chosenOption = _currentDialogue.CharLines[_i].CharOptions[i];
             buttons[i].onClick.AddListener(() => LoadNextDialogue(chosenOption));
         }
-        _optionsOnGoing = true;
         _currentOption1 = _currentDialogue.CharLines[_i].CharOptions[0];
         _currentOption2 = _currentDialogue.CharLines[_i].CharOptions[1];
         Option1Text.text = _currentOption1.CharOptionText;

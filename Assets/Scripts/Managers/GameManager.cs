@@ -309,7 +309,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void UpdateState(string dialogueName)
     {
-        if (dialogueName == "1IntroductionSpora" || dialogueName == "Scythe")
+        if (dialogueName == "1IntroductionSpora" || dialogueName == "Scythe" || dialogueName == "MissionAccepted")
         {
             GameObject triggerDialogue = FindObjectOfType<TriggerDialogue>().gameObject;
             Collider2D[] colliders = triggerDialogue.GetComponents<Collider2D>();
@@ -318,10 +318,12 @@ public class GameManager : MonoBehaviour
                 collider.enabled = false;
             }
             _disabledTrigDialogues.Add(triggerDialogue.GetComponent<TriggerDialogue>().TriggerName);
-        }
-        else if (dialogueName == "FirstMeeting")
-        {
-            _questState = 1;
+
+            if (dialogueName == "MissionAccepted")
+            {
+                _questState = 1;
+                Debug.Log("Quest has started");
+            }
         }
     }
     #endregion
