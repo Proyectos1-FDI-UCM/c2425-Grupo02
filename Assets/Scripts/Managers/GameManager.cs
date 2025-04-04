@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private AudioClip healSFX;
+    [SerializeField] private GameObject[] BossaGameObjects;
    
 
     #endregion
@@ -325,6 +326,25 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Quest has started");
             }
         }
+        else if (dialogueName == "No")
+        {
+            if (BossaGameObjects != null) 
+            {
+                EnableBoss();
+            }
+        }
+    }
+
+    private void EnableBoss()
+    {
+        foreach (GameObject obj in BossaGameObjects)
+        {
+            obj.SetActive(true);
+        }
+        GameObject exit = FindObjectOfType<SceneExit>().gameObject;
+        GameObject iramisDialogue = FindObjectOfType<Interactive>().gameObject;
+        exit.SetActive(false);
+        iramisDialogue.SetActive(false);
     }
     #endregion
 } // class GameManager 
