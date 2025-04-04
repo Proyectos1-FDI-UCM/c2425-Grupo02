@@ -58,7 +58,6 @@ public class TriggerDialogue : MonoBehaviour
     {
         Debug.Log("OYEEEE");
         StartDialogue();
-        LevelManager.Instance.DisableBehaviours();
     }
     #endregion
 

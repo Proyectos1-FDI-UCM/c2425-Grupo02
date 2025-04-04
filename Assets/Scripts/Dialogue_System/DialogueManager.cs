@@ -122,6 +122,8 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogueScripts"></param>
     public void StartInteraction(DialogueScript[] dialogueScripts)
     {
+        Time.timeScale = 0;
+        LevelManager.Instance.DisableBehaviours();
         ChooseDialogue(dialogueScripts);
         InitDialogues();
         _dialogueOnGoing = true;
@@ -285,6 +287,7 @@ public class DialogueManager : MonoBehaviour
         _dialogueOnGoing = false;
         GameManager.Instance.MarkAsRead(_currentDialogue.name);
         UIManager.Instance.HideDialogueUI();
+        Time.timeScale = 1;
         LevelManager.Instance.EnableBehaviours();
     }
     #endregion
