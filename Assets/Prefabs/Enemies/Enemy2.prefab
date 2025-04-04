@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
+  LilithInjuredSFX: {fileID: 8300000, guid: bc46d60cf2aa28a45b9ae36bf452a652, type: 3}
 --- !u!114 &5584694186547380835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +227,7 @@ MonoBehaviour:
   MovementSpeed: 2.5
   RestTime: 1.5
   EnemyRangeLayer: 11
+  _attackAwait: 0.75
   FleeingSpeed: 2
   FleeingTime: 3
 --- !u!1 &3491234963083945909

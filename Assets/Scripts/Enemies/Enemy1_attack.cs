@@ -27,6 +27,11 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// Tiempo que pasa entre cada golpe del ataque
     /// </summary>
     [SerializeField] float AttackCooldown;
+    /// <summary>
+    /// Sonido de daño al jugador
+    /// </summary>
+    [SerializeField]
+    private AudioClip LilithInjuredSFX;
 
     #endregion
 
@@ -103,6 +108,7 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
         for (int i = 0; i < _timesAttack; i++)
         {
             _hitbox.SetActive(true);
+            AudioManager.Instance.PlayAudio(LilithInjuredSFX, 0.5f);
             yield return new WaitForSeconds(_hitboxActiveTime);
             _hitbox.SetActive(false);
             yield return new WaitForSeconds(AttackCooldown);

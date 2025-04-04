@@ -17,10 +17,5 @@ MonoBehaviour:
     Sprite: {fileID: 0}
     DialogueText: "Eeeyyyy, \xBFy los paquetes qu\xE9? No me digas que se te han
       olvidado"
-    Options:
-    - OptionText: "Seguir\xE9 buscando"
-      NextDialogue: {fileID: 11400000, guid: 212051e0459252341a275b18f9e5b1e5, type: 2}
-    - OptionText: No los voy a coger :b
-      NextDialogue: {fileID: 11400000, guid: e237ca32cb6bfd94e8b921b9099a4358, type: 2}
-  Read: 0
+    Options: []
   Ending: 0

@@ -47,6 +47,8 @@ public class Movement : MonoBehaviour
     /// Posición donde va a aparecer el jugador al cargar una escena
     /// </summary>
     private Vector2 _spawnPos;
+    /// Sonido de dash del jugador
+    /// </summary>
 
     #endregion
 
@@ -117,8 +119,7 @@ public class Movement : MonoBehaviour
     /// <returns></returns>
     public Vector2 GetLastDir()  
     {
-        Vector2 moveInput = InputManager.Instance.MovementVector; 
-
+        Vector2 moveInput = InputManager.Instance.MovementVector;
         if (moveInput != Vector2.zero)
         {
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) 

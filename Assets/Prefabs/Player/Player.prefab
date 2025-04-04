@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 5
+  LilithWalkDiscoSFX: {fileID: 8300000, guid: 72c69eaa9eff82c469f5e4cbeb631c3d, type: 3}
+  LilithWalkOutSFX: {fileID: 8300000, guid: 7d6d172ab502c9044b8f328c59a31e0b, type: 3}
 --- !u!95 &8186444170964134507
 Animator:
   serializedVersion: 5
@@ -190,6 +192,7 @@ MonoBehaviour:
   dashtime: 1.5
   dashtimec: 1.5
   dashDistance: 1.5
+  LilithDashSFX: {fileID: 8300000, guid: 8dfaa02fdc620b8468bdc20f56d2c215, type: 3}
 --- !u!61 &2671426413900228804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -275,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
+  scene: 0
 --- !u!114 &3499110812841003916
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject Options;
     [SerializeField] private TextMeshProUGUI Option1Text;
     [SerializeField] private TextMeshProUGUI Option2Text;
+    /// <summary>
+    /// Solo para la escena outside of the party
+    /// </summary>
+    [SerializeField] private GameObject Iramis;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -166,7 +170,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 int i = 0;
-                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i]))
+                while (i < dialogueScripts.Length - 1 && GameManager.Instance.HasBeenRead(dialogueScripts[i].name))
                 {
                     i++;
                 }
@@ -197,12 +201,24 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void NextLine()
     {
+        
+        
         if (_i < _currentDialogue.CharLines.Length - 1)
         {
             _i++;
             NameText.text = _currentDialogue.CharLines[_i].CharName;
             DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
             DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
+
+            if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 5)
+            {
+                Iramis.SetActive(true);
+            }
+            else if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 19)
+            {
+                Iramis.SetActive(false);
+
+            }
         }
         else if (_currentDialogue.CharLines[_i].CharOptions.Length > 0)
         {
@@ -221,6 +237,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadOptions()
     {
+        _optionsOnGoing = true;
         Options.SetActive(true);
         Button[] buttons = Options.GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++) 
@@ -229,7 +246,6 @@ public class DialogueManager : MonoBehaviour
             DialogueOption chosenOption = _currentDialogue.CharLines[_i].CharOptions[i];
             buttons[i].onClick.AddListener(() => LoadNextDialogue(chosenOption));
         }
-        _optionsOnGoing = true;
         _currentOption1 = _currentDialogue.CharLines[_i].CharOptions[0];
         _currentOption2 = _currentDialogue.CharLines[_i].CharOptions[1];
         Option1Text.text = _currentOption1.CharOptionText;
@@ -241,7 +257,6 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadNextDialogue(DialogueOption option)
     {
-        Debug.Log("Funciona???");
         if (option == _currentOption1)
         {
             _currentDialogue = _currentOption1.Next;
@@ -268,7 +283,7 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.ChangeScene(10);
         }
         _dialogueOnGoing = false;
-        GameManager.Instance.MarkAsRead(_currentDialogue);
+        GameManager.Instance.MarkAsRead(_currentDialogue.name);
         UIManager.Instance.HideDialogueUI();
         LevelManager.Instance.EnableBehaviours();
     }

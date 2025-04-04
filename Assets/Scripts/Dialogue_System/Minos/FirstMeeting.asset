@@ -14,41 +14,145 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
     DialogueText: "Buenas. \xBFQui\xE9n eres?"
     Options: []
-  - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Yo soy Minos, el portero del sitio ese que ves ah\xED detr\xE1s.
-      Hoy celebramos una fiesta organizada por Iramis."
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "Soy Lilith, y t\xFA eres\u2026\r"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Ella es la que lleva las tiendas aqu\xED, es una mujer... interesante."
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Minos, el portero de la disco que ves ah\xED detr\xE1s. Ya sabes,
+      el que est\xE1 todo el d\xEDa en la puerta para asegurarse de que nadie se
+      cuela para montar jaleo.\r"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "Encantada. Estoy buscando a la reina de la Lujuria y me han dicho
+      que se encuentra aqu\xED. \xBFPuedo ir a verla?"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Es una s\xFAcubo, mejor dicho. Le gusta organizar fiestas con
-      \"sorpresa\"."
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "S\xED, Iramis est\xE1 aqu\xED, pero ver\xE1s, ahora la pillas
+      en un mal momento. Est\xE1 muy ocupada con\u2026"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Minos, \xBFd\xF3nde est\xE1n los paquetes de la fiesta?\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Mira, se nos han perdido unos paquetes *important\xEDsimos* para
-      la fiesta."
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Ay, paya, \xBFno han llegado ya?\r\n"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: 'NOOOOOOOOOOOOOOOO.
+
+'
     Options: []
   - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Se los ha llevado la tormenta al bosque que est\xE1 al este de
-      aqu\xED."
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Pues se los habr\xE1 llevado el viento.\r\n"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "\xBFC\xD3MO? Pero si siempre han estado protegidos. \xBF\xA1Por
+      qu\xE9 ahora se han perdido!?\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 0}
-    DialogueText: "Si consigues los paquetes y me los traes te dejo pasar, \xBFtrato
-      hecho?"
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "No s\xE9, prima. Yo me encargo de la puerta.\r\n"
     Options:
     - OptionText: De acuerdo
       NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
-    - OptionText: Altoke mirey
+    - OptionText: Altoke mi rey
       NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
-  Read: 0
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Madre m\xEDa, no me digas que vamos a tener que cancelar la fiesta."
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Bueno, quiz\xE1s no hace falta.\r\n"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Oye, princesa, yo a ti no te conozco, \xBFverdad? Mis ojos no
+      se olvidan de los bellezones que rondan por estos lares."
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "\xBFPodr\xEDas hacerme el honor de ir al laberinto a buscar nuestros
+      paquetes, coraz\xF3n? A cambio, te recompensar\xE9 con una invitaci\xF3n a
+      mi sala VIP.\r\n"
+    Options: []
+  - Name: Minos
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "\xBFEst\xE1s segura de eso, jefa? La acabas de conocer.\r\n"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Chsssss. Estoy hablando con mi princesa.\r"
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Te dejo tu tiempo para que consideres mi oferta, pero es una oportunidad
+      que solo los m\xE1s afortunados tienen. Ser\xEDa una desgracia desaprovecharla."
+    Options: []
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: 'Hasta luego, querida, espero que el recuerdo de mi belleza quede
+      grabado en tu mente.
+
+'
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\u2026\r\n"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "(Dios m\xEDo, esa mujer me ha dejado sin palabras).\r\n"
+    Options: []
+  - Name: Minos
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Pues mira, paya, ya has conocido a Iramis. Ella es la que manda
+      aqu\xED. Como has visto, es una mujer... interesante, una s\xFAcubo, mejor
+      dicho. "
+    Options: []
+  - Name: Minos
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: 'Por eso es normal que te quedes un rato pensando en ella. Una
+      vez que la conoces ya no la puedes olvidar.
+
+'
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "Ya veo\u2026\r\n"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "\xBFY qu\xE9 tienen esos paquetes?\r\n"
+    Options: []
+  - Name: Minos
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Em\u2026 Ver\xE1s, a la jefa le gusta organizar fiestas con \"sorpresa\"
+      y los paquetes que se han perdido son *important\xEDsimos* para que los invitados
+      se lo pasen bien.\r\n"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "Vale\u2026 (Creo que no deber\xEDa seguir preguntando).\r\n"
+    Options: []
+  - Name: Minos
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    DialogueText: "Pues ya sabes, prima, si consigues los paquetes y me los traes
+      te dejo pasar, \xBFtrato hecho?\r\n"
+    Options:
+    - OptionText: De acuerdo
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
+    - OptionText: Altoke, mi rey
+      NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
   Ending: 0

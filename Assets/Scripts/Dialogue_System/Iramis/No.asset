@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
-  m_Name: 3AkwardlyLPSpora
+  m_Name: No
   m_EditorClassIdentifier: 
   Lines:
-  - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "Vaya, sigues con vida\r\nMe alegro...\r"
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "\xBFNo? \xBFMe est\xE1s diciendo que la relaci\xF3n que hemos
+      tenido es una farsa?"
     Options: []
-  - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "M\xE1s adelante encontrar\xE1s la entrada de la discoteca, muuucha
-      suerte.\r\r"
+  - Name: Iramis
+    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    DialogueText: "Lo siento, princesa, pero no puedo dejarte marchar despu\xE9s
+      de romper mi coraz\xF3n."
     Options: []
   Ending: 0

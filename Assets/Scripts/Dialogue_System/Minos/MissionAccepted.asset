@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
     DialogueText: "Al l\xEDo payita~~"
     Options: []
-  Read: 0
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "(Qu\xE9 raro, siento que no puedo negarme de ninguna manera, aunque
+      tampoco tengo motivos para rechazar)."
+    Options: []
   Ending: 0

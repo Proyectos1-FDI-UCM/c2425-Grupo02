@@ -38,8 +38,12 @@ public class Dash : MonoBehaviour
     private Movement _player;        
     private bool _dash;             
     private bool _candash = true;   
-    Vector2 raylong;                
+    Vector2 raylong;
 
+    /// Sonido de dash del jugador
+    /// </summary>
+    [SerializeField]
+    private AudioClip LilithDashSFX;
     #endregion
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -112,7 +116,7 @@ public class Dash : MonoBehaviour
     {
         if (_candash == true && _dash == false)  
         {
-
+            AudioManager.Instance.PlayAudio(LilithDashSFX, 0.2f);
             Vector2 lastDir = _player.GetLastDir2();  
             _candash = false;
             _dash = true;
