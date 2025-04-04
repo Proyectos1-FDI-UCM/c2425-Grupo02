@@ -28,7 +28,11 @@ MonoBehaviour:
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
     DialogueText: "Madre m\xEDa, todos iguales. En fin, eres libre de hacer lo que
-      te plazca. Hay algunos lujuriosos violentos por el camino. Es la oportunidad
+      te plazca. \r"
+    Options: []
+  - Name: Spora
+    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    DialogueText: "Hay algunos lujuriosos violentos por el camino. Es la oportunidad
       perfecta para que pongas a prueba tus habilidades.\r"
     Options: []
   - Name: Spora
