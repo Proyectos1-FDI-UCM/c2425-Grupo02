@@ -380,4 +380,3 @@ MonoBehaviour:
   MovementSpeed: 2.5
   RestTime: 2
   EnemyRangeLayer: 11
-  _attackAwait: 0.75

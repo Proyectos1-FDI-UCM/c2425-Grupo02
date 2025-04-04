@@ -47,11 +47,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <summary>
     /// Índice de la capa de colisión que marca el rango de ataque del enemigo
     /// </summary>
-    [SerializeField] protected int EnemyRangeLayer;
-    /// <summary>
-    /// Tiempo que esperan los enemigos cuando llegan a rango del jugador, para ejecutar su ataque
-    /// </summary>
-    [SerializeField] protected float _attackAwait;
+    [SerializeField] protected int EnemyRangeLayer;           
 
     #endregion
 
@@ -405,9 +401,6 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// <returns> Espera a que la corrutina de ataque del script de ataque del enemigo acabe </returns>
     protected virtual IEnumerator Attacking() {
         _attacking = true;
-
-        yield return new WaitForSeconds(_attackAwait);
-
         _anim.SetTrigger("_Attack");
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 

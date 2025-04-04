@@ -227,7 +227,6 @@ MonoBehaviour:
   MovementSpeed: 2.5
   RestTime: 1.5
   EnemyRangeLayer: 11
-  _attackAwait: 0.75
   FleeingSpeed: 2
   FleeingTime: 3
 --- !u!1 &3491234963083945909
