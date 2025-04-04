@@ -622,6 +622,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 8730285117953929982, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
   m_PrefabInstance: {fileID: 398919412}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &398919414 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3201976095635235662, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 398919412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400023295
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,9 +946,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: BossaGameObjects.Array.size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 9830925}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 80659636}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1734308616}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 178157638}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 2099927236}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1606835559}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 390074543}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 711348189}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 2108009177}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: BossGameObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 1418067501}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: BossaGameObjects.Array.data[0]
       value: 
@@ -72546,6 +72595,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Controls
+      value: 
+      objectReference: {fileID: 398919414}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 
       objectReference: {fileID: 967404449}
@@ -84493,6 +84546,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+--- !u!1 &2005827089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+  m_PrefabInstance: {fileID: 2005827088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2005906874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
@@ -84529,6 +84587,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 1000
   MapHeight: 1000
+  BossGameObjects:
+  - {fileID: 9830925}
+  - {fileID: 80659636}
+  - {fileID: 1734308616}
+  - {fileID: 178157638}
+  - {fileID: 2099927236}
+  - {fileID: 1606835559}
+  - {fileID: 390074543}
+  - {fileID: 711348189}
+  - {fileID: 2108009177}
+  - {fileID: 1418067501}
+  InitialEnemies: []
+  Sporas: []
+  Blocks: []
+  SceneExits: []
+  Iramis: {fileID: 2005827089}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0

@@ -50537,6 +50537,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Controls
+      value: 
+      objectReference: {fileID: 2137919663}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 
       objectReference: {fileID: 695906248}
@@ -99728,6 +99732,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 8730285117953929982, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
   m_PrefabInstance: {fileID: 2137919661}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &2137919663 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3201976095635235662, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 2137919661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &424508132928810644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99852,7 +99861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.515526
+      value: 26.507757
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y

@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 
@@ -39,8 +40,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private AudioClip healSFX;
-    [SerializeField] private GameObject[] BossaGameObjects;
-   
+    /// <summary>
+
 
     #endregion
 
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
     private Vector2 _spawnPosition;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -160,6 +162,10 @@ public class GameManager : MonoBehaviour
     {
         get { return _saveUsed; }
     }
+    /// <summary>
+    /// Getter para comprobar si ha comenzado el combate inicial en Akwardly long path
+    /// </summary>
+    
     public void UpdateSave()
     {
         _saveUsed = true;
@@ -213,6 +219,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Misión terminada");
         }
     }
+    
     ///<summary>
     ///Marca el diálogo como leído al finalizar
     /// </summary>
@@ -233,6 +240,11 @@ public class GameManager : MonoBehaviour
     {
         return _readDialogues.Contains(dialogueName);
     }
+    /// <summary>
+    /// Comprueba si se ha deshabilitado el trigger dialogue
+    /// </summary>
+    /// <param name="triggerName"></param>
+    /// <returns></returns>
     public bool TrigDialogueIsDisabled(string triggerName)
     {
         return _disabledTrigDialogues.Contains(triggerName);
@@ -241,7 +253,6 @@ public class GameManager : MonoBehaviour
     {
         return _instance != null;
     }
-
 
     /// <summary>
     /// Cuando el jugador entra en el trigger que manda al cambio de escena, 
@@ -312,40 +323,35 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueName == "1IntroductionSpora" || dialogueName == "Scythe" || dialogueName == "MissionAccepted")
         {
-            GameObject triggerDialogue = FindObjectOfType<TriggerDialogue>().gameObject;
-            Collider2D[] colliders = triggerDialogue.GetComponents<Collider2D>();
-            foreach (Collider2D collider in colliders)
-            {
-                collider.enabled = false;
-            }
-            _disabledTrigDialogues.Add(triggerDialogue.GetComponent<TriggerDialogue>().TriggerName);
-
+            DisableTrigDialogues();
             if (dialogueName == "MissionAccepted")
             {
                 _questState = 1;
                 Debug.Log("Quest has started");
             }
+            else if (dialogueName == "Scythe")
+            {
+                GameObject scythe = GameObject.Find("Scythe_dialogue");
+                scythe.SetActive(false);
+                LevelManager.Instance.StartInitCombat();
+            }
         }
         else if (dialogueName == "No")
         {
-            if (BossaGameObjects != null) 
-            {
-                EnableBoss();
-            }
+            LevelManager.Instance.EnableBoss();
         }
     }
-
-    private void EnableBoss()
+    /// <summary>
+    /// Deshabilita los collides del trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
+    /// player regrese a la escena, los colliders del trigger no vuelva a inicializarse en su start
+    /// </summary>
+    private void DisableTrigDialogues()
     {
-        foreach (GameObject obj in BossaGameObjects)
-        {
-            obj.SetActive(true);
-        }
-        GameObject exit = FindObjectOfType<SceneExit>().gameObject;
-        GameObject iramisDialogue = FindObjectOfType<Interactive>().gameObject;
-        exit.SetActive(false);
-        iramisDialogue.SetActive(false);
+        GameObject triggerDialogue = FindObjectOfType<TriggerDialogue>().gameObject;
+        triggerDialogue.SetActive(false);
+        _disabledTrigDialogues.Add(triggerDialogue.GetComponent<TriggerDialogue>().TriggerName);
     }
+    
     #endregion
 } // class GameManager 
 // namespace

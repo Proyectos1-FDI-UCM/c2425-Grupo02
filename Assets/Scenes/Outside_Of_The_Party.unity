@@ -25400,6 +25400,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 40
   MapHeight: 26
+  BossGameObjects: []
+  InitialEnemies: []
+  Sporas: []
+  Blocks: []
+  SceneExits: []
+  Iramis: {fileID: 128356957}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
@@ -25483,6 +25489,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+--- !u!223 &233170390230439352 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3201976095635235662, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 233170390230439351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &275303870742590672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25699,6 +25710,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Controls
+      value: 
+      objectReference: {fileID: 233170390230439352}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 
