@@ -83829,6 +83829,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1882286935}
+    - target: {fileID: 2956466086940551682, guid: bab1420c2898d58439ebf159ffea1293, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84256,7 +84260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221564540722796319, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 221564540722796319, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_BackGroundColor.b
