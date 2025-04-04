@@ -622,6 +622,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 8730285117953929982, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
   m_PrefabInstance: {fileID: 398919412}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &398919414 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3201976095635235662, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 398919412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400023295
 GameObject:
   m_ObjectHideFlags: 0
@@ -72545,6 +72550,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Controls
+      value: 
+      objectReference: {fileID: 398919414}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 

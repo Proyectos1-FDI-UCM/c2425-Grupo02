@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas MissionCompletedCanvas;
     [SerializeField] private GameObject DialogueUI;
     [SerializeField] private Animator FaderAnimator;
+    [SerializeField] private Canvas Controls;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -53,6 +54,25 @@ public class UIManager : MonoBehaviour
     {
         MissionCompletedCanvas.gameObject.SetActive(false);
         DialogueUI.SetActive(false);
+        Controls.gameObject.SetActive(false);
+    }
+    /// <summary>
+    /// Si el juego está en marcha y pulsa el botón para pausar, te muestra los controles. 
+    /// Si no, te oculta la pantalla de controles.
+    /// </summary>
+    private void Update()
+    {
+        if (InputManager.Instance.PauseWasPressedThisFrame()) 
+        { 
+            if (Time.timeScale == 1)
+            {
+                ShowControls();
+            }
+            else
+            {
+                HideControls();
+            }
+        }
     }
     #endregion
 
@@ -104,7 +124,18 @@ public class UIManager : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
+    private void ShowControls()
+    {
+        Controls.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        LevelManager.Instance.DisableBehaviours();
+    }
+    private void HideControls()
+    {
+        Controls.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        LevelManager.Instance.EnableBehaviours();
+    }
     #endregion   
 
 } // class UIManager 

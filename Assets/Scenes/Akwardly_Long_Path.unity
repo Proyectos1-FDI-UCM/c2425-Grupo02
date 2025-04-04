@@ -18066,6 +18066,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Controls
+      value: 
+      objectReference: {fileID: 1998592172}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 
       objectReference: {fileID: 1533712388}
@@ -94216,6 +94220,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 8730285117953929982, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
   m_PrefabInstance: {fileID: 1998592170}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1998592172 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3201976095635235662, guid: e7c83a8cb01d8184aa8e086004fc8536, type: 3}
+  m_PrefabInstance: {fileID: 1998592170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038953463
 GameObject:
   m_ObjectHideFlags: 0
@@ -94386,11 +94395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.560574
+      value: 52.55281
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -49.299988
+      value: -49.3
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.z
