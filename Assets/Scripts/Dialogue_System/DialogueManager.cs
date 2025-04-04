@@ -26,6 +26,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject Options;
     [SerializeField] private TextMeshProUGUI Option1Text;
     [SerializeField] private TextMeshProUGUI Option2Text;
+    /// <summary>
+    /// Solo para la escena outside of the party
+    /// </summary>
     [SerializeField] private GameObject Iramis;
     #endregion
 
