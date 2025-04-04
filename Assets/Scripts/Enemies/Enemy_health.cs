@@ -58,6 +58,10 @@ public class Enemy_Health : MonoBehaviour
             {
                 _spawn.SubstractEnemy();
             }
+            if (LevelManager.Instance.InitCombatStarted) 
+            { 
+                LevelManager.Instance.SubEnemyCount();
+            }
             Destroy(gameObject);
         }
     }

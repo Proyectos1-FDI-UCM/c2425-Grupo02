@@ -25400,6 +25400,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 40
   MapHeight: 26
+  BossGameObjects: []
+  InitialEnemies: []
+  Sporas: []
+  Blocks: []
+  SceneExits: []
+  Iramis: {fileID: 128356957}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0

@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55695a01267fa4264b28ed5ffab61a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+  FaderAnimator: {fileID: 0}
+  healSFX: {fileID: 8300000, guid: aa97c8f8d5109844a9c77d4b8d88cf0c, type: 3}
+  BossGameObjects: []
+  InitialEnemies: []
+  Sporas: []
+  Blocks: []
 --- !u!114 &2598751330512981393
 MonoBehaviour:
   m_ObjectHideFlags: 0

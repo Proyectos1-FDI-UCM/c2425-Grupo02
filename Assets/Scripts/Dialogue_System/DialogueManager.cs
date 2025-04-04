@@ -26,10 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject Options;
     [SerializeField] private TextMeshProUGUI Option1Text;
     [SerializeField] private TextMeshProUGUI Option2Text;
-    /// <summary>
-    /// Solo para la escena outside of the party
-    /// </summary>
-    [SerializeField] private GameObject Iramis;
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -212,14 +209,13 @@ public class DialogueManager : MonoBehaviour
             DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
             DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
 
-            if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 5)
+            if (_currentDialogue.name == "FirstMeeting" && _i == 5)
             {
-                Iramis.SetActive(true);
+                LevelManager.Instance.ShowIramis();
             }
-            else if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 19)
+            else if (_currentDialogue.name == "FirstMeeting" && _i == 19)
             {
-                Iramis.SetActive(false);
-
+                LevelManager.Instance.HideIramis();
             }
         }
         else if (_currentDialogue.CharLines[_i].CharOptions.Length > 0)

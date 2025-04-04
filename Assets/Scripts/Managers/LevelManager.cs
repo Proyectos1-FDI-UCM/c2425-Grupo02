@@ -9,6 +9,7 @@
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Unity.Collections.AllocatorManager;
 
 /// <summary>
 /// Componente que se encarga de la gestión de un nivel concreto.
@@ -34,7 +35,25 @@ public class LevelManager : MonoBehaviour
     /// alto del mapa de la escena
     /// </summary>
     [SerializeField] float MapHeight;
-
+    /// Objetos de la boss fight
+    /// </summary>
+    [SerializeField] private GameObject[] BossGameObjects;
+    /// <summary>
+    /// Enemigos combate inicial
+    /// </summary>
+    [SerializeField] private GameObject[] InitialEnemies;
+    /// <summary>
+    /// Bloqueadores de salidas para que el player no se salga del mapa
+    /// </summary>
+    [SerializeField] private GameObject[] Blocks;
+    /// <summary>
+    /// Salidas de escenas
+    /// </summary>
+    [SerializeField] private GameObject[] SceneExits;
+    /// <summary>
+    /// Solo para la escena outside of the party
+    /// </summary>
+    [SerializeField] private GameObject Iramis;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -46,7 +65,14 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private static LevelManager _instance;
     private GameObject _player;
-
+    /// <summary>
+    /// Indica si ha empezado el combate inicial de Akwardly long path
+    /// </summary>
+    private bool _initCombatStarted = false;
+    /// <summary>
+    /// Contador de enemigos en akwardly long path
+    /// </summary>
+    private int _nInitEnemies = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -105,7 +131,10 @@ public class LevelManager : MonoBehaviour
     {
         return new Vector2(MapWidth, MapHeight);
     }
-
+    public bool InitCombatStarted
+    {
+        get { return _initCombatStarted; }
+    }
     /// <summary>
     /// Activa controles del player y el interactive de los NPCs
     /// </summary>
@@ -122,6 +151,115 @@ public class LevelManager : MonoBehaviour
     {
         DisablePlayerControls();
         DisableNPC();
+    }
+
+    /// <summary>
+    /// Activa los enemigos iniciales, suma el contador por cada uno de ellos, desactiva las salidas de escena 
+    /// e indica que se ha iniciado el combate
+    /// </summary>
+    public void StartInitCombat()
+    {
+        Debug.Log("Init Combat started");
+        if (InitialEnemies != null)
+        {
+            Debug.Log("Hay initial enemies");
+            foreach (GameObject enemy in InitialEnemies)
+            {
+                enemy.SetActive(true);
+                _nInitEnemies++;
+                Debug.Log("Enemy added");
+            }
+        }
+        else
+        {
+            Debug.Log("ERROR: no hay initial enemies");
+        }
+
+        if (SceneExits != null)
+        {
+            foreach (GameObject exit in SceneExits)
+            {
+                exit.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.Log("ERROR: no hay exits");
+        }
+
+        if (Blocks != null)
+        {
+            foreach (GameObject block in Blocks)
+            {
+                block.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.Log("ERROR: no hay bloques");
+        }
+        _initCombatStarted = true;
+        Debug.Log("Enemy number: " + _nInitEnemies);
+    }
+    /// <summary>
+    /// Cuando un enemigo muere, se resta 1 al contador
+    /// </summary>
+    public void SubEnemyCount()
+    {
+        _nInitEnemies--;
+        if (_nInitEnemies == 0)
+        {
+            InitCombatEnded();
+        }
+        Debug.Log("Enemy number: " + _nInitEnemies);
+    }
+    public void InitCombatEnded()
+    {
+        if (Blocks != null)
+        {
+            foreach (GameObject block in Blocks)
+            {
+                block.gameObject.SetActive(false);
+            }
+        }
+        if (SceneExits != null)
+        {
+            foreach (GameObject exit in SceneExits)
+            {
+                exit.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.Log("ERROR: no hay exits");
+        }
+        _initCombatStarted = false;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ShowIramis()
+    {
+        Iramis.SetActive(true);
+    }
+    public void HideIramis()
+    {
+        Iramis.SetActive(false);
+    }
+    /// <summary>
+    /// Activa los objetos de la boss fight y desactiva la salida y el gameobject del diálogo de Iramis
+    /// </summary>
+    public void EnableBoss()
+    {
+        foreach (GameObject exit in SceneExits)
+        {
+            exit.SetActive(false);
+        }
+        foreach (GameObject obj in BossGameObjects)
+        {
+            obj.SetActive(true);
+        }
+        HideIramis();
     }
     #endregion
 

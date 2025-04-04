@@ -43,11 +43,7 @@ public class TriggerDialogue : MonoBehaviour
     {
         if (GameManager.Instance.TrigDialogueIsDisabled(TriggerName))
         {
-            Collider2D[] dialogueColliders = GetComponents<Collider2D>();
-            foreach (Collider2D collider in dialogueColliders)
-            {
-                collider.enabled = false;
-            }
+            gameObject.SetActive(false);
         }
     }
     /// <summary>

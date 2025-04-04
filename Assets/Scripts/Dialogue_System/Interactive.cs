@@ -39,6 +39,13 @@ public class Interactive : MonoBehaviour
     {
         _canStart = false;
     }
+    private void Start()
+    {
+        if (DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe"))
+        { 
+            gameObject.SetActive(false);
+        }
+    }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// Si está al lado del NPC y pulsa el botón de interacción, empiezan los diálogos y tanto los controles como el NPC se deshabilitan para que no se actualicen
