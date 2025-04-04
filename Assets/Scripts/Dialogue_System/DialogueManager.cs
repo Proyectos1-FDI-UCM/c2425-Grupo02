@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject Options;
     [SerializeField] private TextMeshProUGUI Option1Text;
     [SerializeField] private TextMeshProUGUI Option2Text;
+    [SerializeField] private GameObject Iramis;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -197,12 +198,24 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void NextLine()
     {
+        
+        
         if (_i < _currentDialogue.CharLines.Length - 1)
         {
             _i++;
             NameText.text = _currentDialogue.CharLines[_i].CharName;
             DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
             DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
+
+            if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 5)
+            {
+                Iramis.SetActive(true);
+            }
+            else if (Iramis != null && _currentDialogue.name == "FirstMeeting" && _i == 19)
+            {
+                Iramis.SetActive(false);
+
+            }
         }
         else if (_currentDialogue.CharLines[_i].CharOptions.Length > 0)
         {
