@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject HealthSprite;
     [SerializeField] private Sprite[] health_inspector = new Sprite[3];
     [SerializeField] private Image health_sprite_inspector;
+    [SerializeField] private Text quest_objects_count_inspector;
+    [SerializeField] private GameObject questUI;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,6 +36,7 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private static Image health_sprite;
     private static Sprite[] health = new Sprite[3];
+    private static Text quest_objects_count;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -61,6 +64,15 @@ public class UIManager : MonoBehaviour
         MissionCompletedCanvas.gameObject.SetActive(false);
         DialogueUI.SetActive(false);
         Controls.gameObject.SetActive(false);
+        quest_objects_count = quest_objects_count_inspector;
+        if (GameManager.Instance.questState() != 1)
+        {
+            questUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            quest_objects_count.text = "x" + GameManager.Instance.questObjectsCount();
+        }
         spriteRenderer = GetComponent<SpriteRenderer>();
         health_sprite = health_sprite_inspector;
         health = health_inspector;
@@ -119,6 +131,14 @@ public class UIManager : MonoBehaviour
     {
         DialogueUI.SetActive(false);
     }
+    public void ShowQuestUI()
+    {
+        questUI.SetActive(true);
+    }
+    public void HideQuestUI()
+    {
+        questUI.SetActive(false);
+    }
     public static void UpdateHealth(int Health)
     {
         if (Health >= 1)
@@ -126,8 +146,12 @@ public class UIManager : MonoBehaviour
             health_sprite.sprite = health[Health - 1];
         }
     }
+    public static void UpdateQuestProgress(int count)
+    {
+        quest_objects_count.text = "x" + count;
+    }
 
-    public void SceneTransition()
+        public void SceneTransition()
     {
         if (FaderAnimator != null)
         {

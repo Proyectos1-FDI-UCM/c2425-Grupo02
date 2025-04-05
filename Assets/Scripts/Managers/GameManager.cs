@@ -201,6 +201,14 @@ public class GameManager : MonoBehaviour
     {
         UIManager.UpdateHealth(Health);
     }
+    public int questState()
+    {
+        return _questState;
+    }
+    public int questObjectsCount()
+    {
+        return _questObjectsCount;
+    }
     public void OnQuestObjectCollected()
     {
         _questObjectsCount++;
@@ -221,7 +229,9 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("UIManager no está inicializado.");
             }
             Debug.Log("Misión terminada");
+            UIManager.Instance.HideQuestUI();
         }
+        UIManager.UpdateQuestProgress(_questObjectsCount);
     }
     
     ///<summary>
@@ -332,6 +342,7 @@ public class GameManager : MonoBehaviour
             {
                 _questState = 1;
                 Debug.Log("Quest has started");
+                UIManager.Instance.ShowQuestUI();
             }
             else if (dialogueName == "Scythe")
             {
