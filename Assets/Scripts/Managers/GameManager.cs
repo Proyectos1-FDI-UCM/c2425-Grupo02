@@ -197,6 +197,10 @@ public class GameManager : MonoBehaviour
     ///<summary>
     ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto. Va actualizando el número de objetos de misión obtenidos por el jugador
     ///</summary>
+    public void Damage(int Health)
+    {
+        UIManager.UpdateHealth(Health);
+    }
     public void OnQuestObjectCollected()
     {
         _questObjectsCount++;

@@ -60,7 +60,7 @@ public class Player_Health : MonoBehaviour
     public void Damage(int dmg) {
         Health -= dmg;
         Debug.Log("Salud restante" + Health);
-
+        GameManager.Instance.Damage(Health);
         if (Health <= 0)
         {
             GameManager.Instance.ChangeScene(scene);
