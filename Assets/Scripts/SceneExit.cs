@@ -69,14 +69,11 @@ public class SceneExit : MonoBehaviour
     /// </summary>
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        Debug.Log("adsnmjasdnoas");
-
         if (collider2D.GetComponent<Movement>() != null)
         {
             UIManager.Instance.SceneTransition();
             GameManager.Instance.ChangeScene(scene);
             GameManager.Instance.SetSpawnPoint(SpawnPosition);
-            
         }
     }
 

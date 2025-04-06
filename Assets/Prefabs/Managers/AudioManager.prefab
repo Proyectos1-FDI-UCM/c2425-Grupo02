@@ -174,11 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cbeadd31e969b488e3d3c6050e977d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  musicSource: {fileID: 4999997440686495966}
+  sfxSource: {fileID: 6165837299201420098}
   backgroundMusic: {fileID: 0}
-  buttonSelected: {fileID: 0}
-  buttonPressed: {fileID: 0}
 --- !u!1 &6395640296805751138
 GameObject:
   m_ObjectHideFlags: 0
