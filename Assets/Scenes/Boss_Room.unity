@@ -122,11 +122,135 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &7437788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1607652230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9830925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5344345683723096334, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
   m_PrefabInstance: {fileID: 1776439251}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &17358999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 168.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (38)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &34512435 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 121521934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &42361424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1 &69859731
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +356,239 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5984581045854037118, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
   m_PrefabInstance: {fileID: 1595417416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &81621926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 128.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (37)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &109448510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 104.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (32)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &121521934
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (23)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &122282377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &136595812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 268746325}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &147158644
 PrefabInstance:
@@ -426,11 +783,125 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5984581045854037118, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
   m_PrefabInstance: {fileID: 606010598}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &179074157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (17)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!4 &182611717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 1811661949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &183347714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &187426984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,6 +959,125 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!1001 &190570480
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 92.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (31)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &192120112
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &233026975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 852837957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &243124667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,6 +1135,130 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!4 &263926671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 5660020531961132542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &268746325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &289382904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1361877138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &302746059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (27)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!4 &309349388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501932794898138536, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
@@ -554,6 +1268,135 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 3337548359368969447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &345344655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (20)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &345930356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 81621926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &371043538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 116.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (34)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &380169698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1642510628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &385986613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 17358999}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &390074543 stripped
 GameObject:
@@ -607,6 +1450,68 @@ Transform:
   - {fileID: 924931801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &444197675
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &456226567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 617783186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &489747678
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +1593,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &519757840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 183347714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &541840759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
@@ -754,6 +1664,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+--- !u!4 &601094352 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1078745377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &606010598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -819,6 +1734,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
+--- !u!1001 &617783186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (28)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &634900883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 371043538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &643227855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 122282377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &656303764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72360,6 +73342,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &683017192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1939258005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &684773767 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 192120112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &702881711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72474,6 +73466,46 @@ Transform:
   - {fileID: 1348518697}
   - {fileID: 1326226601}
   - {fileID: 158966277}
+  - {fileID: 263926671}
+  - {fileID: 519757840}
+  - {fileID: 955058577}
+  - {fileID: 136595812}
+  - {fileID: 643227855}
+  - {fileID: 1527756766}
+  - {fileID: 1325388000}
+  - {fileID: 684773767}
+  - {fileID: 1491384347}
+  - {fileID: 1220262871}
+  - {fileID: 1336225183}
+  - {fileID: 1551210023}
+  - {fileID: 233026975}
+  - {fileID: 1705789099}
+  - {fileID: 2107497414}
+  - {fileID: 380169698}
+  - {fileID: 1621164234}
+  - {fileID: 683017192}
+  - {fileID: 1053471388}
+  - {fileID: 34512435}
+  - {fileID: 1313919458}
+  - {fileID: 1590236282}
+  - {fileID: 1432167597}
+  - {fileID: 1769258190}
+  - {fileID: 456226567}
+  - {fileID: 7437788}
+  - {fileID: 601094352}
+  - {fileID: 961118147}
+  - {fileID: 634900883}
+  - {fileID: 880992383}
+  - {fileID: 385986613}
+  - {fileID: 969189587}
+  - {fileID: 1436060560}
+  - {fileID: 842150489}
+  - {fileID: 2076877867}
+  - {fileID: 289382904}
+  - {fileID: 345930356}
+  - {fileID: 1823781028}
+  - {fileID: 785946867}
+  - {fileID: 1481354731}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &747151858
@@ -72597,10 +73629,196 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+--- !u!4 &785946867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1799907282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &808214522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (26)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &842150489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 847113741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &847113741
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 192.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (43)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &852837957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!4 &857890941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 243124667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &880992383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1557691197}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &924931800
 GameObject:
@@ -93008,6 +94226,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &955058577 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 992086904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &961118147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 109448510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &967404448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93130,6 +94358,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &969189587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1745813655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &992086904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &1028775007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93187,6 +94477,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!4 &1053471388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1430195100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1078745377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 92.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (30)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &1095111991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93408,6 +94760,68 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4999997440686495966, guid: ef4932cf999938743b333008e15deb87, type: 3}
   m_PrefabInstance: {fileID: 1197233084}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1220262871 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 42361424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1228261938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (24)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &1248669800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93612,25 +95026,474 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1001 &1269829255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 116.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (35)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &1277705583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (18)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1313919458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1228261938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1325388000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1662583447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1326226601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 1095111991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1336225183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1809874013}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1348518697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 1028775007}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1361877138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 168.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (39)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &1388079174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1 &1418067501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
   m_PrefabInstance: {fileID: 925326711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1430195100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (22)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1432167597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 808214522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1436060560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1565715367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1481354731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 190570480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1491384347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 444197675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1527756766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1388079174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1551210023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1722738338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1556997722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3512260045575959398, guid: 449253aa55b4cae4ea9f018470e26fa7, type: 3}
   m_PrefabInstance: {fileID: 1717848549440036938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1557691197
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 128.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (36)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &1565715367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 192.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (42)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1590236282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 2041308314}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1595417416
 PrefabInstance:
@@ -93823,10 +95686,310 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1607652230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (29)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1621164234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 345344655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1642510628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (19)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &1662583447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1705789099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 179074157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1722738338
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1 &1734308616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5984581045854037118, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
   m_PrefabInstance: {fileID: 147158644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1745813655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 180.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (40)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &1769258190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 302746059}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1776439251
 PrefabInstance:
@@ -93929,6 +96092,120 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+--- !u!1001 &1799907282
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 104.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (33)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!1001 &1809874013
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &1811661949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93994,6 +96271,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!4 &1823781028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1269829255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1852918622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94133,6 +96415,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!1001 &1939258005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (21)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!850595691 &1966644504
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -94284,6 +96623,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 702881711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2037515154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 180.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (41)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1 &2038953463
 GameObject:
   m_ObjectHideFlags: 0
@@ -94346,10 +96742,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2041308314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner (25)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!4 &2076877867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 2037515154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2099927236 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5984581045854037118, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
   m_PrefabInstance: {fileID: 1248669800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2107497414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+  m_PrefabInstance: {fileID: 1277705583}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108009177 stripped
 GameObject:
@@ -94600,6 +97063,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2429768866427748958, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 6116255415768169271}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5660020531961132542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 724572475}
+    m_Modifications:
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.179388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142768357906974020, guid: 2eba795107f8538429b675927101a46d, type: 3}
+      propertyPath: m_Name
+      value: IramisBanner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
 --- !u!1001 &6116255415768169271
 PrefabInstance:
   m_ObjectHideFlags: 0
