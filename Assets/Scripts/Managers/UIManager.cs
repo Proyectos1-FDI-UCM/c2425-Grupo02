@@ -139,6 +139,7 @@ public class UIManager : MonoBehaviour
     {
         questUI.SetActive(false);
     }
+
     public static void UpdateHealth(int Health)
     {
         if (Health >= 1)
@@ -146,6 +147,7 @@ public class UIManager : MonoBehaviour
             health_sprite.sprite = health[Health - 1];
         }
     }
+
     public static void UpdateQuestProgress(int count)
     {
         quest_objects_count.text = "x" + count;

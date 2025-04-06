@@ -377,7 +377,7 @@ MonoBehaviour:
   RestTime: 2
   EnemyRangeLayer: 11
   ShotSpawner: {fileID: 4137843478474227722, guid: ab8b407ccb661ae459be91a7efc6743f, type: 3}
-  Phase2Music: {fileID: 8300000, guid: 57e3b99e32226d94cafe5d56154c5779, type: 3}
+  Phase2Music: {fileID: 8300000, guid: 6e6feefc57cbe3243b1bf98405beba6f, type: 3}
 --- !u!114 &-7132495290295374470
 MonoBehaviour:
   m_ObjectHideFlags: 0
