@@ -33620,8 +33620,7 @@ PrefabInstance:
       propertyPath: Y_limit
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2498808407705120015, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -34260,6 +34259,7 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
+  ExitToDisco: {fileID: 0}
 --- !u!4 &1438677795
 Transform:
   m_ObjectHideFlags: 0

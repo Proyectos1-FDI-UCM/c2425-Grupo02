@@ -94330,6 +94330,7 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 2005827089}
+  ExitToDisco: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
@@ -94706,7 +94707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2498808407705120015, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5142437643807240807, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_Name
