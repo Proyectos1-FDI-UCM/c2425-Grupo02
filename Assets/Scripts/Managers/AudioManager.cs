@@ -125,7 +125,15 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Cambia la música de fondo 
+    /// Para la música de fondo
+    /// </summary>
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    /// <summary>
+    /// Reproduce el sonido indicado
     /// </summary>
     public void PlayAudio(AudioClip sfx, float volume)
     {

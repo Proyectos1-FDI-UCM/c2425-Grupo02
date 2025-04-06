@@ -306,6 +306,7 @@ public class GameManager : MonoBehaviour
         //
         // En realidad... todo esto es algo antiguo por lo que lo mismo ya está resuelto)
         System.GC.Collect();
+        AudioManager.Instance.StopMusic();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
     } // ChangeScene
