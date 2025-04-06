@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Drawing;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -88,6 +89,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+
         ChangeMusic(backgroundMusic);
     }
 
@@ -142,7 +144,35 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(sfx, volume);
     }
+    /// <summary>
+    /// Reproduce el sonido indicado posibilitando su reproducción en bucle
+    /// </summary>
+    public void PlayAudio2(AudioClip sfx, float volume)
+    {
+        
+        if (!sfxSource.isPlaying)
+        {
+            sfxSource.Play();
+        }
+    }
+    /// <summary>
+    /// Hace que el audio indicado deje de sonar
+    /// </summary>
+    public void StopAudio(AudioClip sfx)
+    {
+        if (sfxSource.isPlaying)   
+        {
+            sfxSource.Stop();  
+        }
+    }
 
+    public void LoopAudio(AudioClip sfx)
+    {
+        if (sfxSource != null)
+        {
+            sfxSource.loop = true;
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

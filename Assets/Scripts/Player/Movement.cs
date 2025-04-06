@@ -23,6 +23,14 @@ public class Movement : MonoBehaviour
     /// Velocidad del movimiento
     /// </summary>
     [SerializeField] private float Velocity;
+    /// Sonido de pasos en el exterior
+    /// </summary>
+    [SerializeField]
+    private AudioClip WalkInDiscoSFX;
+    /// Sonido de pasos en el interior
+    /// </summary>
+    [SerializeField]
+    private AudioClip WalkInDirtSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,8 +55,10 @@ public class Movement : MonoBehaviour
     /// Posición donde va a aparecer el jugador al cargar una escena
     /// </summary>
     private Vector2 _spawnPos;
-    /// Sonido de dash del jugador
+    /// <summary>
+    /// Si se está o no presionando una de las teclas de movimiento
     /// </summary>
+    private bool buttonPressed = false;
 
     #endregion
 
@@ -72,7 +82,6 @@ public class Movement : MonoBehaviour
         _spawnPos = GameManager.Instance.GetSpawnPoint();
         _rb.transform.position = _spawnPos;
         _rb.velocity = Vector2.zero;
-       
     }
     void OnEnable()
     {
@@ -98,14 +107,14 @@ public class Movement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+
         _lastDir = GetLastDir();
         Vector2 movement = InputManager.Instance.MovementVector;
         _rb.velocity = movement * Velocity;
 
-
         _animator.SetFloat("moveX", _lastDir.x);
         _animator.SetFloat("moveY", _lastDir.y);
-        if (_rb.velocity != Vector2.zero) 
+        if (_rb.velocity != Vector2.zero)
         {
             _animator.SetBool("isRunning", false);
         }
@@ -114,6 +123,9 @@ public class Movement : MonoBehaviour
             _animator.SetBool("isRunning", true);
         }
         ApplyToroidality();
+
+        StepSounds();
+
     }
 
     #endregion
@@ -132,6 +144,7 @@ public class Movement : MonoBehaviour
         Vector2 moveInput = InputManager.Instance.MovementVector;
         if (moveInput != Vector2.zero)
         {
+
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) 
             {
                 if (moveInput.x > 0) _lastDir = new Vector2(1, 0); 
@@ -167,6 +180,26 @@ public class Movement : MonoBehaviour
         return _lastDir2;
     }
 
+    public void StepSounds()
+    {
+        if (InputManager.Instance.MovementVector != Vector2.zero)
+        {
+            if (!buttonPressed)
+            {
+                buttonPressed = true;
+                AudioManager.Instance.PlayAudio2(WalkInDirtSFX, 0.8f);
+            }
+        }
+        else
+        {
+            if (buttonPressed)
+            {
+                buttonPressed = false;
+                AudioManager.Instance.StopAudio(WalkInDirtSFX);
+            }
+
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
