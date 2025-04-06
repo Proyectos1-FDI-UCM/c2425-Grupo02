@@ -27,9 +27,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
     [SerializeField] Vector2 CenterPosition; // Posición central a la que se teletransportará el jefe.
 
-    [SerializeField]
-    GameObject IramisPhase2;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -102,12 +99,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
         return _isVulnerable;
     }
 
-
-    public int getBossLife()
-    {
-        return BossHealth;
-    }
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -137,7 +128,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
             // Si la vida del jefe llega a 0, lo destruimos.
             if (BossHealth <= 0)
             {
-                Instantiate(IramisPhase2, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 
@@ -147,10 +137,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
                 _isVulnerable = false;
                 HitCount = 0;
             }
-        }
-        else
-        {
-            Debug.Log("El jefe no es vulnerable en este momento.");
         }
     }
 
