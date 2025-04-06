@@ -54,6 +54,10 @@ public class LevelManager : MonoBehaviour
     /// Solo para la escena outside of the party
     /// </summary>
     [SerializeField] private GameObject Iramis;
+    /// <summary>
+    /// Scene exit de la entrada a la discoteca
+    /// </summary>
+    [SerializeField] private GameObject ExitToDisco;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -242,9 +246,21 @@ public class LevelManager : MonoBehaviour
     {
         Iramis.SetActive(true);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public void HideIramis()
     {
         Iramis.SetActive(false);
+    }
+    public void OpenDisco()
+    {
+        if (ExitToDisco != null) 
+        {
+            ExitToDisco.SetActive(true);
+            GameObject discoDoor = GameObject.Find("DiscoDoor_Dialogue");
+            discoDoor.SetActive(false);
+        }
     }
     /// <summary>
     /// Activa los objetos de la boss fight y desactiva la salida y el gameobject del diálogo de Iramis

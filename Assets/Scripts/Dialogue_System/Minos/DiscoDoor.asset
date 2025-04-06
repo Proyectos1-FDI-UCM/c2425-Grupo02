@@ -10,16 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
-  m_Name: MissionCompleted
+  m_Name: DiscoDoor
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
     Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
-    DialogueText: "Madre m\xEDa, \xA1\xA1\xA1has tardado un siglo para traerme unos
-      malditos paquetes!!!"
+    DialogueText: "\xBFQu\xE9 est\xE1s haciendo, paya?"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: L-lo siento, solo estaba mirando.
     Options: []
   - Name: Minos
     Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
-    DialogueText: Espabila, que la vida te va a comer.
+    DialogueText: "S\xED, s\xED, pero no puedes entrar sin mi permiso."
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: Entendido.
     Options: []
   Ending: 0
