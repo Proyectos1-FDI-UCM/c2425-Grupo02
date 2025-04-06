@@ -425,14 +425,14 @@ RectTransform:
   m_GameObject: {fileID: 1444220478728572925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.9801, y: 1.9801, z: 1.9801}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7340094789984266471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 230}
+  m_AnchoredPosition: {x: 749, y: 445}
   m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2427551974370713476
@@ -813,14 +813,14 @@ RectTransform:
   m_GameObject: {fileID: 2429768866427748958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.6117791, y: 1.6117791, z: 1.6117791}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9010100725872861012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -380, y: 230}
+  m_AnchoredPosition: {x: -723.5, y: 448}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1625890017785666277
@@ -1942,8 +1942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -190, y: -63}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -165, y: -93.75}
+  m_SizeDelta: {x: 198.5383, y: 74.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &157254673337429584
 CanvasRenderer:
@@ -1975,11 +1975,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
