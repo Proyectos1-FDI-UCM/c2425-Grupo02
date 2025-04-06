@@ -144,10 +144,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
                 HitCount = 0;
             }
         }
-        else
-        {
-            Debug.Log("El jefe no es vulnerable en este momento.");
-        }
     }
 
     /// <summary>

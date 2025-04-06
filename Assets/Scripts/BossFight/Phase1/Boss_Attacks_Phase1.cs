@@ -25,6 +25,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     [SerializeField] Transform firePosition; // Posición desde la que se disparan los proyectiles.
 
     [SerializeField] float fireRate; // Tiempo entre disparos.
+    [SerializeField] float RateSpawn; // Tiempo entre apariciones de enemigos.
     [SerializeField] GameObject Boss; // Referencia al jefe en la escena.
 
     [SerializeField] GameObject Spawner; // Referencia al spawner de enemigos.
@@ -35,7 +36,12 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private float timeToFire; // Controla el tiempo entre disparos.
+    private float timeToSpawn; // Controla el tiempo entre la aparición de enemigos.
     private Rigidbody2D rb; // Referencia al Rigidbody2D del jefe.
+    private GameObject _player; // Referencia al jugador.
+    private int BoosLife; // Vida del jefe. 
+    private bool _isVulnerable; // Indica si el jefe es vulnerable.
+
 
     #endregion
 
@@ -49,6 +55,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Busca el Rigidbody2D adjunto al jefe.
+        _player = FindObjectOfType<Movement>().gameObject;
     }
 
     /// <summary>
@@ -68,20 +75,8 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
             RotateTowardsTarget(); // Rota hacia el jugador.
         }
 
-        // Verifica si el jefe es vulnerable.
-        bool _isVulnerable = Boss.GetComponent<Boss_Life_Phase1>().getIsVulnerable();
-
-        if (!_isVulnerable) // Si el jefe no es vulnerable, dispara.
-        {
-            Shoot();
-        }
-
-        int BoosLife = Boss.GetComponent<Boss_Life_Phase1>().getBossLife();
-
-        if (BoosLife <= 0)
-        {
-            Spawner.SetActive(false);
-        }
+        Shoot(); // Llama al método de disparo.
+        SpawnAttack(); // Llama al método de aparición de enemigos.
     }
 
     #endregion
@@ -95,6 +90,11 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     private void Shoot()
     {
+        _isVulnerable = Boss.GetComponent<Boss_Life_Phase1>().getIsVulnerable();
+        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
+        {
+            return; // Sale del método sin hacer nada.
+        }
         if (timeToFire <= 0f) // Si el tiempo ha llegado a 0, dispara.
         {
             Debug.Log("Disparo"); // Mensaje en consola para depuración.
@@ -126,10 +126,27 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     private void GetTarget()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        if (_player != null)
         {
-            target = player.transform;
+            target = _player.transform;
+        }
+    }
+
+
+    private void SpawnAttack()
+    {
+        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
+        {
+            return; // Sale del método sin hacer nada.
+        }
+        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, dispara.
+        {
+            Instantiate(Spawner); // Spawnea el prefab.
+            timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
         }
     }
 
