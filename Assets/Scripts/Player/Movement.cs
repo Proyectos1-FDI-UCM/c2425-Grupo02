@@ -101,8 +101,18 @@ public class Movement : MonoBehaviour
         _lastDir = GetLastDir();
         Vector2 movement = InputManager.Instance.MovementVector;
         _rb.velocity = movement * Velocity;
+
+
         _animator.SetFloat("moveX", _lastDir.x);
         _animator.SetFloat("moveY", _lastDir.y);
+        if (_rb.velocity != Vector2.zero) 
+        {
+            _animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            _animator.SetBool("isRunning", true);
+        }
         ApplyToroidality();
     }
 

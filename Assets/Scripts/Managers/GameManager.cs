@@ -197,6 +197,18 @@ public class GameManager : MonoBehaviour
     ///<summary>
     ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto. Va actualizando el número de objetos de misión obtenidos por el jugador
     ///</summary>
+    public void Damage(int Health)
+    {
+        UIManager.UpdateHealth(Health);
+    }
+    public int questState()
+    {
+        return _questState;
+    }
+    public int questObjectsCount()
+    {
+        return _questObjectsCount;
+    }
     public void OnQuestObjectCollected()
     {
         _questObjectsCount++;
@@ -217,7 +229,9 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("UIManager no está inicializado.");
             }
             Debug.Log("Misión terminada");
+            UIManager.Instance.HideQuestUI();
         }
+        UIManager.UpdateQuestProgress(_questObjectsCount);
     }
     
     ///<summary>
@@ -328,6 +342,7 @@ public class GameManager : MonoBehaviour
             {
                 _questState = 1;
                 Debug.Log("Quest has started");
+                UIManager.Instance.ShowQuestUI();
             }
             else if (dialogueName == "Scythe")
             {
