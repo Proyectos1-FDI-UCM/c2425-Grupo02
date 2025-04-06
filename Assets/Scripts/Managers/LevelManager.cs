@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject[] SceneExits;
     /// <summary>
-    /// Solo para la escena outside of the party
+    /// Solo para la escena outside of the party y Boss room
     /// </summary>
     [SerializeField] private GameObject Iramis;
     /// <summary>
@@ -274,6 +274,19 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject obj in BossGameObjects)
         {
             obj.SetActive(true);
+        }
+        Pillar[] pillars = FindObjectsOfType<Pillar>();
+        foreach (Pillar pillar in pillars)
+        {
+            pillar.enabled = true;
+        }
+        Healing_GameObjects[] heals = FindObjectsOfType<Healing_GameObjects>();
+        foreach (Healing_GameObjects heal in heals)
+        {
+            foreach (var comp in heal.GetComponentsInChildren<MonoBehaviour>())
+            {
+                comp.enabled = true;
+            }
         }
         HideIramis();
     }

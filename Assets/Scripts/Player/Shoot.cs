@@ -27,6 +27,10 @@ public class Shoot : MonoBehaviour
     /// Sonido del proyectil
     /// </summary>
     [SerializeField] private AudioClip proyectileSFX;
+    /// <summary>
+    /// Delay del disparo
+    /// </summary>
+    [SerializeField] private float DelayTime;
 
 
     #endregion
@@ -35,10 +39,10 @@ public class Shoot : MonoBehaviour
 
     #region Atributos Privados (private fields)
 
-    private GameObject newBullet;
-    private Movement playerMovement;
-    private bool noBulletInGame = true;
-
+    private GameObject _newBullet;
+    private Movement _playerMovement;
+    private bool _noBulletInGame = true;
+    private float _timer = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,7 +50,7 @@ public class Shoot : MonoBehaviour
     #region Métodos de MonoBehaviour
     void Awake()
     {
-        playerMovement = GetComponent<Movement>();
+        _playerMovement = GetComponent<Movement>();
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -55,16 +59,19 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (InputManager.Instance.FireWasPressedThisFrame())
+        _timer += Time.deltaTime;
+        Debug.Log("Timer: " +  _timer);
+        if (InputManager.Instance.FireWasPressedThisFrame() && _timer >= DelayTime)
         {
-            if (noBulletInGame)
+            if (_noBulletInGame)
             {
                 ShootNewBullet();
+                _timer = 0;
             }
         }
-        if (newBullet == null)
+        if (_newBullet == null)
         {
-            noBulletInGame = true;
+            _noBulletInGame = true;
         }
     }
 
@@ -86,7 +93,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     private void ShootNewBullet()
     {
-        Vector2 lastDir = playerMovement.GetLastDir();
+        Vector2 lastDir = _playerMovement.GetLastDir();
         Quaternion bulletRotation;
         Vector3 instancePos = transform.position;
 
@@ -111,8 +118,8 @@ public class Shoot : MonoBehaviour
             bulletRotation = Quaternion.Euler(0, 0, 0);
         }
 
-        newBullet = Instantiate(bullet, instancePos, bulletRotation);
-        noBulletInGame = false;
+        _newBullet = Instantiate(bullet, instancePos, bulletRotation);
+        _noBulletInGame = false;
         AudioManager.Instance.PlayAudio(proyectileSFX, 0.5f);
     }
 
