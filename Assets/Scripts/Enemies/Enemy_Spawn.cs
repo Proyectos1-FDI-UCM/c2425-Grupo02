@@ -77,6 +77,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// Lista de celdas en las que no puede spawnear un enemigo
     /// </summary>
     HashSet<Vector2Int> _bannedCells = new();
+    GameObject[] _limits;
     /// <summary>
     /// Ancho de la cuadrícula
     /// </summary>
@@ -147,6 +148,12 @@ public class Enemy_Spawn : MonoBehaviour {
             }
             else
             {
+                if (LimitZone) {
+                    foreach (GameObject e in _limits) {
+                        Destroy(e);
+                    }
+                }
+
                 Destroy(gameObject);
             }
         }
@@ -178,6 +185,7 @@ public class Enemy_Spawn : MonoBehaviour {
     /// <param name="offset"> descentrado de los límites (paredes) del spawn </param>
     void InstantiateLimitZone(float offset) {
         Vector2 origin = gameObject.transform.position;
+        _limits = new GameObject[4];
 
         Vector2[] arr = new Vector2[]
         {
@@ -203,7 +211,7 @@ public class Enemy_Spawn : MonoBehaviour {
                 o.transform.localScale = new(_grid.GetWidth() * 2, 1);
             }
 
-            Instantiate(Limit, arr[i], Quaternion.identity);
+            _limits[i] = Instantiate(Limit, arr[i], Quaternion.identity);
         }
     }
     /// <summary>
