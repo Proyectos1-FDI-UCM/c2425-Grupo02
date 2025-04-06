@@ -37,8 +37,8 @@ MonoBehaviour:
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
-    DialogueText: "Por cierto, para poder seguir vas a tener que doerrotar a todos
-      los lujuriosos. Estoy ansioso por ver como te las apa\xF1as."
+    DialogueText: "Vas a tener que derrotarlos a todos antes de avanzar. Estoy ansioso
+      por ver como te las apa\xF1as."
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}

@@ -352,6 +352,10 @@ public class GameManager : MonoBehaviour
                 LevelManager.Instance.StartInitCombat();
             }
         }
+        else if (dialogueName == "MissionCompleted")
+        {
+            LevelManager.Instance.OpenDisco();
+        }
         else if (dialogueName == "No")
         {
             LevelManager.Instance.EnableBoss();

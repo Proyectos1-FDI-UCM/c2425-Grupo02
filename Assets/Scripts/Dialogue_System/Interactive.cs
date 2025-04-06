@@ -41,7 +41,7 @@ public class Interactive : MonoBehaviour
     }
     private void Start()
     {
-        if (DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe"))
+        if ((DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe")) || DialogueScripts[0].name == "DiscoDoor" && GameManager.Instance.QuestState == 2)
         { 
             gameObject.SetActive(false);
         }

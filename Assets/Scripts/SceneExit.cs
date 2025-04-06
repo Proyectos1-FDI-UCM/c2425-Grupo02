@@ -30,7 +30,7 @@ public class SceneExit : MonoBehaviour
 
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -41,10 +41,19 @@ public class SceneExit : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+    /// <summary>
+    /// Para que en caso de haber completado la misión y cambiar de escena, no se pierda el exit
+    /// </summary>
+    private void Start()
+    {
+        if (gameObject.name == "sceneExitToDisco" && GameManager.Instance.QuestState == 2)
+        {
+            gameObject.SetActive(true);
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
