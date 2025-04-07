@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 
@@ -364,11 +365,9 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueName == "1IntroductionSpora" || dialogueName == "Scythe" || dialogueName == "MissionAccepted")
         {
+            DisableTrigDialogues();
             if (dialogueName == "MissionAccepted")
             {
-                GameObject NoQuest = GameObject.Find("TriggerDialogue");
-                NoQuest.SetActive(false);
-                _disabledTrigDialogues.Add(NoQuest.GetComponent<TriggerDialogue>().TriggerName);
                 _questState = 1;
                 Debug.Log("Quest has started");
                 UIManager.Instance.ShowQuestUI();
@@ -385,10 +384,7 @@ public class GameManager : MonoBehaviour
                     LevelManager.Instance.StartInitCombat();
                     Debug.Log("You have the scythe");
                 }
-            }
-            else
-            {
-                DisableTrigDialogues();
+                
             }
         }
         else if (dialogueName == "MissionCompleted")
