@@ -139,8 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 5
-  WalkInDiscoSFX: {fileID: 8300000, guid: 3dc038fc10f86b34a86daf6cc46c4222, type: 3}
-  WalkInDirtSFX: {fileID: 8300000, guid: 19038e3cb7841d2498a2086beee1ee4a, type: 3}
+  WalkSFX: {fileID: 8300000, guid: 19038e3cb7841d2498a2086beee1ee4a, type: 3}
 --- !u!95 &8186444170964134507
 Animator:
   serializedVersion: 5

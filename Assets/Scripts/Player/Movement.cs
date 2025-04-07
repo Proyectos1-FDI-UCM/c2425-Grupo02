@@ -23,14 +23,10 @@ public class Movement : MonoBehaviour
     /// Velocidad del movimiento
     /// </summary>
     [SerializeField] private float Velocity;
-    /// Sonido de pasos en el exterior
+    /// Sonido de pasos
     /// </summary>
     [SerializeField]
-    private AudioClip WalkInDiscoSFX;
-    /// Sonido de pasos en el interior
-    /// </summary>
-    [SerializeField]
-    private AudioClip WalkInDirtSFX;
+    private AudioClip WalkSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -223,11 +219,11 @@ public class Movement : MonoBehaviour
         if (InputManager.Instance.MovementVector != Vector2.zero)
         {
 
-            AudioManager.Instance.PlayAudio2(WalkInDirtSFX, 0.8f);
+            AudioManager.Instance.PlayAudio2(WalkSFX, 0.8f);
         }
         else
         {
-            AudioManager.Instance.StopAudio(WalkInDirtSFX);
+            AudioManager.Instance.StopAudio(WalkSFX);
         }
     }
     #endregion

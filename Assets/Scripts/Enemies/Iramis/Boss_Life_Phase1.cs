@@ -26,6 +26,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     [SerializeField] bool Pillar4;
 
     [SerializeField] Vector2 CenterPosition; // Posición central a la que se teletransportará el jefe.
+    [SerializeField] GameObject Phase2; // Prefab de la fase 2 del boss
 
     #endregion
 
@@ -128,6 +129,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
             // Si la vida del jefe llega a 0, lo destruimos.
             if (BossHealth <= 0)
             {
+                Instantiate(Phase2, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 

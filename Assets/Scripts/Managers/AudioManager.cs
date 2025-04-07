@@ -168,13 +168,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void LoopAudio(AudioClip sfx)
-    {
-        if (sfxSource != null)
-        {
-            sfxSource.loop = true;
-        }
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip healSFX;
     /// <summary>
-
+    
+   
 
     #endregion
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
     /// Cantidad de puntos de vida que tiene el jugador
     /// </summary>
     private int _health;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -136,11 +138,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    protected void Start()
-    {
-        GetHealth();
-       
-    }
+
 
     #endregion
 
@@ -189,13 +187,14 @@ public class GameManager : MonoBehaviour
         /// colisiona contra dicho objeto
         /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
         ///</summary>
-        public void HealCollected(GameObject Player)
+    public void HealCollected(GameObject Player)
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
         if (Player != null) 
         {
             playerHealth.Heal(1);
+            _health = playerHealth.ReturnHealth();
             AudioManager.Instance.PlayAudio(healSFX, 0.5f);
         }
 
@@ -302,6 +301,22 @@ public class GameManager : MonoBehaviour
         _health = playerHealth.ReturnHealth();
     }
 
+    public int ReturnHealth() { return _health; }
+
+    public void ResetGameManager()
+    {
+        _questObjectsCount = 0;
+        _questState = 0;
+        _saveUsed = false;
+        _hasScythe = false;
+        _health = 6;
+        _readDialogues = new HashSet<string>();
+        _disabledTrigDialogues = new HashSet<string>();
+
+
+    }
+
+
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
     /// </summary>
@@ -338,7 +353,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Init()
     {
-        // De momento no hay nada que inicializar
+        Player_Health player_Health = Player.GetComponent<Player_Health>();
+        _health = player_Health.ReturnHealth();
     }
 
     private void TransferSceneState()
