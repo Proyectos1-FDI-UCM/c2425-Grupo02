@@ -30,6 +30,8 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
 
     [SerializeField] GameObject Spawner; // Referencia al spawner de enemigos.
 
+    [SerializeField] GameObject Wall; // Referencia a las paredes que se invocan al comenzar la fase.
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -56,6 +58,16 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Busca el Rigidbody2D adjunto al jefe.
         _player = FindObjectOfType<Movement>().gameObject;
+
+        for (int i = 0; i < 12; i++)
+        {
+            Instantiate(Wall, new Vector3(-5.5f + i, 107f, 0f), Quaternion.identity);
+        }
+
+        for (int i = 0; i < 36; i++)
+        {
+            Instantiate(Wall, new Vector3(-17.5f + i, 164f, 0f), Quaternion.identity);
+        }
     }
 
     /// <summary>

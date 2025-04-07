@@ -41,7 +41,6 @@ public class Shoot : MonoBehaviour
 
     private GameObject _newBullet;
     private Movement _playerMovement;
-    private bool _noBulletInGame = true;
     private float _timer = 0;
     #endregion
 
@@ -63,15 +62,8 @@ public class Shoot : MonoBehaviour
         Debug.Log("Timer: " +  _timer);
         if (InputManager.Instance.FireWasPressedThisFrame() && _timer >= DelayTime)
         {
-            if (_noBulletInGame)
-            {
-                ShootNewBullet();
-                _timer = 0;
-            }
-        }
-        if (_newBullet == null)
-        {
-            _noBulletInGame = true;
+            ShootNewBullet();
+            _timer = 0;
         }
     }
 
@@ -119,7 +111,6 @@ public class Shoot : MonoBehaviour
         }
 
         _newBullet = Instantiate(bullet, instancePos, bulletRotation);
-        _noBulletInGame = false;
         AudioManager.Instance.PlayAudio(proyectileSFX, 0.5f);
     }
 
