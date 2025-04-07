@@ -38,7 +38,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    private float timeToFire; // Controla el tiempo entre disparos.
+    private float timeToFire = 0f; // Controla el tiempo entre disparos.
     private float timeToSpawn; // Controla el tiempo entre la aparición de enemigos.
     private Rigidbody2D rb; // Referencia al Rigidbody2D del jefe.
     private GameObject _player; // Referencia al jugador.
@@ -100,14 +100,14 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
             timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
         }
 
-        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, dispara.
+        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, spawnea.
         {
-            SpawnAttack(); // Llama al método de disparo.
+            Instantiate(Spawner); // Spawnea el prefab.
             timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
         }
         else
         {
-            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
+            timeToSpawn -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
         }
     }
 
@@ -146,16 +146,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
 
 
 
-    }
-
-    private void SpawnAttack()
-    {
-        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
-        {
-            return; // Sale del método sin hacer nada.
-        }
-
-        Instantiate(Spawner); // Spawnea el prefab.
     }
 
     /// <summary>
