@@ -303,6 +303,20 @@ public class GameManager : MonoBehaviour
 
     public int ReturnHealth() { return _health; }
 
+    public void ResetGameManager()
+    {
+        _questObjectsCount = 0;
+        _questState = 0;
+        _saveUsed = false;
+        _hasScythe = false;
+        _health = 6;
+        _readDialogues = new HashSet<string>();
+        _disabledTrigDialogues = new HashSet<string>();
+
+
+    }
+
+
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
     /// </summary>
