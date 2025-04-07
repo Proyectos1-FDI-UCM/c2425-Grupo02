@@ -18301,7 +18301,7 @@ PrefabInstance:
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: FaderAnimator
       value: 
-      objectReference: {fileID: 1774119149}
+      objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: SpawnPosition.x
       value: 2
@@ -94458,11 +94458,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
   m_PrefabInstance: {fileID: 1064120118}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1774119149 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5882649309726707475, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 1486153094}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774155312
 GameObject:

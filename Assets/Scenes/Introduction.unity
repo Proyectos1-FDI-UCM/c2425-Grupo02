@@ -269,11 +269,6 @@ Transform:
   - {fileID: 664517501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &477143990 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5882649309726707475, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 607483726}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &546819289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -354,10 +349,6 @@ PrefabInstance:
     - target: {fileID: 681315232661374838, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8292506063731567562, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8685447163793327624, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -505,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: FaderAnimator
       value: 
-      objectReference: {fileID: 477143990}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

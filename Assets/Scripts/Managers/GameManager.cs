@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private AudioClip healSFX;
-
+    /// <summary>
 
 
     #endregion
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         } // if somos la instancia principal
     }
 
+<<<<<<< HEAD
     protected void Start()
     {
         if(_instance == null)
@@ -150,6 +151,8 @@ public class GameManager : MonoBehaviour
        
     }
 
+=======
+>>>>>>> parent of dff1a60 (Fader implementado)
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -197,7 +200,7 @@ public class GameManager : MonoBehaviour
         /// colisiona contra dicho objeto
         /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
         ///</summary>
-    public void HealCollected(GameObject Player)
+        public void HealCollected(GameObject Player)
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
@@ -293,7 +296,10 @@ public class GameManager : MonoBehaviour
     /// este manda una posición al GameManager y lo guarda en una variable global
     /// </summary>
     /// <param name="spawn">Determina donde va a aparecer el jugador en escena</param>
-    public void SetSpawnPoint(Vector2 spawn)  { _spawnPosition = spawn; }
+    public void SetSpawnPoint(Vector2 spawn)
+    {
+        _spawnPosition = spawn;
+    }
 
     /// <summary>
     /// Manda la información de aparición al script de movimiento del jugador
