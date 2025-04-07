@@ -153,7 +153,6 @@ public class Enemy_Spawn : MonoBehaviour {
                         Destroy(e);
                     }
                 }
-
                 Destroy(gameObject);
             }
         }
@@ -174,7 +173,7 @@ public class Enemy_Spawn : MonoBehaviour {
         _collider.enabled = false;
         if (LimitZone)
         {
-            InstantiateLimitZone(1f);
+            InstantiateLimitZone(1f, 3);
         }
     }
 
@@ -182,8 +181,9 @@ public class Enemy_Spawn : MonoBehaviour {
     /// Instancia cuatro colliders (uno por dirección) que impiden que el jugador salga de la zona de spawn de enemigos.
     /// Los guarda en un "_limitedZone" para poder destruirlos luego
     /// </summary>
-    /// <param name="offset"> descentrado de los límites (paredes) del spawn </param>
-    void InstantiateLimitZone(float offset) {
+    /// <param name="offset"> descentrado de los límites (paredes) del spawn </param>    
+    /// <param name="width"> descentrado de los límites (paredes) del spawn </param>
+    void InstantiateLimitZone(float offset, float width) {
         Vector2 origin = gameObject.transform.position;
         _limits = new GameObject[4];
 
@@ -204,11 +204,11 @@ public class Enemy_Spawn : MonoBehaviour {
             GameObject o = Limit;
             if (i < 2)
             {
-                o.transform.localScale = new(1, _grid.GetHeight() * 2);
+                o.transform.localScale = new(width, _grid.GetHeight() * 2);
             }
             else
             {
-                o.transform.localScale = new(_grid.GetWidth() * 2, 1);
+                o.transform.localScale = new(_grid.GetWidth() * 2, width);
             }
 
             _limits[i] = Instantiate(Limit, arr[i], Quaternion.identity);
