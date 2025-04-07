@@ -356,10 +356,14 @@ public class GameManager : MonoBehaviour
                 GameObject scythe = GameObject.Find("Scythe_dialogue");
                 scythe.SetActive(false);
                 _hasScythe = true;
-                Player.GetComponent<Shoot>().enabled = true;
-                Player.GetComponent<MeleeAttack>().enabled = true;
-                LevelManager.Instance.StartInitCombat();
-                Debug.Log("You have the scythe");
+                if (Player != null)
+                {
+                    Player.GetComponent<Shoot>().enabled = true;
+                    Player.GetComponent<MeleeAttack>().enabled = true;
+                    LevelManager.Instance.StartInitCombat();
+                    Debug.Log("You have the scythe");
+                }
+                
             }
         }
         else if (dialogueName == "MissionCompleted")
