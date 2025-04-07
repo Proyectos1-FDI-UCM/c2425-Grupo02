@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 
@@ -377,6 +378,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject scythe = GameObject.Find("Scythe_dialogue");
                 scythe.SetActive(false);
+                _disabledTrigDialogues.Add(scythe.GetComponent<TriggerDialogue>().TriggerName);
                 _hasScythe = true;
                 if (Player != null)
                 {
