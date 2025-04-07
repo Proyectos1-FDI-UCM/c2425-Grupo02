@@ -96546,6 +96546,34 @@ PrefabInstance:
       propertyPath: DialogueScripts.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: e5d4a22633a0f154c89c0c85c4d6f10f, type: 2}
+    - target: {fileID: 2438281281410475174, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438281281410475174, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438281281410475174, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: IRAMIS_DIALOGUE
@@ -96590,6 +96618,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1899113342, guid: d3dedefd491455e47a102d144035d65a, type: 3}
     - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Color.b
       value: 0.89467263
