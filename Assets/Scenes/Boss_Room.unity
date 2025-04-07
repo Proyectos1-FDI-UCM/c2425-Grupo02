@@ -96876,6 +96876,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 955261943080572659, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      propertyPath: WalkSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dc038fc10f86b34a86daf6cc46c4222, type: 3}
+    - target: {fileID: 955261943080572659, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: Velocity
       value: 20
       objectReference: {fileID: 0}
