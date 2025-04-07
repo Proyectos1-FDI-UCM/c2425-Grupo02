@@ -96060,10 +96060,14 @@ PrefabInstance:
     - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: Spawner
       value: 
-      objectReference: {fileID: 175193201247443623, guid: fb40de61927154d41a877231748c6c16, type: 3}
+      objectReference: {fileID: 175193201247443623, guid: 2d83086aea9ddce4fabc4354c316646c, type: 3}
     - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: fireRate
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+      propertyPath: RateSpawn
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7343583397502697899, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
       propertyPath: m_Enabled
