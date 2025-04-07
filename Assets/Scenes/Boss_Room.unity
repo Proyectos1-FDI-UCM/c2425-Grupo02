@@ -1886,6 +1886,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: aa97c8f8d5109844a9c77d4b8d88cf0c, type: 3}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: _hasScythe
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: FaderAnimator
       value: 
       objectReference: {fileID: 0}
