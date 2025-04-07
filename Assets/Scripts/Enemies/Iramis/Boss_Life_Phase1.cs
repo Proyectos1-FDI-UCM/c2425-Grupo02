@@ -34,6 +34,8 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
     private bool _isVulnerable = false; // Indica si el jefe puede recibir daño.
     private int HitCount = 0; // Cuenta la cantidad de golpes que ha recibido.
+    private bool TripleShot = false; // Variable que indica si el jefe va a lanzar 3 proyectiles.
+
 
     #endregion
 
@@ -54,15 +56,8 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
         // Reiniciamos la cantidad de golpes recibidos.
         HitCount = 0;
-    }
 
-    /// <summary>
-    /// Se ejecuta en cada frame del juego.
-    /// (Actualmente no hace nada, pero podría usarse para futuras mecánicas del jefe).
-    /// </summary>
-    void Update()
-    {
-
+        TripleShot = false;
     }
 
     #endregion
@@ -76,8 +71,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
     /// <param name="pillar">Número del pilar a activar (1-4).</param>
     public void SetPillarBool(int pillar)
     {
-        Debug.Log($"Se ha llamado a SetPillarBool con pilar {pillar}");
-
         // Activamos el pilar correspondiente según el número recibido.
         if (pillar == 1) Pillar1 = true;
         else if (pillar == 2) Pillar2 = true;
@@ -86,10 +79,21 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
         // Cuando se activa un pilar, el jefe se vuelve vulnerable.
         _isVulnerable = true;
-
-        Debug.Log($"Después de ejecutar SetPillarBool, isVulnerable = {_isVulnerable}");
     }
 
+    /// <summary>
+    /// Activa el pilar correspondiente y hace que el jefe se vuelva vulnerable.
+    /// </summary>
+    /// <param name="pillar">Número del pilar a activar (1-4).</param>
+    public bool SetTripleShotOn()
+    {
+        if (TripleShot == false && (Pillar1 && Pillar2 || Pillar1 && Pillar3 || Pillar1 && Pillar4 || Pillar2 && Pillar3 || Pillar2 && Pillar4 || Pillar3 && Pillar4))
+        {
+            TripleShot = true; // Si se activan 2 pilares, el jefe lanza 3 proyectiles.
+        }
+
+        return TripleShot;
+    }
     /// <summary>
     /// Devuelve si el jefe es vulnerable o no.
     /// </summary>
@@ -112,13 +116,9 @@ public class Boss_Life_Phase1 : MonoBehaviour
     /// <param name="dmg">Cantidad de daño recibido.</param>
     public void Damage(int dmg)
     {
-        Debug.Log("El jefe ha detectado colisión.");
-
         // Solo recibe daño si es vulnerable.
         if (_isVulnerable == true)
         {
-            Debug.Log("El jefe ha sido golpeado");
-
             // Reducimos la vida del jefe según el daño recibido.
             BossHealth -= dmg;
 
@@ -139,18 +139,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
             }
         }
     }
-
-    /// <summary>
-    /// Teletransporta al jefe al centro de la sala.
-    /// </summary>
-    private void TeleportBossToCenter()
-    {
-        // Cambia la posición del jefe al centro.
-        transform.position = new Vector3(CenterPosition.x, CenterPosition.y, transform.position.z);
-
-        Debug.Log("El jefe se ha teletransportado al centro de la sala.");
-    }
-
     #endregion
 
 } // Fin de la clase Boss_Life_Phase1

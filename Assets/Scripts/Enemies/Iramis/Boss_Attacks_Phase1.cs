@@ -7,6 +7,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// Clase que maneja los ataques del jefe en la fase 1.
@@ -43,6 +44,8 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     private GameObject _player; // Referencia al jugador.
     private int BoosLife; // Vida del jefe. 
     private bool _isVulnerable; // Indica si el jefe es vulnerable.
+    private bool TripleShot; // Indica si el jefe lanza 3 proyectiles.
+
 
 
     #endregion
@@ -87,8 +90,25 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
             RotateTowardsTarget(); // Rota hacia el jugador.
         }
 
-        Shoot(); // Llama al método de disparo.
-        SpawnAttack(); // Llama al método de aparición de enemigos.
+        if (timeToFire <= 0f) // Si el tiempo ha llegado a 0, dispara.
+        {
+            Shoot(); // Llama al método de disparo.
+            timeToFire = fireRate; // Reinicia el contador de tiempo para el siguiente disparo.
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
+        }
+
+        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, dispara.
+        {
+            SpawnAttack(); // Llama al método de disparo.
+            timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
+        }
     }
 
     #endregion
@@ -107,16 +127,35 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         {
             return; // Sale del método sin hacer nada.
         }
-        if (timeToFire <= 0f) // Si el tiempo ha llegado a 0, dispara.
+
+        Instantiate(bossProyectile, firePosition.position, firePosition.rotation); // Crea un proyectil.
+
+        TripleShot = Boss.GetComponent<Boss_Life_Phase1>().SetTripleShotOn();
+
+        if (TripleShot == true)
         {
-            Debug.Log("Disparo"); // Mensaje en consola para depuración.
-            Instantiate(bossProyectile, firePosition.position, firePosition.rotation); // Crea un proyectil.
-            timeToFire = fireRate; // Reinicia el contador de tiempo para el siguiente disparo.
+            // Crea el segundo proyectil, alejado y girado 15º
+            Vector3 offset = new Vector3(0.5f, 0, 0); // Ajusta el valor de offset según sea necesario
+            Quaternion rotation = Quaternion.Euler(firePosition.rotation.eulerAngles + new Vector3(0, 0, 15));
+            Instantiate(bossProyectile, firePosition.position + offset, rotation);
+
+            // Crea el tercer proyectil, alejado en el otro sentido y con una inclinación de -15º
+            rotation = Quaternion.Euler(firePosition.rotation.eulerAngles + new Vector3(0, 0, -15));
+            Instantiate(bossProyectile, firePosition.position - offset, rotation);
         }
-        else
+
+
+
+    }
+
+    private void SpawnAttack()
+    {
+        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
         {
-            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
+            return; // Sale del método sin hacer nada.
         }
+
+        Instantiate(Spawner); // Spawnea el prefab.
     }
 
     /// <summary>
@@ -144,23 +183,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         }
     }
 
-
-    private void SpawnAttack()
-    {
-        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
-        {
-            return; // Sale del método sin hacer nada.
-        }
-        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, dispara.
-        {
-            Instantiate(Spawner); // Spawnea el prefab.
-            timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
-        }
-        else
-        {
-            timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
-        }
-    }
 
     #endregion
 } // Fin de la clase Boss_Attacks_Phase1

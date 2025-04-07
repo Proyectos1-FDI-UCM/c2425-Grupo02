@@ -43,16 +43,6 @@ public class Pillar : MonoBehaviour
     {
         Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject; // Busca y guarda el jefe en la variable Boss.
     }
-
-    /// <summary>
-    /// Se ejecuta en cada frame del juego.
-    /// Actualmente no tiene ninguna funcionalidad.
-    /// </summary>
-    void Update()
-    {
-        // En el futuro se podría añadir lógica aquí, pero por ahora el método está vacío.
-    }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
