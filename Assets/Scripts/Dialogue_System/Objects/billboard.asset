@@ -15,7 +15,6 @@ MonoBehaviour:
   Lines:
   - Name: Cartel
     Sprite: {fileID: 0}
-    DialogueText: "<---- DISCOTECA     \t\t   LABERINTO ---->"
+    DialogueText: "<---- DISCOTECA     \t    LABERINTO ---->"
     Options: []
-  Read: 1
   Ending: 0
