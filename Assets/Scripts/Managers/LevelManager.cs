@@ -190,17 +190,12 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("ERROR: no hay exits");
         }
-
-        if (Blocks != null)
+        if (Blocks  != null)
         {
             foreach (GameObject block in Blocks)
             {
-                block.gameObject.SetActive(true);
+                block.SetActive(true);
             }
-        }
-        else
-        {
-            Debug.Log("ERROR: no hay bloques");
         }
         _initCombatStarted = true;
         Debug.Log("Enemy number: " + _nInitEnemies);
