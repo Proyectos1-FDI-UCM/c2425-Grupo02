@@ -31,11 +31,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Player;
     
     /// <summary>
-    /// Animator del fader para cambio de escenas
-    /// </summary>
-    [SerializeField] Animator FaderAnimator;
-
-    /// <summary>
     /// Sonido de curación del jugador
     /// </summary>
     [SerializeField]
@@ -140,19 +135,13 @@ public class GameManager : MonoBehaviour
         } // if somos la instancia principal
     }
 
-<<<<<<< HEAD
+
     protected void Start()
     {
-        if(_instance == null)
-        {
-            FaderAnimator.enabled = true;
-        }
         GetHealth();
        
     }
 
-=======
->>>>>>> parent of dff1a60 (Fader implementado)
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
