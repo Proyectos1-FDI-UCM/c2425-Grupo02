@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_Sprite: {fileID: 2132628071, guid: a05c20c272e422a4f9282f6607a77b31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   Pillar3: 0
   Pillar4: 0
   CenterPosition: {x: 0, y: 0}
+  Phase2: {fileID: 6139690745855566351, guid: 73d79ad761748384bb968c03df5e14b2, type: 3}
 --- !u!50 &4227176189225222403
 Rigidbody2D:
   serializedVersion: 4
