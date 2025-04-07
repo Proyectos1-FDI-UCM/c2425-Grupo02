@@ -251,7 +251,6 @@ public class LevelManager : MonoBehaviour
     {
         if (ExitToDisco != null) 
         {
-            ExitToDisco.SetActive(true);
             GameObject discoDoor = GameObject.Find("DiscoDoor_Dialogue");
             discoDoor.SetActive(false);
         }

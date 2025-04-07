@@ -1887,7 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: aa97c8f8d5109844a9c77d4b8d88cf0c, type: 3}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: _hasScythe
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: FaderAnimator
@@ -96885,7 +96885,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3dc038fc10f86b34a86daf6cc46c4222, type: 3}
     - target: {fileID: 955261943080572659, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: Velocity
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1617531211661647842, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_CollisionDetection
