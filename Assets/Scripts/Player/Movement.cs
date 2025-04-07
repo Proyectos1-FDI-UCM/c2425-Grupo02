@@ -42,6 +42,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private Dash _dash;
+    private SpriteRenderer _spriteRenderer;
     /// <summary>
     /// última dirección en la que mira el player que se obtiene en GetLastDir()
     /// </summary>
@@ -71,7 +72,8 @@ public class Movement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _dash = GetComponent<Dash>();   
+        _dash = GetComponent<Dash>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     /// <summary>
     /// Coge el tamaño del mapa en el primer frame
@@ -123,7 +125,15 @@ public class Movement : MonoBehaviour
         }
         _animator.SetFloat("moveX", _lastDir.x);
         _animator.SetFloat("moveY", _lastDir.y);
-        ApplyToroidality();
+        if (_lastDir.x < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else
+        {
+            _spriteRenderer.flipX = false;
+        }
+            ApplyToroidality();
         StepSounds();
 
     }
