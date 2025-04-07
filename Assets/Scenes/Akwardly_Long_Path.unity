@@ -249,13 +249,13 @@ GameObject:
   - component: {fileID: 287125835}
   - component: {fileID: 287125834}
   - component: {fileID: 287125833}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &287125833
 Rigidbody2D:
   serializedVersion: 4
@@ -18157,7 +18157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430338769}
   - component: {fileID: 430338770}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18440,7 +18440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 626897631}
   - component: {fileID: 626897632}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94168,13 +94168,13 @@ GameObject:
   - component: {fileID: 1138685251}
   - component: {fileID: 1138685250}
   - component: {fileID: 1138685249}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocks_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1138685249
 Rigidbody2D:
   serializedVersion: 4
@@ -94335,7 +94335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215204301}
   - component: {fileID: 1215204302}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94578,7 +94578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1279538011}
   - component: {fileID: 1279538012}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95010,7 +95010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640601566}
   - component: {fileID: 1640601567}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95099,7 +95099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1691793897}
   - component: {fileID: 1691793898}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95702,7 +95702,8 @@ MonoBehaviour:
   - {fileID: 352385153}
   - {fileID: 315631551}
   Blocks:
-  - {fileID: 0}
+  - {fileID: 287125832}
+  - {fileID: 1138685248}
   SceneExits:
   - {fileID: 2123698915}
   - {fileID: 1998546197}
