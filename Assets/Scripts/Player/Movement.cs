@@ -109,7 +109,7 @@ public class Movement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-
+        Debug.Log("Scythe: " + gameObject.GetComponent<Shoot>().enabled);
         _lastDir = GetLastDir();
         Vector2 movement = InputManager.Instance.MovementVector;
         _rb.velocity = movement * Velocity;
@@ -123,7 +123,6 @@ public class Movement : MonoBehaviour
         {
             _animator.SetBool("isRunning", false);
         }
-        _animator.SetFloat("moveX", _lastDir.x);
         _animator.SetFloat("moveY", _lastDir.y);
         if (_lastDir.x < 0)
         {

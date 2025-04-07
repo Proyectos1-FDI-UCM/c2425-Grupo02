@@ -70,6 +70,10 @@ public class MeleeAttack : MonoBehaviour
     private void Start()
     {
         _movement = GetComponent<Movement>();
+        if (!GameManager.Instance.HasScythe)
+        {
+            enabled = false;
+        }
     }
 
     /// <summary>
@@ -92,6 +96,14 @@ public class MeleeAttack : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+    // Documentar cada método que aparece aquí
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
     /// <summary>
     /// Método llamado en Update si se presiona el botón de ataque y el tiempo de enfriamiento ha transcurrido.
     /// Genera una colisión circular en la dirección en la que mira el jugador a través del GameObject Scythe. 
@@ -107,9 +119,9 @@ public class MeleeAttack : MonoBehaviour
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(scytheLocation.position, attackRadius, enemyLayer);
 
-        foreach(Collider2D collider in enemies)
+        foreach (Collider2D collider in enemies)
         {
-            if(collider.GetComponent<Enemy_Health>() != null)
+            if (collider.GetComponent<Enemy_Health>() != null)
             {
                 collider.GetComponent<Enemy_Health>().Damage(damage);
             }
@@ -138,16 +150,6 @@ public class MeleeAttack : MonoBehaviour
 
         Gizmos.DrawWireSphere(scytheLocation.position, attackRadius);
     }
-
-    #endregion
-
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
     #endregion
 
 } // class MeleeAttack 

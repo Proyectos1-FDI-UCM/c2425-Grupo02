@@ -75,7 +75,10 @@ public class GameManager : MonoBehaviour
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
     private Vector2 _spawnPosition;
-
+    /// <summary>
+    /// Indica si el player ha cogido la guadaña
+    /// </summary>
+    private bool _hasScythe = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -163,9 +166,12 @@ public class GameManager : MonoBehaviour
         get { return _saveUsed; }
     }
     /// <summary>
-    /// Getter para comprobar si ha comenzado el combate inicial en Akwardly long path
+    /// Getter para comprobar si ha cogido la guadaña
     /// </summary>
-    
+    public bool HasScythe
+    {
+        get { return _hasScythe; }
+    }
     public void UpdateSave()
     {
         _saveUsed = true;
@@ -349,7 +355,11 @@ public class GameManager : MonoBehaviour
             {
                 GameObject scythe = GameObject.Find("Scythe_dialogue");
                 scythe.SetActive(false);
+                _hasScythe = true;
+                Player.GetComponent<Shoot>().enabled = true;
+                Player.GetComponent<MeleeAttack>().enabled = true;
                 LevelManager.Instance.StartInitCombat();
+                Debug.Log("You have the scythe");
             }
         }
         else if (dialogueName == "MissionCompleted")

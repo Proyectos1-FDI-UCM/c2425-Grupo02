@@ -51,6 +51,14 @@ public class Shoot : MonoBehaviour
     {
         _playerMovement = GetComponent<Movement>();
     }
+    private void Start()
+    {
+        if (!GameManager.Instance.HasScythe)
+        {
+            enabled = false;
+            Debug.Log("No scythe");
+        }
+    }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// 

@@ -310,9 +310,12 @@ public class LevelManager : MonoBehaviour
     private void EnablePlayerControls()
     {
         _player.GetComponent<Movement>().enabled = true;
-        _player.GetComponent<Shoot>().enabled = true;
-        _player.GetComponent<MeleeAttack>().enabled = true;
         _player.GetComponent<Dash>().enabled = true;
+        if (GameManager.Instance.HasScythe)
+        {
+            _player.GetComponent<Shoot>().enabled = true;
+            _player.GetComponent<MeleeAttack>().enabled = true;
+        }
     }
 
     /// <summary>
