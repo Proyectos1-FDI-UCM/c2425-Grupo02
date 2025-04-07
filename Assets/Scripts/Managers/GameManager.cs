@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 
@@ -28,11 +29,10 @@ public class GameManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] GameObject Player;
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    
+    /// <summary>
+    /// Animator del fader para cambio de escenas
+    /// </summary>
     [SerializeField] Animator FaderAnimator;
 
     /// <summary>
@@ -138,7 +138,11 @@ public class GameManager : MonoBehaviour
 
     protected void Start()
     {
-        FaderAnimator.enabled = true;
+        if(_instance == null)
+        {
+            FaderAnimator.enabled = true;
+        }
+       
     }
 
     #endregion
