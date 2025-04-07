@@ -56,10 +56,6 @@ public class Movement : MonoBehaviour
     /// Posición donde va a aparecer el jugador al cargar una escena
     /// </summary>
     private Vector2 _spawnPos;
-    /// <summary>
-    /// Si se está o no presionando una de las teclas de movimiento
-    /// </summary>
-    private bool buttonPressed = false;
 
     #endregion
 
@@ -188,26 +184,7 @@ public class Movement : MonoBehaviour
         return _lastDir2;
     }
 
-    public void StepSounds()
-    {
-        if (InputManager.Instance.MovementVector != Vector2.zero)
-        {
-            if (!buttonPressed)
-            {
-                buttonPressed = true;
-                AudioManager.Instance.PlayAudio2(WalkInDirtSFX, 0.8f);
-            }
-        }
-        else
-        {
-            if (buttonPressed)
-            {
-                buttonPressed = false;
-                AudioManager.Instance.StopAudio(WalkInDirtSFX);
-            }
 
-        }
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -237,6 +214,21 @@ public class Movement : MonoBehaviour
             offset.y = _mapSize.y;
         }
         _rb.transform.Translate(offset, Space.World);
+    }
+    /// <summary>
+    /// Aplica el sonido siempre que el vector de movimiento sea distinto de 0
+    /// </summary>
+    private void StepSounds()
+    {
+        if (InputManager.Instance.MovementVector != Vector2.zero)
+        {
+
+            AudioManager.Instance.PlayAudio2(WalkInDirtSFX, 0.8f);
+        }
+        else
+        {
+            AudioManager.Instance.StopAudio(WalkInDirtSFX);
+        }
     }
     #endregion
 

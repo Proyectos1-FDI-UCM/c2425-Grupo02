@@ -152,7 +152,8 @@ public class AudioManager : MonoBehaviour
         
         if (!sfxSource.isPlaying)
         {
-            sfxSource.Play();
+            sfxSource.loop = true;
+            sfxSource.PlayOneShot(sfx, volume);
         }
     }
     /// <summary>
@@ -162,6 +163,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource.isPlaying)   
         {
+            sfxSource.loop = false;
             sfxSource.Stop();  
         }
     }
