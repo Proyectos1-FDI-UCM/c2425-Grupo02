@@ -199,6 +199,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Health_sprite
+      value: 
+      objectReference: {fileID: 1648389427}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health_sprite
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
@@ -72941,12 +72945,20 @@ PrefabInstance:
       value: SpawnZone
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0917999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.84
+      value: -0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z

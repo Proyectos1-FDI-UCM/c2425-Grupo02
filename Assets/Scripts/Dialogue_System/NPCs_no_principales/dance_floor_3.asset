@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: NPC
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "Ten cuidado ah\xED fuera, la gente te podr\xEDa comer."
     Options: []
   - Name: NPC
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "En m\xE1s de un sentido."
     Options: []
-  Read: 0
   Ending: 0

@@ -194,23 +194,17 @@ public class GameManager : MonoBehaviour
         if (Player != null) 
         {
             playerHealth.Heal(1);
-            _health = playerHealth.ReturnHealth();
+            //_health = playerHealth.ReturnHealth();
             AudioManager.Instance.PlayAudio(healSFX, 0.5f);
         }
 
         else Debug.LogError("_player es null.");
 
     }
-    /// <summary>
-    /// </summary>
-    /// <returns></returns>
-    /// 
-    ///<summary>
-    ///Se llama desde QuestObjects si el jugador colisiona contra dicho objeto. Va actualizando el número de objetos de misión obtenidos por el jugador
-    ///</summary>
-    public void Damage(int Health)
+    public void SaveAndSendHealth(int Health)
     {
-        UIManager.UpdateHealth(Health);
+        _health = Health;
+        UIManager.Instance.UpdateHealth(_health);
     }
     public int questState()
     {
@@ -294,13 +288,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>Coordenadas de aparición del jugador</returns>
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
-
+    /*
     public void GetHealth()
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
         _health = playerHealth.ReturnHealth();
+        UIManager.Instance.UpdateHealth(_health);
     }
-
+    */
     public int ReturnHealth() { return _health; }
 
     public void ResetGameManager()
@@ -309,7 +304,7 @@ public class GameManager : MonoBehaviour
         _questState = 0;
         _saveUsed = false;
         _hasScythe = false;
-        _health = 6;
+        _health = 3;
         _readDialogues = new HashSet<string>();
         _disabledTrigDialogues = new HashSet<string>();
 

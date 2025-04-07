@@ -783,7 +783,6 @@ GameObject:
   - component: {fileID: 472170783601640963}
   - component: {fileID: 1625890017785666277}
   - component: {fileID: 3814934728800621231}
-  - component: {fileID: 8313880828583545579}
   m_Layer: 5
   m_Name: Health_Sprite
   m_TagString: Untagged
@@ -848,27 +847,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8313880828583545579
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2429768866427748958}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3fa995fbaee62b34088a01298fe130cf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2707447536343489916
 GameObject:
   m_ObjectHideFlags: 0

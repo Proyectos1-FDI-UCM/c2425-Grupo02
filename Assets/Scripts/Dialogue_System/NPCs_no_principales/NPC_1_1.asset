@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: NPC_1
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: Creo que me he pasado bebiendo...
     Options: []
   - Name: Lilith

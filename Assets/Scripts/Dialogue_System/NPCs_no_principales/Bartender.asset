@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Bartender
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1422343942, guid: 0895926b5b370a84eb55a4de7683376d, type: 3}
     DialogueText: "Hola se\xF1orita, \xBFcansada de tanta fiesta?"
     Options: []
   - Name: Bartender
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1422343942, guid: 0895926b5b370a84eb55a4de7683376d, type: 3}
     DialogueText: "Deber\xEDas descansar un poco. Ten, a esta invita la casa."
     Options: []
-  Read: 0
   Ending: 0

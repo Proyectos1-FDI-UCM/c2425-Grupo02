@@ -198,7 +198,6 @@ public class LevelManager : MonoBehaviour
             }
         }
         _initCombatStarted = true;
-        Debug.Log("Enemy number: " + _nInitEnemies);
     }
     /// <summary>
     /// Cuando un enemigo muere, se resta 1 al contador

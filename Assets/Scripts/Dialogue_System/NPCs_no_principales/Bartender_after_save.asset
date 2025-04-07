@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Bartender
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1422343942, guid: 0895926b5b370a84eb55a4de7683376d, type: 3}
     DialogueText: Si crees que te voy a regalar otra bebida lo llevas claro listilla.
     Options: []
-  Read: 0
   Ending: 0

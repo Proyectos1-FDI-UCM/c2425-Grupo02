@@ -45,4 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MissionCompletedCanvas: {fileID: 0}
-  dialogueUI: {fileID: 0}
+  DialogueUI: {fileID: 4884952940063810645, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
+  FaderAnimator: {fileID: 0}
+  Controls: {fileID: 0}
+  HealthSprite: {fileID: 0}
+  quest_objects_count_inspector: {fileID: 0}
+  questUI: {fileID: 0}
+  Health_sprite: {fileID: 0}
+  Health:
+  - {fileID: -315029953, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+  - {fileID: -957585010, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+  - {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}

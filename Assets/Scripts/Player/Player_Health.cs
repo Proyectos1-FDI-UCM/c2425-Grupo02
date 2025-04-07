@@ -23,6 +23,7 @@ public class Player_Health : MonoBehaviour
     /// </summary>
     [SerializeField]
     private int Health;
+    [SerializeField] private int MaxHealth;
 
     [SerializeField]
     private int scene;
@@ -52,11 +53,14 @@ public class Player_Health : MonoBehaviour
     ///  <param name="HealthAdded"> Número que se le va a sumar a Health </param>
     public void Heal(int HealthAdded)
     {
-        Health += HealthAdded;
-        GameManager.Instance.GetHealth();
-        Debug.Log("Vida curada: " + HealthAdded);
-        Debug.Log("Vidas restantes: " + Health);
-        
+        if (Health + HealthAdded <= MaxHealth)
+        {
+            Health += HealthAdded;
+            //GameManager.Instance.GetHealth();
+            GameManager.Instance.SaveAndSendHealth(Health);
+            Debug.Log("Vida curada: " + HealthAdded);
+            Debug.Log("Vidas restantes: " + Health);
+        }
     }
 
     /// <summary>
@@ -66,8 +70,8 @@ public class Player_Health : MonoBehaviour
     public void Damage(int dmg) {
         Health -= dmg;
         Debug.Log("Salud restante" + Health);
-        GameManager.Instance.Damage(Health);
-        GameManager.Instance.GetHealth();
+        GameManager.Instance.SaveAndSendHealth(Health);
+        //GameManager.Instance.GetHealth();
         if (Health <= 0)
         {
             GameManager.Instance.ChangeScene(scene);

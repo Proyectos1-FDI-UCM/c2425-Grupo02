@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
+  MaxHealth: 3
   scene: 11
 --- !u!114 &3499110812841003916
 MonoBehaviour:
