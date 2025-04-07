@@ -49,8 +49,10 @@ public class Player_Health : MonoBehaviour
     public void Heal(int HealthAdded)
     {
         Health += HealthAdded;
+        GameManager.Instance.GetHealth();
         Debug.Log("Vida curada: " + HealthAdded);
         Debug.Log("Vidas restantes: " + Health);
+        
     }
 
     /// <summary>
@@ -61,11 +63,19 @@ public class Player_Health : MonoBehaviour
         Health -= dmg;
         Debug.Log("Salud restante" + Health);
         GameManager.Instance.Damage(Health);
+        GameManager.Instance.GetHealth();
         if (Health <= 0)
         {
             GameManager.Instance.ChangeScene(scene);
         }
     }
+
+    /// <summary>
+    /// Devuelve la vida actual al GameManager, quien la almacena y mantiene entre escenas
+    /// </summary>
+    /// <returns></returns>
+    public int ReturnHealth() { return Health; }
+
     #endregion
     
     // ---- MÉTODOS PRIVADOS ----

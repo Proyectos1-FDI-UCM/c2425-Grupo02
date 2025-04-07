@@ -56,7 +56,7 @@ public class Shoot : MonoBehaviour
         if (!GameManager.Instance.HasScythe)
         {
             enabled = false;
-            Debug.Log("No scythe");
+           
         }
     }
     /// <summary>
@@ -66,8 +66,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        _timer += Time.deltaTime;
-        Debug.Log("Timer: " +  _timer);
+        _timer += Time.deltaTime;      
         if (InputManager.Instance.FireWasPressedThisFrame() && _timer >= DelayTime)
         {
             ShootNewBullet();

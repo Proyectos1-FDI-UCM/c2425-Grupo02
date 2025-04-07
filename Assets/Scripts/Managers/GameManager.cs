@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
     /// Indica si el player ha cogido la guadaña
     /// </summary>
     private bool _hasScythe = false;
+    /// <summary>
+    /// Cantidad de puntos de vida que tiene el jugador
+    /// </summary>
+    private int _health;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -142,6 +146,7 @@ public class GameManager : MonoBehaviour
         {
             FaderAnimator.enabled = true;
         }
+        GetHealth();
        
     }
 
@@ -296,7 +301,11 @@ public class GameManager : MonoBehaviour
     /// <returns>Coordenadas de aparición del jugador</returns>
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
 
-    public bool SceneSwitch() { return true; }
+    public void GetHealth()
+    {
+        Player_Health playerHealth = Player.GetComponent<Player_Health>();
+        _health = playerHealth.ReturnHealth();
+    }
 
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.

@@ -109,7 +109,6 @@ public class Movement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        Debug.Log("Scythe: " + gameObject.GetComponent<Shoot>().enabled);
         _lastDir = GetLastDir();
         Vector2 movement = InputManager.Instance.MovementVector;
         _rb.velocity = movement * Velocity;
