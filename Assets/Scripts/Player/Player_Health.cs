@@ -36,6 +36,10 @@ public class Player_Health : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+    private void Start()
+    {
+        Health = GameManager.Instance.ReturnHealth();
+    }
 
     #endregion
 
