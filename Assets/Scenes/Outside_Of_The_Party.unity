@@ -955,7 +955,7 @@ PrefabInstance:
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: FaderAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1796146651}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25559,6 +25559,11 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1681653218}
+--- !u!95 &1796146651 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5882649309726707475, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 226562824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1828769628
 PrefabInstance:
   m_ObjectHideFlags: 0
