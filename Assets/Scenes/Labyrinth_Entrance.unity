@@ -431,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.98
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.y
@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 916527967}
     - target: {fileID: 2904628925280294871, guid: bab1420c2898d58439ebf159ffea1293, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.98
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2904628925280294871, guid: bab1420c2898d58439ebf159ffea1293, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8524,6 +8524,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &383004874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: CheckpointNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577409513899301264, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Name
+      value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22241092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
 --- !u!1 &462320699
 GameObject:
   m_ObjectHideFlags: 0
@@ -33517,11 +33578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.98
+      value: -19.492197
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.273037e-16
+      value: -0.00000003302342
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34291,7 +34352,8 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
-  ExitToDisco: {fileID: 0}
+  DiscoDoor: {fileID: 0}
+  TriggerDialogues: []
 --- !u!4 &1438677795
 Transform:
   m_ObjectHideFlags: 0
@@ -43150,3 +43212,4 @@ SceneRoots:
   - {fileID: 1241548606}
   - {fileID: 1909765755}
   - {fileID: 1249288691}
+  - {fileID: 383004874}

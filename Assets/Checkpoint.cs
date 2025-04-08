@@ -1,19 +1,18 @@
 //---------------------------------------------------------
-// Componente para gestionar menús
+// Componente para los checkpoint
 // Lucía Mei Domínguez López
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
 /// <summary>
-/// Gestión de acciones en menús
+/// Cuando el jugador entra en el trigger, le dice al gamemanager que actualice su indice de checkpoint
 /// </summary>
-public class MenuManager : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,9 +21,9 @@ public class MenuManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] GameObject ContinueButton;
+    [SerializeField] private int CheckpointNumber;
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -33,31 +32,32 @@ public class MenuManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private static MenuManager _instance;
-
 
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    protected void Awake()
+    
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before 
+    /// any of the Update methods are called the first time.
+    /// </summary>
+    void Start()
     {
-        if (_instance == null)
+        if (GameManager.Instance.GetCheckpoint >= CheckpointNumber)
         {
-            // Somos la primera y única instancia
-            _instance = this;
+            Destroy(gameObject);
         }
     }
-    private void Start()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GameManager.Instance.GetCheckpoint == 0)
-        {
-            ContinueButton.SetActive(false);
-        }
+        GameManager.Instance.GetCheckpoint = CheckpointNumber;
+        Destroy(gameObject);
     }
     #endregion
 
@@ -68,53 +68,7 @@ public class MenuManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public static MenuManager Instance
-    {
-        get
-        {
-            Debug.Assert(_instance != null);
-            return _instance;
-        }
-    }
-    public static bool HasInstance()
-    {
-        return _instance != null;
-    }
-    
-    public void StartNewGame()
-    {
-            GameManager.Instance.GetCheckpoint = 0;
-            GameManager.Instance.ChangeScene(1);
-            GameManager.Instance.SetSpawnPoint(new Vector2(0, 0));   
-    }
-    public void ContinueGame()
-    {
-        if (GameManager.Instance.GetCheckpoint == 1)
-        {
-            GameManager.Instance.ChangeScene(2);
-            GameManager.Instance.SetSpawnPoint(new Vector2(0, 2));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 2)
-        {
-            GameManager.Instance.ChangeScene(6);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-25, 0));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 3)
-        {
-            GameManager.Instance.ChangeScene(8);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-32, -23));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 4)
-        {
-            GameManager.Instance.ChangeScene(9);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-33, -25));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 5)
-        {
-            GameManager.Instance.ChangeScene(4);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-1.5f, 7.25f));
-        }
-    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -126,5 +80,5 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
-} // class MenuManager 
+} // class Checkpoint 
 // namespace

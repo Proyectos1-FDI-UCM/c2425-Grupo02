@@ -49,6 +49,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private static GameManager _instance;
     /// <summary>
+    /// Indice de checkpoints:
+    /// 0 -> no hay checkpoint
+    /// 1 -> checkpoint akwardly long path
+    /// 2 -> checkpoint entrada laberinto
+    /// 3 -> checkpoint laberinto 2
+    /// 4 -> checkpoint laberinto 3
+    /// 5 -> checkpoint boss
+    /// </summary>
+    private int _checkpointIndex = 0;
+    /// <summary>
     /// contador objetos de misión
     /// </summary>
     private int _questObjectsCount;
@@ -175,9 +185,15 @@ public class GameManager : MonoBehaviour
     {
         get { return _hasScythe; }
     }
+    public int GetCheckpoint
+    {
+        get { return _checkpointIndex; }
+        set { _checkpointIndex = value; }
+    }
     public void UpdateSave()
     {
         _saveUsed = true;
+        _checkpointIndex = 5;
     }
 
         ///<summary>
@@ -291,15 +307,32 @@ public class GameManager : MonoBehaviour
 
     public void ResetGameManager()
     {
-        _questObjectsCount = 0;
-        _questState = 0;
-        _saveUsed = false;
-        _hasScythe = false;
         _health = 3;
-        _readDialogues = new HashSet<string>();
-        _disabledTrigDialogues = new HashSet<string>();
-
-
+        if (_checkpointIndex == 0 || _checkpointIndex == 1)
+        {
+            _hasScythe = false;
+            if (_checkpointIndex == 0)
+            {
+                _questObjectsCount = 0;
+                _questState = 0;
+                _saveUsed = false;
+                _hasScythe = false;
+                _readDialogues = new HashSet<string>();
+                _disabledTrigDialogues = new HashSet<string>();
+            }
+        }
+        else if (_checkpointIndex == 2)
+        {
+            _questObjectsCount = 0;
+        }
+        else if (_checkpointIndex == 3)
+        {
+            _questObjectsCount = 1;
+        }
+        else if (_checkpointIndex == 4)
+        {
+            _questObjectsCount = 2;
+        }
     }
    
 
