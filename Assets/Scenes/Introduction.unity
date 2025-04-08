@@ -5991,6 +5991,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10474,7 +10478,7 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
-  ExitToDisco: {fileID: 0}
+  DiscoDoor: {fileID: 0}
   TriggerDialogues:
   - {fileID: 6593744758963821328}
 --- !u!4 &2038953465
