@@ -57,6 +57,7 @@ public class LevelManager : MonoBehaviour
     /// Scene exit de la entrada a la discoteca
     /// </summary>
     [SerializeField] private GameObject ExitToDisco;
+    [SerializeField] private GameObject[] TriggerDialogues;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -245,6 +246,10 @@ public class LevelManager : MonoBehaviour
     public void HideIramis()
     {
         Iramis.SetActive(false);
+    }
+    public GameObject[] Triggers
+    {
+        get { return TriggerDialogues; }
     }
     public void OpenDisco()
     {

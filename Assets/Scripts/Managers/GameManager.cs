@@ -287,14 +287,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>Coordenadas de aparición del jugador</returns>
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
-    /*
-    public void GetHealth()
-    {
-        Player_Health playerHealth = Player.GetComponent<Player_Health>();
-        _health = playerHealth.ReturnHealth();
-        UIManager.Instance.UpdateHealth(_health);
-    }
-    */
     public int ReturnHealth() { return _health; }
 
     public void ResetGameManager()
@@ -309,7 +301,7 @@ public class GameManager : MonoBehaviour
 
 
     }
-
+   
 
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
@@ -364,7 +356,8 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueName == "1IntroductionSpora" || dialogueName == "Scythe" || dialogueName == "MissionAccepted")
         {
-            DisableTrigDialogues();
+            GameObject[] triggerDialogues = LevelManager.Instance.Triggers;
+            DisableTrigDialogues(triggerDialogues);
             if (dialogueName == "MissionAccepted")
             {
                 _questState = 1;
@@ -383,7 +376,6 @@ public class GameManager : MonoBehaviour
                     LevelManager.Instance.StartInitCombat();
                     Debug.Log("You have the scythe");
                 }
-                
             }
         }
         else if (dialogueName == "MissionCompleted")
@@ -396,16 +388,19 @@ public class GameManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// Deshabilita los collides del trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
+    /// Deshabilita los trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
     /// player regrese a la escena, los colliders del trigger no vuelva a inicializarse en su start
     /// </summary>
-    private void DisableTrigDialogues()
+    public void DisableTrigDialogues(GameObject[] triggers)
     {
-        GameObject triggerDialogue = FindObjectOfType<TriggerDialogue>().gameObject;
-        triggerDialogue.SetActive(false);
-        _disabledTrigDialogues.Add(triggerDialogue.GetComponent<TriggerDialogue>().TriggerName);
+        foreach (GameObject trigger in triggers)
+        {
+            trigger.SetActive(false);
+            _disabledTrigDialogues.Add(trigger.GetComponent<TriggerDialogue>().TriggerName);
+        }
     }
-    
+
+
     #endregion
 } // class GameManager 
 // namespace
