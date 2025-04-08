@@ -364,7 +364,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
         else if (_shootThresholdTime >= ShootingThreshold)
         {
             _shootThresholdTime = 0f;
-            _shoot = Random.Range(1, 4);
+            _shoot = Random.Range(1, 2);
 
             if (_shoot == 1)
             {
