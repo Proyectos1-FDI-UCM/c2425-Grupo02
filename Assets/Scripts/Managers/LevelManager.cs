@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// Scene exit de la entrada a la discoteca
     /// </summary>
-    [SerializeField] private GameObject ExitToDisco;
+    [SerializeField] private GameObject DiscoDoor;
     [SerializeField] private GameObject[] TriggerDialogues;
     #endregion
 
@@ -253,10 +253,11 @@ public class LevelManager : MonoBehaviour
     }
     public void OpenDisco()
     {
-        if (ExitToDisco != null) 
+        if (DiscoDoor != null) 
         {
-            GameObject discoDoor = GameObject.Find("DiscoDoor_Dialogue");
-            discoDoor.SetActive(false);
+            DiscoDoor.SetActive(false);
+            TriggerDialogues[1] = DiscoDoor;
+            GameManager.Instance.DisableTrigDialogues(TriggerDialogues);
         }
     }
     /// <summary>

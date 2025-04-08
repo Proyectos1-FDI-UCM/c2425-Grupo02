@@ -5454,7 +5454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 294543746800508630, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -13.25
       objectReference: {fileID: 0}
     - target: {fileID: 294543746800508630, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5503,6 +5503,10 @@ PrefabInstance:
     - target: {fileID: 4268634826945128605, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
       propertyPath: SpawnPosition.y
       value: 5.099998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410281976316815627, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14681,7 +14685,8 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
-  ExitToDisco: {fileID: 0}
+  DiscoDoor: {fileID: 0}
+  TriggerDialogues: []
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0

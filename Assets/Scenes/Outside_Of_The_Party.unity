@@ -18108,11 +18108,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
---- !u!1 &1188434472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4226785603552785838, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
-  m_PrefabInstance: {fileID: 1188434471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249405780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26108,8 +26103,9 @@ MonoBehaviour:
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 128356957}
-  ExitToDisco: {fileID: 1188434472}
+  DiscoDoor: {fileID: 513415279}
   TriggerDialogues:
+  - {fileID: 1511879791}
   - {fileID: 1511879791}
 --- !u!4 &2038953465
 Transform:
