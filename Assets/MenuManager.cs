@@ -1,19 +1,19 @@
 //---------------------------------------------------------
-// Script que cambia la escena del juego al colisionar con un GameObject.
-// Jorge Augusto Blanco Fernandez, Isabel Serrano Martín
+// Componente para gestionar menús
+// Lucía Mei Domínguez López
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Gestión de acciones en menús
 /// </summary>
-public class SceneExit : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,13 +22,10 @@ public class SceneExit : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
     [SerializeField]
     private int scene;
     [SerializeField]
     private Vector2 SpawnPosition;
-
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,12 +36,42 @@ public class SceneExit : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private static MenuManager _instance;
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
+    // Por defecto están los típicos (Update y Start) pero:
+    // - Hay que añadir todos los que sean necesarios
+    // - Hay que borrar los que no se usen 
+    protected void Awake()
+    {
+        if (_instance == null)
+        {
+            // Somos la primera y única instancia
+            _instance = this;
+        }
+    }
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before 
+    /// any of the Update methods are called the first time.
+    /// </summary>
+    void Start()
+    {
+        Button start = FindObjectOfType<Button>();
+        start.onClick.RemoveAllListeners();
+        start.onClick.AddListener(() => StartNewGame());
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -54,7 +81,24 @@ public class SceneExit : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public static MenuManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
+    public static bool HasInstance()
+    {
+        return _instance != null;
+    }
+    
+    public void StartNewGame()
+    {
+        GameManager.Instance.ChangeScene(scene);
+        GameManager.Instance.SetSpawnPoint(SpawnPosition);
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -64,20 +108,7 @@ public class SceneExit : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    /// <summary>
-    /// Si se colisiona con el Player, se llama al GameManager para cambiar a la escena del juego indicada.
-    /// </summary>
-    private void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.GetComponent<Movement>() != null)
-        {
-            UIManager.Instance.SceneTransition();
-            GameManager.Instance.ChangeScene(scene);
-            GameManager.Instance.SetSpawnPoint(SpawnPosition);
-        }
-    }
+    #endregion
 
-    #endregion   
-
-} // class SceneExit 
+} // class MenuManager 
 // namespace
