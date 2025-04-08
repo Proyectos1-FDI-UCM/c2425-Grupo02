@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
-  EnemyNumber: 5
+  EnemyNumber: 2
   Iterations: 1
   LimitZone: 0
   Limit: {fileID: 0}

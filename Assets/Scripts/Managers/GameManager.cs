@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// indica el estado de la misión (0 = sin empezar; 1 = en progreso; 2 = terminada)
     /// </summary>
-    private int _questState = 2;
+    private int _questState = 0;
     private bool _saveUsed = false;
     /// <summary>
     /// HashSet de diálogos leídos
