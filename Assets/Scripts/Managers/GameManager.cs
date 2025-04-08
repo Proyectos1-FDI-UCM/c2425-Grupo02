@@ -311,7 +311,11 @@ public class GameManager : MonoBehaviour
         if (_checkpointIndex == 0 || _checkpointIndex == 1)
         {
             _hasScythe = false;
-            if (_checkpointIndex == 0)
+            if (_checkpointIndex == 1)
+            {
+                _readDialogues = new HashSet<string> { "1IntroductionSpora"};
+            }
+            else
             {
                 _questObjectsCount = 0;
                 _questState = 0;
