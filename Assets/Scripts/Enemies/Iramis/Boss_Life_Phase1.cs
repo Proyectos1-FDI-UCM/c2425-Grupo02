@@ -28,6 +28,8 @@ public class Boss_Life_Phase1 : MonoBehaviour
     [SerializeField] Vector2 CenterPosition; // Posición central a la que se teletransportará el jefe.
     [SerializeField] GameObject Phase2; // Prefab de la fase 2 del boss
 
+    [SerializeField] private Sprite spriteShieldOff; // Sprite del escudo del jefe desactivado.
+    [SerializeField] private Sprite spriteShieldOn; // Sprite del escudo del jefe activado.
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -36,7 +38,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
     private bool _isVulnerable = false; // Indica si el jefe puede recibir daño.
     private int HitCount = 0; // Cuenta la cantidad de golpes que ha recibido.
     private bool TripleShot = false; // Variable que indica si el jefe va a lanzar 3 proyectiles.
-
+    private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer del jefe.
 
     #endregion
 
@@ -59,6 +61,9 @@ public class Boss_Life_Phase1 : MonoBehaviour
         HitCount = 0;
 
         TripleShot = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Obtenemos el componente SpriteRenderer del jefe.
+        spriteRenderer.sprite = spriteShieldOn; // Asignamos el sprite del escudo al jefe.
     }
 
     #endregion
@@ -80,6 +85,8 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
         // Cuando se activa un pilar, el jefe se vuelve vulnerable.
         _isVulnerable = true;
+
+        spriteRenderer.sprite = spriteShieldOff; 
     }
 
     /// <summary>
@@ -137,6 +144,7 @@ public class Boss_Life_Phase1 : MonoBehaviour
             if (HitCount == 5)
             {
                 _isVulnerable = false;
+                spriteRenderer.sprite = spriteShieldOn;
                 HitCount = 0;
             }
         }

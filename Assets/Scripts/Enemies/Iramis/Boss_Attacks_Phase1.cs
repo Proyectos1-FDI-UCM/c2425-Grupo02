@@ -39,7 +39,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private float timeToFire = 0f; // Controla el tiempo entre disparos.
-    private float timeToSpawn; // Controla el tiempo entre la aparición de enemigos.
+    private float timeToSpawn = 0f; // Controla el tiempo entre la aparición de enemigos.
     private Rigidbody2D rb; // Referencia al Rigidbody2D del jefe.
     private GameObject _player; // Referencia al jugador.
     private int BoosLife; // Vida del jefe. 
@@ -59,6 +59,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     void Start()
     {
+        timeToFire = fireRate; // Inicializa el tiempo de disparo.
         rb = GetComponent<Rigidbody2D>(); // Busca el Rigidbody2D adjunto al jefe.
         _player = FindObjectOfType<Movement>().gameObject;
 
