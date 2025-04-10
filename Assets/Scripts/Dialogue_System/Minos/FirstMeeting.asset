@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Buenas. \xBFQui\xE9n eres?"
     Options: []
   - Name: Lilith
@@ -22,7 +22,7 @@ MonoBehaviour:
     DialogueText: "Soy Lilith, y t\xFA eres\u2026\r"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Minos, el portero de la disco que ves ah\xED detr\xE1s. Ya sabes,
       el que est\xE1 todo el d\xEDa en la puerta para asegurarse de que nadie se
       cuela para montar jaleo.\r"
@@ -33,7 +33,7 @@ MonoBehaviour:
       que se encuentra aqu\xED. \xBFPuedo ir a verla?"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "S\xED, Iramis est\xE1 aqu\xED, pero ver\xE1s, ahora la pillas
       en un mal momento. Est\xE1 muy ocupada con\u2026"
     Options: []
@@ -42,7 +42,7 @@ MonoBehaviour:
     DialogueText: "Minos, \xBFd\xF3nde est\xE1n los paquetes de la fiesta?\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Ay, paya, \xBFno han llegado ya?\r\n"
     Options: []
   - Name: Iramis
@@ -52,7 +52,7 @@ MonoBehaviour:
 '
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Pues se los habr\xE1 llevado el viento.\r\n"
     Options: []
   - Name: Iramis
@@ -116,13 +116,13 @@ MonoBehaviour:
     DialogueText: "(Dios m\xEDo, esa mujer me ha dejado sin palabras).\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Pues mira, paya, ya has conocido a Iramis. Ella es la que manda
       aqu\xED. Como has visto, es una mujer... interesante, una s\xFAcubo, mejor
       dicho. "
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: 'Por eso es normal que te quedes un rato pensando en ella. Una
       vez que la conoces ya no la puedes olvidar.
 
@@ -137,7 +137,7 @@ MonoBehaviour:
     DialogueText: "\xBFY qu\xE9 tienen esos paquetes?\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Em\u2026 Ver\xE1s, a la jefa le gusta organizar fiestas con \"sorpresa\"
       y los paquetes que se han perdido son *important\xEDsimos* para que los invitados
       se lo pasen bien.\r\n"
@@ -147,7 +147,7 @@ MonoBehaviour:
     DialogueText: "Vale\u2026 (Creo que no deber\xEDa seguir preguntando).\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Pues ya sabes, prima, si consigues los paquetes y me los traes
       te dejo pasar, \xBFtrato hecho?\r\n"
     Options:

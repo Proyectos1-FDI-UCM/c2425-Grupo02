@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "\xBFQu\xE9 est\xE1s haciendo, paya?"
     Options: []
   - Name: Lilith
@@ -22,7 +22,7 @@ MonoBehaviour:
     DialogueText: L-lo siento, solo estaba mirando.
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "S\xED, s\xED, pero no puedes entrar sin mi permiso."
     Options: []
   - Name: Lilith

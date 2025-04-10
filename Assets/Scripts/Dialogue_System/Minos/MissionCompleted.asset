@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "Madre m\xEDa, \xA1\xA1\xA1has tardado un siglo para traerme unos
       malditos paquetes!!!"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: Espabila, que la vida te va a comer.
     Options: []
   Ending: 0
