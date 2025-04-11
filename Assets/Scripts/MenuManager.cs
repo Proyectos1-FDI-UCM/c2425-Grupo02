@@ -92,7 +92,7 @@ public class MenuManager : MonoBehaviour
         if (GameManager.Instance.GetCheckpoint == 1)
         {
             GameManager.Instance.ChangeScene(2);
-            GameManager.Instance.SetSpawnPoint(new Vector2(0, 2));
+            GameManager.Instance.SetSpawnPoint(new Vector2(-6, -35));
         }
         else if (GameManager.Instance.GetCheckpoint == 2)
         {
