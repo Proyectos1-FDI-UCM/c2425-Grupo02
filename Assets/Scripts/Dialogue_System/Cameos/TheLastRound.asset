@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668c76b46982b1647a5227dfa6822e92, type: 3}
+  m_Name: TheLastRound
+  m_EditorClassIdentifier: 
+  Lines:
+  - Name: "\xBFPulpo?"
+    Sprite: {fileID: 0}
+    DialogueText: "Mmm... Me pregunto c\xF3mo ser\xEDa un c\xF3ctel de pulpo.\nSeguro
+      que superar\xEDa ese mejunje de pimiento."
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: (Este pulpo se ve diferente al resto...)
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "(\xA1Ah! \xA1\xA1\xA1Es un gato disfrazado de pulpo!!!)"
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: Disculpe, Don Gato...
+    Options: []
+  - Name: "\xBFPulpo?"
+    Sprite: {fileID: 0}
+    DialogueText: "\xBFGato? \xBFQu\xE9 gato? Se\xF1orita, yo no he visto ning\xFAn
+      gato."
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: Pero eres un...
+    Options: []
+  - Name: "\xBFPulpo?"
+    Sprite: {fileID: 0}
+    DialogueText: Iramis Iramis Iramis Iramis Iramis.
+    Options: []
+  - Name: "\xBFPulpo?"
+    Sprite: {fileID: 0}
+    DialogueText: "Todas las noches me haces maullar... Digoooo, \xBFqu\xE9 sonido
+      hacen los pulpos? Glu glu glu."
+    Options: []
+  - Name: Lilith
+    Sprite: {fileID: 21300000, guid: 96772a7a87f4f8a49a529f9ca751f745, type: 3}
+    DialogueText: "(Ese gato me parece demasiado sospechoso. Me pregunto qu\xE9 intenciones
+      tiene en este planeta)."
+    Options: []
+  Ending: 0

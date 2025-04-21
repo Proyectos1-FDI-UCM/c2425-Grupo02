@@ -190,7 +190,15 @@ public class DialogueManager : MonoBehaviour
     {
         _i = 0;
         NameText.text = _currentDialogue.CharLines[_i].CharName;
-        DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
+        if (_currentDialogue.CharLines[_i].CharSprite == null)
+        {
+            DialogueSprite.gameObject.SetActive(false);
+        }
+        else
+        {
+            DialogueSprite.gameObject.SetActive(true);
+            DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
+        }
         DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
     }
 
@@ -206,7 +214,15 @@ public class DialogueManager : MonoBehaviour
         {
             _i++;
             NameText.text = _currentDialogue.CharLines[_i].CharName;
-            DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
+            if (_currentDialogue.CharLines[_i].CharSprite == null)
+            {
+                DialogueSprite.gameObject.SetActive(false);
+            }
+            else
+            {
+                DialogueSprite.gameObject.SetActive(true);
+                DialogueSprite.sprite = _currentDialogue.CharLines[_i].CharSprite;
+            }
             DialogueText.text = _currentDialogue.CharLines[_i].CharLineText;
 
             if (_currentDialogue.name == "FirstMeeting" && _i == 5)
