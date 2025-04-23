@@ -240,14 +240,7 @@ public class GameManager : MonoBehaviour
         else if (_questObjectsCount == 3)
         {
             _questState = 2;
-            if (UIManager.HasInstance())
-            {
-                UIManager.Instance.Inform();
-            }
-            else
-            {
-                Debug.LogError("UIManager no está inicializado.");
-            }
+          
             Debug.Log("Misión terminada");
             UIManager.Instance.HideQuestUI();
         }
