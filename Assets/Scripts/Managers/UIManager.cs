@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private Canvas MissionCompletedCanvas;
+
     [SerializeField] private GameObject DialogueUI;
     [SerializeField] private Animator FaderAnimator;
     [SerializeField] private Canvas Controls;
@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        MissionCompletedCanvas.gameObject.SetActive(false);
+        
         DialogueUI.SetActive(false);
         Controls.gameObject.SetActive(false);
         quest_objects_count = quest_objects_count_inspector;
@@ -116,13 +116,6 @@ public class UIManager : MonoBehaviour
         return _instance != null;
     }
 
-    public void Inform()
-    {
-        MissionCompletedCanvas.gameObject.SetActive(true);
-    }
-    /// <summary>
-    /// Muestra UI de diálogos
-    /// </summary>
     public void ShowDialogueUI()
     {
         DialogueUI.SetActive(true);
