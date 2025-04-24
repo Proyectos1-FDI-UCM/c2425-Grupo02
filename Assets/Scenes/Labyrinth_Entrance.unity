@@ -33978,11 +33978,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1241548606}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1241548612 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8439064688555685091, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 1241548606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249288691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33993,11 +33988,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.x
-      value: 18
+      value: 30.960142
       objectReference: {fileID: 0}
     - target: {fileID: -8103417857065930773, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Size.y
-      value: 9
+      value: 9.510952
       objectReference: {fileID: 0}
     - target: {fileID: 175193201247443623, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_Name
@@ -34021,11 +34016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.9678335
+      value: -19.5038
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -5.6015
       objectReference: {fileID: 0}
     - target: {fileID: 5641292369845989989, guid: fb40de61927154d41a877231748c6c16, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43172,7 +43167,7 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: MissionCompletedCanvas
       value: 
-      objectReference: {fileID: 1241548612}
+      objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health_sprite_inspector
       value: 
