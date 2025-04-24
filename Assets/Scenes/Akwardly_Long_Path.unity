@@ -4326,7 +4326,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -18346,7 +18346,7 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: MissionCompletedCanvas
       value: 
-      objectReference: {fileID: 1486153096}
+      objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health_sprite_inspector
       value: 
@@ -79497,7 +79497,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -94816,11 +94816,6 @@ PrefabInstance:
 --- !u!223 &1486153095 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 1486153094}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &1486153096 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8439064688555685091, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1486153094}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1486153097 stripped
