@@ -78,7 +78,6 @@ public class UIManager : MonoBehaviour
         health_sprite = health_sprite_inspector;
         health = health_inspector;
         */
-        Health_sprite.sprite = Health[2];
         
     }
     /// <summary>

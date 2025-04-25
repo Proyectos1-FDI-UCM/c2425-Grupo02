@@ -40,6 +40,7 @@ public class Player_Health : MonoBehaviour
     private void Start()
     {
         Health = GameManager.Instance.ReturnHealth();
+        GameManager.Instance.SaveAndSendHealth(Health);
     }
 
     #endregion
