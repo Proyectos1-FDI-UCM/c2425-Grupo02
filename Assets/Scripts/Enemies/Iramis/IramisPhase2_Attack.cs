@@ -95,9 +95,10 @@ public class IramisPhase2_Attack : MonoBehaviour, IAttack
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Player_Health>() != null)
+        Player_Health health = collision.GetComponent<Player_Health>();
+        if (health != null)
         {
-            collision.GetComponent<Player_Health>().Damage(Damage);
+            health.Damage(Damage);
         }
     }
 
