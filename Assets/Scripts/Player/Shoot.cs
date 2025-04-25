@@ -41,7 +41,7 @@ public class Shoot : MonoBehaviour
 
     private GameObject _newBullet;
     private Movement _playerMovement;
-    private float _timer = 0;
+    private float _timer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -53,6 +53,7 @@ public class Shoot : MonoBehaviour
     }
     private void Start()
     {
+        _timer = DelayTime;
         if (!GameManager.Instance.HasScythe)
         {
             enabled = false;
@@ -66,11 +67,16 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        _timer += Time.deltaTime;      
         if (InputManager.Instance.FireWasPressedThisFrame() && _timer >= DelayTime)
         {
             ShootNewBullet();
             _timer = 0;
+            UIManager.Instance.StartShootCooldown();
+        }
+        else if (_timer < DelayTime)
+        {
+            _timer += Time.deltaTime;
+            UIManager.Instance.UpdateShootCooldown(_timer, DelayTime);
         }
     }
 
@@ -79,7 +85,6 @@ public class Shoot : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
 
     #region Métodos públicos
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
