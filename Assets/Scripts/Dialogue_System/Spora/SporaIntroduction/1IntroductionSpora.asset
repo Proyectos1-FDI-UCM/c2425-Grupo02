@@ -141,7 +141,7 @@ MonoBehaviour:
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
     DialogueText: "Debes tener en cuenta tus habilidades antes de partir de aqu\xED.
-      (Para ver los controles, pulse Esc).\r"
+      (Para ver los controles, pulse Esc u options).\r"
     Options: []
   - Name: Spora
     Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
