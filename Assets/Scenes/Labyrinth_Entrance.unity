@@ -142,17 +142,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debug_Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 18.218847
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.511403
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.1663
+      value: 26.75
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.y

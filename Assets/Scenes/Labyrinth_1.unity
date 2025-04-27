@@ -44095,17 +44095,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wind (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_AutoTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126051500931276304, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.70624
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 14.162795
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.93
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73102,21 +73126,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928187470235471785, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 22.045555
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15.123288
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.4099
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.5768
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8900023993216596320, guid: 47a2536073e5b03469594e46c985eb4c, type: 3}
       propertyPath: m_LocalPosition.z
