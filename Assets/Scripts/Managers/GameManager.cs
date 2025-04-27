@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
     }
     
     ///<summary>
-    ///Marca el diálogo como leído al finalizar
+    ///Marca el diálogo como leído al finalizar y después llama al método para actualizar el estado del juego
     /// </summary>
     public void MarkAsRead(string dialogueName)
     {
@@ -399,6 +399,7 @@ public class GameManager : MonoBehaviour
                 GameObject scythe = GameObject.Find("Scythe_dialogue");
                 scythe.SetActive(false);
                 _hasScythe = true;
+                UIManager.Instance.ShowShootIcon();
                 if (Player != null)
                 {
                     Player.GetComponent<Shoot>().enabled = true;

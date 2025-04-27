@@ -5,8 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
@@ -30,6 +28,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject questUI;
     [SerializeField] private Image Health_sprite;
     [SerializeField] private Sprite[] Health;
+    [SerializeField] private Image ShootIcon;
+    [SerializeField] private Image ShootDarker;
+    [SerializeField] private Image DashIcon;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -61,7 +63,12 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        if (!GameManager.Instance.HasScythe)
+        {
+            ShootIcon.gameObject.SetActive(false);
+            ShootDarker.gameObject.SetActive(false);
+        }
+        DashIcon.fillAmount = 1;
         DialogueUI.SetActive(false);
         Controls.gameObject.SetActive(false);
         quest_objects_count = quest_objects_count_inspector;
@@ -78,7 +85,6 @@ public class UIManager : MonoBehaviour
         health_sprite = health_sprite_inspector;
         health = health_inspector;
         */
-        Health_sprite.sprite = Health[2];
         
     }
     /// <summary>
@@ -157,8 +163,36 @@ public class UIManager : MonoBehaviour
             FaderAnimator.SetTrigger("FadeOut");
         }
     }
+    /// <summary>
+    /// Muestra el icono de cooldown del disparo
+    /// </summary>
+    public void ShowShootIcon()
+    {
+        ShootIcon.gameObject.SetActive(true);
+        ShootDarker.gameObject.SetActive(true);
+        ShootIcon.fillAmount = 1;
+    }
+    /// <summary>
+    /// Muestra el cooldown en pantalla
+    /// </summary>
+    public void StartShootCooldown()
+    {
+        ShootIcon.fillAmount = 0;
+    }
+    public void UpdateShootCooldown(float timer, float cooldown)
+    {
+        ShootIcon.fillAmount = timer / cooldown;
+    }
 
+    public void StartDashCooldown()
+    {
+        DashIcon.fillAmount = 0;
+    }
 
+    public void UpdateDashCooldown(float timer, float cooldown)
+    {
+        DashIcon.fillAmount = timer / cooldown;
+    }
 
     #endregion
 

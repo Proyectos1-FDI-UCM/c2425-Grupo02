@@ -17,34 +17,27 @@ public class Dash : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private float dashtime = 0.1f;  //tiempo que dura el dash
-    [SerializeField] private float dashtimec = 1.5f;   //cooldown entre cada dash
-    [SerializeField] private float dashDistance = 1f;  // distancia de tp de dash
-                                                       // Documentar cada atributo que aparece aquí.
-                                                       // El convenio de nombres de Unity recomienda que los atributos
-                                                       // públicos y de inspector se nombren en formato PascalCase
-                                                       // (palabras con primera letra mayúscula, incluida la primera letra)
-                                                       // Ejemplo: MaxHealthPoints
-
+    ///cooldown entre cada dash
+    [SerializeField] private float dashtimec;  
+    /// distancia de tp de dash
+    [SerializeField] private float dashDistance;
+    /// Sonido de dash del jugador
+    [SerializeField]
+    private AudioClip LilithDashSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     /// <summary>
-    /// __dash -> detecta si el jugador está o no dasheando
     /// _candash -> detecta si el jugador puede o no hacer dash
     /// </summary>
     private Rigidbody2D _rb;        
-    private Movement _player;        
-    private bool _dash;             
-    private bool _candash = true;   
+    private Movement _player;           
+    private bool _candash = true;
+    private float _dashCooldownTimer = 1.5f;
     Vector2 raylong;
-
-    /// Sonido de dash del jugador
-    /// </summary>
-    [SerializeField]
-    private AudioClip LilithDashSFX;
     #endregion
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -60,15 +53,21 @@ public class Dash : MonoBehaviour
     /// </summary>
     void Update()
     {
-
-        if (InputManager.Instance.DashWasPressedThisFrame())   
+        
+        if (InputManager.Instance.DashWasPressedThisFrame() && _dashCooldownTimer >= dashtimec)   
         {
-            StartCoroutine(Dashh());
+            TryDash();
+            _dashCooldownTimer = 0;
+            UIManager.Instance.StartDashCooldown();
+        }
+
+        else if (_dashCooldownTimer < dashtimec)
+        {
+            _dashCooldownTimer += Time.deltaTime;
+            UIManager.Instance.UpdateDashCooldown(_dashCooldownTimer, dashtimec);
         }
 
         Raycast();
-
-
     }
 
     #endregion
@@ -76,17 +75,15 @@ public class Dash : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-
     /// <summary>
     /// Raycast que se activa al entrar en contacto con objetos de determinadas capas
     /// La longuitud del raycast depende de la distancia del dash
-    /// Si el raycast se activa, se puede hacer dash
+    /// Si el raycast se activa, se puede hacer dash (_candash = true)
     /// </summary>
     private void Raycast()
     {
@@ -98,36 +95,28 @@ public class Dash : MonoBehaviour
         {
             _candash = false;
             Debug.DrawRay(_rb.position, raylong * dashDistance, Color.red);  
-
         }
-        else   //si no
+        else  
         {
             Debug.DrawRay(transform.position, raylong * dashDistance, Color.green);  
             _candash = true;
-
         }
+
     }
 
     /// <summary>
-    /// Corrutina del dash, que regula lo que tarda en hacer el dash y el countdown del dash  
-    /// lastDar es un método público del script movement que detecta la última posición del jugador
+    /// Si puede dashear, se activa el sonido del dash y se cambia la posición del player
     /// </summary>
-    private IEnumerator Dashh()
+    private void TryDash()
     {
-        if (_candash == true && _dash == false)  
+        if (_candash == true)
         {
             AudioManager.Instance.PlayAudio(LilithDashSFX, 0.2f);
-            Vector2 lastDir = _player.GetLastDir2();  
-            _candash = false;
-            _dash = true;
-
+            Vector2 lastDir = _player.GetLastDir2();
             _rb.position += lastDir.normalized * dashDistance;
-            _rb.MovePosition(_rb. position);                   
-            yield return new WaitForSeconds(dashtime);  
-            _dash = false;  //no está dasheando
-            yield return new WaitForSeconds(dashtimec);  
-            _candash = true;
+            _rb.MovePosition(_rb.position);
         }
+
     }
     #endregion
 
