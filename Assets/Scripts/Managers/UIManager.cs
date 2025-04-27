@@ -184,6 +184,16 @@ public class UIManager : MonoBehaviour
         ShootIcon.fillAmount = timer / cooldown;
     }
 
+    public void StartDashCooldown()
+    {
+        DashIcon.fillAmount = 0;
+    }
+
+    public void UpdateDashCooldown(float timer, float cooldown)
+    {
+        DashIcon.fillAmount = timer / cooldown;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

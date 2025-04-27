@@ -58,11 +58,13 @@ public class Dash : MonoBehaviour
         {
             TryDash();
             _dashCooldownTimer = 0;
+            UIManager.Instance.StartDashCooldown();
         }
 
         else if (_dashCooldownTimer < dashtimec)
         {
             _dashCooldownTimer += Time.deltaTime;
+            UIManager.Instance.UpdateDashCooldown(_dashCooldownTimer, dashtimec);
         }
 
         Raycast();
