@@ -144,8 +144,8 @@ MonoBehaviour:
     enter.\r\n\nAtaque mel\xE9: espacio.\r\n\nAtaque a distancia: Q, X y P.\r\n\nDash:
     Shift izquierdo y derecho.\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
+  m_sharedMaterial: {fileID: 3876388901102333738, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -940,8 +940,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTROLES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
+  m_sharedMaterial: {fileID: 3876388901102333738, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
