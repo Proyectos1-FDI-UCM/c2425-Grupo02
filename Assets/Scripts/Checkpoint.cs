@@ -10,7 +10,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Cuando el jugador entra en el trigger, le dice al gamemanager que actualice su indice de checkpoint
+/// Cuando el jugador entra en el trigger, le dice al gamemanager que actualice su indice de checkpoint, la posición de spawn después de un gameover y la escena en la que spawnea
 /// </summary>
 public class Checkpoint : MonoBehaviour
 {
@@ -22,8 +22,11 @@ public class Checkpoint : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] private int CheckpointNumber;
+    [SerializeField] private int SceneIndex;
+    [SerializeField] private Vector2 SpawnPos;
+    [SerializeField] private Sprite ObtainedState;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -32,6 +35,7 @@ public class Checkpoint : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    SpriteRenderer _spriteRenderer;
 
     #endregion
     
@@ -48,16 +52,21 @@ public class Checkpoint : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (GameManager.Instance.GetCheckpoint >= CheckpointNumber)
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (GameManager.Instance.SavedCheckpoint >= CheckpointNumber)
         {
-            Destroy(gameObject);
+            _spriteRenderer.sprite = ObtainedState;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.Instance.GetCheckpoint = CheckpointNumber;
-        Destroy(gameObject);
+        if (GameManager.Instance.SavedCheckpoint < CheckpointNumber)
+        {
+            GameManager.Instance.SetNewCheckpoint(CheckpointNumber, SpawnPos, SceneIndex);
+            UIManager.Instance.ShowCheckpointNotif();
+            _spriteRenderer.sprite = ObtainedState;
+        }
     }
     #endregion
 
@@ -77,7 +86,13 @@ public class Checkpoint : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    /// <summary>
+    /// Guarda en el GameManager el índice del checkpoint, la posición en la que debe spawnear el jugador después de un gameover al pulsar continuar
+    /// y el índice de la escena en la que spawnea
+    /// </summary>
+    private void SetCheckpoint()
+    {
+    }
     #endregion
 
 } // class Checkpoint 

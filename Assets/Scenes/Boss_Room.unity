@@ -73691,6 +73691,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointNotif
+      value: 
+      objectReference: {fileID: 2006235929}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointBarNotif
+      value: 
+      objectReference: {fileID: 2006235928}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 
       objectReference: {fileID: -315029953, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
@@ -95781,7 +95789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904628925280294871, guid: bab1420c2898d58439ebf159ffea1293, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.3
+      value: 126.75
       objectReference: {fileID: 0}
     - target: {fileID: 2904628925280294871, guid: bab1420c2898d58439ebf159ffea1293, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96067,6 +96075,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: IRAMIS_DIALOGUE
       objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -96123,6 +96139,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -96137,6 +96157,16 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5991554299046264660, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
   m_PrefabInstance: {fileID: 702881711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2006235928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2296738732978186191, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2006235929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521114790222575174, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2037515154
 PrefabInstance:
@@ -96238,6 +96268,8 @@ MonoBehaviour:
   Iramis: {fileID: 2005827089}
   DiscoDoor: {fileID: 0}
   TriggerDialogues: []
+  BarCheckpointStatue: {fileID: 0}
+  CheckpointActive: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
@@ -96407,7 +96439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.3
+      value: 126.75
       objectReference: {fileID: 0}
     - target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96787,7 +96819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.3
+      value: 126.75
       objectReference: {fileID: 0}
     - target: {fileID: 5996853831539411053, guid: cff8297b1801c0346a47994d2e8c5d6b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -377,6 +377,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17b0c11f8b9fd84f8718f7f15d351f8, type: 3}
+--- !u!1 &289790844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521114790222575174, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1030607427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &374341078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50309,9 +50314,29 @@ PrefabInstance:
       propertyPath: DialogueScripts.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 214e0bfac15f29d44975449dd96e1d92, type: 2}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5106746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: SporaLabyrinth2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99459,8 +99484,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SceneIndex
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SpawnPos.x
+      value: -35.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SpawnPos.y
+      value: -23.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: CheckpointNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Size.y
+      value: 5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.09
       objectReference: {fileID: 0}
     - target: {fileID: 2577409513899301264, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_Name
@@ -99468,11 +99517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.5
+      value: -35.5
       objectReference: {fileID: 0}
     - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24
+      value: -21.75
       objectReference: {fileID: 0}
     - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99881,6 +99930,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4932cf999938743b333008e15deb87, type: 3}
+--- !u!1 &1696742788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2296738732978186191, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1030607427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1721998999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100165,6 +100219,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointNotif
+      value: 
+      objectReference: {fileID: 289790844}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointBarNotif
+      value: 
+      objectReference: {fileID: 1696742788}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 
       objectReference: {fileID: -315029953, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
@@ -100364,6 +100426,8 @@ MonoBehaviour:
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
   TriggerDialogues: []
+  BarCheckpointStatue: {fileID: 0}
+  CheckpointActive: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0

@@ -76,7 +76,6 @@ public class Player_Health : MonoBehaviour
         if (Health <= 0)
         {
             GameManager.Instance.ChangeScene(scene);
-            GameManager.Instance.ResetGameManager();
         }
     }
 

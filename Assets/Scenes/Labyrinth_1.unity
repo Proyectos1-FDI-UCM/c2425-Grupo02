@@ -219,6 +219,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointNotif
+      value: 
+      objectReference: {fileID: 842365059}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointBarNotif
+      value: 
+      objectReference: {fileID: 842365058}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 
       objectReference: {fileID: -315029953, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
@@ -62759,6 +62767,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &842365058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2296738732978186191, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1648389424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &842365059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521114790222575174, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1648389424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &845574375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62944,6 +62962,8 @@ MonoBehaviour:
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
   TriggerDialogues: []
+  BarCheckpointStatue: {fileID: 0}
+  CheckpointActive: {fileID: 0}
 --- !u!4 &1159134665
 Transform:
   m_ObjectHideFlags: 0

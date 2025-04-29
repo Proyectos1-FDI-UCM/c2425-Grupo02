@@ -58,6 +58,8 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject DiscoDoor;
     [SerializeField] private GameObject[] TriggerDialogues;
+    [SerializeField] private GameObject BarCheckpointStatue;
+    [SerializeField] private Sprite CheckpointActive;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -94,6 +96,13 @@ public class LevelManager : MonoBehaviour
 
         _player = FindObjectOfType<Player_Health>().gameObject;
 
+    }
+    private void Start()
+    {
+        if (BarCheckpointStatue != null && GameManager.Instance.SavedCheckpoint == 5)
+        {
+            ChangeBarStatue();
+        }
     }
 
     #endregion
@@ -287,6 +296,14 @@ public class LevelManager : MonoBehaviour
             }
         }
         HideIramis();
+    }
+
+    public void ChangeBarStatue()
+    {
+        if (BarCheckpointStatue != null)
+        {
+            BarCheckpointStatue.GetComponent<SpriteRenderer>().sprite = CheckpointActive;
+        }
     }
     #endregion
 

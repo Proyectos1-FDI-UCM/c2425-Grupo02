@@ -61,7 +61,7 @@ MonoBehaviour:
       qu\xE9 ahora se han perdido!?\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "No s\xE9, prima. Yo me encargo de la puerta.\r\n"
     Options:
     - OptionText: De acuerdo
@@ -88,7 +88,7 @@ MonoBehaviour:
       mi sala VIP.\r\n"
     Options: []
   - Name: Minos
-    Sprite: {fileID: 21300000, guid: c3c41dd92481a9c4cb27a40f59589c1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c3eb46196689eb40b82daf6bd8cc3b7, type: 3}
     DialogueText: "\xBFEst\xE1s segura de eso, jefa? La acabas de conocer.\r\n"
     Options: []
   - Name: Iramis

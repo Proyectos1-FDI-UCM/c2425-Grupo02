@@ -5959,6 +5959,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sporas_Home
       objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.x
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.78
+      objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -10264,6 +10276,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a49858350568bb468dac2b999204c08, type: 3}
+--- !u!1 &1599758191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2296738732978186191, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 607483726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1599758192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521114790222575174, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 607483726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647502436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
@@ -10344,6 +10366,14 @@ PrefabInstance:
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: SporaIntroduction
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10509,6 +10539,8 @@ MonoBehaviour:
   DiscoDoor: {fileID: 0}
   TriggerDialogues:
   - {fileID: 6593744758963821328}
+  BarCheckpointStatue: {fileID: 0}
+  CheckpointActive: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
@@ -10620,6 +10652,14 @@ PrefabInstance:
       propertyPath: health_sprite
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointNotif
+      value: 
+      objectReference: {fileID: 1599758192}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointBarNotif
+      value: 
+      objectReference: {fileID: 1599758191}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 

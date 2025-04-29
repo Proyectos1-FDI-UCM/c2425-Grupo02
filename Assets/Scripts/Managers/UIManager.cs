@@ -31,6 +31,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image ShootIcon;
     [SerializeField] private Image ShootDarker;
     [SerializeField] private Image DashIcon;
+    [SerializeField] private GameObject CheckpointNotif;
+    [SerializeField] private GameObject CheckpointBarNotif;
+    /// <summary>
+    /// Tiempo durante el que se muestra la notificación del checkpoint
+    /// </summary>
+    [SerializeField] private float CheckNotifDuration;
+    [SerializeField] private float CheckNotifBarDuration;
 
     #endregion
 
@@ -39,6 +46,12 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     //private SpriteRenderer spriteRenderer;
     private static Text quest_objects_count;
+    /// <summary>
+    /// Indica si hay una notificación en curso
+    /// </summary>
+    private bool _notifOnGoing = false;
+    private bool _notifBarOnGoing = false;
+    private float _notifTimer = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -71,6 +84,14 @@ public class UIManager : MonoBehaviour
         DashIcon.fillAmount = 1;
         DialogueUI.SetActive(false);
         Controls.gameObject.SetActive(false);
+        if (CheckpointNotif != null)
+        {
+            CheckpointNotif.SetActive(false);
+        }
+        if (CheckpointBarNotif != null)
+        {
+            CheckpointBarNotif.SetActive(false);
+        }
         quest_objects_count = quest_objects_count_inspector;
         if (GameManager.Instance.questState() != 1)
         {
@@ -80,12 +101,6 @@ public class UIManager : MonoBehaviour
         {
             quest_objects_count.text = "x" + GameManager.Instance.questObjectsCount();
         }
-        /*
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        health_sprite = health_sprite_inspector;
-        health = health_inspector;
-        */
-        
     }
     /// <summary>
     /// Si el juego está en marcha y pulsa el botón para pausar, te muestra los controles. 
@@ -102,6 +117,24 @@ public class UIManager : MonoBehaviour
             else
             {
                 HideControls();
+            }
+        }
+
+        if (_notifOnGoing)
+        {
+            _notifTimer += Time.deltaTime;
+            if (_notifTimer >= CheckNotifDuration)
+            {   
+                HideCheckpointNotif();
+            }
+            
+        }
+        else if (_notifBarOnGoing)
+        {
+            _notifTimer += Time.deltaTime;
+            if (_notifTimer >= CheckNotifBarDuration)
+            {
+                HideCheckpointBarNotif();
             }
         }
     }
@@ -194,6 +227,22 @@ public class UIManager : MonoBehaviour
         DashIcon.fillAmount = timer / cooldown;
     }
 
+    public void ShowCheckpointNotif()
+    {
+        if (CheckpointNotif != null)
+        {
+            CheckpointNotif.SetActive(true);
+            _notifOnGoing = true;
+        }
+    }
+    public void ShowCheckpointBarNotif()
+    {
+        if (CheckpointBarNotif != null)
+        {
+            CheckpointBarNotif.SetActive(true);
+            _notifBarOnGoing = true;
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -209,6 +258,25 @@ public class UIManager : MonoBehaviour
         Controls.gameObject.SetActive(false);
         Time.timeScale = 1;
         LevelManager.Instance.EnableBehaviours();
+    }
+
+    private void HideCheckpointNotif()
+    {
+        if (CheckpointNotif != null)
+        {
+            _notifOnGoing = false;
+            _notifTimer = 0;
+            CheckpointNotif.SetActive(false);
+        }
+    }
+    private void HideCheckpointBarNotif()
+    {
+        if (CheckpointBarNotif != null)
+        {
+            _notifBarOnGoing = false;
+            _notifTimer = 0;
+            CheckpointBarNotif.SetActive(false);
+        }
     }
     #endregion   
 

@@ -54,7 +54,7 @@ public class MenuManager : MonoBehaviour
     }
     private void Start()
     {
-        if (GameManager.Instance.GetCheckpoint == 0)
+        if (GameManager.Instance.SavedCheckpoint == 0)
         {
             ContinueButton.SetActive(false);
         }
@@ -83,37 +83,11 @@ public class MenuManager : MonoBehaviour
     
     public void StartNewGame()
     {
-            GameManager.Instance.GetCheckpoint = 0;
-            GameManager.Instance.ChangeScene(1);
-            GameManager.Instance.SetSpawnPoint(new Vector2(0, 0));   
+        GameManager.Instance.PrepareNewGame();
     }
     public void ContinueGame()
     {
-        if (GameManager.Instance.GetCheckpoint == 1)
-        {
-            GameManager.Instance.ChangeScene(2);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-6, -35));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 2)
-        {
-            GameManager.Instance.ChangeScene(6);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-25, 0));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 3)
-        {
-            GameManager.Instance.ChangeScene(8);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-32, -23));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 4)
-        {
-            GameManager.Instance.ChangeScene(9);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-33, -25));
-        }
-        else if (GameManager.Instance.GetCheckpoint == 5)
-        {
-            GameManager.Instance.ChangeScene(4);
-            GameManager.Instance.SetSpawnPoint(new Vector2(-1.5f, 7.25f));
-        }
+        GameManager.Instance.PrepareContinue();
     }
     #endregion
 

@@ -159,7 +159,6 @@ public class DialogueManager : MonoBehaviour
                 if (!GameManager.Instance.SaveUsed)
                 {
                     _currentDialogue = dialogueScripts[0];
-                    GameManager.Instance.UpdateSave();
                 }
                 else
                 {

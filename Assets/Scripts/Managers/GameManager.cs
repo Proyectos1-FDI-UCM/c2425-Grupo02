@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int _checkpointIndex = 0;
     /// <summary>
+    /// posición que guarda el checkpoint actual, que será donde spawneará el player al pulsar continuar en el menú
+    /// </summary>
+    private Vector2 _checkpointSpawn = Vector2.zero;
+    private int _checkpointScene = 1;
+    /// <summary>
     /// contador objetos de misión
     /// </summary>
     private int _questObjectsCount;
@@ -185,7 +190,7 @@ public class GameManager : MonoBehaviour
     {
         get { return _hasScythe; }
     }
-    public int GetCheckpoint
+    public int SavedCheckpoint
     {
         get { return _checkpointIndex; }
         set { _checkpointIndex = value; }
@@ -193,7 +198,8 @@ public class GameManager : MonoBehaviour
     public void UpdateSave()
     {
         _saveUsed = true;
-        _checkpointIndex = 5;
+        SetNewCheckpoint(5, new Vector2(0, 126.75f), 5);
+        UIManager.Instance.ShowCheckpointBarNotif();
     }
 
         ///<summary>
@@ -298,41 +304,51 @@ public class GameManager : MonoBehaviour
     public Vector2 GetSpawnPoint() { return _spawnPosition; }
     public int ReturnHealth() { return _health; }
 
-    public void ResetGameManager()
+    
+   /// <summary>
+   /// Método para establecer el índice, el vector de posición de spawn del player y la escena de spawn que está guardada en el nuevo checkpoint
+   /// </summary>
+   /// <param name="checkpoint"></param>
+   /// <param name="pos"></param>
+   /// <param name="scene"></param>
+    public void SetNewCheckpoint(int checkpoint, Vector2 pos, int scene)
     {
-        _health = 3;
-        if (_checkpointIndex == 0 || _checkpointIndex == 1)
+        _checkpointIndex = checkpoint;
+        _checkpointSpawn = pos;
+        _checkpointScene = scene;
+    }
+    /// <summary>
+    /// Método para reiniciar el checkpoint y el gamemanager y trasladar al jugador a la escena de introducción en la posición indicada
+    /// en la nueva partida
+    /// </summary>
+    public void PrepareNewGame()
+    {
+        SetNewCheckpoint(0, Vector2.zero, 1);
+        ResetGameManager();
+        ChangeScene(1);
+        SetSpawnPoint(Vector2.zero);
+    }
+    /// <summary>
+    /// Método para resetear el gamemanager como corresponda y trasladar al jugador a la escena y posición indicada por el checkpoint
+    /// </summary>
+    public void PrepareContinue()
+    {
+        ResetGameManager();
+        ChangeScene(_checkpointScene);
+        SetSpawnPoint(_checkpointSpawn);
+    }
+    /// <summary>
+    /// Deshabilita los trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
+    /// player regrese a la escena, los colliders del trigger no vuelva a inicializarse en su start
+    /// </summary>
+    public void DisableTrigDialogues(GameObject[] triggers)
+    {
+        foreach (GameObject trigger in triggers)
         {
-            _hasScythe = false;
-            if (_checkpointIndex == 1)
-            {
-                _readDialogues = new HashSet<string> { "1IntroductionSpora"};
-            }
-            else
-            {
-                _questObjectsCount = 0;
-                _questState = 0;
-                _saveUsed = false;
-                _hasScythe = false;
-                _readDialogues = new HashSet<string>();
-                _disabledTrigDialogues = new HashSet<string>();
-            }
-        }
-        else if (_checkpointIndex == 2)
-        {
-            _questObjectsCount = 0;
-        }
-        else if (_checkpointIndex == 3)
-        {
-            _questObjectsCount = 1;
-        }
-        else if (_checkpointIndex == 4)
-        {
-            _questObjectsCount = 2;
+            trigger.SetActive(false);
+            _disabledTrigDialogues.Add(trigger.GetComponent<TriggerDialogue>().TriggerName);
         }
     }
-   
-
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
     /// </summary>
@@ -413,25 +429,36 @@ public class GameManager : MonoBehaviour
         {
             LevelManager.Instance.OpenDisco();
         }
+        else if (dialogueName == "Bartender")
+        {
+            UpdateSave();
+            LevelManager.Instance.ChangeBarStatue();
+        }
         else if (dialogueName == "No")
         {
             LevelManager.Instance.EnableBoss();
         }
     }
-    /// <summary>
-    /// Deshabilita los trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
-    /// player regrese a la escena, los colliders del trigger no vuelva a inicializarse en su start
-    /// </summary>
-    public void DisableTrigDialogues(GameObject[] triggers)
+    
+
+    private void ResetGameManager()
     {
-        foreach (GameObject trigger in triggers)
+        _health = 3;
+        if (_checkpointIndex == 0)
         {
-            trigger.SetActive(false);
-            _disabledTrigDialogues.Add(trigger.GetComponent<TriggerDialogue>().TriggerName);
+            _questObjectsCount = 0;
+            _questState = 0;
+            _saveUsed = false;
+            _hasScythe = false;
+            _readDialogues = new HashSet<string>();
+            _disabledTrigDialogues = new HashSet<string>();
+        }
+        else if (_checkpointIndex == 1)
+        {
+            _hasScythe = false;
+            _readDialogues = new HashSet<string> { "1IntroductionSpora" };
         }
     }
-
-
     #endregion
 } // class GameManager 
 // namespace

@@ -360,6 +360,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cartel
       objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.5
@@ -639,6 +647,14 @@ PrefabInstance:
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: SporaLabyrinthEntrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8569,8 +8585,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SceneIndex
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SpawnPos.x
+      value: -21.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: SpawnPos.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063622240056174668, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: CheckpointNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Size.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2577409513899301264, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_Name
@@ -8582,7 +8622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22241092
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 6591940776626641801, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33437,6 +33477,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &639224129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2296738732978186191, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1241548606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &796911437
 GameObject:
   m_ObjectHideFlags: 0
@@ -34418,6 +34463,8 @@ MonoBehaviour:
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
   TriggerDialogues: []
+  BarCheckpointStatue: {fileID: 0}
+  CheckpointActive: {fileID: 0}
 --- !u!4 &1438677795
 Transform:
   m_ObjectHideFlags: 0
@@ -43125,6 +43172,11 @@ Transform:
   - {fileID: 1586707983}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721503125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521114790222575174, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1241548606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1909765755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43221,6 +43273,14 @@ PrefabInstance:
       propertyPath: health_sprite
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointNotif
+      value: 
+      objectReference: {fileID: 1721503125}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: CheckpointBarNotif
+      value: 
+      objectReference: {fileID: 639224129}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 
