@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
         {
             _justStarted = false;
         }
-        else if (_dialogueOnGoing && InputManager.Instance.InteractWasPressedThisFrame() && !_optionsOnGoing)
+        else if (_dialogueOnGoing && InputManager.Instance.InteractWasPressedThisFrame() && !UIManager.Instance.IsPaused && !_optionsOnGoing)
         {
             NextLine();
         }
@@ -112,6 +112,7 @@ public class DialogueManager : MonoBehaviour
     {
         return _instance != null;
     }
+
     /// <summary>
     /// Elige qué diálogos muestra y establece el nombre del personaje, el sprite y la línea de diálogo. 
     /// Luego indica que hay un diálogo en curso y que acaba de empezar.

@@ -21,9 +21,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject DialogueUI;
     [SerializeField] private Animator FaderAnimator;
     [SerializeField] private Canvas Controls;
-    //[SerializeField] private GameObject HealthSprite;
-    //[SerializeField] private Sprite[] health_inspector = new Sprite[3];
-    //[SerializeField] private Image health_sprite_inspector;
     [SerializeField] private Text quest_objects_count_inspector;
     [SerializeField] private GameObject questUI;
     [SerializeField] private Image Health_sprite;
@@ -44,7 +41,6 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private static UIManager _instance;
-    //private SpriteRenderer spriteRenderer;
     private static Text quest_objects_count;
     /// <summary>
     /// Indica si hay una notificación en curso
@@ -52,6 +48,7 @@ public class UIManager : MonoBehaviour
     private bool _notifOnGoing = false;
     private bool _notifBarOnGoing = false;
     private float _notifTimer = 0;
+    private bool _paused = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -110,13 +107,15 @@ public class UIManager : MonoBehaviour
     {
         if (InputManager.Instance.PauseWasPressedThisFrame()) 
         { 
-            if (Time.timeScale == 1)
+            if (!_paused)
             {
                 ShowControls();
+                _paused = true;
             }
             else
             {
                 HideControls();
+                _paused = false;
             }
         }
 
@@ -153,6 +152,11 @@ public class UIManager : MonoBehaviour
     public static bool HasInstance()
     {
         return _instance != null;
+    }
+
+    public bool IsPaused
+    {
+        get { return _paused; }
     }
 
     public void ShowDialogueUI()
