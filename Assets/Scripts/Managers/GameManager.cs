@@ -443,7 +443,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetGameManager()
     {
-        _health = 3;
+        _health = 5;
         if (_checkpointIndex == 0)
         {
             _questObjectsCount = 0;
