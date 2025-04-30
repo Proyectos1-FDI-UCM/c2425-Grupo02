@@ -12625,7 +12625,7 @@ PrefabInstance:
     - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+      objectReference: {fileID: 21300000, guid: c1d5498612324b246bea8fd4246b22da, type: 3}
     - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -12637,6 +12637,10 @@ PrefabInstance:
     - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15471,6 +15475,7 @@ MonoBehaviour:
   MapHeight: 25
   BossGameObjects: []
   InitialEnemies: []
+  EndLongPathObj: []
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
