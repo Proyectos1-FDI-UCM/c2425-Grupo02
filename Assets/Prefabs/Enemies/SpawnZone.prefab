@@ -49,7 +49,7 @@ MonoBehaviour:
   Enemy: {fileID: 9181996368421723346, guid: 8d4f126f8e1155f4188676d05537bb0a, type: 3}
   EnemyNumber: 3
   Iterations: 3
-  LimitZone: 1
+  LimitZone: 0
   Limit: {fileID: 2560512752081626522, guid: e590a5ceb15f43143b6184a30ee0892d, type: 3}
   BannedCells: []
 --- !u!212 &-8103417857065930773
