@@ -94100,17 +94100,37 @@ PrefabInstance:
       propertyPath: DialogueScripts.Array.data[8]
       value: 
       objectReference: {fileID: 11400000, guid: a1f8ff91baa1a0f4bbe5bbdbad0382a2, type: 2}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.x
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.y
+      value: 2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: Scythe_dialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Size.x
+      value: 2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94118,7 +94138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -35
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95421,7 +95441,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: fabc35ed0f93e32449bc6d65a634bfb0, type: 3}
+  m_Sprite: {fileID: 930956206, guid: 27c49bb7fcd0db441940d775e3cd22b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95442,7 +95462,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.08225536, y: -0.099998474, z: 0}
-  m_LocalScale: {x: 4.2, y: 4.2, z: 4.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1416406719}
