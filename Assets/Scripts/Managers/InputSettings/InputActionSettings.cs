@@ -82,6 +82,33 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnemyDestruction"",
+                    ""type"": ""Button"",
+                    ""id"": ""d25e5197-5730-4e4e-8992-efa6631e395d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Invulnerability"",
+                    ""type"": ""Button"",
+                    ""id"": ""12f819af-f2a6-4683-b1e1-c8e33c20ad7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CompleteQuest"",
+                    ""type"": ""Button"",
+                    ""id"": ""faadb583-3634-476e-bf72-321eef92ec83"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -379,6 +406,39 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38cbbd78-df3e-4cc5-b32d-0cdaded04c10"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyDestruction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36a1746f-cb8f-49a8-9e0e-c85c48152e49"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invulnerability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9c687bc-f86c-4849-90f7-d2fd7f6f4252"",
+                    ""path"": ""<Keyboard>/numpad3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CompleteQuest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -972,6 +1032,9 @@ namespace UnityEngine.InputSystem
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_EnemyDestruction = m_Player.FindAction("EnemyDestruction", throwIfNotFound: true);
+            m_Player_Invulnerability = m_Player.FindAction("Invulnerability", throwIfNotFound: true);
+            m_Player_CompleteQuest = m_Player.FindAction("CompleteQuest", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1051,6 +1114,9 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Dash;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_EnemyDestruction;
+        private readonly InputAction m_Player_Invulnerability;
+        private readonly InputAction m_Player_CompleteQuest;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -1061,6 +1127,9 @@ namespace UnityEngine.InputSystem
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @EnemyDestruction => m_Wrapper.m_Player_EnemyDestruction;
+            public InputAction @Invulnerability => m_Wrapper.m_Player_Invulnerability;
+            public InputAction @CompleteQuest => m_Wrapper.m_Player_CompleteQuest;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1088,6 +1157,15 @@ namespace UnityEngine.InputSystem
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @EnemyDestruction.started += instance.OnEnemyDestruction;
+                @EnemyDestruction.performed += instance.OnEnemyDestruction;
+                @EnemyDestruction.canceled += instance.OnEnemyDestruction;
+                @Invulnerability.started += instance.OnInvulnerability;
+                @Invulnerability.performed += instance.OnInvulnerability;
+                @Invulnerability.canceled += instance.OnInvulnerability;
+                @CompleteQuest.started += instance.OnCompleteQuest;
+                @CompleteQuest.performed += instance.OnCompleteQuest;
+                @CompleteQuest.canceled += instance.OnCompleteQuest;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1110,6 +1188,15 @@ namespace UnityEngine.InputSystem
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @EnemyDestruction.started -= instance.OnEnemyDestruction;
+                @EnemyDestruction.performed -= instance.OnEnemyDestruction;
+                @EnemyDestruction.canceled -= instance.OnEnemyDestruction;
+                @Invulnerability.started -= instance.OnInvulnerability;
+                @Invulnerability.performed -= instance.OnInvulnerability;
+                @Invulnerability.canceled -= instance.OnInvulnerability;
+                @CompleteQuest.started -= instance.OnCompleteQuest;
+                @CompleteQuest.performed -= instance.OnCompleteQuest;
+                @CompleteQuest.canceled -= instance.OnCompleteQuest;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1298,6 +1385,9 @@ namespace UnityEngine.InputSystem
             void OnDash(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnEnemyDestruction(InputAction.CallbackContext context);
+            void OnInvulnerability(InputAction.CallbackContext context);
+            void OnCompleteQuest(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

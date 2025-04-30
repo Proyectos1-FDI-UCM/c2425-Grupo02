@@ -45,7 +45,7 @@ public class Quest_Objects : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.GetCollectedBoxes.Contains(Id))
+        if (GameManager.Instance.QuestCheatEnabled || GameManager.Instance.GetCollectedBoxes.Contains(Id))
         {
             gameObject.SetActive(false);
         }

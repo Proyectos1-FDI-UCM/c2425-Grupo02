@@ -34,11 +34,17 @@ public class Enemy_Health : MonoBehaviour
     Enemy_Spawn _spawn;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
 
+    private void Update()
+    {
+        if (InputManager.Instance.DestroyWasPressedThisFrame())
+        {
+            Damage(Health);
+        }
+    }
 
     #endregion
 

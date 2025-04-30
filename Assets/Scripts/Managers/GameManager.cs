@@ -101,11 +101,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Indica si el player ha cogido la guadaña
     /// </summary>
-    [SerializeField] private bool _hasScythe;
+    private bool _hasScythe;
     /// <summary>
     /// Cantidad de puntos de vida que tiene el jugador
     /// </summary>
     private int _health;
+
+    //DEV CHEATS
+    private bool _invulnerability = false;
+    private bool _questCheat = false;
 
     #endregion
 
@@ -150,6 +154,19 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             Init();
         } // if-else somos instancia nueva o no.
+    }
+
+    private void Update()
+    {
+        if (InputManager.Instance.InvulnerabilityWasPressedThisFrame()) 
+        {
+            _invulnerability = !_invulnerability;
+        }
+        if (InputManager.Instance.CompleteQuestWasPressedThisFrame())
+        {
+            _questCheat = true;
+            _questState = 2;
+        }
     }
 
     /// <summary>
@@ -225,6 +242,19 @@ public class GameManager : MonoBehaviour
     {
         get { return _collectedBoxes; }
     }
+
+    //DEV CHEATS
+
+    public bool HasInvulnerability
+    {
+        get { return _invulnerability; }
+    }
+
+    public bool QuestCheatEnabled
+    {
+        get { return _questCheat; }
+    }
+
     public void UpdateSave()
     {
         _saveUsed = true;
