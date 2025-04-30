@@ -38,7 +38,7 @@ MonoBehaviour:
       en un mal momento. Est\xE1 muy ocupada con\u2026"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Minos, \xBFd\xF3nde est\xE1n los paquetes de la fiesta?\r\n"
     Options: []
   - Name: Minos
@@ -46,7 +46,7 @@ MonoBehaviour:
     DialogueText: "Ay, paya, \xBFno han llegado ya?\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: 'NOOOOOOOOOOOOOOOO.
 
 '
@@ -56,7 +56,7 @@ MonoBehaviour:
     DialogueText: "Pues se los habr\xE1 llevado el viento.\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\xBFC\xD3MO? Pero si siempre han estado protegidos. \xBF\xA1Por
       qu\xE9 ahora se han perdido!?\r\n"
     Options: []
@@ -69,20 +69,20 @@ MonoBehaviour:
     - OptionText: Altoke mi rey
       NextDialogue: {fileID: 11400000, guid: 81aef5a1758e8d34eb3172e65617009e, type: 2}
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Madre m\xEDa, no me digas que vamos a tener que cancelar la fiesta."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Bueno, quiz\xE1s no hace falta.\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Oye, princesa, yo a ti no te conozco, \xBFverdad? Mis ojos no
       se olvidan de los bellezones que rondan por estos lares."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\xBFPodr\xEDas hacerme el honor de ir al laberinto a buscar nuestros
       paquetes, coraz\xF3n? A cambio, te recompensar\xE9 con una invitaci\xF3n a
       mi sala VIP.\r\n"
@@ -92,16 +92,16 @@ MonoBehaviour:
     DialogueText: "\xBFEst\xE1s segura de eso, jefa? La acabas de conocer.\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Chsssss. Estoy hablando con mi princesa.\r"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Te dejo tu tiempo para que consideres mi oferta, pero es una oportunidad
       que solo los m\xE1s afortunados tienen. Ser\xEDa una desgracia desaprovecharla."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: 'Hasta luego, querida, espero que el recuerdo de mi belleza quede
       grabado en tu mente.
 

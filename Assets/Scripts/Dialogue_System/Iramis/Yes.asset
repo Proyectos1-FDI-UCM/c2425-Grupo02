@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Muchas gracias, princesa, sab\xEDa que t\xFA tambi\xE9n entender\xEDas
       que nuestra pasi\xF3n nos mantiene unidas.\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Seremos las amantes eternas de Astra Damnatorum.\r"
     Options: []
   Ending: 1

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Muchas gracias por traernos los paquetes, princesa. Eres un amor.
       Sab\xEDa que pod\xEDa confiar en tus bellas palabras."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Solo los pr\xEDncipes y princesas m\xE1s encantadores tienen la
       fortuna de apreciar esta sala con sus propios ojos, \xBFsabes? "
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rY, aun as\xED, creo que como mi invitada especial te mereces
       una mejor recompensa.\r\r"
     Options:
@@ -33,16 +33,16 @@ MonoBehaviour:
     - OptionText: No quiero
       NextDialogue: {fileID: 11400000, guid: eebdd3ca91c8b7f44af5269bc4035bb4, type: 2}
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\xBFQu\xE9 te parece si yo, como la mujer de tus sue\xF1os, te
       concedo un deseo?"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Tu mente parece m\xE1s pura que la de los pecadores de estas tierras..."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rPero la primera vez que cruzamos miradas vi una llama encenderse
       en tu coraz\xF3n y s\xE9 que desde entonces tus latidos me reclaman.\r\r"
     Options:
@@ -51,7 +51,7 @@ MonoBehaviour:
     - OptionText: No quiero
       NextDialogue: {fileID: 11400000, guid: eebdd3ca91c8b7f44af5269bc4035bb4, type: 2}
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "As\xED que dime, princesa, \xBFqu\xE9 te gustar\xEDa que hiciera
       por ti?"
     Options: []
@@ -61,7 +61,7 @@ MonoBehaviour:
       del infierno.\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\xBFYa te quieres marchar, coraz\xF3n? Pero si solo acabamos de
       empezar."
     Options: []
@@ -71,38 +71,38 @@ MonoBehaviour:
       y averiguar qu\xE9 pecado he cometid..."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "No, no lo entiendes. \xBFNo te has parado a pensar en lo fr\xEDo
       que ser\xEDa mi mundo si t\xFA no estuvieras all\xED?"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Siento que, si te vas, jam\xE1s podr\xE9 rellenar el vac\xEDo
       que dejar\xE1s en m\xED."
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Me encantar\xEDa poder decirte cu\xE1ntas veces he pensado en
       tus labios desde que te conoc\xED.\r\r\n"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rSolo te pido que te quedes y valores cu\xE1nto podr\xEDamos
       compartir juntas, desnudas y vulnerables, con las piernas entrelazadas.\r"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rPoseer\xEDa tu cuerpo con la firmeza de unas manos de las que
       no podr\xEDas escapar.\r\r"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rAnhelo lo que tu deseo es capaz de crear en mi coraz\xF3n. Y
       te necesito conmigo, siempre, hasta que el sol se apague y el polvo astral
       arrastre nuestros cuerpos por el espacio.\r\r"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\rD\xE9jame quererte como mereces y te prometo que nunca m\xE1s
       volver\xE1s a buscar otro hogar, cari\xF1o.\r\r"
     Options:

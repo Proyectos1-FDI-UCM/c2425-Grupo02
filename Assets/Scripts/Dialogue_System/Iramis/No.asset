@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "\xBFNo? \xBFMe est\xE1s diciendo que la relaci\xF3n que hemos
       tenido es una farsa?"
     Options: []
   - Name: Iramis
-    Sprite: {fileID: 21300000, guid: 2abfc36de2b4c7149b917af00925bc36, type: 3}
+    Sprite: {fileID: 21300000, guid: 1aa4ac02f6958f24290528976a9c12c6, type: 3}
     DialogueText: "Lo siento, princesa, pero no puedo dejarte marchar despu\xE9s
       de romper mi coraz\xF3n."
     Options: []
