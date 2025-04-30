@@ -35,7 +35,6 @@ public class MenuManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     private static MenuManager _instance;
 
-
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----

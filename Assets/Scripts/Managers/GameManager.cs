@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private static GameManager _instance;
     /// <summary>
+    /// Indica si el player ha terminado el combate en awkwardly long path
+    /// </summary>
+    private bool _initCombatFinish = false;
+    /// <summary>
     /// Indice de checkpoints:
     /// 0 -> no hay checkpoint
     /// 1 -> checkpoint akwardly long path
@@ -190,6 +194,13 @@ public class GameManager : MonoBehaviour
     {
         get { return _hasScythe; }
     }
+
+    public bool GetInitCombatState
+    {
+        get { return _initCombatFinish; }
+        set { _initCombatFinish = value; }
+    }
+
     public int SavedCheckpoint
     {
         get { return _checkpointIndex; }
@@ -450,12 +461,14 @@ public class GameManager : MonoBehaviour
             _questState = 0;
             _saveUsed = false;
             _hasScythe = false;
+            _initCombatFinish = false;
             _readDialogues = new HashSet<string>();
             _disabledTrigDialogues = new HashSet<string>();
         }
         else if (_checkpointIndex == 1)
         {
             _hasScythe = false;
+            _initCombatFinish = false;
             _readDialogues = new HashSet<string> { "1IntroductionSpora" };
         }
     }

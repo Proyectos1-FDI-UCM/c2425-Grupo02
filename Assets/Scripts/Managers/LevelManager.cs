@@ -42,6 +42,10 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject[] InitialEnemies;
     /// <summary>
+    /// Objetos que aparecen después de derrotar a los enemigos del long path (el segundo Spora y la poción)
+    /// </summary>
+    [SerializeField] private GameObject[] EndLongPathObj;
+    /// <summary>
     /// Bloqueadores de salidas para que el player no se salga del mapa
     /// </summary>
     [SerializeField] private GameObject[] Blocks;
@@ -102,6 +106,16 @@ public class LevelManager : MonoBehaviour
         if (BarCheckpointStatue != null && GameManager.Instance.SavedCheckpoint == 5)
         {
             ChangeBarStatue();
+        }
+        if (!GameManager.Instance.GetInitCombatState)
+        {
+            if (EndLongPathObj != null)
+            {
+                foreach (GameObject obj in EndLongPathObj) 
+                { 
+                    obj.SetActive(false);
+                }
+            }
         }
     }
 
@@ -220,28 +234,7 @@ public class LevelManager : MonoBehaviour
         }
         Debug.Log("Enemy number: " + _nInitEnemies);
     }
-    public void InitCombatEnded()
-    {
-        if (Blocks != null)
-        {
-            foreach (GameObject block in Blocks)
-            {
-                block.gameObject.SetActive(false);
-            }
-        }
-        if (SceneExits != null)
-        {
-            foreach (GameObject exit in SceneExits)
-            {
-                exit.SetActive(true);
-            }
-        }
-        else
-        {
-            Debug.Log("ERROR: no hay exits");
-        }
-        _initCombatStarted = false;
-    }
+    
     /// <summary>
     /// 
     /// </summary>
@@ -366,6 +359,33 @@ public class LevelManager : MonoBehaviour
         {
             NPC.enabled = false;
         }
+    }
+
+    private void InitCombatEnded()
+    {
+        if (Blocks != null)
+        {
+            foreach (GameObject block in Blocks)
+            {
+                block.gameObject.SetActive(false);
+            }
+        }
+        if (SceneExits != null)
+        {
+            foreach (GameObject exit in SceneExits)
+            {
+                exit.SetActive(true);
+            }
+        }
+        if (EndLongPathObj != null)
+        {
+            foreach (GameObject obj in EndLongPathObj)
+            {
+                obj.SetActive(true);
+            }
+        }
+        GameManager.Instance.GetInitCombatState = true;
+        _initCombatStarted = false;
     }
     #endregion
 } // class LevelManager 
