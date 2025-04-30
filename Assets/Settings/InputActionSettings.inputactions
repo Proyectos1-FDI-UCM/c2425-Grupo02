@@ -316,6 +316,28 @@
                 },
                 {
                     "name": "",
+                    "id": "a4ad021a-3fe1-411e-914d-2222bb05ce8b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7282164e-a0e9-4cdf-a394-ed959bd37f37",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "78764c3e-7027-45c7-b108-7790869cdefd",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
