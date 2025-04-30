@@ -170,9 +170,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Heal_2
+      value: Heal_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95578,7 +95582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Heal
+      value: Heal_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95923,6 +95927,7 @@ MonoBehaviour:
   - {fileID: 1998546197}
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
+  ExitSceneDisco: {fileID: 0}
   TriggerDialogues:
   - {fileID: 621784076}
   BarCheckpointStatue: {fileID: 0}

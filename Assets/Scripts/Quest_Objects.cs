@@ -21,7 +21,11 @@ public class Quest_Objects : MonoBehaviour
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    // Ejemplo: MaxHealthPoints++
+    /// <summary>
+    /// Identificador de la caja para que no vuelva a aparecer en escena si ya se ha recogido
+    /// </summary>
+    [SerializeField] private int Id;
 
     #endregion
 
@@ -39,14 +43,18 @@ public class Quest_Objects : MonoBehaviour
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
+    private void Start()
+    {
+        if (GameManager.Instance.GetCollectedBoxes.Contains(Id))
+        {
+            gameObject.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<Movement>() != null)
         {
-            GameManager.Instance.OnQuestObjectCollected();
+            GameManager.Instance.OnQuestObjectCollected(Id);
             Destroy(gameObject);
         }
     }

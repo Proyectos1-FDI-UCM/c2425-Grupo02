@@ -33799,9 +33799,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Debug_Heal (2)
+      value: Heal_2
       objectReference: {fileID: 0}
     - target: {fileID: 4675450585902311869, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_SortingOrder
@@ -34412,9 +34416,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Debug_Heal (1)
+      value: Heal_3
       objectReference: {fileID: 0}
     - target: {fileID: 4675450585902311869, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_SortingOrder
@@ -34458,10 +34466,12 @@ MonoBehaviour:
   MapHeight: 20
   BossGameObjects: []
   InitialEnemies: []
+  EndLongPathObj: []
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
+  ExitSceneDisco: {fileID: 0}
   TriggerDialogues: []
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}

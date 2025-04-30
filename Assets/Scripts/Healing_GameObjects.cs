@@ -22,9 +22,12 @@ public class Healing_GameObjects : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    /// <summary>
+    /// Identificador del heal para que no vuelva a aparecer en escena si ya se ha recogido
+    /// </summary>
+    [SerializeField] private int Id;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,11 +38,26 @@ public class Healing_GameObjects : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+    private void Start()
+    {
+        if (GameManager.Instance.GetCollectedHeals.Contains(Id))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player_Health playerHealth = collision.gameObject.GetComponent<Player_Health>();
 
+        if (collision.gameObject.GetComponent<Movement>() != null)
+        {
+            GameManager.Instance.HealCollected(collision.gameObject, Id);
+            Destroy(gameObject);
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -56,19 +74,10 @@ public class Healing_GameObjects : MonoBehaviour
     /// si no es nula, llama a una instancia del LevelManager y destruye el 
     /// objeto curativo.
     /// </summary>
-   
-    private void OnTriggerEnter2D(Collider2D collision) 
-    {      
-        Player_Health playerHealth = collision.gameObject.GetComponent<Player_Health>(); 
 
-        if (collision.gameObject.GetComponent<Movement>() != null)
-        {
-            GameManager.Instance.HealCollected(collision.gameObject);
-            Destroy(gameObject);
-        }
-    }
 
-    #endregion   
+
+    #endregion
 
 } // class Healing_GameObjects 
 // namespace

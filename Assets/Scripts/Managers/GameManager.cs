@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour
     private bool _initCombatFinish = false;
     /// <summary>
     /// Indice de checkpoints:
-    /// 0 -> no hay checkpoint
-    /// 1 -> checkpoint akwardly long path
-    /// 2 -> checkpoint entrada laberinto
-    /// 3 -> checkpoint laberinto 2
-    /// 4 -> checkpoint laberinto 3
-    /// 5 -> checkpoint boss
+    /// 0 -> no hay checkpoint;
+    /// 1 -> checkpoint akwardly long path;
+    /// 2 -> checkpoint entrada laberinto;
+    /// 3 -> checkpoint laberinto 2;
+    /// 4 -> checkpoint laberinto 3;
+    /// 5 -> checkpoint boss;
     /// </summary>
     private int _checkpointIndex = 0;
     /// <summary>
@@ -85,6 +85,15 @@ public class GameManager : MonoBehaviour
     /// Hashset para desactivar diálogos trigger
     /// </summary>
     private HashSet<string> _disabledTrigDialogues = new HashSet<string>();
+    /// <summary>
+    /// Hashset que guarda qué heals se han recogido para que no vuelvan a aparecer al cargar escena
+    /// </summary>
+    private HashSet<int> _collectedHeals = new HashSet<int>();
+    /// <summary>
+    /// Hashset que guarda qué paquetes se han recogido para que no vuelvan a aparecer al cargar escena
+    /// </summary>
+    private HashSet<int> _collectedBoxes = new HashSet<int>();
+
     /// <summary>
     /// Guarda las posiciones a las que mandan los diferentes triggers de salida de escena 
     /// </summary>
@@ -206,6 +215,16 @@ public class GameManager : MonoBehaviour
         get { return _checkpointIndex; }
         set { _checkpointIndex = value; }
     }
+
+    public HashSet<int> GetCollectedHeals
+    {
+        get { return _collectedHeals; }
+    }
+
+    public HashSet<int> GetCollectedBoxes
+    {
+        get { return _collectedBoxes; }
+    }
     public void UpdateSave()
     {
         _saveUsed = true;
@@ -219,15 +238,15 @@ public class GameManager : MonoBehaviour
         /// colisiona contra dicho objeto
         /// Llama al método de curación del script de la salud del jugador para curarle cierta cantidad de vida
         ///</summary>
-    public void HealCollected(GameObject Player)
+    public void HealCollected(GameObject Player, int id)
     {
         Player_Health playerHealth = Player.GetComponent<Player_Health>();
 
         if (Player != null) 
         {
             playerHealth.Heal(1);
-            //_health = playerHealth.ReturnHealth();
             AudioManager.Instance.PlayAudio(healSFX, 0.5f);
+            _collectedHeals.Add(id);
         }
 
         else Debug.LogError("_player es null.");
@@ -246,9 +265,10 @@ public class GameManager : MonoBehaviour
     {
         return _questObjectsCount;
     }
-    public void OnQuestObjectCollected()
+    public void OnQuestObjectCollected(int id)
     {
         _questObjectsCount++;
+        _collectedBoxes.Add(id);
         Debug.Log("Objetos de misión obtenidos: " + _questObjectsCount);
 
         if (_questObjectsCount == 1)
@@ -451,7 +471,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
-
+    /// <summary>
+    /// Metodo para resetear el gamemanager según los checkpoint
+    /// </summary>
     private void ResetGameManager()
     {
         _health = 5;
@@ -462,14 +484,66 @@ public class GameManager : MonoBehaviour
             _saveUsed = false;
             _hasScythe = false;
             _initCombatFinish = false;
-            _readDialogues = new HashSet<string>();
-            _disabledTrigDialogues = new HashSet<string>();
+            _readDialogues.Clear();
+            _disabledTrigDialogues.Clear();
+            _collectedHeals.Clear();
+            _collectedBoxes.Clear();
         }
         else if (_checkpointIndex == 1)
         {
             _hasScythe = false;
-            _initCombatFinish = false;
             _readDialogues = new HashSet<string> { "1IntroductionSpora" };
+        }
+        else
+        {
+            ResetCollectedObjects();
+        }
+    }
+    /// <summary>
+    /// Resetea los objetos curativos y cajas según el índice del checkpoint (incluye desde checkpoint 2 hasta checkpoint 4)
+    /// </summary>
+    private void ResetCollectedObjects()
+    {
+        if (_checkpointIndex == 2)
+        {
+            if (_collectedBoxes.Contains(0))
+            {
+                _collectedBoxes.Remove(0);
+            }
+            if (_collectedHeals.Contains(2))
+            {
+                _collectedHeals.Remove(2);
+            }
+            if (_collectedHeals.Contains(3))
+            {
+                _collectedHeals.Remove(3);
+            }
+        }
+        else if (_checkpointIndex == 3)
+        {
+            if (_collectedBoxes.Contains(1))
+            {
+                _collectedBoxes.Remove(1);
+            }
+            if (_collectedHeals.Contains(5))
+            {
+                _collectedHeals.Remove(5);
+            }
+            if (_collectedHeals.Contains(6))
+            {
+                _collectedHeals.Remove(6);
+            }
+        }
+        else if (_checkpointIndex == 4)
+        {
+            if (_collectedBoxes.Contains(2))
+            {
+                _collectedBoxes.Remove(2);
+            }
+            if (_collectedHeals.Contains(7))
+            {
+                _collectedHeals.Remove(7);
+            }
         }
     }
     #endregion

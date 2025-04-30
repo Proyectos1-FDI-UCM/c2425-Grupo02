@@ -116058,9 +116058,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
-      value: Heal
+      value: Heal_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116253,6 +116257,10 @@ PrefabInstance:
     - target: {fileID: 4600473623569194023, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
       propertyPath: m_Name
       value: Quest_Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141613902406950352, guid: f7a075c68d9ea5a47b386af4df689150, type: 3}
+      propertyPath: Id
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116693,10 +116701,12 @@ MonoBehaviour:
   MapHeight: 62
   BossGameObjects: []
   InitialEnemies: []
+  EndLongPathObj: []
   Blocks: []
   SceneExits: []
   Iramis: {fileID: 0}
   DiscoDoor: {fileID: 0}
+  ExitSceneDisco: {fileID: 0}
   TriggerDialogues: []
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}
