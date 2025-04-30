@@ -125,6 +125,18 @@ public class LevelManager : MonoBehaviour
                 ExitSceneDisco.SetActive(false);
             }
         }
+        if (GameManager.Instance.QuestCheatEnabled)
+        {
+            OpenDisco();
+        }
+    }
+
+    private void Update()
+    {
+        if (InputManager.Instance.CompleteQuestWasPressedThisFrame())
+        {
+            OpenDisco();
+        }
     }
 
     #endregion

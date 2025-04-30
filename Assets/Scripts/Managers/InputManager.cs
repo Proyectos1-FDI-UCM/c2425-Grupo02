@@ -79,6 +79,10 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private InputAction _pause;
 
+    //DEV CHEATS
+    private InputAction _destroy;
+    private InputAction _invulnerability;
+    private InputAction _completeQuest;
 
     #endregion
 
@@ -229,6 +233,32 @@ public class InputManager : MonoBehaviour
         return _pause.WasPressedThisFrame();
     }
 
+
+    //DEV CHEATS
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool DestroyWasPressedThisFrame()
+    {
+        return _destroy.WasPressedThisFrame();
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool InvulnerabilityWasPressedThisFrame()
+    {
+        return _invulnerability.WasPressedThisFrame();
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool CompleteQuestWasPressedThisFrame()
+    {
+        return _completeQuest.WasPressedThisFrame();
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -265,6 +295,9 @@ public class InputManager : MonoBehaviour
         // Cacheamos la acción de pausa.
         _pause = _theController.Player.Pause;
 
+        _destroy = _theController.Player.EnemyDestruction;
+        _invulnerability = _theController.Player.Invulnerability;
+        _completeQuest = _theController.Player.CompleteQuest;
     }
 
     /// <summary>

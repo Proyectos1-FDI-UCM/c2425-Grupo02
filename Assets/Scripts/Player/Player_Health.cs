@@ -69,13 +69,16 @@ public class Player_Health : MonoBehaviour
     /// </summary>
     /// <param name="dmg"> Número que se le va a restar a Health </param>
     public void Damage(int dmg) {
-        Health -= dmg;
-        Debug.Log("Salud restante" + Health);
-        GameManager.Instance.SaveAndSendHealth(Health);
-        //GameManager.Instance.GetHealth();
-        if (Health <= 0)
+        if (!GameManager.Instance.HasInvulnerability)
         {
-            GameManager.Instance.ChangeScene(scene);
+            Health -= dmg;
+            Debug.Log("Salud restante" + Health);
+            GameManager.Instance.SaveAndSendHealth(Health);
+            //GameManager.Instance.GetHealth();
+            if (Health <= 0)
+            {
+                GameManager.Instance.ChangeScene(scene);
+            }
         }
     }
 
