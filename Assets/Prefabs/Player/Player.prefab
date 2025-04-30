@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b3221f625ffa4d89319ba17b36c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashtime: 1.5
   dashtimec: 1.5
   dashDistance: 1.5
   LilithDashSFX: {fileID: 8300000, guid: 8dfaa02fdc620b8468bdc20f56d2c215, type: 3}
@@ -232,8 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9812a2cf625df7549b99991e2bc71516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
-  MaxHealth: 3
+  Health: 5
+  MaxHealth: 5
   scene: 11
 --- !u!114 &3499110812841003916
 MonoBehaviour:

@@ -51,11 +51,15 @@ MonoBehaviour:
   questUI: {fileID: 0}
   Health_sprite: {fileID: 0}
   Health:
-  - {fileID: -315029953, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
-  - {fileID: -957585010, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+  - {fileID: -1569481382, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
+  - {fileID: -717125021, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
+  - {fileID: 1934380665, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
+  - {fileID: -364921536, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
   - {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
   ShootIcon: {fileID: 0}
   ShootDarker: {fileID: 0}
   DashIcon: {fileID: 0}
   CheckpointNotif: {fileID: 0}
+  CheckpointBarNotif: {fileID: 0}
   CheckNotifDuration: 3
+  CheckNotifBarDuration: 0

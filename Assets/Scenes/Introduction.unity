@@ -346,10 +346,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472170783601640963, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 472170783601640963, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -610.75
+      objectReference: {fileID: 0}
     - target: {fileID: 681315232661374838, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3814934728800621231, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 729129651, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
     - target: {fileID: 8685447163793327624, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960
@@ -10657,9 +10669,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1599758192}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Health.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: CheckpointBarNotif
       value: 
       objectReference: {fileID: 1599758191}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Health.Array.data[3]
+      value: 
+      objectReference: {fileID: -364921536, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: Health.Array.data[4]
+      value: 
+      objectReference: {fileID: 729129651, guid: c18b06d8e025e5247898ee058871ed65, type: 3}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: health.Array.data[0]
       value: 
@@ -10709,6 +10733,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3825090876467817064, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      propertyPath: Health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3825090876467817064, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
+      propertyPath: MaxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3960141397274321566, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
       propertyPath: m_Name
       value: Player
