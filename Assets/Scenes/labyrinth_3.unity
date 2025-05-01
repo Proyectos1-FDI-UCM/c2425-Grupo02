@@ -127442,6 +127442,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 45a2797562ece4e4dbaf8bef10f3de1b, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 2
       objectReference: {fileID: 0}

@@ -19,6 +19,9 @@ public class Interactive : MonoBehaviour
     /// Array de los diálogos del NPC
     /// </summary>
     [SerializeField] private DialogueScript[] DialogueScripts;
+
+    [SerializeField] private Sprite spriteArrowOff; // Sprite sin flecha de interactuable.
+    [SerializeField] private Sprite spriteArrowOn; // Sprite con flecha de interactuable.
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -27,6 +30,8 @@ public class Interactive : MonoBehaviour
     /// indica si el player puede interactuar con el NPC
     /// </summary>
     private bool _canStart = false;
+
+    private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer del NPC.
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -34,13 +39,17 @@ public class Interactive : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         _canStart = true;
+        spriteRenderer.sprite = spriteArrowOn;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         _canStart = false;
+        spriteRenderer.sprite = spriteArrowOff;
     }
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Obtenemos el componente SpriteRenderer del NPC.
+
         if ((DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe")) || DialogueScripts[0].name == "DiscoDoor" && GameManager.Instance.QuestState == 2)
         { 
             gameObject.SetActive(false);

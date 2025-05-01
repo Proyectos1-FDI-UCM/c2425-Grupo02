@@ -237,6 +237,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3498,6 +3506,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4982,6 +4998,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5289,6 +5313,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
@@ -5631,6 +5663,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5828,6 +5868,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
@@ -11991,6 +12039,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 1422343942, guid: 6f9e76ccd34f18d48833b921c360f026, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 1422343942, guid: 0895926b5b370a84eb55a4de7683376d, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -12170,7 +12226,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 2, y: 2.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12187,6 +12243,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
@@ -12315,6 +12379,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e2f4337f42d2f94eb6fff7b8e8c2439, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: de0fc398d8429e9448bd137fb63e8ed8, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
@@ -12546,6 +12618,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: e854ba9fe840b7244b375a1b23ef65fb, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: c1d5498612324b246bea8fd4246b22da, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 2
@@ -13729,6 +13809,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 932d6367a5ad01746befc717c3d10be9, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 33082141e867c43449594c712cf091d4, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -14376,6 +14464,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
@@ -15342,6 +15438,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -15515,6 +15619,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 3583fc20a012d8c45a579981cb53ddca, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
