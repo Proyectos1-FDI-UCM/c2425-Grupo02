@@ -539,6 +539,7 @@ public class GameManager : MonoBehaviour
             if (_collectedBoxes.Contains(0))
             {
                 _collectedBoxes.Remove(0);
+                _questObjectsCount--;
             }
             if (_collectedHeals.Contains(2))
             {
@@ -554,6 +555,7 @@ public class GameManager : MonoBehaviour
             if (_collectedBoxes.Contains(1))
             {
                 _collectedBoxes.Remove(1);
+                _questObjectsCount--;
             }
             if (_collectedHeals.Contains(5))
             {
@@ -569,6 +571,7 @@ public class GameManager : MonoBehaviour
             if (_collectedBoxes.Contains(2))
             {
                 _collectedBoxes.Remove(2);
+                _questObjectsCount--;
             }
             if (_collectedHeals.Contains(7))
             {
