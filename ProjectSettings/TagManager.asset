@@ -17,7 +17,7 @@ TagManager:
   - Picker
   - Enemies
   - Enemy_range
-  - Enemy_Hitbox
+  - Enemy_Hitbox_Environment
   - Obstacles
   - Interact_NPC
   - PlayerAttacks
@@ -25,7 +25,7 @@ TagManager:
   - Spawn
   - Bullet
   - Checkpoint
-  - 
+  - Enemy_collider_environment
   - 
   - 
   - 
