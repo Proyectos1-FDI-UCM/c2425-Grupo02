@@ -8600,18 +8600,6 @@ PrefabInstance:
       propertyPath: CheckpointNumber
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
-      propertyPath: m_Size.y
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463422459101702603, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
-      propertyPath: m_Offset.y
-      value: -1.6
-      objectReference: {fileID: 0}
     - target: {fileID: 2577409513899301264, guid: f68710970904cda4aa306cb87cffc12d, type: 3}
       propertyPath: m_Name
       value: Checkpoint
