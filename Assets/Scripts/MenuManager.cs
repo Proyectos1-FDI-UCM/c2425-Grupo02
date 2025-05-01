@@ -5,7 +5,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
@@ -87,6 +89,16 @@ public class MenuManager : MonoBehaviour
     public void ContinueGame()
     {
         GameManager.Instance.PrepareContinue();
+    }
+    public void GoMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
+        System.GC.Collect();
+    }
+    public void GoCredits()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
+        System.GC.Collect();
     }
     #endregion
 
