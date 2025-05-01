@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   MaxHealth: 5
+  iFramesTime: 1.5
   scene: 11
 --- !u!114 &3499110812841003916
 MonoBehaviour:

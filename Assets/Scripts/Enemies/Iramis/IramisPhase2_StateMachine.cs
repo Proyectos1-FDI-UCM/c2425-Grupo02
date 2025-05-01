@@ -426,7 +426,6 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     protected virtual IEnumerator Shooting()
     {
         _lastState = State.Shooting;
-        // _anim.SetTrigger("_Shooting"); (Por ahora no hay animación)
 
         GameObject Spawner = Instantiate(ShotSpawner, this.transform);
         Spawner.transform.position = transform.position;

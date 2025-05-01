@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -25,6 +26,9 @@ public class Player_Health : MonoBehaviour
     private int Health;
     [SerializeField] private int MaxHealth;
 
+    // Tiempo de invulnerabilidad del jugador
+    [SerializeField] private float iFramesTime;
+
     [SerializeField]
     private int scene;
 
@@ -32,6 +36,12 @@ public class Player_Health : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+
+    // tiempo de enfriamiento de invulnerabilidad inicial
+    private float iFramesInit = 0f;
+
+    // SpriteRenderer del jugador
+    private SpriteRenderer spriteRend;
 
     #endregion
 
@@ -41,6 +51,16 @@ public class Player_Health : MonoBehaviour
     {
         Health = GameManager.Instance.ReturnHealth();
         GameManager.Instance.SaveAndSendHealth(Health);
+        spriteRend = GetComponent<SpriteRenderer>();
+        iFramesInit = iFramesTime;
+    }
+
+    private void Update()
+    {
+        if (iFramesInit < iFramesTime)
+        {
+            iFramesInit += Time.deltaTime;
+        }
     }
 
     #endregion
@@ -69,9 +89,11 @@ public class Player_Health : MonoBehaviour
     /// </summary>
     /// <param name="dmg"> Número que se le va a restar a Health </param>
     public void Damage(int dmg) {
-        if (!GameManager.Instance.HasInvulnerability)
+        if (!GameManager.Instance.HasInvulnerability && iFramesInit >= iFramesTime)
         {
+
             Health -= dmg;
+            iFramesInit = 0f;
             Debug.Log("Salud restante" + Health);
             GameManager.Instance.SaveAndSendHealth(Health);
             //GameManager.Instance.GetHealth();
@@ -79,6 +101,25 @@ public class Player_Health : MonoBehaviour
             {
                 GameManager.Instance.ChangeScene(scene);
             }
+
+            else 
+            {
+                StartCoroutine(Invulnerability());
+            }
+        }
+    }
+
+    /// <summary>
+    /// Método que alterna visualmente el color del jugador mientras dura el estado de invulnerabilidad.
+    /// </summary>
+    private IEnumerator Invulnerability()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            spriteRend.color = new Color(1, 0, 1, 0.5f);
+            yield return new WaitForSeconds(iFramesTime / 6);
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesTime / 6);
         }
     }
 

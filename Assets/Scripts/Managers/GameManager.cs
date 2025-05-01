@@ -162,7 +162,8 @@ public class GameManager : MonoBehaviour
         {
             _invulnerability = !_invulnerability;
         }
-        if (InputManager.Instance.CompleteQuestWasPressedThisFrame())
+
+        else if (InputManager.Instance.CompleteQuestWasPressedThisFrame())
         {
             _questCheat = true;
             _questState = 2;
