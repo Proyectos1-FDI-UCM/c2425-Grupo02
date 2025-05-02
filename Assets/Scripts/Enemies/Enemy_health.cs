@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -28,6 +29,9 @@ public class Enemy_Health : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
+    // SpriteRenderer del enemigo
+    private SpriteRenderer spriteRend;
+
     /// <summary>
     /// Spawn que instanció al enemigo
     /// </summary>
@@ -37,6 +41,11 @@ public class Enemy_Health : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+
+    private void Start()
+    {
+        spriteRend = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -70,6 +79,11 @@ public class Enemy_Health : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        else
+        {
+            StartCoroutine(EnemyHit());
+        }
     }
 
     /// <summary>
@@ -81,11 +95,19 @@ public class Enemy_Health : MonoBehaviour
     }
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-
+    /// <summary>
+    /// Método que muestra visualmente que el enemigo ha sido dañado.
+    /// </summary>
+    private IEnumerator EnemyHit()
+    {
+        spriteRend.color = new Color(1, 0, 0, 1);
+        yield return new WaitForSeconds(0.5f);
+        spriteRend.color = Color.white;
+    }
 
     #endregion   
 

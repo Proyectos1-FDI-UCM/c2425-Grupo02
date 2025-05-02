@@ -49,13 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78af952ff65bce844a9147725746af10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
   spinSpeed: 0.002
-  bossProyectile: {fileID: 0}
-  firePosition: {fileID: 0}
-  fireRate: 0.5
-  RateSpawn: 0
-  Boss: {fileID: 0}
+  bossProyectile: {fileID: 4971413454173661028, guid: fe8a83351f67eca4989ae6723f52c373, type: 3}
+  firePosition: {fileID: 2880673796690416501}
+  fireRate: 5
+  RateSpawn: 15
+  Boss: {fileID: 5344345683723096334}
   Spawner: {fileID: 175193201247443623, guid: 2d83086aea9ddce4fabc4354c316646c, type: 3}
   Wall: {fileID: 9205012062740336650, guid: 3f1687f39e94cba47a16e218e989ff63, type: 3}
 --- !u!114 &3863966078146110029

@@ -110,6 +110,21 @@ public class Player_Health : MonoBehaviour
     }
 
     /// <summary>
+    /// Devuelve la vida actual al GameManager, quien la almacena y mantiene entre escenas
+    /// </summary>
+    /// <returns></returns>
+    public int ReturnHealth() { return Health; }
+
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+    // Documentar cada método que aparece aquí
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
+
+    /// <summary>
     /// Método que alterna visualmente el color del jugador mientras dura el estado de invulnerabilidad.
     /// </summary>
     private IEnumerator Invulnerability()
@@ -122,21 +137,6 @@ public class Player_Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesTime / 6);
         }
     }
-
-    /// <summary>
-    /// Devuelve la vida actual al GameManager, quien la almacena y mantiene entre escenas
-    /// </summary>
-    /// <returns></returns>
-    public int ReturnHealth() { return Health; }
-
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
 
     #endregion   
 

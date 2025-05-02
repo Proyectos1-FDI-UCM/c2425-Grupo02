@@ -6,6 +6,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using System; // Biblioteca base de C# (aunque aquí no se usa realmente).
 using UnityEngine; // Necesario para trabajar con Unity (GameObjects, Transform, etc.).
 
@@ -23,12 +24,14 @@ public class Pillar : MonoBehaviour
     [SerializeField] int PillarID; // Identificador único del pilar.
     [SerializeField] GameObject Boss; // Referencia al jefe en la escena.
 
+    // SpriteRenderer del jugador
+    [SerializeField]
+    private SpriteRenderer spriteRend;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
-    // No hay atributos privados en este momento, pero podrían añadirse si es necesario.
 
     #endregion
 
@@ -73,6 +76,11 @@ public class Pillar : MonoBehaviour
                 // Destruimos el GameObject del pilar.
                 Destroy(gameObject);
             }
+
+            else
+            {
+                StartCoroutine(PillarHit());
+            }
         }
     }
 
@@ -81,7 +89,15 @@ public class Pillar : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
-    // Actualmente no hay métodos privados en este script.
+    /// <summary>
+    /// Método que muestra visualmente que el pilar ha sido dañado.
+    /// </summary>
+    private IEnumerator PillarHit()
+    {
+        spriteRend.color = new Color(1, 0, 0, 1);
+        yield return new WaitForSeconds(0.5f);
+        spriteRend.color = Color.white;
+    }
 
     #endregion
 

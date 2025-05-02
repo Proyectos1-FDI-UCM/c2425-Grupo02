@@ -6,6 +6,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Collections;
 using UnityEngine; // Necesario para usar las clases y funciones de Unity.
 
 /// <summary>
@@ -111,11 +112,6 @@ public class Boss_Life_Phase1 : MonoBehaviour
         return _isVulnerable;
     }
 
-    #endregion
-
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-
     /// <summary>
     /// Reduce la vida del jefe si es vulnerable.
     /// Si la vida llega a 0, destruye al jefe.
@@ -141,14 +137,35 @@ public class Boss_Life_Phase1 : MonoBehaviour
             }
 
             // Si recibe 5 golpes, deja de ser vulnerable y se reinicia el contador.
-            if (HitCount == 5)
+            else if (HitCount == 5)
             {
                 _isVulnerable = false;
                 spriteRenderer.sprite = spriteShieldOn;
                 HitCount = 0;
             }
+
+            else
+            {
+                StartCoroutine(BossHit());
+            }
         }
     }
+
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+
+    /// <summary>
+    /// Método que muestra visualmente que el boss ha sido dañado.
+    /// </summary>
+    private IEnumerator BossHit()
+    {
+        spriteRenderer.color = new Color(1, 0, 0, 1);
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer.color = Color.white;
+    }
+
     #endregion
 
 } // Fin de la clase Boss_Life_Phase1

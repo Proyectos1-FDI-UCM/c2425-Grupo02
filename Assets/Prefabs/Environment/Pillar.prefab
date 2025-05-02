@@ -134,6 +134,7 @@ MonoBehaviour:
   PillarHealth: 5
   PillarID: 0
   Boss: {fileID: 5344345683723096334, guid: 13cc87726ae57884e9aa35cc15992fb7, type: 3}
+  spriteRend: {fileID: 4447308970709454420}
 --- !u!61 &-3470657860340909486
 BoxCollider2D:
   m_ObjectHideFlags: 0
