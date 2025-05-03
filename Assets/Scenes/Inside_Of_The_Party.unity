@@ -12249,7 +12249,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 3}
+  m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
 --- !u!1001 &1337483906
 PrefabInstance:
@@ -12668,7 +12668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Size.x
-      value: 1.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
