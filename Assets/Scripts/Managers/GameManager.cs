@@ -167,6 +167,9 @@ public class GameManager : MonoBehaviour
         {
             _questCheat = true;
             _questState = 2;
+            _questObjectsCount = 3;
+            UIManager.Instance.ShowQuestUI();
+            UIManager.Instance.UpdateQuestProgress(_questObjectsCount);
         }
     }
 
@@ -312,7 +315,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Misión terminada");
             UIManager.Instance.HideQuestUI();
         }
-        UIManager.UpdateQuestProgress(_questObjectsCount);
+        UIManager.Instance.UpdateQuestProgress(_questObjectsCount);
     }
     
     ///<summary>

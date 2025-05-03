@@ -49,6 +49,7 @@ public class Interactive : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // Obtenemos el componente SpriteRenderer del NPC.
+        spriteRenderer.sprite = spriteArrowOff;
 
         if ((DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe")) || DialogueScripts[0].name == "DiscoDoor" && GameManager.Instance.QuestState == 2)
         { 

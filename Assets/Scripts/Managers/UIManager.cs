@@ -188,7 +188,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public static void UpdateQuestProgress(int count)
+    public void UpdateQuestProgress(int count)
     {
         quest_objects_count.text = "x" + count;
     }
