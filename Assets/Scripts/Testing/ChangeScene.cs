@@ -57,6 +57,7 @@ public class ChangeScene : MonoBehaviour
     /// </summary>
     public void ChangeToNextScene()
     {
+        Time.timeScale = 1;
         GameManager.Instance.ChangeScene(nextScene);
     }
     public void ChangeToBadEnding()
