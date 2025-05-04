@@ -407,9 +407,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
---- !u!223 &607483727 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+--- !u!1 &607483727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 607483726}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &607483728 stripped
@@ -10568,6 +10568,11 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1 &2016054056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 607483726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038953463
 GameObject:
   m_ObjectHideFlags: 0
@@ -10690,6 +10695,10 @@ PrefabInstance:
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 607483728}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 2016054056}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootIcon
       value: 

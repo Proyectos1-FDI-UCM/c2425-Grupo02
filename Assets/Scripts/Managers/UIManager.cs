@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Gestor de la UI
-// Lucía Mei Domínguez López
+// Lucía Mei Domínguez López, Isabel Serrano Martín
 // Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject DialogueUI;
     [SerializeField] private Animator FaderAnimator;
-    [SerializeField] private Canvas Controls;
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject Controls;
     [SerializeField] private Text quest_objects_count_inspector;
     [SerializeField] private GameObject questUI;
     [SerializeField] private Image Health_sprite;
@@ -80,6 +81,7 @@ public class UIManager : MonoBehaviour
         }
         DashIcon.fillAmount = 1;
         DialogueUI.SetActive(false);
+        PauseMenu.gameObject.SetActive(false);
         Controls.gameObject.SetActive(false);
         if (CheckpointNotif != null)
         {
@@ -109,12 +111,12 @@ public class UIManager : MonoBehaviour
         { 
             if (!_paused)
             {
-                ShowControls();
+                ShowMenu();
                 _paused = true;
             }
             else
             {
-                HideControls();
+                HideMenu();
                 _paused = false;
             }
         }
@@ -141,6 +143,9 @@ public class UIManager : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+
+   
+
     public static UIManager Instance
     {
         get
@@ -247,19 +252,28 @@ public class UIManager : MonoBehaviour
             _notifBarOnGoing = true;
         }
     }
+
+    public void ShowControls()
+    {
+        if (Controls != null) 
+        Controls.gameObject.SetActive(true);
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void ShowControls()
+
+
+    public void ShowMenu()
     {
-        Controls.gameObject.SetActive(true);
+        PauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
         LevelManager.Instance.DisableBehaviours();
     }
-    private void HideControls()
+    private void HideMenu()
     {
-        Controls.gameObject.SetActive(false);
+        PauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1;
         LevelManager.Instance.EnableBehaviours();
     }
