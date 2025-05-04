@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bottle_pyramid_guy
   m_EditorClassIdentifier: 
   Lines:
-  - Name: NPC
+  - Name: Pulpo?
     Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "\xBFY bien? \xBFQu\xE9 opinas? Mola, \xBFeh?"
     Options: []
@@ -22,7 +22,7 @@ MonoBehaviour:
     DialogueText: "\xBFEst\xE1s en una discoteca y lo primero que se te ocurre es
       hacer una torre de botellas?"
     Options: []
-  - Name: NPC
+  - Name: Pulpo?
     Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "Lo s\xE9. \xBFA que soy lo m\xE1s?"
     Options: []

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: pizza_guy
   m_EditorClassIdentifier: 
   Lines:
-  - Name: NPC
+  - Name: Pulpo
     Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "\xBFSab\xEDas que hay un planeta donde todo es comida? "
     Options: []
-  - Name: NPC
+  - Name: Pulpo
     Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "A veces pienso en como ser\xEDa vivir all\xED..."
     Options: []
-  - Name: NPC
+  - Name: Pulpo
     Sprite: {fileID: 21300000, guid: 26d8b36ee2e8cc742a69291e45da6b26, type: 3}
     DialogueText: "Pero luego recuerdo que aqu\xED hay lujuria infinita y se me pasa."
     Options: []
