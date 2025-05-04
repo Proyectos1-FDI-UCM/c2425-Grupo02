@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3685220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7437788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -73653,11 +73658,15 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: Controls
       value: 
-      objectReference: {fileID: 3201976095851178532}
+      objectReference: {fileID: 3685220}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 6116255415768169274}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 1034002153}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootIcon
       value: 
@@ -93935,6 +93944,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75be99da4eabc894c9834ccce2503058, type: 3}
+--- !u!1 &1034002153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1053471388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -96545,11 +96559,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449253aa55b4cae4ea9f018470e26fa7, type: 3}
---- !u!223 &3201976095851178532 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 6116255415768169271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3337548359368969447
 PrefabInstance:
   m_ObjectHideFlags: 0

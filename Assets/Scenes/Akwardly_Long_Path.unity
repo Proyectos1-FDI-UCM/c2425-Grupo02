@@ -19133,11 +19133,15 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: Controls
       value: 
-      objectReference: {fileID: 1486153095}
+      objectReference: {fileID: 1747070105}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 1486153096}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 1486153095}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootIcon
       value: 
@@ -94944,9 +94948,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
---- !u!223 &1486153095 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+--- !u!1 &1486153095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1486153094}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1486153096 stripped
@@ -95369,6 +95373,11 @@ SpriteRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
   m_PrefabInstance: {fileID: 1064120118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1747070105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1486153094}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1762783430 stripped
 GameObject:

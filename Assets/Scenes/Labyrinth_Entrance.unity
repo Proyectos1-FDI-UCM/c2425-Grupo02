@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24414433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1241548606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &91342453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34083,9 +34088,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2429768866427748958, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1241548606}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1241548611 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+--- !u!1 &1241548611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1241548606}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249288691
@@ -43199,6 +43204,10 @@ PrefabInstance:
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 798427234}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 24414433}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootIcon
       value: 

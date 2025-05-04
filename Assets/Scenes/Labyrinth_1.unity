@@ -187,6 +187,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 888250012}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 1648389430}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootIcon
       value: 
       objectReference: {fileID: 888250014}
@@ -2592,7 +2596,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 27
-      m_TileSpriteIndex: 27
+      m_TileSpriteIndex: 30
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4423,14 +4427,14 @@ Tilemap:
     m_Data: {fileID: -664328182, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 425598037, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 246716321, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1356001091, guid: 614ab4e2000e8864faece6232c3f6902, type: 3}
   - m_RefCount: 2
@@ -77915,9 +77919,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2429768866427748958, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1648389424}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1648389429 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7129681396726739749, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+--- !u!1 &1648389429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1648389424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1648389430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
   m_PrefabInstance: {fileID: 1648389424}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1727983219
