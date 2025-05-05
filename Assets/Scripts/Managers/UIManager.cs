@@ -81,8 +81,19 @@ public class UIManager : MonoBehaviour
         }
         DashIcon.fillAmount = 1;
         DialogueUI.SetActive(false);
-        PauseMenu.gameObject.SetActive(false);
-        Controls.gameObject.SetActive(false);
+        PauseMenu.SetActive(false);
+        
+
+        if(Controls == null)
+        {
+            Debug.LogError("el canvas no está asignado uwu");
+        }
+        else
+        {
+            Controls.SetActive(false);
+        }
+
+
         if (CheckpointNotif != null)
         {
             CheckpointNotif.SetActive(false);
@@ -143,9 +154,6 @@ public class UIManager : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
-   
-
     public static UIManager Instance
     {
         get
@@ -255,16 +263,20 @@ public class UIManager : MonoBehaviour
 
     public void ShowControls()
     {
-        if (Controls != null) 
-        Controls.gameObject.SetActive(true);
+        if (Controls == null)
+        {
+            Debug.LogError("controls es null al intentar mostrarlo");
+            return;
+        }
+       
+        Controls.SetActive(true);
+        
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
-
     public void ShowMenu()
     {
         PauseMenu.gameObject.SetActive(true);
@@ -277,6 +289,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         LevelManager.Instance.EnableBehaviours();
     }
+
 
     private void HideCheckpointNotif()
     {
