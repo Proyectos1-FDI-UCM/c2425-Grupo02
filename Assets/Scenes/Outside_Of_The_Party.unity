@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: Controls
       value: 
-      objectReference: {fileID: 1009294384}
+      objectReference: {fileID: 1866900067}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DashIcon
       value: 
@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: health_sprite
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: ControlsScreen
+      value: 
+      objectReference: {fileID: 1866900067}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: CheckpointNotif
       value: 
@@ -400,6 +404,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+--- !u!114 &56959216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+  m_PrefabInstance: {fileID: 56959215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da74bb56e6a44a478984f69407c1552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &69859731
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +666,14 @@ PrefabInstance:
     - target: {fileID: 6963564647241503272, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620853657919443125, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 56959216}
+    - target: {fileID: 8620853657919443125, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowControls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19536,11 +19559,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1 &1009294384 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 226562824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1016547767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4884952940063810645, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
@@ -30530,6 +30548,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+--- !u!1 &1866900067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814619263057096331, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 226562824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883809499
 GameObject:
   m_ObjectHideFlags: 0

@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &3685220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7399715261723115952, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
-  m_PrefabInstance: {fileID: 6116255415768169271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7437788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -73658,7 +73653,7 @@ PrefabInstance:
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: Controls
       value: 
-      objectReference: {fileID: 3685220}
+      objectReference: {fileID: 2103554401}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DashIcon
       value: 
@@ -73699,6 +73694,10 @@ PrefabInstance:
       propertyPath: health_sprite
       value: 
       objectReference: {fileID: -238299658, guid: 848718331a4db6442a97b8a7181362eb, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: ControlsScreen
+      value: 
+      objectReference: {fileID: 2103554401}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: CheckpointNotif
       value: 
@@ -73748,6 +73747,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+--- !u!114 &747151859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+  m_PrefabInstance: {fileID: 747151858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da74bb56e6a44a478984f69407c1552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &785946867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -96368,6 +96378,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5984581045854037118, guid: e651c3fb4d1bf3449a0fcfcfe827ca01, type: 3}
   m_PrefabInstance: {fileID: 1248669800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103554401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814619263057096331, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2107497414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -96689,6 +96704,14 @@ PrefabInstance:
     - target: {fileID: 681315232661374838, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620853657919443125, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 747151859}
+    - target: {fileID: 8620853657919443125, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowControls
       objectReference: {fileID: 0}
     - target: {fileID: 8685447163793327624, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
       propertyPath: m_LocalPosition.x

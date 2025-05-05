@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject DialogueUI;
     [SerializeField] private Animator FaderAnimator;
     [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private GameObject Controls;
+    [SerializeField] private GameObject ControlsScreen;
     [SerializeField] private Text quest_objects_count_inspector;
     [SerializeField] private GameObject questUI;
     [SerializeField] private Image Health_sprite;
@@ -84,13 +84,13 @@ public class UIManager : MonoBehaviour
         PauseMenu.SetActive(false);
         
 
-        if(Controls == null)
+        if(ControlsScreen == null)
         {
             Debug.LogError("el canvas no está asignado uwu");
         }
         else
         {
-            Controls.SetActive(false);
+            ControlsScreen.SetActive(false);
         }
 
 
@@ -263,26 +263,26 @@ public class UIManager : MonoBehaviour
 
     public void ShowControls()
     {
-        if (Controls == null)
+        if (ControlsScreen == null)
         {
             Debug.LogError("controls es null al intentar mostrarlo");
             return;
         }
        
-        Controls.SetActive(true);
+        ControlsScreen.SetActive(true);
         
     }
-
-    #endregion
-
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
     public void ShowMenu()
     {
         PauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
         LevelManager.Instance.DisableBehaviours();
     }
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+
     private void HideMenu()
     {
         PauseMenu.gameObject.SetActive(false);
@@ -290,6 +290,10 @@ public class UIManager : MonoBehaviour
         LevelManager.Instance.EnableBehaviours();
     }
 
+    private void HideControls()
+    {
+        ControlsScreen.SetActive(false);
+    }
 
     private void HideCheckpointNotif()
     {
