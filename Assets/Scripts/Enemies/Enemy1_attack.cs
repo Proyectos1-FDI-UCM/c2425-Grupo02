@@ -32,7 +32,8 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// </summary>
     [SerializeField]
     private AudioClip LilithInjuredSFX;
-
+    [SerializeField] private Sprite RangeHorizontal;
+    [SerializeField] private Sprite RangeVertical;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -62,7 +63,7 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     /// Tiempo que está activo el trigger de la hitbox durante cada golpe del ataque
     /// </summary>
     float _hitboxActiveTime = 0.1f;
-
+    private SpriteRenderer _rangeSpriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -75,6 +76,7 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     void Start()
     {
         _hitbox = transform.GetChild(0).gameObject;
+        _rangeSpriteRenderer = _hitbox.GetComponent<SpriteRenderer>();
         _stateMachine = GetComponent<Enemy_StateMachine>();
         _hitbox.SetActive(false);
     }
@@ -104,7 +106,7 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
     public IEnumerator Attack() {
         _dir = _stateMachine.GetDir();
         SetDir(_dir, _hitboxOffset);
-
+        SetRangeSprite();
         for (int i = 0; i < _timesAttack; i++)
         {
             _hitbox.SetActive(true);
@@ -156,7 +158,19 @@ public class Enemy1_Attack : MonoBehaviour, IAttack
         }
         _hitbox.transform.localPosition = res;
     }
-
+    void SetRangeSprite()
+    {
+        if (_dir.y > 0 || _dir.y < 0)
+        {
+            _rangeSpriteRenderer.sprite = RangeHorizontal;
+            _rangeSpriteRenderer.flipY = _dir.y > 0;
+        }
+        else
+        {
+            _rangeSpriteRenderer.sprite = RangeVertical;
+            _rangeSpriteRenderer.flipX = _dir.x < 0;
+        }
+    }
     #endregion   
 
 } // class Enemy1_attack 

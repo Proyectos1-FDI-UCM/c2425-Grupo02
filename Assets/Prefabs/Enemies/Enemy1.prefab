@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993348380124707197}
   - component: {fileID: 2422747932138742499}
+  - component: {fileID: 6248930034563173542}
   m_Layer: 12
   m_Name: Hitbox
   m_TagString: Untagged
@@ -104,10 +105,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 1267319840171475516}
+  m_LocalScale: {x: 1, y: 1, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 2338439176471153100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2422747932138742499
@@ -144,46 +144,14 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!1 &8444078601625114296
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1267319840171475516}
-  - component: {fileID: 1494446690198024481}
-  m_Layer: 12
-  m_Name: DebugHitbox1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1267319840171475516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444078601625114296}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9350958, y: 0.98723924, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4993348380124707197}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1494446690198024481
+  m_Radius: 1.53
+--- !u!212 &6248930034563173542
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444078601625114296}
+  m_GameObject: {fileID: 5349303580443585704}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -217,13 +185,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 14
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  m_Color: {r: 0.037762556, g: 0.030978873, b: 0.86415094, a: 1}
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 513077397, guid: 0391595034054ad4f84758bb58a9caa7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -442,6 +410,8 @@ MonoBehaviour:
   Damage: 1
   AttackCooldown: 0.3
   LilithInjuredSFX: {fileID: 8300000, guid: bc46d60cf2aa28a45b9ae36bf452a652, type: 3}
+  RangeHorizontal: {fileID: 513077397, guid: 0391595034054ad4f84758bb58a9caa7, type: 3}
+  RangeVertical: {fileID: -1853901290, guid: 0391595034054ad4f84758bb58a9caa7, type: 3}
 --- !u!114 &3813670047526830468
 MonoBehaviour:
   m_ObjectHideFlags: 0
