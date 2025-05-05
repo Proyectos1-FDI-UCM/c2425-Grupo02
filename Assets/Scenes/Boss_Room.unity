@@ -96060,6 +96060,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOn
+      value: 
+      objectReference: {fileID: -1899113342, guid: 738818f2622fac44dacd6ac112516cb3, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: spriteArrowOff
+      value: 
+      objectReference: {fileID: -1899113342, guid: d3dedefd491455e47a102d144035d65a, type: 3}
+    - target: {fileID: -5939631738169499955, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: DialogueScripts.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -96165,7 +96173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4214611972855525779, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
