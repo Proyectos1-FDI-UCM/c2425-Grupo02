@@ -288,6 +288,7 @@ public class UIManager : MonoBehaviour
         PauseMenu.gameObject.SetActive(false);
         Time.timeScale = 1;
         LevelManager.Instance.EnableBehaviours();
+        HideControls();
     }
 
     private void HideControls()
