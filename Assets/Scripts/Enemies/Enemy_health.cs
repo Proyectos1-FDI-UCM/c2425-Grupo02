@@ -55,6 +55,14 @@ public class Enemy_Health : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (GetComponent<IramisPhase2_Attack>() != null) 
+        {
+            GameManager.Instance.ChangeScene(12);
+        }
+    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
