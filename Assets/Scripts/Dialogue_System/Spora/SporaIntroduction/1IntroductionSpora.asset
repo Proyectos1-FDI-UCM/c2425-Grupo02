@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: "Champi\xF1\xF3n?"
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "\xA1\xA1\xA1NOOOOOOO!!!\r\n\xA1\xBFQU\xC9 LE HA PASADO A MI CASA?!\r"
     Options: []
   - Name: "Champi\xF1\xF3n?"
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "De un momento a otro esa maldita nave la ha destrozado\u2026 Como
       pille al causante de todo esto SE VA A ENTERAR."
     Options: []
@@ -27,11 +27,11 @@ MonoBehaviour:
     DialogueText: "Se\xF1or champi\xF1\xF3n, yo..."
     Options: []
   - Name: "Champi\xF1\xF3n?"
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "\xBFC\xF3mo? \xBFQue has sido T\xDA?"
     Options: []
   - Name: "Champi\xF1\xF3n?"
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Y no me llamo se\xF1or champi\xF1\xF3n, \xA1\xA1\xA1soy SPORA!!!!!"
     Options: []
   - Name: Lilith
@@ -41,7 +41,7 @@ MonoBehaviour:
 '
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Vaya, vaya, as\xED que t\xFA eres \u201Cla nueva\u201D de la que
       tanto se habla\u2026 Pues s\xED que empezamos bien."
     Options: []
@@ -50,7 +50,7 @@ MonoBehaviour:
     DialogueText: "\xBFC\xF3mo que \u201Cla nueva\u201D?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Ah, claro, no recuerdas nada de ti misma ni sabes por qu\xE9 te
       encuentras aqu\xED, \xBFverdad?"
     Options: []
@@ -64,7 +64,7 @@ MonoBehaviour:
     DialogueText: "\xBFAcaso es normal que ni siquiera sepa qui\xE9n soy?\r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "S\xED, le pasa a todos los nuevos pecadores que llegan al infierno,
       aunque nunca imagin\xE9 que la amnesia tambi\xE9n conlleva destrozar casas
       por ser un torpe de mierd\u2026"
@@ -74,13 +74,13 @@ MonoBehaviour:
     DialogueText: "\xBF\xA1QU\xC9!? \xBF\xA1C\xF3mo que estoy en el infierno!?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "S\xCD, est\xE1s en el INFIERNO. No me interrumpas con frases clich\xE9,
       que encima me tomo la molestia de ser tu gu\xEDa despu\xE9s de convertirme
       en un pobre indigente.  \r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Ver\xE1s, el infierno es un sistema planetario formado por nueve
       c\xEDrculos y ahora te encuentras en el segundo c\xEDrculo del infierno, el
       planeta de la lujuria."
@@ -90,27 +90,27 @@ MonoBehaviour:
     DialogueText: "\xBFY el primero?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Madre m\xEDa, qu\xE9 tocaesporas ha salido la ni\xF1a. Pues el
       primero es lo que ves en el cielo, el medio interestelar conocido como limbo. "
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Cada c\xEDrculo tiene a sus pecadores sujetos a un castigo: en
       el limbo es vagar por el espacio infinitamente. "
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Aqu\xED el castigo es el viento huracanado. Si exploras lo suficiente
       te encontrar\xE1s con ello. \r\n"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Y no, no s\xE9 qu\xE9 has hecho para llegar aqu\xED, que ya s\xE9
       que me lo ibas a preguntar. \r\n"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Solo puedo decirte que has cometido un pecado del que ni siquiera
       eres consciente y la \xFAnica manera de descubrirlo es recorriendo todos los
       c\xEDrculos del infierno.\r\n"
@@ -120,12 +120,12 @@ MonoBehaviour:
     DialogueText: "\xBFC\xF3mo puedo salir de este sitio?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "\xBFEscapar? JAJAJAJAJA. Olv\xEDdate de eso. La reina de la Lujuria
       es quien lleva las riendas por aqu\xED y no te permitir\xE1 salir. "
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Podr\xEDas buscarla en la discoteca que hay m\xE1s adelante y
       razonar con ella\u2026 si es que lo consigues."
     Options: []
@@ -134,17 +134,17 @@ MonoBehaviour:
     DialogueText: "\xBFSabes c\xF3mo puedo salir de este bosque?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Sigue el camino, pero ten cuidado: en este planeta hay violentos
       lujuriosos que no dudar\xE1n en atacarte si te ven. "
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Debes tener en cuenta tus habilidades antes de partir de aqu\xED.
       (Para ver los controles, pulse Esc u options).\r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Por cierto, vi una guada\xF1a cerca de aqu\xED. No creo que est\xE9
       por ah\xED tirada \u201Cpor casualidad\u201D. Yo que t\xFA la buscar\xEDa."
     Options: []
@@ -153,7 +153,7 @@ MonoBehaviour:
     DialogueText: "Aj\xE1\u2026"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Igualmente, te estar\xE9 observando all\xE1 donde vayas\u2026
       hasta que me jubile de gu\xEDa. Espero no incomodarte\u2026\r\nO s\xED.\r"
     Options: []

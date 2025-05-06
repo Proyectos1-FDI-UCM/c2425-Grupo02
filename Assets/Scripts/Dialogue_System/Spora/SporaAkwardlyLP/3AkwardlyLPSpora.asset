@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Vaya, sigues con vida\r\nMe alegro...\r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Si te han hecho da\xF1o, estas misteriosas pociones restaurar\xE1n
       algo de tu vida.\r\r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "M\xE1s adelante encontrar\xE1s la entrada de la discoteca, muuucha
       suerte.\r\r"
     Options: []

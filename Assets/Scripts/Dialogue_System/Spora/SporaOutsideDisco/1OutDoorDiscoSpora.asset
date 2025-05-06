@@ -18,7 +18,7 @@ MonoBehaviour:
     DialogueText: "\xBFQui\xE9n es ese se\xF1or con cuernos? Me da mala espina.\r\n"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Es Minos, el portero de la discoteca. Si quieres entrar vas a
       tener que hablar con \xE9l.\r\n"
     Options: []
@@ -27,7 +27,7 @@ MonoBehaviour:
     DialogueText: "\xBFCrees que me dejar\xE1 pasar?\r\n"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Int\xE9ntalo, no te har\xE1 nada\u2026 O quiz\xE1s s\xED.\r\n"
     Options: []
   - Name: Lilith
@@ -35,7 +35,7 @@ MonoBehaviour:
     DialogueText: "\u2026"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: 'Es brooooma. Minos es un buen tipo mientras no busques bronca
       con los invitados.
 

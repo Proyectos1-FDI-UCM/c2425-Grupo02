@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "\xBFNo ibas a dirigirte hacia la discoteca?\r"
     Options: []
   - Name: Lilith
@@ -22,7 +22,7 @@ MonoBehaviour:
     DialogueText: "S\xED, claro.\r"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Pues eah, andando que es gerundio. Recuerda que hay una guada\xF1a
       tirada \u201Cpor casualidad\u201D."
     Options: []
@@ -31,7 +31,7 @@ MonoBehaviour:
     DialogueText: "S\xED, ya me lo has dicho.\r\n"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Eso dec\xEDs todos, pero luego a los tres segundos se os olvida.
       Al final nos va a tocar marcarlo todo con pintura amarilla para que no os perd\xE1is."
     Options: []
