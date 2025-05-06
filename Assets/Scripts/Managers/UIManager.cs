@@ -125,6 +125,11 @@ public class UIManager : MonoBehaviour
                 ShowMenu();
                 _paused = true;
             }
+            else if (ControlsScreen.activeSelf)
+            {
+                ShowMenu();
+                HideControls();
+            }
             else
             {
                 HideMenu();
@@ -270,6 +275,7 @@ public class UIManager : MonoBehaviour
         }
        
         ControlsScreen.SetActive(true);
+        PauseMenu.SetActive(false);
         
     }
     public void ShowMenu()
@@ -286,8 +292,11 @@ public class UIManager : MonoBehaviour
     private void HideMenu()
     {
         PauseMenu.gameObject.SetActive(false);
-        Time.timeScale = 1;
-        LevelManager.Instance.EnableBehaviours();
+        if (!DialogueManager.Instance.DialogueIsOnGoing)
+        {
+            Time.timeScale = 1;
+            LevelManager.Instance.EnableBehaviours();
+        }
         HideControls();
     }
 

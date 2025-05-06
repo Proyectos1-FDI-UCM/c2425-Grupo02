@@ -113,6 +113,11 @@ public class DialogueManager : MonoBehaviour
         return _instance != null;
     }
 
+    public bool DialogueIsOnGoing
+    {
+        get {  return _dialogueOnGoing; }
+    }
+
     /// <summary>
     /// Elige qué diálogos muestra y establece el nombre del personaje, el sprite y la línea de diálogo. 
     /// Luego indica que hay un diálogo en curso y que acaba de empezar.
