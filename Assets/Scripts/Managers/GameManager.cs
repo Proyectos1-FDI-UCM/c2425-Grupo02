@@ -280,7 +280,10 @@ public class GameManager : MonoBehaviour
         {
             playerHealth.Heal(1);
             AudioManager.Instance.PlayAudio(healSFX, 0.5f);
-            _collectedHeals.Add(id);
+            if (id != 99)
+            {
+                _collectedHeals.Add(id);
+            }
         }
 
         else Debug.LogError("_player es null.");

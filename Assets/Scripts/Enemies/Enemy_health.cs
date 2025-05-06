@@ -55,14 +55,6 @@ public class Enemy_Health : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        if (GetComponent<IramisPhase2_Attack>() != null) 
-        {
-            GameManager.Instance.ChangeScene(12);
-        }
-    }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -84,6 +76,10 @@ public class Enemy_Health : MonoBehaviour
             if (LevelManager.Instance.InitCombatStarted) 
             { 
                 LevelManager.Instance.SubEnemyCount();
+            }
+            if (GetComponent<IramisPhase2_Attack>() != null)
+            {
+                GameManager.Instance.ChangeScene(12);
             }
             Destroy(gameObject);
         }

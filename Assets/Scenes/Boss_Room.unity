@@ -829,6 +829,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
       value: Heal (1)
@@ -1723,6 +1727,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
       value: Heal
@@ -1734,6 +1742,10 @@ PrefabInstance:
     - target: {fileID: 4675450585902311869, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675450585902311869, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -77446,6 +77458,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name
       value: Heal (3)
@@ -94439,6 +94455,10 @@ PrefabInstance:
     - target: {fileID: 1842701411747444241, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863329716886420501, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
+      propertyPath: Id
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 2242150613744032290, guid: 652675694248aa648a76b5c8731aafc6, type: 3}
       propertyPath: m_Name

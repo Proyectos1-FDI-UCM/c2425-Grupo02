@@ -301,14 +301,6 @@ public class LevelManager : MonoBehaviour
         {
             pillar.enabled = true;
         }
-        Healing_GameObjects[] heals = FindObjectsOfType<Healing_GameObjects>();
-        foreach (Healing_GameObjects heal in heals)
-        {
-            foreach (var comp in heal.GetComponentsInChildren<MonoBehaviour>())
-            {
-                comp.enabled = true;
-            }
-        }
         HideIramis();
     }
 
