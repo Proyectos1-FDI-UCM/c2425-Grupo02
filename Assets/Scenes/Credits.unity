@@ -866,18 +866,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programaci\xF3n: \nTodos los miembros del Grupo 02\n\nAssets:\nLilith:
-    Isabel Serrano Mart\xEDn y Sergio L\xF3pez G\xF3mez\nMinos: Isabel Serrano Mart\xEDn
-    y Luc\xEDa Mei Dom\xEDnguez L\xF3pez\nIramis: Isabel Serrano Mart\xEDn y Luc\xEDa
-    Mei Dom\xEDngez L\xF3pez\nSpora: Pablo Cayuela de la Fuente\nNPCs: Luc\xEDa Mei
-    Dom\xEDngez L\xF3pez y Pablo Cayuela de la Fuente\nDecoraciones: Todo el Grupo
-    02\nBosque: seliel-the-shaper.itch.io/gentle-forest\nInterior disco: opengameart.org/content/lpc-hakuna-matetee
-    y \npaquete de assets aportado por el profesor Guillermo Jim\xE9nez D\xEDaz.\nAgradecimientos
-    especiales: Miguel de la Torre S\xE1nchez (dise\xF1ador de la Nave)\n\nSXF y
-    OST:\n\nSFX: pixabay.com, Pablo Cayuela de la Fuente y Jorge Augusto Blanco Fern\xE1ndez\r\n\nOST:
-    \"The new\" by Interpol, Adri\xE1n Arbas Perdiguero, Jorge Augusto Blanco Fern\xE1ndez\r\ny
-    Pablo Cayuela de la Fuente\n\nAgradecimientos especiales:\nKingless Dungeon\nThe
-    Last round\nClank and Clutch\n\n\n"
+  m_text: "Programaci\xF3n: \nAdri\xE1n Arbas Perdiguero\nJorge Augusto Blanco Fern\xE1ndez\nPablo
+    Cayuela de la Fuente\nRodrigo Ce\xF1a \xC1lvarez\nLuc\xEDa Mei Dom\xEDnguez L\xF3pez\nSergio
+    L\xF3pez G\xF3mez\nIsabel Serrano Mart\xEDn\n\n\nAssets:\nLilith: Isabel Serrano
+    Mart\xEDn y Sergio L\xF3pez G\xF3mez\nMinos: Isabel Serrano Mart\xEDn y Luc\xEDa
+    Mei Dom\xEDnguez L\xF3pez\nIramis: Isabel Serrano Mart\xEDn y Luc\xEDa Mei Dom\xEDngez
+    L\xF3pez\nSpora: Pablo Cayuela de la Fuente\nNPCs: Luc\xEDa Mei Dom\xEDngez L\xF3pez
+    y Pablo Cayuela de la Fuente\nDecoraciones: Todo el Grupo 02\nBosque: seliel-the-shaper.itch.io/gentle-forest\nInterior
+    disco: opengameart.org/content/lpc-hakuna-matetee y \npaquete de assets aportado
+    por el profesor Guillermo Jim\xE9nez D\xEDaz (https://limezu.itch.io/moderninteriors).\n\nAgradecimientos
+    especiales: \nMiguel de la Torre S\xE1nchez (dise\xF1ador de la Nave)\nMiguel
+    Rico Aguado (escritor de los di\xE1logos de Iramis)\n\nSXF y OST:\n\nSFX: pixabay.com,
+    Pablo Cayuela de la Fuente y Jorge Augusto Blanco Fern\xE1ndez\r\n\nOST: \"The
+    new\" by Interpol, Adri\xE1n Arbas Perdiguero, Jorge Augusto Blanco Fern\xE1ndez\r\ny
+    Pablo Cayuela de la Fuente\n\nCameos:\nKingless Dungeon\nThe Last round\nClank
+    and Clutch\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
   m_sharedMaterial: {fileID: 3876388901102333738, guid: 3fe37bca006839040a51f09e94a9db7d, type: 2}
