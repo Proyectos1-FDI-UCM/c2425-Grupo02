@@ -442,7 +442,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6873033286044759199}
-  - {fileID: 872523292702276373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4941529987491341572
@@ -688,8 +687,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.1, y: -55.055}
-  m_SizeDelta: {x: 420.2078, y: 110.11}
+  m_AnchoredPosition: {x: -333, y: -114}
+  m_SizeDelta: {x: 381.3292, y: 103.0413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8764059952706782132
 CanvasRenderer:
@@ -817,7 +816,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 872523292702276373}
   m_Father: {fileID: 6873033286044759199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 872523292702276373}
   - component: {fileID: 3597335562640347303}
   m_Layer: 0
-  m_Name: MARCO DAMNATORUM
+  m_Name: NameBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,11 +1023,11 @@ Transform:
   m_GameObject: {fileID: 8237791446900559261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 397.8796, y: 293, z: 0.8983482}
-  m_LocalScale: {x: 406.411, y: 436.57996, z: 1}
+  m_LocalPosition: {x: 634, y: 434, z: 0}
+  m_LocalScale: {x: 344.47397, y: 334.28928, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5934335040065487016}
+  m_Father: {fileID: 1767164264297448534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3597335562640347303
 SpriteRenderer:
@@ -1069,7 +1069,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: c7bb4e81fe7071740bded4fafc5fa2b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
