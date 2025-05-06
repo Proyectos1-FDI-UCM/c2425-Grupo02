@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 127084176}
   - component: {fileID: 127084175}
   m_Layer: 5
-  m_Name: GoodEnding
+  m_Name: MainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 499091610}
   - component: {fileID: 499091609}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 717657395}
   - component: {fileID: 717657394}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DescText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,6 +928,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5698477907036217517, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
+      propertyPath: m_Name
+      value: ButtonText
+      objectReference: {fileID: 0}
     - target: {fileID: 7001314624494379611, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1038,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158885962986307221, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_Name
-      value: ButtonA
+      value: MenuButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

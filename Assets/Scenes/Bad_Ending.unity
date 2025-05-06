@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 127084176}
   - component: {fileID: 127084175}
   m_Layer: 5
-  m_Name: GameOver_BadEnding
+  m_Name: MainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 434630513}
   - component: {fileID: 434630512}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: DescText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5698477907036217517, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
+      propertyPath: m_Name
+      value: ButtonText
+      objectReference: {fileID: 0}
     - target: {fileID: 5862056952226772373, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1
@@ -1067,7 +1071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158885962986307221, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_Name
-      value: ButtonA
+      value: MenuButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
