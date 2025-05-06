@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "LiiIIIiiiiIilith amiga miaaaaAAaaaaA \xBF\xBF\xBF\xBFtztztztteeee
       hace una copita de zzzumo de pimiento fermentadooOOooO????..????.."
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "Para celebrar nuestra muy bonita, preciosa, extra\xF1able, perfecta,
       indestructible y fren\xE9tica amisssssstaaaaaaadddd.\r\n"
     Options: []
@@ -28,8 +28,7 @@ MonoBehaviour:
     DialogueText: Friki.
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: "TuuUuUu te lo pierdes chavalilla la vida soon DOS d\xEDas sabesss............."
     Options: []
-  Read: 1
   Ending: 0

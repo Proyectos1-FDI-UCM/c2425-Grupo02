@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lines:
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: Ojala salgamos de este planeta pronto...
     Options: []
   - Name: Lilith
@@ -22,8 +22,7 @@ MonoBehaviour:
     DialogueText: "\xBFSalgamos?"
     Options: []
   - Name: Spora
-    Sprite: {fileID: 21300000, guid: aa179d435c27a73468a6fc2445d27e1e, type: 3}
+    Sprite: {fileID: 21300000, guid: 79950047ffcb9494b99c6d6562d74745, type: 3}
     DialogueText: Hombre, te has cargado mi casa, a donde quieres que vaya.
     Options: []
-  Read: 0
   Ending: 0
