@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image ShootIcon;
     [SerializeField] private Image ShootDarker;
     [SerializeField] private Image DashIcon;
+    [SerializeField] private Image DashDarker;
     [SerializeField] private GameObject CheckpointNotif;
     [SerializeField] private GameObject CheckpointBarNotif;
     /// <summary>
@@ -179,6 +180,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowDialogueUI()
     {
+        HideCooldownIcons();
         DialogueUI.SetActive(true);
     }
     /// <summary>
@@ -187,6 +189,7 @@ public class UIManager : MonoBehaviour
     public void HideDialogueUI()
     {
         DialogueUI.SetActive(false);
+        ShowCooldownIcons();
     }
     public void ShowQuestUI()
     {
@@ -322,6 +325,23 @@ public class UIManager : MonoBehaviour
             _notifTimer = 0;
             CheckpointBarNotif.SetActive(false);
         }
+    }
+    private void ShowCooldownIcons()
+    {
+        DashIcon.gameObject.SetActive(true);
+        DashDarker.gameObject.SetActive(true);
+        if (GameManager.Instance.HasScythe)
+        {
+            ShootIcon.gameObject.SetActive(true);
+            ShootDarker.gameObject.SetActive(true);
+        }
+    }
+    private void HideCooldownIcons()
+    {
+        DashIcon.gameObject.SetActive(false);
+        DashDarker.gameObject.SetActive(false);
+        ShootIcon.gameObject.SetActive(false);
+        ShootDarker.gameObject.SetActive(false);
     }
     #endregion   
 

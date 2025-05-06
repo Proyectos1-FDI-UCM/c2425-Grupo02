@@ -1871,6 +1871,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eba795107f8538429b675927101a46d, type: 3}
+--- !u!114 &633179950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8480474819899818453, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 6116255415768169271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &634900883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277003666556432572, guid: 2eba795107f8538429b675927101a46d, type: 3}
@@ -73666,6 +73677,10 @@ PrefabInstance:
       propertyPath: ShootIcon
       value: 
       objectReference: {fileID: 6116255415768169276}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: DashDarker
+      value: 
+      objectReference: {fileID: 633179950}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 

@@ -946,6 +946,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1663151360}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: DashDarker
+      value: 
+      objectReference: {fileID: 608084950}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: DialogueUI
       value: 
       objectReference: {fileID: 1174248614}
@@ -4911,6 +4915,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4932cf999938743b333008e15deb87, type: 3}
+--- !u!114 &608084950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8480474819899818453, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1411981257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &627303633
 PrefabInstance:
   m_ObjectHideFlags: 0
