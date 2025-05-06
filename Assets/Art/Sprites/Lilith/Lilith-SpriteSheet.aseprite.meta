@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 16
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638796547055743897
+  platformSettingsDirtyTick: 638821618881559678
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -144,15 +144,15 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: Lilith-SpriteSheet_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
-      y: 68
-      width: 32
-      height: 32
+      y: 480
+      width: 96
+      height: 96
     spriteID: 3623a67dfad36bb41bda51112b41c5fe
     spriteBone: []
     spriteOutline: []
@@ -164,15 +164,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 32
-      y: 68
-      width: 32
-      height: 32
+      x: 96
+      y: 480
+      width: 96
+      height: 96
     spriteID: 6f895721d88d81b439fa051d9c9a7ff8
     spriteBone: []
     spriteOutline: []
@@ -184,15 +184,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 68
-      width: 32
-      height: 32
+      x: 192
+      y: 480
+      width: 96
+      height: 96
     spriteID: 233b0c9741f069142b1a4ff379cb4ec4
     spriteBone: []
     spriteOutline: []
@@ -204,15 +204,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 96
-      y: 68
-      width: 32
-      height: 32
+      x: 288
+      y: 480
+      width: 96
+      height: 96
     spriteID: a5cde7f97efa776488b63f1d2444d882
     spriteBone: []
     spriteOutline: []
@@ -224,15 +224,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 68
-      width: 32
-      height: 32
+      x: 384
+      y: 480
+      width: 96
+      height: 96
     spriteID: a536837fd3fb8b34bb5def8c669b527d
     spriteBone: []
     spriteOutline: []
@@ -244,15 +244,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 160
-      y: 68
-      width: 32
-      height: 32
+      x: 480
+      y: 480
+      width: 96
+      height: 96
     spriteID: 8fdfc78d273671d4ebc26e720b9df270
     spriteBone: []
     spriteOutline: []
@@ -264,15 +264,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 192
-      y: 68
-      width: 32
-      height: 32
+      x: 576
+      y: 480
+      width: 96
+      height: 96
     spriteID: d44440b5eee3e10448c0d3b4d426a934
     spriteBone: []
     spriteOutline: []
@@ -284,15 +284,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 224
-      y: 68
-      width: 32
-      height: 32
+      x: 672
+      y: 480
+      width: 96
+      height: 96
     spriteID: 1e261b183cdb56943b1078ce505a35c5
     spriteBone: []
     spriteOutline: []
@@ -304,15 +304,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
-      y: 36
-      width: 32
-      height: 32
+      y: 384
+      width: 96
+      height: 96
     spriteID: 912db0375ed0852428713114696c1ea9
     spriteBone: []
     spriteOutline: []
@@ -324,15 +324,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 32
-      y: 36
-      width: 32
-      height: 32
+      x: 96
+      y: 384
+      width: 96
+      height: 96
     spriteID: b9fd9fdc63fdccf49a4e5ee8990e659d
     spriteBone: []
     spriteOutline: []
@@ -344,15 +344,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 36
-      width: 32
-      height: 32
+      x: 192
+      y: 384
+      width: 96
+      height: 96
     spriteID: a5f049a355253e34284395a35bf8a4bd
     spriteBone: []
     spriteOutline: []
@@ -364,15 +364,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 96
-      y: 36
-      width: 32
-      height: 32
+      x: 288
+      y: 384
+      width: 96
+      height: 96
     spriteID: a3faa25b18a28e349abddf20e40a3986
     spriteBone: []
     spriteOutline: []
@@ -384,15 +384,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 36
-      width: 32
-      height: 32
+      x: 384
+      y: 384
+      width: 96
+      height: 96
     spriteID: 9df9739c2f2842644b36f8d427d60e9f
     spriteBone: []
     spriteOutline: []
@@ -404,15 +404,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 160
-      y: 36
-      width: 32
-      height: 32
+      x: 480
+      y: 384
+      width: 96
+      height: 96
     spriteID: 7552af069572f994d8064da90c89f8ac
     spriteBone: []
     spriteOutline: []
@@ -424,15 +424,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 192
-      y: 36
-      width: 32
-      height: 32
+      x: 576
+      y: 384
+      width: 96
+      height: 96
     spriteID: 434f33a07e4458c42bf4b328e6cebccf
     spriteBone: []
     spriteOutline: []
@@ -444,15 +444,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_15
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 224
-      y: 36
-      width: 32
-      height: 32
+      x: 672
+      y: 384
+      width: 96
+      height: 96
     spriteID: 8ca66f5b5238d15418d093ba480da4c0
     spriteBone: []
     spriteOutline: []
@@ -464,15 +464,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_16
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
-      y: 4
-      width: 32
-      height: 32
+      y: 288
+      width: 96
+      height: 96
     spriteID: 2a226ac18c7393248bb1ad455b0531dd
     spriteBone: []
     spriteOutline: []
@@ -484,15 +484,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_17
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 32
-      y: 4
-      width: 32
-      height: 32
+      x: 96
+      y: 288
+      width: 96
+      height: 96
     spriteID: ec1673fae20b62843ab2c5fc8f8a43a4
     spriteBone: []
     spriteOutline: []
@@ -504,15 +504,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_18
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 64
-      y: 4
-      width: 32
-      height: 32
+      x: 192
+      y: 288
+      width: 96
+      height: 96
     spriteID: cd1ae4e1d6e74bb4da243ca8dabdb922
     spriteBone: []
     spriteOutline: []
@@ -524,15 +524,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_19
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 96
-      y: 4
-      width: 32
-      height: 32
+      x: 288
+      y: 288
+      width: 96
+      height: 96
     spriteID: 12cde84f6def2a040979ab8bc300c059
     spriteBone: []
     spriteOutline: []
@@ -544,15 +544,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_20
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 4
-      width: 32
-      height: 32
+      x: 384
+      y: 288
+      width: 96
+      height: 96
     spriteID: bb4d2474ca36c354a8fba9e41383f791
     spriteBone: []
     spriteOutline: []
@@ -564,15 +564,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_21
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 160
-      y: 4
-      width: 32
-      height: 32
+      x: 480
+      y: 288
+      width: 96
+      height: 96
     spriteID: 44f0dc1b03a4f18409a742bcd5994f03
     spriteBone: []
     spriteOutline: []
@@ -584,15 +584,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_22
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 192
-      y: 4
-      width: 32
-      height: 32
+      x: 576
+      y: 288
+      width: 96
+      height: 96
     spriteID: b95b03c7eb915cc47aa30989969fde71
     spriteBone: []
     spriteOutline: []
@@ -604,16 +604,376 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Lilith-SpriteSheet_23
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 224
-      y: 4
-      width: 32
-      height: 32
+      x: 672
+      y: 288
+      width: 96
+      height: 96
     spriteID: d78a0570da78a9649bb0abaa1d2675d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_24
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 192
+      width: 96
+      height: 96
+    spriteID: b7b90d63e0b6b674c9ab2872160852df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_25
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 192
+      width: 96
+      height: 96
+    spriteID: 2c71589d144a80d47ad5b93469b4f178
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_26
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 192
+      width: 96
+      height: 96
+    spriteID: 91de002b75a28494e9afce46ad2d5c7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_27
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 192
+      width: 96
+      height: 96
+    spriteID: aefddb2422d591840b1c23dafb4c6393
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_28
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 384
+      y: 192
+      width: 96
+      height: 96
+    spriteID: b8ddfafe8ef571447a27f78f3de5b2f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_29
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 480
+      y: 192
+      width: 96
+      height: 96
+    spriteID: 7cd89f7810cf1a24a94e761d6894150f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_30
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 96
+      width: 96
+      height: 96
+    spriteID: 38d1017583d363c4f8a8715df18d04fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_31
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 96
+      width: 96
+      height: 96
+    spriteID: 781180b9b5f4b8a459ad106aba7e08cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_32
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 96
+      width: 96
+      height: 96
+    spriteID: 1d0462ced58b3e64e82e6a9b94e8d0f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_33
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 96
+      width: 96
+      height: 96
+    spriteID: e5215e0ceb4587c498c12aedd9c9715c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_34
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 384
+      y: 96
+      width: 96
+      height: 96
+    spriteID: 7569390c8f2811643b098c8ad7d551f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_35
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 480
+      y: 96
+      width: 96
+      height: 96
+    spriteID: 540c61998f1d9ab479b1ce555b2002b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_36
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 96
+      height: 96
+    spriteID: 32355608853ac1549acf5d8dd738eed1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_37
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 0
+      width: 96
+      height: 96
+    spriteID: 4899ffdb824245845a49d7de62c1f237
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_38
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 0
+      width: 96
+      height: 96
+    spriteID: 594d5001680dd9342b98970bc68f5b8e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_39
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 0
+      width: 96
+      height: 96
+    spriteID: 061b5164238fcaf46b7f7f9f1730b817
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_40
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 384
+      y: 0
+      width: 96
+      height: 96
+    spriteID: d5fdf11d0d42d84439c246a1aa4d6de1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Lilith-SpriteSheet_41
+    originalName: 
+    pivot: {x: 0.35, y: 0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 480
+      y: 0
+      width: 96
+      height: 96
+    spriteID: c489510d052c1cd4eb604466c96f8142
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -634,10 +994,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
-        y: 0
-        width: 248
-        height: 94
+        x: 19
+        y: 14
+        width: 712
+        height: 528
       spriteId: 1b88660ac1dbe6241b4203bb3d3619cb
     linkedCells: []
     parentIndex: -1
@@ -669,4 +1029,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 256, y: 96}
+  canvasSize: {x: 768, y: 576}
