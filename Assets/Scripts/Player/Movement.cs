@@ -123,7 +123,7 @@ public class Movement : MonoBehaviour
         {
             _spriteRenderer.flipX = false;
         }
-            ApplyToroidality();
+        ApplyToroidality();
         StepSounds();
 
     }
@@ -142,7 +142,7 @@ public class Movement : MonoBehaviour
     public Vector2 GetLastDir()  
     {
         Vector2 moveInput = InputManager.Instance.MovementVector;
-        if (moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero && !_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
 
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)) 
