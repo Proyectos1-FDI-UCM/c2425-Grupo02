@@ -7,6 +7,8 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 // Añadir aquí el resto de directivas using
 
 /// <summary>
@@ -32,6 +34,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image DashDarker;
     [SerializeField] private GameObject CheckpointNotif;
     [SerializeField] private GameObject CheckpointBarNotif;
+    [SerializeField] private GameObject optionsObj;
+    [SerializeField] private Image option1;
+    [SerializeField] private Image option2;
+    [SerializeField] private Sprite option1Spr;
+    [SerializeField] private Sprite option2Spr;
+    [SerializeField] private Sprite option1SprHigh;
+    [SerializeField] private Sprite option2SprHigh;
+    [SerializeField] private Button option1Butt;
+    [SerializeField] private Button option2Butt;
     /// <summary>
     /// Tiempo durante el que se muestra la notificación del checkpoint
     /// </summary>
@@ -44,6 +55,7 @@ public class UIManager : MonoBehaviour
     #region Atributos Privados (private fields)
     private static UIManager _instance;
     private static Text quest_objects_count;
+    private UnityEngine.SceneManagement.Scene scene;
     /// <summary>
     /// Indica si hay una notificación en curso
     /// </summary>
@@ -54,6 +66,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     private float _notifTimer = 0;
     private bool _paused = false;
+    private int optionnum;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -78,6 +91,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
         if (!GameManager.Instance.HasScythe)
         {
             ShootIcon.gameObject.SetActive(false);
@@ -156,6 +170,28 @@ public class UIManager : MonoBehaviour
             if (_notifTimer >= CheckNotifBarDuration)
             {
                 HideCheckpointBarNotif();
+            }
+        }
+        if (scene.name == "Outside_Of_The_Party" || scene.name == "Boss_Room")
+        {
+            if (optionsObj.activeSelf == true)
+            {
+                Vector2 option = GameManager.Instance.VectorDirection();
+                if (option != Vector2.zero)
+                {
+                    if (option == Vector2.up)
+                    {
+                        option1.sprite = option1SprHigh;
+                        option2.sprite = option2Spr;
+                        GameManager.Instance.getOpt(0);
+                    }
+                    else if (option == Vector2.down)
+                    {
+                        option2.sprite = option2SprHigh;
+                        option1.sprite = option1Spr;
+                        GameManager.Instance.getOpt(1);
+                    }
+                }
             }
         }
     }
@@ -248,6 +284,11 @@ public class UIManager : MonoBehaviour
         ShootIcon.gameObject.SetActive(true);
         ShootDarker.gameObject.SetActive(true);
         ShootIcon.fillAmount = 1;
+    }
+
+    public int ReturnOption()
+    {
+        return optionnum;
     }
     /// <summary>
     /// Muestra el cooldown en pantalla

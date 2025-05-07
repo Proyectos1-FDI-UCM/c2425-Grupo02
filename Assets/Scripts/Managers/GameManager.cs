@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
     /// Autocompletar la misión
     /// </summary>
     private bool _questCheat = false;
+    private int option = 0;
 
     #endregion
 
@@ -461,6 +462,14 @@ public class GameManager : MonoBehaviour
             _disabledTrigDialogues.Add(trigger.GetComponent<TriggerDialogue>().TriggerName);
         }
     }
+    public void getOpt(int opt)
+    {
+        option = opt;
+    }
+    public int returnOpt()
+    {
+        return option;
+    }
     /// <summary>
     /// Método que cambia la escena actual por la indicada en el parámetro.
     /// </summary>
@@ -485,6 +494,18 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
     } // ChangeScene
+    public Vector2 VectorDirection()  //
+    {
+        Vector2 moveInput = InputManager.Instance.MovementVector;
+        Vector2 vector = Vector2.zero;
+        if (((moveInput.x > 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x > moveInput.y) || (moveInput.x == 1 && moveInput.y == 0)) vector = new Vector2(1, 0);//derecha
+        else if (((moveInput.x > 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x < moveInput.y) || (moveInput.x == 0 && moveInput.y == -1)) vector = new Vector2(0, -1);//abajo
+        else if (((moveInput.x < 0 && moveInput.y > 0 || moveInput.x < 0 && moveInput.y < 0) && moveInput.x > moveInput.y) || (moveInput.x == -1 && moveInput.y == 0)) vector = new Vector2(-1, 0);//izquierda
+        else if (((moveInput.x < 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x < moveInput.y) || (moveInput.x == 0 && moveInput.y == 1)) vector = new Vector2(0, 1);//arriba
+        else vector = new Vector2(0, 0);
+
+        return vector;
+    }
 
     #endregion
 

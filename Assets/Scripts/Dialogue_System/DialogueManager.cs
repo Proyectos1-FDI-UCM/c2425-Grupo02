@@ -81,6 +81,21 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (_optionsOnGoing)
+        {
+            if (InputManager.Instance.InteractWasPressedThisFrame())
+            {
+                Button[] buttons = Options.GetComponentsInChildren<Button>();
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    buttons[i].onClick.RemoveAllListeners();
+                    DialogueOption chosenOption = _currentDialogue.CharLines[_i].CharOptions[i];
+                    buttons[i].onClick.AddListener(() => LoadNextDialogue(chosenOption));
+                }
+                int opt = GameManager.Instance.returnOpt();
+                buttons[opt].onClick.Invoke();
+            }
+        }
         if (_justStarted)
         {
             _justStarted = false;
@@ -88,6 +103,10 @@ public class DialogueManager : MonoBehaviour
         else if (_dialogueOnGoing && InputManager.Instance.InteractWasPressedThisFrame() && !UIManager.Instance.IsPaused && !_optionsOnGoing)
         {
             NextLine();
+            if (Options.activeSelf)
+            {
+                _optionsOnGoing = true;
+            }
         }
     }
     #endregion
@@ -258,7 +277,6 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadOptions()
     {
-        _optionsOnGoing = true;
         Options.SetActive(true);
         Button[] buttons = Options.GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++) 
@@ -271,6 +289,18 @@ public class DialogueManager : MonoBehaviour
         _currentOption2 = _currentDialogue.CharLines[_i].CharOptions[1];
         Option1Text.text = _currentOption1.CharOptionText;
         Option2Text.text = _currentOption2.CharOptionText;
+    }
+    public Vector2 VectorDirection()  //
+    {
+        Vector2 moveInput = InputManager.Instance.MovementVector;
+        Vector2 vector = Vector2.zero;
+        if (((moveInput.x > 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x > moveInput.y) || (moveInput.x == 1 && moveInput.y == 0)) vector = new Vector2(1, 0);//derecha
+        else if (((moveInput.x > 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x < moveInput.y) || (moveInput.x == 0 && moveInput.y == -1)) vector = new Vector2(0, -1);//abajo
+        else if (((moveInput.x < 0 && moveInput.y > 0 || moveInput.x < 0 && moveInput.y < 0) && moveInput.x > moveInput.y) || (moveInput.x == -1 && moveInput.y == 0)) vector = new Vector2(-1, 0);//izquierda
+        else if (((moveInput.x < 0 && moveInput.y > 0 || moveInput.x > 0 && moveInput.y < 0) && moveInput.x < moveInput.y) || (moveInput.x == 0 && moveInput.y == 1)) vector = new Vector2(0, 1);//arriba
+        else vector = new Vector2(0, 0);
+
+        return vector;
     }
     /// <summary>
     /// Carga el siguiente diálogo según la decisión que haya tomado el jugador, oculta la UI de decisiones, inicializa el siguiente diálogo

@@ -312,6 +312,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option1
+      value: 
+      objectReference: {fileID: 1278754030}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option2
+      value: 
+      objectReference: {fileID: 977385597}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: questUI
       value: 
       objectReference: {fileID: 226562830}
@@ -344,9 +352,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option1Spr
+      value: 
+      objectReference: {fileID: -1223591331, guid: 4b7379af3b7c6a54693ff0bec3aaf8e8, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option2Spr
+      value: 
+      objectReference: {fileID: -1223591331, guid: 4b7379af3b7c6a54693ff0bec3aaf8e8, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: optionsObj
+      value: 
+      objectReference: {fileID: 2024693358}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: ShootDarker
       value: 
       objectReference: {fileID: 226562832}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option1Butt
+      value: 
+      objectReference: {fileID: 1278754029}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option2Butt
+      value: 
+      objectReference: {fileID: 977385594}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: HealthSprite
       value: 
@@ -367,6 +395,14 @@ PrefabInstance:
       propertyPath: ControlsScreen
       value: 
       objectReference: {fileID: 1866900067}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option1SprHigh
+      value: 
+      objectReference: {fileID: 1587836776, guid: 4b7379af3b7c6a54693ff0bec3aaf8e8, type: 3}
+    - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
+      propertyPath: option2SprHigh
+      value: 
+      objectReference: {fileID: 1587836776, guid: 4b7379af3b7c6a54693ff0bec3aaf8e8, type: 3}
     - target: {fileID: 9068954602577431981, guid: ea3a17145073a4b46b85c183bceafcef, type: 3}
       propertyPath: CheckpointNotif
       value: 
@@ -19566,6 +19602,28 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &977385594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8272316734700458710, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
+  m_PrefabInstance: {fileID: 275303870742590672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &977385597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2379123219482630783, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
+  m_PrefabInstance: {fileID: 275303870742590672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016547767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4884952940063810645, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
@@ -19783,6 +19841,28 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!114 &1278754029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1160164354475117273, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
+  m_PrefabInstance: {fileID: 275303870742590672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1278754030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8906811668988132908, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
+  m_PrefabInstance: {fileID: 275303870742590672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1403788603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30814,6 +30894,8 @@ MonoBehaviour:
   - {fileID: 1511879791}
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}
+  ExitIntro: {fileID: 0}
+  ScytheInLongPath: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0

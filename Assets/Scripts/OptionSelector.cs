@@ -5,8 +5,11 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 // Añadir aquí el resto de directivas using
 
 
@@ -36,7 +39,6 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private Sprite continuarSprHigh;
     [SerializeField] private Sprite nuevaSprHigh;
     [SerializeField] private Sprite creditosSprHigh;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +49,7 @@ public class NewBehaviourScript : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    UnityEngine.SceneManagement.Scene scene;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,7 +65,7 @@ public class NewBehaviourScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        scene = SceneManager.GetActiveScene();
     }
 
     /// <summary>
@@ -71,56 +73,116 @@ public class NewBehaviourScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (scene.name == "Main_Menu")
+        {
+            if (InputManager.Instance.InteractWasPressedThisFrame())
+            {
+                if (creditos.sprite == creditosSprHigh)
+                {
+                    creditosButt.onClick.Invoke();
+                }
+                else if (nueva.sprite == nuevaSprHigh)
+                {
+                    nuevaButt.onClick.Invoke();
+                }
+                else if (continuar.sprite == continuarSprHigh)
+                {
+                    continuarButt.onClick.Invoke();
+                }
+            }
+        }
     }
     private void FixedUpdate()
     {
         Vector2 option = VectorDirection();
-        if (option != Vector2.zero)
+        if (scene.name == "Main_Menu")
         {
-            if (option == Vector2.down)
+            if (option != Vector2.zero)
             {
-                creditos.sprite = creditosSpr;
-                nueva.sprite = nuevaSprHigh;
-                continuar.sprite = continuarSpr;
-            }//button.onClick.Invoke();
-            else if (option == Vector2.up)
-            {
-                if (continuarGameObject.activeSelf == true)
+                if (option == Vector2.down)
                 {
                     creditos.sprite = creditosSpr;
+                    nueva.sprite = nuevaSprHigh;
+                    continuar.sprite = continuarSpr;
+                }//button.onClick.Invoke();
+                else if (option == Vector2.up)
+                {
+                    if (continuarGameObject.activeSelf == true)
+                    {
+                        creditos.sprite = creditosSpr;
+                        nueva.sprite = nuevaSpr;
+                        continuar.sprite = continuarSprHigh;
+                    }
+                }
+                else if (option == Vector2.right)
+                {
+                    creditos.sprite = creditosSprHigh;
                     nueva.sprite = nuevaSpr;
-                    continuar.sprite = continuarSprHigh;
+                    continuar.sprite = continuarSpr;
+                }
+                else if (option == Vector2.left)
+                {
+                    creditos.sprite = creditosSpr;
+                    nueva.sprite = nuevaSprHigh;
+                    continuar.sprite = continuarSpr;
                 }
             }
-            else if (option == Vector2.right)
-            {
-                creditos.sprite = creditosSprHigh;
-                nueva.sprite = nuevaSpr;
-                continuar.sprite = continuarSpr;
-            }
-            else if (option == Vector2.left && creditos.sprite == creditosSprHigh)
-            {
-                creditos.sprite = creditosSpr;
-                nueva.sprite = nuevaSprHigh;
-                continuar.sprite = continuarSpr;
-            }
         }
-        if (InputManager.Instance.InteractWasPressedThisFrame())
+        /*else
         {
-            if (creditos.sprite == creditosSprHigh)
+            if (option != Vector2.zero)
             {
-                creditosButt.onClick.Invoke();
+                if (option == Vector2.down)
+                {
+                    if (continuarGameObject.activeSelf == true)
+                    {
+                        creditos.sprite = creditosSpr;
+                        nueva.sprite = nuevaSprHigh;
+                    }
+                }//button.onClick.Invoke();
+                else if (option == Vector2.up)
+                {
+                    if (continuarGameObject.activeSelf == true)
+                    {
+                        creditos.sprite = creditosSprHigh;
+                        nueva.sprite = nuevaSpr;
+                    }
+                }
             }
-            else if (nueva.sprite == nuevaSprHigh)
+        }*/
+        /*else
+        {
+            if (option != Vector2.zero)
             {
-                nuevaButt.onClick.Invoke();
+                if (option == Vector2.up)
+                {
+                    if (option1Obj.activeSelf == true)
+                    {
+                        option1.sprite = option1SprHigh;
+                        option2.sprite = option2Spr;
+                    }
+                }
+                else if (option == Vector2.down)
+                {
+                    if (option2Obj.activeSelf == true)
+                    {
+                        option2.sprite = option2SprHigh;
+                        option1.sprite = option1Spr;
+                    }
+                }
             }
-            else if (continuar.sprite == continuarSprHigh)
+            if (InputManager.Instance.InteractWasPressedThisFrame())
             {
-                continuarButt.onClick.Invoke();
+                if (option1.sprite == option1SprHigh)
+                {
+                    option1Butt.onClick.Invoke();
+                }
+                else if (option2.sprite == option2SprHigh)
+                {
+                    option2Butt.onClick.Invoke();
+                }
             }
-        }
+        }*/
     }
     #endregion
 
