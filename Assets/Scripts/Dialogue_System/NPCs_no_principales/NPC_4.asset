@@ -24,6 +24,6 @@ MonoBehaviour:
     Options: []
   - Name: Pulpo
     Sprite: {fileID: 0}
-    DialogueText: "Ni de co\xF1a. 50 pavos pa'l bolsillo."
+    DialogueText: "Ni de co\xF1a. Cincuenta pavos pa'l bolsillo."
     Options: []
   Ending: 0
