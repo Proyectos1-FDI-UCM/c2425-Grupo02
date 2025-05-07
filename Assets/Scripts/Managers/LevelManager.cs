@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour
         {
             ChangeBarStatue();
         }
-        if (!GameManager.Instance.GetInitCombatState)
+        if (!GameManager.Instance.InitCombatStateHasFinished)
         {
             if (EndLongPathObj != null)
             {
@@ -411,7 +411,7 @@ public class LevelManager : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-        GameManager.Instance.GetInitCombatState = true;
+        GameManager.Instance.InitCombatStateHasFinished = true;
         _initCombatStarted = false;
     }
     #endregion

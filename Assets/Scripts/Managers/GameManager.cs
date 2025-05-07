@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private HashSet<string> _readDialogues = new HashSet<string>();
     /// <summary>
-    /// Hashset para desactivar diálogos trigger
+    /// Hashset donde se guardan los Trigger Dialogues deshabilitados
     /// </summary>
     private HashSet<string> _disabledTrigDialogues = new HashSet<string>();
     /// <summary>
@@ -108,7 +108,13 @@ public class GameManager : MonoBehaviour
     private int _health;
 
     //DEV CHEATS
+    /// <summary>
+    /// Invulnerabilidad del player
+    /// </summary>
     private bool _invulnerability = false;
+    /// <summary>
+    /// Autocompletar la misión
+    /// </summary>
     private bool _questCheat = false;
 
     #endregion
@@ -218,6 +224,9 @@ public class GameManager : MonoBehaviour
     {
         get { return _questState; }
     }
+    /// <summary>
+    /// Indica si se ha usado el checkpoint del bartender
+    /// </summary>
     public bool SaveUsed
     {
         get { return _saveUsed; }
@@ -229,41 +238,55 @@ public class GameManager : MonoBehaviour
     {
         get { return _hasScythe; }
     }
-
-    public bool GetInitCombatState
+    /// <summary>
+    /// Indica si el combate inicial ha terminado
+    /// </summary>
+    public bool InitCombatStateHasFinished
     {
         get { return _initCombatFinish; }
         set { _initCombatFinish = value; }
     }
-
+    /// <summary>
+    /// Getter/setter del índice del último checkpoint que se ha recogido
+    /// </summary>
     public int SavedCheckpoint
     {
         get { return _checkpointIndex; }
         set { _checkpointIndex = value; }
     }
-
+    /// <summary>
+    /// Getter con los ids de los heals recogidos por el player
+    /// </summary>
     public HashSet<int> GetCollectedHeals
     {
         get { return _collectedHeals; }
     }
-
+    /// <summary>
+    /// Getter de las cajas recogidas por el player
+    /// </summary>
     public HashSet<int> GetCollectedBoxes
     {
         get { return _collectedBoxes; }
     }
 
     //DEV CHEATS
-
+    /// <summary>
+    /// indica si tiene invulnerabilidad
+    /// </summary>
     public bool HasInvulnerability
     {
         get { return _invulnerability; }
     }
-
+    /// <summary>
+    /// Inidca si tiene habilitado el cheat de autocompletar la misión
+    /// </summary>
     public bool QuestCheatEnabled
     {
         get { return _questCheat; }
     }
-
+    /// <summary>
+    /// Actualiza el checkpoint después de hablar con el bartender
+    /// </summary>
     public void UpdateSave()
     {
         _saveUsed = true;
@@ -294,19 +317,35 @@ public class GameManager : MonoBehaviour
         else Debug.LogError("_player es null.");
 
     }
+    /// <summary>
+    /// Guarda la salud actual del player en el gamemanager para guardarla entre escenas y llama al uimanager para que lo actualice en la HUD
+    /// </summary>
+    /// <param name="Health"></param>
     public void SaveAndSendHealth(int Health)
     {
         _health = Health;
         UIManager.Instance.UpdateHealth(_health);
     }
+    /// <summary>
+    /// Devuelve el estado de la misión
+    /// </summary>
+    /// <returns></returns>
     public int questState()
     {
         return _questState;
     }
+    /// <summary>
+    /// Devuelve el número de cajas recogidas
+    /// </summary>
+    /// <returns></returns>
     public int questObjectsCount()
     {
         return _questObjectsCount;
     }
+    /// <summary>
+    /// Aumenta en 1 el número de objetos de misión actual y guarda el id en el hashset para que no vuelva a aparecer en escena al regresar
+    /// </summary>
+    /// <param name="id"></param>
     public void OnQuestObjectCollected(int id)
     {
         _questObjectsCount++;

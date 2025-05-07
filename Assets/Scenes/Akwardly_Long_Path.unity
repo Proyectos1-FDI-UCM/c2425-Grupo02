@@ -94180,6 +94180,11 @@ PrefabInstance:
       addedObject: {fileID: 1774155314}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+--- !u!1 &1042439703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+  m_PrefabInstance: {fileID: 1042439702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1064120118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95928,6 +95933,7 @@ MonoBehaviour:
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}
   ExitIntro: {fileID: 0}
+  ScytheInLongPath: {fileID: 1042439703}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
