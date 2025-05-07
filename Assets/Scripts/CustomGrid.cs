@@ -1,9 +1,10 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Script que define la clase CustomGrid, que genera una cuadrícula a la que se le pueden añadir los métodos necesarios para el juego
+// Sergio López Gómez
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
+
 
 using System.Runtime.CompilerServices;
 using UnityEngine;
