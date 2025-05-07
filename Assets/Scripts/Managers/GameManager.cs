@@ -489,8 +489,6 @@ public class GameManager : MonoBehaviour
             }
             else if (dialogueName == "Scythe")
             {
-                GameObject scythe = GameObject.Find("Scythe_dialogue");
-                scythe.SetActive(false);
                 _hasScythe = true;
                 UIManager.Instance.ShowShootIcon();
                 if (Player != null)

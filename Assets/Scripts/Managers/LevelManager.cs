@@ -66,6 +66,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject BarCheckpointStatue;
     [SerializeField] private Sprite CheckpointActive;
     [SerializeField] private GameObject ExitIntro;
+    [SerializeField] private GameObject ScytheInLongPath;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -217,6 +218,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void StartInitCombat()
     {
+        Destroy(ScytheInLongPath);
         Debug.Log("Init Combat started");
         if (InitialEnemies != null)
         {
