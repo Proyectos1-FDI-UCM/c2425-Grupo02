@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Script que se encarga de ejecutar el ataque del enemigo 1 cuando su máquina de estados lo sitúe en el estado de ataque.
+// Sergio López Gómez
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 

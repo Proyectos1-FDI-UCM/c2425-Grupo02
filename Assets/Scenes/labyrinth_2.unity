@@ -50338,14 +50338,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SporaLabyrinth2
       objectReference: {fileID: 0}
-    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.26
