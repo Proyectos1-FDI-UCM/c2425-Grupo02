@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2880673796690416501}
-  - component: {fileID: 7343583397502697899}
   - component: {fileID: 3863966078146110029}
   - component: {fileID: 4227176189225222403}
   - component: {fileID: 5127214977523390956}
-  - component: {fileID: 8101947538920268982}
+  - component: {fileID: 3884064810914624555}
   m_Layer: 10
   m_Name: IramisPhase1
   m_TagString: Untagged
@@ -30,34 +29,13 @@ Transform:
   m_GameObject: {fileID: 5344345683723096334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: 131.19626, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8501932794898138536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7343583397502697899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5344345683723096334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78af952ff65bce844a9147725746af10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 7679255306354555500, guid: f1a099f2e4ea3884ca9e29a7ea1fac44, type: 3}
-  spinSpeed: 0.002
-  bossProyectile: {fileID: 4971413454173661028, guid: fe8a83351f67eca4989ae6723f52c373, type: 3}
-  firePosition: {fileID: 2880673796690416501}
-  fireRate: 5
-  RateSpawn: 15
-  Boss: {fileID: 5344345683723096334}
-  Spawner: {fileID: 175193201247443623, guid: 2d83086aea9ddce4fabc4354c316646c, type: 3}
-  Wall: {fileID: 9205012062740336650, guid: 3f1687f39e94cba47a16e218e989ff63, type: 3}
 --- !u!114 &3863966078146110029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46bdd0c759e3d043b01178c9cae1160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossHealth: 5
+  BossHealth: 20
   Pillar1: 1
   Pillar2: 0
   Pillar3: 0
   Pillar4: 0
-  CenterPosition: {x: 0, y: 0}
+  CenterPosition: {x: 0, y: 132}
   Phase2: {fileID: 6139690745855566351, guid: 73d79ad761748384bb968c03df5e14b2, type: 3}
   spriteShieldOff: {fileID: -1899113342, guid: d3dedefd491455e47a102d144035d65a, type: 3}
   spriteShieldOn: {fileID: 2132628071, guid: a05c20c272e422a4f9282f6607a77b31, type: 3}
@@ -151,7 +129,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!212 &8101947538920268982
+--- !u!212 &3884064810914624555
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,18 +167,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1559407157
-  m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 2132628071, guid: a05c20c272e422a4f9282f6607a77b31, type: 3}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 9
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8243122212212925245
@@ -212,6 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8501932794898138536}
+  - component: {fileID: 2633385969069482739}
   m_Layer: 10
   m_Name: Firing Point
   m_TagString: Untagged
@@ -228,9 +207,30 @@ Transform:
   m_GameObject: {fileID: 8243122212212925245}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.38, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880673796690416501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2633385969069482739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243122212212925245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78af952ff65bce844a9147725746af10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  spinSpeed: 1
+  bossProyectile: {fileID: 4971413454173661028, guid: fe8a83351f67eca4989ae6723f52c373, type: 3}
+  firePosition: {fileID: 8501932794898138536}
+  fireRate: 5
+  RateSpawn: 15
+  Boss: {fileID: 5344345683723096334}
+  Spawner: {fileID: 175193201247443623, guid: 2d83086aea9ddce4fabc4354c316646c, type: 3}
+  Wall: {fileID: 9205012062740336650, guid: 3f1687f39e94cba47a16e218e989ff63, type: 3}
