@@ -4,8 +4,6 @@
 
 <h1 align="center">Índice</h1>
 
-* <p><u><strong>Historia</strong></u></p>
-
 * <p><u><strong>Descripción</strong></u></p>
 
 * <p><u><strong>Características clave</strong></u></p>
