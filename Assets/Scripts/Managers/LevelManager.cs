@@ -65,6 +65,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] TriggerDialogues;
     [SerializeField] private GameObject BarCheckpointStatue;
     [SerializeField] private Sprite CheckpointActive;
+    [SerializeField] private GameObject ExitIntro;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -128,6 +129,10 @@ public class LevelManager : MonoBehaviour
         if (GameManager.Instance.QuestCheatEnabled)
         {
             OpenDisco();
+        }
+        if (ExitIntro != null && !GameManager.Instance.HasBeenRead("1IntroductionSpora"))
+        {
+            ExitIntro.SetActive(false);
         }
     }
 
