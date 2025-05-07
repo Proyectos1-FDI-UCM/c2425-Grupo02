@@ -109,6 +109,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetScythe"",
+                    ""type"": ""Button"",
+                    ""id"": ""69667eaf-8c73-4bd4-9186-8f25b7d2a72b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -439,6 +448,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CompleteQuest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74a0c25f-624f-48fa-a750-d2d4fec585fb"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetScythe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1035,6 +1055,7 @@ namespace UnityEngine.InputSystem
             m_Player_EnemyDestruction = m_Player.FindAction("EnemyDestruction", throwIfNotFound: true);
             m_Player_Invulnerability = m_Player.FindAction("Invulnerability", throwIfNotFound: true);
             m_Player_CompleteQuest = m_Player.FindAction("CompleteQuest", throwIfNotFound: true);
+            m_Player_GetScythe = m_Player.FindAction("GetScythe", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1117,6 +1138,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_EnemyDestruction;
         private readonly InputAction m_Player_Invulnerability;
         private readonly InputAction m_Player_CompleteQuest;
+        private readonly InputAction m_Player_GetScythe;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -1130,6 +1152,7 @@ namespace UnityEngine.InputSystem
             public InputAction @EnemyDestruction => m_Wrapper.m_Player_EnemyDestruction;
             public InputAction @Invulnerability => m_Wrapper.m_Player_Invulnerability;
             public InputAction @CompleteQuest => m_Wrapper.m_Player_CompleteQuest;
+            public InputAction @GetScythe => m_Wrapper.m_Player_GetScythe;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1166,6 +1189,9 @@ namespace UnityEngine.InputSystem
                 @CompleteQuest.started += instance.OnCompleteQuest;
                 @CompleteQuest.performed += instance.OnCompleteQuest;
                 @CompleteQuest.canceled += instance.OnCompleteQuest;
+                @GetScythe.started += instance.OnGetScythe;
+                @GetScythe.performed += instance.OnGetScythe;
+                @GetScythe.canceled += instance.OnGetScythe;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1197,6 +1223,9 @@ namespace UnityEngine.InputSystem
                 @CompleteQuest.started -= instance.OnCompleteQuest;
                 @CompleteQuest.performed -= instance.OnCompleteQuest;
                 @CompleteQuest.canceled -= instance.OnCompleteQuest;
+                @GetScythe.started -= instance.OnGetScythe;
+                @GetScythe.performed -= instance.OnGetScythe;
+                @GetScythe.canceled -= instance.OnGetScythe;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1388,6 +1417,7 @@ namespace UnityEngine.InputSystem
             void OnEnemyDestruction(InputAction.CallbackContext context);
             void OnInvulnerability(InputAction.CallbackContext context);
             void OnCompleteQuest(InputAction.CallbackContext context);
+            void OnGetScythe(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

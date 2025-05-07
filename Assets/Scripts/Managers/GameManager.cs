@@ -171,6 +171,10 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowQuestUI();
             UIManager.Instance.UpdateQuestProgress(_questObjectsCount);
         }
+        else if (InputManager.Instance.GetScytheWasPressedThisFrame())
+        {
+            _hasScythe = true;
+        }
     }
 
     /// <summary>
