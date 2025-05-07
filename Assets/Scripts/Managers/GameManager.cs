@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
         else if (InputManager.Instance.GetScytheWasPressedThisFrame())
         {
             _hasScythe = true;
+            LevelManager.Instance.EnableBehaviours();
         }
     }
 
