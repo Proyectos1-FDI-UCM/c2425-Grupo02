@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9040393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7499750541549581164, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1241548606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &24414433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1913932523579434298, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
@@ -33535,7 +33540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 9040393}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &796911440
@@ -34503,6 +34508,8 @@ MonoBehaviour:
   TriggerDialogues: []
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}
+  ExitIntro: {fileID: 0}
+  ScytheInLongPath: {fileID: 0}
 --- !u!4 &1438677795
 Transform:
   m_ObjectHideFlags: 0

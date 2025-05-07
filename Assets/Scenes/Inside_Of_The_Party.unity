@@ -11984,7 +11984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1366659894}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1263186886
@@ -12354,6 +12354,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+--- !u!1 &1366659894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7499750541549581164, guid: 7058efb847f7c154bb9af5572204151f, type: 3}
+  m_PrefabInstance: {fileID: 1411981257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1383001512 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5712073308370871497, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}
@@ -15667,6 +15672,8 @@ MonoBehaviour:
   TriggerDialogues: []
   BarCheckpointStatue: {fileID: 1143648889}
   CheckpointActive: {fileID: -439812013, guid: 0ca97b16d8471434dab31d286ddcb23b, type: 3}
+  ExitIntro: {fileID: 0}
+  ScytheInLongPath: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
