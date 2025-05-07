@@ -31,7 +31,7 @@ public class Credits : MonoBehaviour
     /// Variables del timer
     /// </summary>
     private float _animtime = 0f;
-    private float _animlim = 19f;
+    private float _animlim = 29f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----

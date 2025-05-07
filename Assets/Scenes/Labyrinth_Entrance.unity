@@ -369,17 +369,13 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2759214053293523838, guid: a102c922515be3e47b9de16aa069e773, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5625
+      objectReference: {fileID: 0}
     - target: {fileID: 3825859822035098541, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_Name
       value: Cartel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4024973947502646938, guid: a102c922515be3e47b9de16aa069e773, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4116172112340248700, guid: a102c922515be3e47b9de16aa069e773, type: 3}
       propertyPath: m_LocalPosition.x
