@@ -1,7 +1,8 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Script que define una máquina de estados para los enemigos. Cada enemigo puede tener un script que herede de esta máquina de estados
+// si necesitase algún cambio
+// Sergio López Gómez
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 

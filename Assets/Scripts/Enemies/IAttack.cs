@@ -1,9 +1,10 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Interfaz de ataque de los enemigos, para que cada enemigo pueda implementar su propio ataque único a su máquina de estados
+// Sergio López Gómez
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
+
 
 using System.Collections;
 using UnityEngine;

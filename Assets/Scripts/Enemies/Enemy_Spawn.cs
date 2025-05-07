@@ -1,7 +1,8 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Script que lleva toda la lógica de las zonas de spawn: instanciación de muros invisibles (cuando sea necesario), instanciación de enemigos y 
+// llevar la cuenta de enemigos instanciados. Usa la clase CustomGrid.
+// Sergio López Gómez
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
