@@ -39,6 +39,7 @@ public class Shoot : MonoBehaviour
 
     #region Atributos Privados (private fields)
 
+    private Animator _anim;
     private GameObject _newBullet;
     private Movement _playerMovement;
     private float _timer;
@@ -53,6 +54,7 @@ public class Shoot : MonoBehaviour
     }
     private void Start()
     {
+        _anim = GetComponent<Animator>();
         _timer = DelayTime;
         if (!GameManager.Instance.HasScythe)
         {
@@ -69,6 +71,7 @@ public class Shoot : MonoBehaviour
     {
         if (InputManager.Instance.FireWasPressedThisFrame() && _timer >= DelayTime)
         {
+            _anim.SetTrigger("Shoot");
             ShootNewBullet();
             _timer = 0;
             UIManager.Instance.StartShootCooldown();

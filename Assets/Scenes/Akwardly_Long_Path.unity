@@ -95927,6 +95927,7 @@ MonoBehaviour:
   - {fileID: 621784076}
   BarCheckpointStatue: {fileID: 0}
   CheckpointActive: {fileID: 0}
+  ExitIntro: {fileID: 0}
 --- !u!4 &2038953465
 Transform:
   m_ObjectHideFlags: 0
