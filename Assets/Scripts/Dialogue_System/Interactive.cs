@@ -19,9 +19,14 @@ public class Interactive : MonoBehaviour
     /// Array de los diálogos del NPC
     /// </summary>
     [SerializeField] private DialogueScript[] DialogueScripts;
-
-    [SerializeField] private Sprite spriteArrowOff; // Sprite sin flecha de interactuable.
-    [SerializeField] private Sprite spriteArrowOn; // Sprite con flecha de interactuable.
+    /// <summary>
+    /// Sprite sin flecha de interactuabble
+    /// </summary>
+    [SerializeField] private Sprite spriteArrowOff;
+    /// <summary>
+    /// Sprite con flecha de interactuable
+    /// </summary>
+    [SerializeField] private Sprite spriteArrowOn; 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,25 +35,41 @@ public class Interactive : MonoBehaviour
     /// indica si el player puede interactuar con el NPC
     /// </summary>
     private bool _canStart = false;
-
-    private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer del NPC.
+    /// <summary>
+    /// Referencia al componente SpriteRenderer del NPC.
+    /// </summary>
+    private SpriteRenderer spriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+    /// <summary>
+    /// Mientras esté dentro del trigger, se activa el booleano que le indica al player que puede interactuar y aparece la flecha amarilla
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
         _canStart = true;
         spriteRenderer.sprite = spriteArrowOn;
     }
+    /// <summary>
+    /// Cuando sale del trigger, el booleano se vuelve false y se quita la flecha
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         _canStart = false;
         spriteRenderer.sprite = spriteArrowOff;
     }
+    /// <summary>
+    /// Obtenemos el componente SpriteRenderer del NPC.
+    /// 
+    /// Si el dialoguescript 0  se llama "Scythe" y el gamemanager tiene guardado que se ha leído Scythe o si se llama "DiscoDoor" y ya se ha completado la misión, se desactiva el 
+    /// gameobject para que no aparezca el diálogo
+    /// </summary>
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Obtenemos el componente SpriteRenderer del NPC.
+        spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteArrowOff;
 
         if ((DialogueScripts[0].name == "Scythe" && GameManager.Instance.HasBeenRead("Scythe")) || DialogueScripts[0].name == "DiscoDoor" && GameManager.Instance.QuestState == 2)

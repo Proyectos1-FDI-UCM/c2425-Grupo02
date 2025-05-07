@@ -61,11 +61,29 @@ public class LevelManager : MonoBehaviour
     /// Scene exit de la entrada a la discoteca
     /// </summary>
     [SerializeField] private GameObject DiscoDoor;
+    /// <summary>
+    /// Scene exit de la entrada a la discoteca
+    /// </summary>
     [SerializeField] private GameObject ExitSceneDisco;
+    /// <summary>
+    /// Trigger dialogues de la escena
+    /// </summary>
     [SerializeField] private GameObject[] TriggerDialogues;
+    /// <summary>
+    /// Estatua de checkpoint de la barra de bartender
+    /// </summary>
     [SerializeField] private GameObject BarCheckpointStatue;
+    /// <summary>
+    /// Sprite de checkpoint activado
+    /// </summary>
     [SerializeField] private Sprite CheckpointActive;
+    /// <summary>
+    /// Scene exit de la escena de introducción
+    /// </summary>
     [SerializeField] private GameObject ExitIntro;
+    /// <summary>
+    /// Guadaña de akwardly long path
+    /// </summary>
     [SerializeField] private GameObject ScytheInLongPath;
     #endregion
 
@@ -282,10 +300,17 @@ public class LevelManager : MonoBehaviour
     {
         Iramis.SetActive(false);
     }
+    /// <summary>
+    /// Getter de los trigger dialogues de la escena
+    /// </summary>
     public GameObject[] Triggers
     {
         get { return TriggerDialogues; }
     }
+    /// <summary>
+    /// Método que se llama cuando completas la misión de los paquetes. Habilita la entrada a la discoteca y se deshabilita el trigger dialogue
+    /// que te impide pasar
+    /// </summary>
     public void OpenDisco()
     {
         if (DiscoDoor != null && ExitSceneDisco != null) 
@@ -316,7 +341,9 @@ public class LevelManager : MonoBehaviour
         }
         HideIramis();
     }
-
+    /// <summary>
+    /// Después de hablar con la bartender, se cambia el sprite de la estatua del checkpoint al del checkpoint activado
+    /// </summary>
     public void ChangeBarStatue()
     {
         if (BarCheckpointStatue != null)
@@ -387,7 +414,9 @@ public class LevelManager : MonoBehaviour
             NPC.enabled = false;
         }
     }
-
+    /// <summary>
+    /// Método que se llama cuando el combate inicial en long path termina. Se activa al segundo Spora y los heals de la escena
+    /// </summary>
     private void InitCombatEnded()
     {
         if (Blocks != null)

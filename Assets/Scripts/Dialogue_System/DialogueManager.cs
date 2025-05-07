@@ -112,7 +112,9 @@ public class DialogueManager : MonoBehaviour
     {
         return _instance != null;
     }
-
+    /// <summary>
+    /// Getter que indica si hay un diálogo en curso
+    /// </summary>
     public bool DialogueIsOnGoing
     {
         get {  return _dialogueOnGoing; }

@@ -58,7 +58,11 @@ public class Checkpoint : MonoBehaviour
             _spriteRenderer.sprite = ObtainedState;
         }
     }
-
+/// <summary>
+/// Al entrar en el checkpoint, se guarda en el gamemanager el número del checkpoint, su posición de spawn para el player y el índice de la escena
+/// donde debe spawnear la próxima vez
+/// </summary>
+/// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (GameManager.Instance.SavedCheckpoint < CheckpointNumber)
@@ -82,17 +86,7 @@ public class Checkpoint : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    /// <summary>
-    /// Guarda en el GameManager el índice del checkpoint, la posición en la que debe spawnear el jugador después de un gameover al pulsar continuar
-    /// y el índice de la escena en la que spawnea
-    /// </summary>
-    private void SetCheckpoint()
-    {
-    }
+
     #endregion
 
 } // class Checkpoint 

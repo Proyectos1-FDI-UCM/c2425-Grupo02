@@ -49,6 +49,9 @@ public class UIManager : MonoBehaviour
     /// </summary>
     private bool _notifOnGoing = false;
     private bool _notifBarOnGoing = false;
+    /// <summary>
+    /// Timer de la notificación
+    /// </summary>
     private float _notifTimer = 0;
     private bool _paused = false;
     #endregion
@@ -172,12 +175,16 @@ public class UIManager : MonoBehaviour
     {
         return _instance != null;
     }
-
+    /// <summary>
+    /// Getter que indica si el juego está pausado
+    /// </summary>
     public bool IsPaused
     {
         get { return _paused; }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void ShowDialogueUI()
     {
         HideCooldownIcons();
@@ -191,15 +198,24 @@ public class UIManager : MonoBehaviour
         DialogueUI.SetActive(false);
         ShowCooldownIcons();
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public void ShowQuestUI()
     {
         questUI.SetActive(true);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public void HideQuestUI()
     {
         questUI.SetActive(false);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="health"></param>
     public void UpdateHealth(int health)
     {
         if (health >= 1)
@@ -208,7 +224,10 @@ public class UIManager : MonoBehaviour
             Debug.Log("Indice sprite:" + (health - 1));
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="count"></param>
     public void UpdateQuestProgress(int count)
     {
         quest_objects_count.text = "x" + count;
@@ -237,21 +256,34 @@ public class UIManager : MonoBehaviour
     {
         ShootIcon.fillAmount = 0;
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="timer"></param>
+    /// <param name="cooldown"></param>
     public void UpdateShootCooldown(float timer, float cooldown)
     {
         ShootIcon.fillAmount = timer / cooldown;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void StartDashCooldown()
     {
         DashIcon.fillAmount = 0;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="timer"></param>
+    /// <param name="cooldown"></param>
     public void UpdateDashCooldown(float timer, float cooldown)
     {
         DashIcon.fillAmount = timer / cooldown;
     }
-
+    /// <summary>
+    /// Muestra la notificación de checkpoint
+    /// </summary>
     public void ShowCheckpointNotif()
     {
         if (CheckpointNotif != null)
@@ -260,6 +292,9 @@ public class UIManager : MonoBehaviour
             _notifOnGoing = true;
         }
     }
+    /// <summary>
+    /// Muestra la notificación de checkpoint del bartender
+    /// </summary>
     public void ShowCheckpointBarNotif()
     {
         if (CheckpointBarNotif != null)
@@ -268,7 +303,9 @@ public class UIManager : MonoBehaviour
             _notifBarOnGoing = true;
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void ShowControls()
     {
         if (ControlsScreen == null)
@@ -281,6 +318,9 @@ public class UIManager : MonoBehaviour
         PauseMenu.SetActive(false);
         
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public void ShowMenu()
     {
         PauseMenu.gameObject.SetActive(true);
@@ -291,7 +331,9 @@ public class UIManager : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HideMenu()
     {
         PauseMenu.gameObject.SetActive(false);
@@ -302,12 +344,16 @@ public class UIManager : MonoBehaviour
         }
         HideControls();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void HideControls()
     {
         ControlsScreen.SetActive(false);
     }
-
+    /// <summary>
+    /// Esconde la notificación de checkpoint
+    /// </summary>
     private void HideCheckpointNotif()
     {
         if (CheckpointNotif != null)
@@ -317,6 +363,9 @@ public class UIManager : MonoBehaviour
             CheckpointNotif.SetActive(false);
         }
     }
+    /// <summary>
+    /// Esconde la notificación del checkpoint del bartender
+    /// </summary>
     private void HideCheckpointBarNotif()
     {
         if (CheckpointBarNotif != null)
@@ -326,6 +375,9 @@ public class UIManager : MonoBehaviour
             CheckpointBarNotif.SetActive(false);
         }
     }
+    /// <summary>
+    /// Muestra los cooldowns
+    /// </summary>
     private void ShowCooldownIcons()
     {
         DashIcon.gameObject.SetActive(true);
@@ -336,6 +388,9 @@ public class UIManager : MonoBehaviour
             ShootDarker.gameObject.SetActive(true);
         }
     }
+    /// <summary>
+    /// Esconde los cooldowns
+    /// </summary>
     private void HideCooldownIcons()
     {
         DashIcon.gameObject.SetActive(false);

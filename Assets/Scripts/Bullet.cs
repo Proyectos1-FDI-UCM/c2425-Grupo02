@@ -15,13 +15,19 @@ using UnityEngine.EventSystems;
 public class Bullet : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
-    #region Atributos del Inspector (serialized fields)
+    #region Atributos del Inspector (serialized fields
+    /// <summary>
+    /// Velocidad de la bala
+    /// </summary>
     [SerializeField] private float Velocity;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    /// <summary>
+    /// Rigidbody de la bala
+    /// </summary>
     private Rigidbody2D _rb;
     #endregion
 
@@ -65,16 +71,9 @@ public class Bullet : MonoBehaviour
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// 
-    /// En viewPos obtiene posición de la bala y lo convierte al espacio de la cámara
-    /// (0,1) = esquina superior izquierda    (1,1) = esquina superior derecha
-    /// (0,0) = esquina inferior izquierda    (1,0) = esquina inferior derecha
-    /// Si se sale de los márgenes de la cámara, la bala se destruye
     /// </summary>
     void FixedUpdate()
     {
-        /*Vector2 bulletDir = -transform.up * Velocity * Time.fixedDeltaTime;
-        _rb.MovePosition(_rb.position + bulletDir);*/
         _rb.velocity = -transform.up * Velocity;
     }
     #endregion
