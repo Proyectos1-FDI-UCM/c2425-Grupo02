@@ -984,13 +984,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 1015211203
-    name: Lilith-SpriteSheet
+    guid: 398656717
+    name: Lilith_SpriteSheet
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Lilith-SpriteSheet
+    - name: Lilith_SpriteSheet
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -998,7 +998,7 @@ ScriptedImporter:
         y: 14
         width: 712
         height: 528
-      spriteId: 1b88660ac1dbe6241b4203bb3d3619cb
+      spriteId: 283350b052a858f488f70c1c7d4a0ea9
     linkedCells: []
     parentIndex: -1
   platformSettings:
