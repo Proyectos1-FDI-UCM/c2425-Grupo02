@@ -171,6 +171,11 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowQuestUI();
             UIManager.Instance.UpdateQuestProgress(_questObjectsCount);
         }
+        else if (InputManager.Instance.GetScytheWasPressedThisFrame())
+        {
+            _hasScythe = true;
+            LevelManager.Instance.EnableBehaviours();
+        }
     }
 
     /// <summary>
@@ -472,7 +477,11 @@ public class GameManager : MonoBehaviour
         {
             GameObject[] triggerDialogues = LevelManager.Instance.Triggers;
             DisableTrigDialogues(triggerDialogues);
-            if (dialogueName == "MissionAccepted")
+            if (dialogueName == "1IntroductionSpora")
+            {
+                LevelManager.Instance.EnableExitIntro();
+            }
+            else if (dialogueName == "MissionAccepted")
             {
                 _questState = 1;
                 Debug.Log("Quest has started");

@@ -83,6 +83,7 @@ public class InputManager : MonoBehaviour
     private InputAction _destroy;
     private InputAction _invulnerability;
     private InputAction _completeQuest;
+    private InputAction _getScythe;
 
     #endregion
 
@@ -259,6 +260,11 @@ public class InputManager : MonoBehaviour
     {
         return _completeQuest.WasPressedThisFrame();
     }
+
+    public bool GetScytheWasPressedThisFrame()
+    {
+        return _getScythe.WasPressedThisFrame();
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -298,6 +304,7 @@ public class InputManager : MonoBehaviour
         _destroy = _theController.Player.EnemyDestruction;
         _invulnerability = _theController.Player.Invulnerability;
         _completeQuest = _theController.Player.CompleteQuest;
+        _getScythe = _theController.Player.GetScythe;
     }
 
     /// <summary>

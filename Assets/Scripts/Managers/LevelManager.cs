@@ -65,6 +65,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] TriggerDialogues;
     [SerializeField] private GameObject BarCheckpointStatue;
     [SerializeField] private Sprite CheckpointActive;
+    [SerializeField] private GameObject ExitIntro;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -128,6 +129,10 @@ public class LevelManager : MonoBehaviour
         if (GameManager.Instance.QuestCheatEnabled)
         {
             OpenDisco();
+        }
+        if (ExitIntro != null && !GameManager.Instance.HasBeenRead("1IntroductionSpora"))
+        {
+            ExitIntro.SetActive(false);
         }
     }
 
@@ -199,7 +204,13 @@ public class LevelManager : MonoBehaviour
         DisablePlayerControls();
         DisableNPC();
     }
-
+    /// <summary>
+    /// Habilita salida de la introducción
+    /// </summary>
+    public void EnableExitIntro()
+    {
+        ExitIntro.SetActive(true);
+    }
     /// <summary>
     /// Activa los enemigos iniciales, suma el contador por cada uno de ellos, desactiva las salidas de escena 
     /// e indica que se ha iniciado el combate
@@ -338,6 +349,7 @@ public class LevelManager : MonoBehaviour
             _player.GetComponent<MeleeAttack>().enabled = true;
         }
     }
+    
 
     /// <summary>
     /// Activa los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
