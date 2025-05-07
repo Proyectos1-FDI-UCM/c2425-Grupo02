@@ -204,7 +204,13 @@ public class LevelManager : MonoBehaviour
         DisablePlayerControls();
         DisableNPC();
     }
-
+    /// <summary>
+    /// Habilita salida de la introducción
+    /// </summary>
+    public void EnableExitIntro()
+    {
+        ExitIntro.SetActive(true);
+    }
     /// <summary>
     /// Activa los enemigos iniciales, suma el contador por cada uno de ellos, desactiva las salidas de escena 
     /// e indica que se ha iniciado el combate
@@ -343,6 +349,7 @@ public class LevelManager : MonoBehaviour
             _player.GetComponent<MeleeAttack>().enabled = true;
         }
     }
+    
 
     /// <summary>
     /// Activa los NPCs para que se pueda interactuar con ellos y manden sus diálogos a DialogueManager
