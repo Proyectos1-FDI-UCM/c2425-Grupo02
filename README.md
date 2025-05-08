@@ -93,7 +93,7 @@ La única plataforma disponible para jugar será PC, pero el juego ofrece múlti
 <h1 align="center">¡¡¡GRACIAS POR JUGAR NUESTRO JUEGO!!!</h1>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b6eb877e-fa48-40dd-9374-65547f2fc0ab" width="500"/>
-</p>![astralesbianotorum](https://github.com/user-attachments/assets/0e34e291-a676-4153-bd3d-d68e6ece587a)
+<img src="https://github.com/user-attachments/assets/0e34e291-a676-4153-bd3d-d68e6ece587a" width = "500"/>
 
 
 
