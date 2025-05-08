@@ -4898,6 +4898,10 @@ PrefabInstance:
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 8300000, guid: de16544b026952940b5383c2ac337c07, type: 3}
+    - target: {fileID: 4999997440686495966, guid: ef4932cf999938743b333008e15deb87, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: de16544b026952940b5383c2ac337c07, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
