@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Contiene el componente GameManager
-// Guillermo Jiménez Díaz, Pedro Pablo Gómez Martín
-// TemplateP1
+// Guillermo Jiménez Díaz, Pedro Pablo Gómez Martín, Isabel Serrano Martín, Lucía Mei Domínguez López
+// Astra Damnatorum
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
