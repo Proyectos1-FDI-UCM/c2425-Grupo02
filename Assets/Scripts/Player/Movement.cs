@@ -219,7 +219,7 @@ public class Movement : MonoBehaviour
         if (InputManager.Instance.MovementVector != Vector2.zero)
         {
 
-            AudioManager.Instance.PlayAudio2(WalkSFX, 0.8f);
+            AudioManager.Instance.PlayAudioLoop(WalkSFX, 0.8f);
         }
         else
         {

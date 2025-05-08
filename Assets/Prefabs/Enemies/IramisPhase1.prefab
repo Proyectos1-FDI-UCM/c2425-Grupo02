@@ -57,6 +57,7 @@ MonoBehaviour:
   Phase2: {fileID: 6139690745855566351, guid: 73d79ad761748384bb968c03df5e14b2, type: 3}
   spriteShieldOff: {fileID: -1899113342, guid: d3dedefd491455e47a102d144035d65a, type: 3}
   spriteShieldOn: {fileID: 2132628071, guid: a05c20c272e422a4f9282f6607a77b31, type: 3}
+  Phase1Music: {fileID: 8300000, guid: e64bdf34fe103174cb34ee914a43ca77, type: 3}
 --- !u!50 &4227176189225222403
 Rigidbody2D:
   serializedVersion: 4

@@ -31,6 +31,12 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
     [SerializeField] private Sprite spriteShieldOff; // Sprite del escudo del jefe desactivado.
     [SerializeField] private Sprite spriteShieldOn; // Sprite del escudo del jefe activado.
+
+    /// <summary>
+    /// AudioClip de la música de la fase 1
+    /// </summary>
+    [SerializeField] protected AudioClip Phase1Music;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -65,6 +71,9 @@ public class Boss_Life_Phase1 : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>(); // Obtenemos el componente SpriteRenderer del jefe.
         spriteRenderer.sprite = spriteShieldOn; // Asignamos el sprite del escudo al jefe.
+
+        // Activamos la música de la fase 1 del boss
+        AudioManager.Instance.ChangeMusic(Phase1Music);
     }
 
     #endregion

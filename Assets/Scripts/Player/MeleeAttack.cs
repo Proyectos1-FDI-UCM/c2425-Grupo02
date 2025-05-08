@@ -125,12 +125,12 @@ public class MeleeAttack : MonoBehaviour
                 collider.GetComponent<Enemy_Health>().Damage(damage);
             }
 
-            if (collider.GetComponent<Pillar>() != null)
+            else if (collider.GetComponent<Pillar>() != null)
             {
                 collider.GetComponent<Pillar>().Damage(damage);
             }
 
-            if (collider.GetComponent<Boss_Life_Phase1>() != null)
+            else if (collider.GetComponent<Boss_Life_Phase1>() != null)
             {
                 collider.GetComponent<Boss_Life_Phase1>().Damage(damage);
             }

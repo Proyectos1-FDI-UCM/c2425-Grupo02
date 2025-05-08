@@ -147,7 +147,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Reproduce el sonido indicado posibilitando su reproducción en bucle
     /// </summary>
-    public void PlayAudio2(AudioClip sfx, float volume)
+    public void PlayAudioLoop(AudioClip sfx, float volume)
     {
         
         if (!sfxSource.isPlaying)
