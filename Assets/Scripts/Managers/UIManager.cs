@@ -8,7 +8,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.SearchService;
 // Añadir aquí el resto de directivas using
 
 /// <summary>
