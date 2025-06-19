@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Indica si el player ha cogido la guadaña
     /// </summary>
-    private bool _hasScythe;
+    public bool _hasScythe;
     /// <summary>
     /// Cantidad de puntos de vida que tiene el jugador
     /// </summary>

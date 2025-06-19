@@ -14,22 +14,21 @@ using UnityEngine.UIElements;
 /// - Persigue al jugador girando hacia él.
 /// - Dispara proyectiles si no es vulnerable.
 /// </summary>
-public class Boss_Attacks_Phase1 : MonoBehaviour
+public class Enemy3 : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField] Transform target; // Referencia al jugador.
-    [SerializeField] float spinSpeed = 1f; // Velocidad de rotación del jefe.
-    [SerializeField] GameObject bossProyectile; // Prefab del proyectil del jefe.
+    [SerializeField] float spinSpeed = 0.002f; // Velocidad de rotación del jefe.
+    [SerializeField] float distanciaMinima = 5f; // Distancia entre el jugador y el enemigo para que el enemigo huya.
+    [SerializeField] float distanciaMaxima = 10f; // Distancia entre el jugador y el enemigo para que el enemigo tenga que perseguir al jugador.
+    [SerializeField] float movementSpeed = 2f; //Velocidad de movimiento del enemigo
+    [SerializeField] GameObject proyectile; // Prefab del proyectil del jefe.
     [SerializeField] Transform firePosition; // Posición desde la que se disparan los proyectiles.
+
     [SerializeField] float fireRate; // Tiempo entre disparos.
-    [SerializeField] float RateSpawn; // Tiempo entre apariciones de enemigos.
-    [SerializeField] GameObject Boss; // Referencia al jefe en la escena.
-
-    [SerializeField] GameObject Spawner; // Referencia al spawner de enemigos.
-
-    [SerializeField] GameObject Wall; // Referencia a las paredes que se invocan al comenzar la fase.
+    [SerializeField] GameObject Enemy; // Referencia al jefe en la escena.
 
     #endregion
 
@@ -37,7 +36,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private float timeToFire = 0f; // Controla el tiempo entre disparos.
-    private float timeToSpawn = 0f; // Controla el tiempo entre la aparición de enemigos.
     private Rigidbody2D rb; // Referencia al Rigidbody2D del jefe.
     private GameObject _player; // Referencia al jugador.
     private int BoosLife; // Vida del jefe. 
@@ -60,16 +58,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         timeToFire = fireRate; // Inicializa el tiempo de disparo.
         rb = GetComponent<Rigidbody2D>(); // Busca el Rigidbody2D adjunto al jefe.
         _player = FindObjectOfType<Movement>().gameObject;
-
-        for (int i = 0; i < 12; i++)
-        {
-            Instantiate(Wall, new Vector3(-5.5f + i, 107f, 0f), Quaternion.identity);
-        }
-
-        for (int i = 0; i < 36; i++)
-        {
-            Instantiate(Wall, new Vector3(-17.5f + i, 164f, 0f), Quaternion.identity);
-        }
     }
 
     /// <summary>
@@ -80,6 +68,18 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     void Update()
     {
+        float distanciaAlJugador = Vector2.Distance(transform.position, target.position);
+
+        // Si el jugador está muy cerca, alejarse
+        if (distanciaAlJugador < distanciaMinima)
+        {
+            AlejarseDelJugador();
+        }
+        // Si el jugador está muy lejos, acercarse
+        else if (distanciaAlJugador > distanciaMaxima)
+        {
+            AcercarseAlJugador();
+        }
         if (!target) // Si no hay objetivo asignado, lo busca.
         {
             GetTarget();
@@ -89,7 +89,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
             RotateTowardsTarget(); // Rota hacia el jugador.
         }
 
-        if (timeToFire <= 0f) // Si el tiempo ha llegado a 0, dispara.
+        if (timeToFire <= 0f && distanciaAlJugador < distanciaMaxima) // Si el tiempo ha llegado a 0, dispara.
         {
             Shoot(); // Llama al método de disparo.
             timeToFire = fireRate; // Reinicia el contador de tiempo para el siguiente disparo.
@@ -97,16 +97,6 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         else
         {
             timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
-        }
-
-        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, spawnea.
-        {
-            Instantiate(Spawner); // Spawnea el prefab.
-            timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
-        }
-        else
-        {
-            timeToSpawn -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
         }
     }
 
@@ -121,30 +111,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     /// </summary>
     private void Shoot()
     {
-        _isVulnerable = Boss.GetComponent<Boss_Life_Phase1>().getIsVulnerable();
-        if (_isVulnerable) // Si el jefe es vulnerable, no dispara.
-        {
-            return; // Sale del método sin hacer nada.
-        }
-
-        Instantiate(bossProyectile, firePosition.position, firePosition.rotation); // Crea un proyectil.
-
-        TripleShot = Boss.GetComponent<Boss_Life_Phase1>().SetTripleShotOn();
-
-        if (TripleShot == true)
-        {
-            // Crea el segundo proyectil, alejado y girado 15º
-            Vector3 offset = new Vector3(0.5f, 0, 0); // Ajusta el valor de offset según sea necesario
-            Quaternion rotation = Quaternion.Euler(firePosition.rotation.eulerAngles + new Vector3(0, 0, 15));
-            Instantiate(bossProyectile, firePosition.position + offset, rotation);
-
-            // Crea el tercer proyectil, alejado en el otro sentido y con una inclinación de -15º
-            rotation = Quaternion.Euler(firePosition.rotation.eulerAngles + new Vector3(0, 0, -15));
-            Instantiate(bossProyectile, firePosition.position - offset, rotation);
-        }
-
-
-
+        Instantiate(proyectile, firePosition.position, firePosition.rotation); // Crea un proyectil.
     }
 
     /// <summary>
@@ -158,6 +125,31 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f; // Convierte a ángulo.
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle)); // Crea la rotación.
         transform.localRotation = Quaternion.Slerp(transform.rotation, q, spinSpeed); // Rota suavemente.
+    }
+    void AlejarseDelJugador()
+    {
+        // Calcular dirección opuesta al jugador
+        Vector2 direccionHuida = (transform.position - target.position).normalized;
+
+        // Mover en esa dirección
+        Enemy.transform.position += (Vector3)direccionHuida * movementSpeed * Time.deltaTime;
+    }
+    void AcercarseAlJugador()
+    {
+        // Calcular dirección hacia el jugador
+        Vector2 direccionAcercamiento = (target.position - transform.position).normalized;
+
+        // Mover hacia el jugador
+        Enemy.transform.position += (Vector3)direccionAcercamiento * movementSpeed * Time.deltaTime;
+    }
+    void MirarHaciaJugador()
+    {
+        // Calcular dirección hacia el jugador
+        Vector2 direccion = (target.position - transform.position).normalized;
+
+        // Calcular ángulo y rotar
+        float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angulo, Vector3.forward);
     }
 
     /// <summary>
