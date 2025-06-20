@@ -73,6 +73,7 @@ public class InputManager : MonoBehaviour
     private InputAction _fire;
     private InputAction _Dash;
     private InputAction _interact;
+    private InputAction _UseRadar;
 
     /// <summary>
     /// Acción para pausar el juego y así acceder al menú. 
@@ -218,6 +219,10 @@ public class InputManager : MonoBehaviour
     {
         return _Dash.WasPressedThisFrame();
     }
+    public bool UseRadarWasPressedThisFrame()
+    {
+        return _UseRadar.WasPressedThisFrame();
+    }
 
     public bool InteractWasPressedThisFrame()
     {
@@ -296,6 +301,7 @@ public class InputManager : MonoBehaviour
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
         _Dash = _theController.Player.Dash;
+        _UseRadar = _theController.Player.UseRadar;
         _interact = _theController.Player.Interact;
 
         // Cacheamos la acción de pausa.

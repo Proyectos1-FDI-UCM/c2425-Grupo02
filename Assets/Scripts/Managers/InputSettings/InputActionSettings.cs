@@ -118,6 +118,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseRadar"",
+                    ""type"": ""Button"",
+                    ""id"": ""3998f654-14a1-474c-a5ff-15848a707033"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -459,6 +468,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""GetScythe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a73e6044-e161-4316-b8bd-1f810f8705bb"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseRadar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1056,6 +1076,7 @@ namespace UnityEngine.InputSystem
             m_Player_Invulnerability = m_Player.FindAction("Invulnerability", throwIfNotFound: true);
             m_Player_CompleteQuest = m_Player.FindAction("CompleteQuest", throwIfNotFound: true);
             m_Player_GetScythe = m_Player.FindAction("GetScythe", throwIfNotFound: true);
+            m_Player_UseRadar = m_Player.FindAction("UseRadar", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1139,6 +1160,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Invulnerability;
         private readonly InputAction m_Player_CompleteQuest;
         private readonly InputAction m_Player_GetScythe;
+        private readonly InputAction m_Player_UseRadar;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -1153,6 +1175,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Invulnerability => m_Wrapper.m_Player_Invulnerability;
             public InputAction @CompleteQuest => m_Wrapper.m_Player_CompleteQuest;
             public InputAction @GetScythe => m_Wrapper.m_Player_GetScythe;
+            public InputAction @UseRadar => m_Wrapper.m_Player_UseRadar;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1192,6 +1215,9 @@ namespace UnityEngine.InputSystem
                 @GetScythe.started += instance.OnGetScythe;
                 @GetScythe.performed += instance.OnGetScythe;
                 @GetScythe.canceled += instance.OnGetScythe;
+                @UseRadar.started += instance.OnUseRadar;
+                @UseRadar.performed += instance.OnUseRadar;
+                @UseRadar.canceled += instance.OnUseRadar;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1226,6 +1252,9 @@ namespace UnityEngine.InputSystem
                 @GetScythe.started -= instance.OnGetScythe;
                 @GetScythe.performed -= instance.OnGetScythe;
                 @GetScythe.canceled -= instance.OnGetScythe;
+                @UseRadar.started -= instance.OnUseRadar;
+                @UseRadar.performed -= instance.OnUseRadar;
+                @UseRadar.canceled -= instance.OnUseRadar;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1418,6 +1447,7 @@ namespace UnityEngine.InputSystem
             void OnInvulnerability(InputAction.CallbackContext context);
             void OnCompleteQuest(InputAction.CallbackContext context);
             void OnGetScythe(InputAction.CallbackContext context);
+            void OnUseRadar(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
