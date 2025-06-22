@@ -23,9 +23,10 @@ public class Radar : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] float cooldown = 3f;
-    [SerializeField] GameObject ondaPrefab; // Un círculo simple
-    [SerializeField] Transform paquete;
+    [SerializeField] float waveDuration = 2f; // Duración de la onda antes de desaparecer.
+    [SerializeField] float waveSpeed = 5f; // Velocidad de movimiento de la onda.
+    [SerializeField] GameObject ondaPrefab; // Prefab de la onda.
+    [SerializeField] Transform paquete; // Referencia al paquete
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -36,7 +37,7 @@ public class Radar : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private bool puedeUsar = true;
+    private bool puedeUsar = true; // Determina si se puede usar el radar o no.
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -47,21 +48,15 @@ public class Radar : MonoBehaviour
     // - Hay que borrar los que no se usen 
 
     /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// Se ejecuta cada frame.
+    /// - Llama al método del radar si se cumplen todas las condiciones.
     /// </summary>
     void Update()
     {
-        if(InputManager.Instance.UseRadarWasPressedThisFrame())
+        if(InputManager.Instance.UseRadarWasPressedThisFrame() && paquete != null && puedeUsar == true) // Si se pulsa la r, existe el paquete y se puede usar
         {
-            UsarRadar();
+            puedeUsar = false; // Como está la onda en pantalla, no se puede mandar otra.
+            UsarRadar(); // Llamamos al método.
         }
     }
     #endregion
@@ -82,59 +77,54 @@ public class Radar : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    /// <summary>
+    /// Controla todo el comportamiento de la onda del radar.
+    /// - Crea la onda.
+    /// - Empieza la corrutina del movimiento de la onda.
+    /// </summary>
     void UsarRadar()
     {
-        // Crear onda
-        GameObject onda = Instantiate(ondaPrefab, transform.position, Quaternion.identity);
-
-        // Calcular dirección al paquete
-        Vector2 direccion = (paquete.position - transform.position).normalized;
-
-        // Mover la onda
-        StartCoroutine(MoverOnda(onda, direccion));
-
-        // Cooldown
-        puedeUsar = false;
-        Invoke("ResetearCooldown", cooldown);
+        GameObject onda = Instantiate(ondaPrefab, transform.position, Quaternion.identity); // Creamos la onda a partir del prefab.
+        Vector2 direccion = (paquete.position - transform.position).normalized; // Calculamos la dirección del paquete.
+        RotateTowardsTarget(onda, direccion); // Rotamos la onda hacia el paquete.
+        StartCoroutine(MoverOnda(onda, direccion)); // Comenzamos el movimiento de la onda.
     }
-
+    /// <summary>
+    /// Corrutina del movimiento de la onda.
+    /// - Se repite mientras dure la onda.
+    /// - La va haciendo progresivamente más transparente hasta que desaparece.
+    /// </summary>
     IEnumerator MoverOnda(GameObject onda, Vector2 direccion)
     {
-        float tiempo = 0f;
-        Vector3 posInicial = onda.transform.position;
-
-        while (tiempo < 2f)
+        float tiempo = 0f; // Tiempo que irá incrementando.
+        Vector3 posInicial = onda.transform.position; // Posición inicial de la onda.
+        while (tiempo < waveDuration) // Mientras que el valor del tiempo sea menor que la duración de la onda.
         {
-            tiempo += Time.deltaTime;
-
-            // Mover hacia el paquete
-            onda.transform.position += (Vector3)direccion * 100f * Time.deltaTime;
-
-            // Hacer más transparente
-            SpriteRenderer sr = onda.GetComponent<SpriteRenderer>();
-            if (sr != null)
+            tiempo += Time.deltaTime; // Sumamos valor al tiempo.
+            onda.transform.position += (Vector3)direccion * waveSpeed * Time.deltaTime; // Movemos la onda hacia el paquete.
+            SpriteRenderer sr = onda.GetComponent<SpriteRenderer>(); // Obtenemos el sprite renderer.
+            if (sr != null) // Mientras exista el sprite.
             {
-                Color c = sr.color;
-                c.a = 1f - (tiempo / 2f);
-                sr.color = c;
+                Color c = sr.color; // Obtenemos el color.
+                c.a = 1f - (tiempo / 2f); // Aplicamos la transparencia en ese tiempo.
+                sr.color = c; // Aplicamos el color después de la transparencia al sprite.
             }
-
-            yield return null;
+            yield return null; // Pausamos y continuamos en el siguiente frame.
         }
-
-        Destroy(onda);
+        puedeUsar = true; // Se puede usar de nuevo el radar.
+        Destroy(onda); // Destruimos la onda.
     }
-
-    void ResetearCooldown()
+    /// <summary>
+    /// Rota la onda para que se vea bien el sprite.
+    /// - Usa interpolación (Slerp) para girar la onda.
+    /// </summary>
+    private void RotateTowardsTarget(GameObject onda, Vector2 direccion)
     {
-        puedeUsar = true;
+        float angle = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg - 90f; // Convierte a ángulo la dirección.
+        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle)); // Crea la rotación.
+        onda.transform.localRotation = Quaternion.Slerp(onda.transform.rotation, q, 100f); // Rota la onda.
     }
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 200, 30), puedeUsar ? "[R] Radar listo" : "Radar en cooldown");
-    }
     #endregion   
 
 } // class Radar 

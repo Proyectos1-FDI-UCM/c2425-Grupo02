@@ -154,5 +154,6 @@ public class Enemy3 : MonoBehaviour
 
 
     #endregion
-} // Fin de la clase Enemy3
+}// class Enemy3
+// namespace
 
