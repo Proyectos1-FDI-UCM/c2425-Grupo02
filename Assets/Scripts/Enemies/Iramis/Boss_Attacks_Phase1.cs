@@ -30,6 +30,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     [SerializeField] GameObject Spawner; // Referencia al spawner de enemigos.
 
     [SerializeField] GameObject Wall; // Referencia a las paredes que se invocan al comenzar la fase.
+    [SerializeField] int enemiesLimit = 10;
 
     #endregion
 
@@ -43,6 +44,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     private int BoosLife; // Vida del jefe. 
     private bool _isVulnerable; // Indica si el jefe es vulnerable.
     private bool TripleShot; // Indica si el jefe lanza 3 proyectiles.
+    private int _currentEnemies;
 
 
 
@@ -98,8 +100,8 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
         {
             timeToFire -= Time.deltaTime; // Reduce el tiempo hasta el siguiente disparo.
         }
-
-        if (timeToSpawn <= 0f) // Si el tiempo ha llegado a 0, spawnea.
+        _currentEnemies = GameObject.FindObjectsOfType<Enemy_Health>().Length;
+        if (timeToSpawn <= 0f && _currentEnemies < enemiesLimit) // Si el tiempo ha llegado a 0, spawnea.
         {
             Instantiate(Spawner); // Spawnea el prefab.
             timeToSpawn = RateSpawn; // Reinicia el contador de tiempo para el siguiente disparo.
