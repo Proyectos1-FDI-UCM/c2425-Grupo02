@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private Vector2 _checkpointSpawn = Vector2.zero;
     private int _checkpointScene = 1;
+    private string SceneName;
     /// <summary>
     /// contador objetos de misión
     /// </summary>
@@ -269,7 +270,10 @@ public class GameManager : MonoBehaviour
     {
         get { return _collectedBoxes; }
     }
-
+    public HashSet<string> GetTrigDialogues
+    {
+        get { return _disabledTrigDialogues; }
+    }
     //DEV CHEATS
     /// <summary>
     /// indica si tiene invulnerabilidad
@@ -395,6 +399,7 @@ public class GameManager : MonoBehaviour
     {
         return _disabledTrigDialogues.Contains(triggerName);
     }
+
     public static bool HasInstance()
     {
         return _instance != null;
@@ -429,6 +434,7 @@ public class GameManager : MonoBehaviour
         _checkpointIndex = checkpoint;
         _checkpointSpawn = pos;
         _checkpointScene = scene;
+        SetSpawnPoint(_checkpointSpawn);
     }
     /// <summary>
     /// Método para reiniciar el checkpoint y el gamemanager y trasladar al jugador a la escena de introducción en la posición indicada
@@ -446,9 +452,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void PrepareContinue()
     {
-        ResetGameManager();
+        /*ResetGameManager();
         ChangeScene(_checkpointScene);
-        SetSpawnPoint(_checkpointSpawn);
+        SetSpawnPoint(_checkpointSpawn);*/
+        ResetGameManager();
+        SaveSystem.LoadGame();
+        ChangeScene(_checkpointScene);
     }
     /// <summary>
     /// Deshabilita los trigger dialogue correspondiente y añade su nombre a un hashset para que, en caso de que el
@@ -505,6 +514,52 @@ public class GameManager : MonoBehaviour
         else vector = new Vector2(0, 0);
 
         return vector;
+    }
+    public void LoadGameData(int checkpointIndex, int sceneIndex, Vector2 checkpointSpawn, int health,
+                        int questState, int questObjectsCount, bool hasScythe,
+                        bool initCombatFinish)
+    {
+        _checkpointIndex = checkpointIndex;
+        _checkpointScene = sceneIndex;
+        _checkpointSpawn = checkpointSpawn;
+        _health = health;
+        _questState = questState;
+        _questObjectsCount = questObjectsCount;
+        _hasScythe = hasScythe;
+        _initCombatFinish = initCombatFinish;
+
+        Debug.Log($"Datos cargados: Checkpoint {checkpointIndex}, Salud {health}, Misión {questState}");
+    }
+    public void LoadCollectedItemsAndDialogues(List<int> collectedHeals, List<int> collectedBoxes, List<string> disabledDialogues)
+    {
+        _collectedHeals = new HashSet<int>(collectedHeals);
+        _collectedBoxes = new HashSet<int>(collectedBoxes);
+        _disabledTrigDialogues = new HashSet<string>(disabledDialogues);
+        Debug.Log($"Objetos cargados: {collectedHeals.Count} heals, {collectedBoxes.Count} cajas");
+    }
+    public void AutoSave()
+    {
+        SaveSystem.AutoSave();
+    }
+    public bool HasSavedGame()
+    {
+        return SaveSystem.HasSaveData();
+    }
+    public void ContinueGame()
+    {
+        if (SaveSystem.HasSaveData())
+        {
+            // Carga los datos
+            if (SaveSystem.LoadGame())
+            {
+                // Cambia a la escena correspondiente
+
+                ChangeScene(_checkpointScene);
+                SetSpawnPoint(_checkpointSpawn);
+
+                Debug.Log("Partida continuada desde checkpoint " + _checkpointIndex);
+            }
+        }
     }
 
     #endregion

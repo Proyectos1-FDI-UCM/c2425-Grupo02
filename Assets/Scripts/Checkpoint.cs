@@ -68,8 +68,10 @@ public class Checkpoint : MonoBehaviour
         if (GameManager.Instance.SavedCheckpoint < CheckpointNumber)
         {
             GameManager.Instance.SetNewCheckpoint(CheckpointNumber, SpawnPos, SceneIndex);
+            Debug.Log($"{SpawnPos.x} + {SpawnPos.y}");
             UIManager.Instance.ShowCheckpointNotif();
             _spriteRenderer.sprite = ObtainedState;
+            GameManager.Instance.AutoSave();
         }
     }
     #endregion
@@ -81,7 +83,10 @@ public class Checkpoint : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public Vector2 SpawnPoint()
+    {
+        return SpawnPos;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

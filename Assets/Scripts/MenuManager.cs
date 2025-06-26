@@ -55,7 +55,7 @@ public class MenuManager : MonoBehaviour
     }
     private void Start()
     {
-        if (GameManager.Instance.SavedCheckpoint == 0)
+        if (!GameManager.Instance.HasSavedGame())
         {
             ContinueButton.SetActive(false);
         }
@@ -88,7 +88,7 @@ public class MenuManager : MonoBehaviour
     }
     public void ContinueGame()
     {
-        GameManager.Instance.PrepareContinue();
+        GameManager.Instance.ContinueGame();
     }
     public void GoMenu()
     {
