@@ -153,6 +153,10 @@ public class LevelManager : MonoBehaviour
         {
             ExitIntro.SetActive(false);
         }
+        if (GameManager.Instance.HasScythe && ScytheInLongPath != null)
+        {
+            Destroy(ScytheInLongPath);
+        }
     }
 
     private void Update()

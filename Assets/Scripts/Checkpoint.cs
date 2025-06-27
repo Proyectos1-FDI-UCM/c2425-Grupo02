@@ -87,6 +87,17 @@ public class Checkpoint : MonoBehaviour
     {
         return SpawnPos;
     }
+    public void CheckpointInParty()
+    {
+        if (GameManager.Instance.SavedCheckpoint < CheckpointNumber)
+        {
+            GameManager.Instance.SetNewCheckpoint(CheckpointNumber, SpawnPos, SceneIndex);
+            Debug.Log($"{SpawnPos.x} + {SpawnPos.y}");
+            UIManager.Instance.ShowCheckpointNotif();
+            _spriteRenderer.sprite = ObtainedState;
+            GameManager.Instance.AutoSave();
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

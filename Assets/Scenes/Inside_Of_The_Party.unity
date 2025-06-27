@@ -6347,6 +6347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143648891}
   - component: {fileID: 1143648890}
+  - component: {fileID: 1143648892}
   m_Layer: 0
   m_Name: Checkpoint_Statue
   m_TagString: Untagged
@@ -6421,6 +6422,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143648892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143648889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f7d026de3861c4795929d4bb1ea628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckpointNumber: 5
+  SceneIndex: 4
+  SpawnPos: {x: -2.5, y: 6.25}
+  ObtainedState: {fileID: -439812013, guid: 0ca97b16d8471434dab31d286ddcb23b, type: 3}
 --- !u!1 &1174248614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4884952940063810645, guid: f32e8e2499fa29f468f33418f40155ef, type: 3}

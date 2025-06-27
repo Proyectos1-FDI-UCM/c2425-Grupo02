@@ -35,7 +35,7 @@ public class SaveSystem : MonoBehaviour
     public bool hasScythe;
     public bool initCombatFinish;
     public bool saveUsed;
-    public List<string> readDialogues;
+    public static List<string> readDialogues;
     public static List<string> disabledTrigDialogues;
     public static List<int> collectedHeals;
     public static List<int> collectedBoxes;
@@ -134,9 +134,12 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt(INIT_COMBAT_FINISH_KEY, gm.InitCombatStateHasFinished ? 1 : 0);
         PlayerPrefs.SetInt(COLLECTED_BOXES_KEY, gm.GetCollectedBoxes.Count());
         PlayerPrefs.SetInt(COLLECTED_HEALS_KEY, gm.GetCollectedHeals.Count());
+        PlayerPrefs.SetInt(DISABLED_TRIG_DIALOGUES_KEY, gm.GetTrigDialogues.Count());
+        PlayerPrefs.SetInt(READ_DIALOGUES_KEY, gm.GetReadDialogues.Count());
         collectedBoxes = gm.GetCollectedBoxes.ToList();
         collectedHeals = gm.GetCollectedHeals.ToList();
         disabledTrigDialogues = gm.GetTrigDialogues.ToList();
+        readDialogues = gm.GetReadDialogues.ToList();
         for (int i = 0; i< gm.GetCollectedBoxes.Count(); i++)
         {
             PlayerPrefs.SetInt("box_" + i.ToString(),collectedBoxes[i]);
@@ -148,6 +151,10 @@ public class SaveSystem : MonoBehaviour
         for (int i = 0; i < gm.GetTrigDialogues.Count(); i++)
         {
             PlayerPrefs.SetString("dialogue_" + i.ToString(), disabledTrigDialogues[i]);
+        }
+        for (int i = 0; i < gm.GetReadDialogues.Count(); i++)
+        {
+            PlayerPrefs.SetString("read_" + i.ToString(), readDialogues[i]);
         }
         // Marcar que hay datos guardados
         PlayerPrefs.SetInt(HAS_SAVE_DATA_KEY, 1);
@@ -191,9 +198,11 @@ public class SaveSystem : MonoBehaviour
             int boxesCount = PlayerPrefs.GetInt(COLLECTED_BOXES_KEY);
             int healsCount = PlayerPrefs.GetInt(COLLECTED_HEALS_KEY);
             int trigDialogues = PlayerPrefs.GetInt(DISABLED_TRIG_DIALOGUES_KEY);
+            int readDialogues = PlayerPrefs.GetInt(READ_DIALOGUES_KEY);
             List<int> heals = new List<int>(healsCount);
             List<int> boxes = new List<int>(boxesCount);
             List<string> disabledTrigDialgs = new List<string>(trigDialogues);
+            List<string> readDialgs = new List<string>(readDialogues);
             for (int i = 0; i < boxesCount; i++)
             {
                 boxes.Add(PlayerPrefs.GetInt("box_" + i.ToString()));
@@ -204,9 +213,13 @@ public class SaveSystem : MonoBehaviour
             }
             for (int i = 0; i < trigDialogues; i++)
             {
-                heals.Add(PlayerPrefs.GetInt("dialogue" + i.ToString()));
+                disabledTrigDialgs.Add(PlayerPrefs.GetString("dialogue_" + i.ToString()));
             }
-            gm.LoadCollectedItemsAndDialogues(heals, boxes, disabledTrigDialgs);
+            for (int i = 0; i < readDialogues; i++)
+            {
+                readDialgs.Add(PlayerPrefs.GetString("read_" + i.ToString()));
+            }
+            gm.LoadCollectedItemsAndDialogues(heals, boxes, disabledTrigDialgs, readDialgs);
 
             Debug.Log("Juego cargado correctamente");
             return true;
@@ -216,6 +229,27 @@ public class SaveSystem : MonoBehaviour
             Debug.LogError($"Error al cargar el juego: {e.Message}");
             return false;
         }
+    }
+    public static void DeleteSaveData()
+    {
+        PlayerPrefs.DeleteKey(CHECKPOINT_INDEX_KEY);
+        PlayerPrefs.DeleteKey(CHECKPOINT_SPAWN_X_KEY);
+        PlayerPrefs.DeleteKey(CHECKPOINT_SPAWN_Y_KEY);
+        PlayerPrefs.DeleteKey(CHECKPOINT_SCENE_KEY);
+        PlayerPrefs.DeleteKey(HEALTH_KEY);
+        PlayerPrefs.DeleteKey(QUEST_STATE_KEY);
+        PlayerPrefs.DeleteKey(QUEST_OBJECTS_COUNT_KEY);
+        PlayerPrefs.DeleteKey(HAS_SCYTHE_KEY);
+        PlayerPrefs.DeleteKey(INIT_COMBAT_FINISH_KEY);
+        PlayerPrefs.DeleteKey(READ_DIALOGUES_KEY);
+        PlayerPrefs.DeleteKey(DISABLED_TRIG_DIALOGUES_KEY);
+        PlayerPrefs.DeleteKey(COLLECTED_HEALS_KEY);
+        PlayerPrefs.DeleteKey(COLLECTED_BOXES_KEY);
+        PlayerPrefs.DeleteKey(HAS_SAVE_DATA_KEY);
+        
+        PlayerPrefs.Save();
+
+        Debug.Log("Datos de guardado eliminados");
     }
     public static bool HasSaveData()
     {

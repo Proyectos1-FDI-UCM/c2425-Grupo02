@@ -97,6 +97,7 @@ public class MenuManager : MonoBehaviour
     }
     public void GoCredits()
     {
+        SaveSystem.DeleteSaveData();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
         System.GC.Collect();
     }

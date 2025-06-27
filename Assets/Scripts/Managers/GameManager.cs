@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private bool _questCheat = false;
     private int option = 0;
+    private Checkpoint checkpoint;
 
     #endregion
 
@@ -273,6 +274,10 @@ public class GameManager : MonoBehaviour
     public HashSet<string> GetTrigDialogues
     {
         get { return _disabledTrigDialogues; }
+    }
+    public HashSet<string> GetReadDialogues
+    {
+        get { return _readDialogues; }
     }
     //DEV CHEATS
     /// <summary>
@@ -530,12 +535,12 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"Datos cargados: Checkpoint {checkpointIndex}, Salud {health}, Misión {questState}");
     }
-    public void LoadCollectedItemsAndDialogues(List<int> collectedHeals, List<int> collectedBoxes, List<string> disabledDialogues)
+    public void LoadCollectedItemsAndDialogues(List<int> collectedHeals, List<int> collectedBoxes, List<string> disabledDialogues, List<string> readDialogues)
     {
         _collectedHeals = new HashSet<int>(collectedHeals);
         _collectedBoxes = new HashSet<int>(collectedBoxes);
         _disabledTrigDialogues = new HashSet<string>(disabledDialogues);
-        Debug.Log($"Objetos cargados: {collectedHeals.Count} heals, {collectedBoxes.Count} cajas");
+        _readDialogues = new HashSet<string>(readDialogues);
     }
     public void AutoSave()
     {
@@ -621,7 +626,9 @@ public class GameManager : MonoBehaviour
         }
         else if (dialogueName == "Bartender")
         {
-            UpdateSave();
+            Checkpoint checkpointScript = FindObjectOfType<Checkpoint>();
+            checkpointScript.CheckpointInParty();
+            GameManager.Instance.AutoSave();
             LevelManager.Instance.ChangeBarStatue();
         }
         else if (dialogueName == "No")
