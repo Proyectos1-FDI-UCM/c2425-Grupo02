@@ -100,6 +100,10 @@ public class Labyrinth_blocks : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    /// <summary>
+    /// Cuando se termina el combate, se quitan los bloqueos.
+    /// </summary>
     private void endOfCombat()
     {
         if (Blocks != null)

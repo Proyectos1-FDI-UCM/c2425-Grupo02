@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private Vector2 _checkpointSpawn = Vector2.zero;
     private int _checkpointScene = 1;
-    private string SceneName;
     /// <summary>
     /// contador objetos de misión
     /// </summary>
@@ -118,7 +117,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private bool _questCheat = false;
     private int option = 0;
-    private Checkpoint checkpoint;
 
     #endregion
 
@@ -271,10 +269,16 @@ public class GameManager : MonoBehaviour
     {
         get { return _collectedBoxes; }
     }
+    /// <summary>
+    /// Getter de los triggers de dialogos desactivados por el player (es decir, con los que ya ha interactuado)
+    /// </summary>
     public HashSet<string> GetTrigDialogues
     {
         get { return _disabledTrigDialogues; }
     }
+    /// <summary>
+    /// Getter de los diálogos no trigger que ya ha leido el player
+    /// </summary>
     public HashSet<string> GetReadDialogues
     {
         get { return _readDialogues; }
@@ -520,6 +524,9 @@ public class GameManager : MonoBehaviour
 
         return vector;
     }
+    /// <summary>
+    /// Actualiza la información de los datos básicos del GameManager a partir de los valores que le llegan del SaveSystem.
+    /// </summary>
     public void LoadGameData(int checkpointIndex, int sceneIndex, Vector2 checkpointSpawn, int health,
                         int questState, int questObjectsCount, bool hasScythe,
                         bool initCombatFinish)
@@ -532,9 +539,10 @@ public class GameManager : MonoBehaviour
         _questObjectsCount = questObjectsCount;
         _hasScythe = hasScythe;
         _initCombatFinish = initCombatFinish;
-
-        Debug.Log($"Datos cargados: Checkpoint {checkpointIndex}, Salud {health}, Misión {questState}");
     }
+    /// <summary>
+    /// Actualiza la información de las listas del GameManager a partir de los valores que le llegan del SaveSystem.
+    /// </summary>
     public void LoadCollectedItemsAndDialogues(List<int> collectedHeals, List<int> collectedBoxes, List<string> disabledDialogues, List<string> readDialogues)
     {
         _collectedHeals = new HashSet<int>(collectedHeals);
@@ -542,27 +550,31 @@ public class GameManager : MonoBehaviour
         _disabledTrigDialogues = new HashSet<string>(disabledDialogues);
         _readDialogues = new HashSet<string>(readDialogues);
     }
+    /// <summary>
+    /// Llama al AutoSave del SaveSystem.
+    /// </summary>
     public void AutoSave()
     {
         SaveSystem.AutoSave();
     }
+    /// <summary>
+    /// Comprueba si hay datos de guardado
+    /// </summary>
     public bool HasSavedGame()
     {
         return SaveSystem.HasSaveData();
     }
+    /// <summary>
+    /// Carga los datos del juego para continuar la partida guardada.
+    /// </summary>
     public void ContinueGame()
     {
-        if (SaveSystem.HasSaveData())
+        if (SaveSystem.HasSaveData()) // Comprueba que hay datos de guardado.
         {
-            // Carga los datos
-            if (SaveSystem.LoadGame())
+            if (SaveSystem.LoadGame()) // Carga los datos.
             {
-                // Cambia a la escena correspondiente
-
-                ChangeScene(_checkpointScene);
+                ChangeScene(_checkpointScene); // Carga la escena y el spawn en dicha escena.
                 SetSpawnPoint(_checkpointSpawn);
-
-                Debug.Log("Partida continuada desde checkpoint " + _checkpointIndex);
             }
         }
     }
@@ -626,9 +638,9 @@ public class GameManager : MonoBehaviour
         }
         else if (dialogueName == "Bartender")
         {
-            Checkpoint checkpointScript = FindObjectOfType<Checkpoint>();
-            checkpointScript.CheckpointInParty();
-            GameManager.Instance.AutoSave();
+            Checkpoint checkpoint = FindObjectOfType<Checkpoint>(); // Cargamos un tipo checkpoint y llamamos al método CheckpointInParty
+            checkpoint.CheckpointInParty();
+            AutoSave(); // Guardamos.
             LevelManager.Instance.ChangeBarStatue();
         }
         else if (dialogueName == "No")

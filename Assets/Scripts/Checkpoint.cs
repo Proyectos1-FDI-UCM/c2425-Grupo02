@@ -83,10 +83,17 @@ public class Checkpoint : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+
+    /// <summary>
+    /// Devuelve la posición de Spawn del jugador en el checkpoint.
+    /// </summary>
     public Vector2 SpawnPoint()
     {
         return SpawnPos;
     }
+    /// <summary>
+    /// Mismo funcionamiento que el método OnTriggerEnter2D, solo que no hay trigger.
+    /// </summary>
     public void CheckpointInParty()
     {
         if (GameManager.Instance.SavedCheckpoint < CheckpointNumber)

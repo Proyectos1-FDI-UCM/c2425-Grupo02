@@ -39,9 +39,12 @@ public class SaveSystem : MonoBehaviour
     public static List<string> disabledTrigDialogues;
     public static List<int> collectedHeals;
     public static List<int> collectedBoxes;
+    /// <summary>
+    /// Construimos el SaveSystem
+    /// </summary>
     public SaveSystem()
     {
-        // Valores por defecto para nuevo juego
+        // Asignamos los valores por defecto
         checkpointIndex = 0;
         checkpointSpawn = Vector2.zero;
         checkpointScene = 1;
@@ -66,6 +69,8 @@ public class SaveSystem : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    // Strings constantes para no tener que reescribir todo el texto cada vez.
     private const string CHECKPOINT_INDEX_KEY = "CheckpointIndex";
     private const string CHECKPOINT_SPAWN_X_KEY = "CheckpointSpawnX";
     private const string CHECKPOINT_SPAWN_Y_KEY = "CheckpointSpawnY";
@@ -114,11 +119,13 @@ public class SaveSystem : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+
+    /// <summary>
+    /// Guarda toda la información en sus respectivos PlayerPrefs.
+    /// </summary>
     public static void SaveData()
     {
         GameManager gm = GameManager.Instance;
-
-        // Guardar datos básicos
         PlayerPrefs.SetInt(CHECKPOINT_INDEX_KEY, gm.SavedCheckpoint);
         PlayerPrefs.SetInt(CHECKPOINT_SCENE_KEY, SceneManager.GetActiveScene().buildIndex);
         Checkpoint checkpointScript = FindObjectOfType<Checkpoint>();
@@ -128,10 +135,9 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt(HEALTH_KEY, gm.ReturnHealth());
         PlayerPrefs.SetInt(QUEST_STATE_KEY, gm.QuestState);
         PlayerPrefs.SetInt(QUEST_OBJECTS_COUNT_KEY, gm.questObjectsCount());
-
-        // Guardar estados booleanos (usando 1 para true, 0 para false)
         PlayerPrefs.SetInt(HAS_SCYTHE_KEY, gm.HasScythe ? 1 : 0);
         PlayerPrefs.SetInt(INIT_COMBAT_FINISH_KEY, gm.InitCombatStateHasFinished ? 1 : 0);
+        // Al haber listas de cosas por guardar, obtenemos el tamaño, la convertimos en una lista, y los guardamos con bucles for.
         PlayerPrefs.SetInt(COLLECTED_BOXES_KEY, gm.GetCollectedBoxes.Count());
         PlayerPrefs.SetInt(COLLECTED_HEALS_KEY, gm.GetCollectedHeals.Count());
         PlayerPrefs.SetInt(DISABLED_TRIG_DIALOGUES_KEY, gm.GetTrigDialogues.Count());
@@ -156,30 +162,34 @@ public class SaveSystem : MonoBehaviour
         {
             PlayerPrefs.SetString("read_" + i.ToString(), readDialogues[i]);
         }
-        // Marcar que hay datos guardados
+        // Marcamos que hay datos de guardado.
         PlayerPrefs.SetInt(HAS_SAVE_DATA_KEY, 1);
-
+        // Guardamos toda la info.
         PlayerPrefs.Save();
     }
+    /// <summary>
+    /// Usando toda la información guardada, la cargamos al cargar el juego.
+    /// - Se comprueba si hay datos de guardado y si hay un game manager existente
+    /// - Tratamos de cargar todo. SI se puede, se carga. Si no, muestra un error.
+    /// </summary>
     public static bool LoadGame()
     {
-        if (!HasSaveData())
+        if (!HasSaveData()) // Si no hay datos de guardado, no lo carga
         {
             Debug.Log("No hay datos de guardado disponibles");
             return false;
         }
 
-        if (!GameManager.HasInstance())
+        if (!GameManager.HasInstance()) // Si no hay game manager, no lo carga
         {
-            Debug.LogWarning("No se puede cargar: GameManager no existe");
+            Debug.Log("No se puede cargar: GameManager no existe");
             return false;
         }
 
-        GameManager gm = GameManager.Instance;
+        GameManager gm = GameManager.Instance; // Guardamos el gamemanager
 
-        try
+        try // Tratamos de cargar todos los datos
         {
-            // Cargar datos básicos
             int checkpointIndex = PlayerPrefs.GetInt(CHECKPOINT_INDEX_KEY, 0);
             int sceneIndex = PlayerPrefs.GetInt(CHECKPOINT_SCENE_KEY);
             float spawnX = PlayerPrefs.GetFloat(CHECKPOINT_SPAWN_X_KEY, 0f);
@@ -188,11 +198,9 @@ public class SaveSystem : MonoBehaviour
             int health = PlayerPrefs.GetInt(HEALTH_KEY, 5);
             int questState = PlayerPrefs.GetInt(QUEST_STATE_KEY, 0);
             int questObjectsCount = PlayerPrefs.GetInt(QUEST_OBJECTS_COUNT_KEY, 0);
-            // Cargar estados booleanos
             bool hasScythe = PlayerPrefs.GetInt(HAS_SCYTHE_KEY, 0) == 1;
             bool initCombatFinish = PlayerPrefs.GetInt(INIT_COMBAT_FINISH_KEY, 0) == 1;
-
-            // Aplicar los datos cargados al GameManager
+            // Llamamos al método del game manager que carga los datos.
             gm.LoadGameData(checkpointIndex, sceneIndex, checkpointSpawn, health, questState, questObjectsCount,
                            hasScythe, initCombatFinish);
             int boxesCount = PlayerPrefs.GetInt(COLLECTED_BOXES_KEY);
@@ -219,9 +227,8 @@ public class SaveSystem : MonoBehaviour
             {
                 readDialgs.Add(PlayerPrefs.GetString("read_" + i.ToString()));
             }
+            // Llamamos al método del game manager que carga los datos de las listas.
             gm.LoadCollectedItemsAndDialogues(heals, boxes, disabledTrigDialgs, readDialgs);
-
-            Debug.Log("Juego cargado correctamente");
             return true;
         }
         catch (System.Exception e)
@@ -230,6 +237,9 @@ public class SaveSystem : MonoBehaviour
             return false;
         }
     }
+    /// <summary>
+    /// Borra todos los datos de guardado al ser llamado
+    /// </summary>
     public static void DeleteSaveData()
     {
         PlayerPrefs.DeleteKey(CHECKPOINT_INDEX_KEY);
@@ -245,16 +255,19 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.DeleteKey(DISABLED_TRIG_DIALOGUES_KEY);
         PlayerPrefs.DeleteKey(COLLECTED_HEALS_KEY);
         PlayerPrefs.DeleteKey(COLLECTED_BOXES_KEY);
-        PlayerPrefs.DeleteKey(HAS_SAVE_DATA_KEY);
-        
+        PlayerPrefs.DeleteKey(HAS_SAVE_DATA_KEY);       
         PlayerPrefs.Save();
-
-        Debug.Log("Datos de guardado eliminados");
     }
+    /// <summary>
+    /// Comprueba si hay datos de guardado
+    /// </summary>
     public static bool HasSaveData()
     {
         return PlayerPrefs.GetInt(HAS_SAVE_DATA_KEY, 0) == 1;
     }
+    /// <summary>
+    /// Guardado automático que se llamará desde los checkpoint.
+    /// </summary>
     public static void AutoSave()
     {
         if (GameManager.HasInstance())
