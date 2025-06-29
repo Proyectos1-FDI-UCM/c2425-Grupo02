@@ -88,6 +88,7 @@ public class MenuManager : MonoBehaviour
     }
     public void ContinueGame()
     {
+        SaveSystem.DeleteSaveData();
         GameManager.Instance.ContinueGame();
     }
     public void GoMenu()

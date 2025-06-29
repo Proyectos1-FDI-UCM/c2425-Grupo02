@@ -461,9 +461,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void PrepareContinue()
     {
-        /*ResetGameManager();
-        ChangeScene(_checkpointScene);
-        SetSpawnPoint(_checkpointSpawn);*/
         ResetGameManager();
         SaveSystem.LoadGame();
         ChangeScene(_checkpointScene);

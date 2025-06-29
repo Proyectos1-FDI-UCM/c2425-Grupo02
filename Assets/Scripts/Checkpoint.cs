@@ -71,7 +71,7 @@ public class Checkpoint : MonoBehaviour
             Debug.Log($"{SpawnPos.x} + {SpawnPos.y}");
             UIManager.Instance.ShowCheckpointNotif();
             _spriteRenderer.sprite = ObtainedState;
-            GameManager.Instance.AutoSave();
+            GameManager.Instance.AutoSave(); // Guardar la partida
         }
     }
     #endregion
