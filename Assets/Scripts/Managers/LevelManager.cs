@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
             Init();
         }
 
-        _player = FindObjectOfType<Player_Health>().gameObject;
+        _player = FindFirstObjectByType<Player_Health>().gameObject;
 
     }
     private void Start()
@@ -334,7 +334,7 @@ public class LevelManager : MonoBehaviour
         {
             obj.SetActive(true);
         }
-        Pillar[] pillars = FindObjectsOfType<Pillar>();
+        Pillar[] pillars = FindObjectsByType<Pillar>(FindObjectsSortMode.None);
         foreach (Pillar pillar in pillars)
         {
             pillar.enabled = true;
@@ -385,7 +385,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private void EnableNPC()
     {
-        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        Interactive[] NPCs = FindObjectsByType<Interactive>(FindObjectsSortMode.None);
         foreach (Interactive NPC in NPCs)
         {
             NPC.enabled = true;
@@ -408,7 +408,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private void DisableNPC()
     {
-        Interactive[] NPCs = FindObjectsOfType<Interactive>();
+        Interactive[] NPCs = FindObjectsByType<Interactive>(FindObjectsSortMode.None);
         foreach (Interactive NPC in NPCs)
         {
             NPC.enabled = false;

@@ -6,9 +6,9 @@
 //---------------------------------------------------------
 
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using static DialogueScript;
 // Añadir aquí el resto de directivas using
 

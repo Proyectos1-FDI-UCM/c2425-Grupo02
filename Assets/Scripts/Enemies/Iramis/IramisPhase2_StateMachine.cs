@@ -159,7 +159,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     {
         _currentState = State.Resting;
         _attack = GetComponent<IAttack>();
-        _player = FindObjectOfType<Movement>().gameObject;
+        _player = FindFirstObjectByType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
@@ -211,7 +211,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     {
         if (_currentState != _lastState)
         {
-            _rb.velocity = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero;
             switch (_currentState)
             {
                 case State.Chasing:
@@ -375,7 +375,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
         else
         {
             SetDir(_dirTime);
-            _rb.velocity = _dir * MovementSpeed;
+            _rb.linearVelocity = _dir * MovementSpeed;
             _shootThresholdTime += Time.deltaTime;
         }
     }
@@ -387,7 +387,7 @@ public class IramisPhase2_StateMachine : MonoBehaviour
     {
         _playerPosition = _player.transform.position;
         _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerance);
-        _rb.velocity = _dir * 0f;
+        _rb.linearVelocity = _dir * 0f;
         StartCoroutine(Attacking());
     }
 

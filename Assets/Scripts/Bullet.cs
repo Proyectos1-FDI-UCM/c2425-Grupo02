@@ -6,7 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 // Añadir aquí el resto de directivas using
 
 /// <summary>
@@ -74,7 +74,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        _rb.velocity = -transform.up * Velocity;
+        _rb.linearVelocity = -transform.up * Velocity;
     }
     #endregion
 

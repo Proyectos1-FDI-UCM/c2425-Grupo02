@@ -56,7 +56,7 @@ public class BossProyectile : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        rb.velocity = transform.up * speed; // Mueve el proyectil en la dirección en la que apunta.
+        rb.linearVelocity = transform.up * speed; // Mueve el proyectil en la dirección en la que apunta.
     }
 
     #endregion

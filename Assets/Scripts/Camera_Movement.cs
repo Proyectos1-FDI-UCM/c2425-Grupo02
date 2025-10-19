@@ -61,8 +61,8 @@ public class Camara : MonoBehaviour {
     /// </summary>
     void Start() {
         _cam = GetComponent<Camera>();
-        _level = FindObjectOfType<LevelManager>();
-        _player = FindObjectOfType<Player_Health>().gameObject;
+        _level = FindFirstObjectByType<LevelManager>();
+        _player = FindFirstObjectByType<Player_Health>().gameObject;
         Vector2 limits = _level.GetMapSize() / 2;
         float height = _cam.orthographicSize;
         float width = height * _cam.aspect;

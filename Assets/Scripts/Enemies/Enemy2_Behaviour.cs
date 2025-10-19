@@ -115,7 +115,7 @@ public class Enemy2_Behaviour : Enemy_StateMachine
         else
         {
             SetInverseDir();
-            _rb.velocity = _dir * FleeingSpeed;
+            _rb.linearVelocity = _dir * FleeingSpeed;
             _fleeingTimer += Time.deltaTime;
         }
     }

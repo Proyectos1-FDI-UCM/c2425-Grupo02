@@ -61,7 +61,7 @@ public class Boss_Attacks_Phase1 : MonoBehaviour
     {
         timeToFire = fireRate; // Inicializa el tiempo de disparo.
         rb = GetComponent<Rigidbody2D>(); // Busca el Rigidbody2D adjunto al jefe.
-        _player = FindObjectOfType<Movement>().gameObject;
+        _player = FindFirstObjectByType<Movement>().gameObject;
 
         for (int i = 0; i < 12; i++)
         {

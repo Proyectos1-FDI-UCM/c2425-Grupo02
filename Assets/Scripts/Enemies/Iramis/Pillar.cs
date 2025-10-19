@@ -44,7 +44,7 @@ public class Pillar : MonoBehaviour
     /// </summary>
     void Start()
     {
-        Boss = FindObjectOfType<Boss_Life_Phase1>().gameObject; // Busca y guarda el jefe en la variable Boss.
+        Boss = FindFirstObjectByType<Boss_Life_Phase1>().gameObject; // Busca y guarda el jefe en la variable Boss.
     }
     #endregion
 

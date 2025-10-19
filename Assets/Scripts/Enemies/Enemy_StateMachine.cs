@@ -151,7 +151,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     protected virtual void Start() {
         _currentState = State.Spawning;
         _attack = GetComponent<IAttack>();
-        _player = FindObjectOfType<Movement>().gameObject;
+        _player = FindFirstObjectByType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
         _constraints = _rb.constraints;
         _anim = GetComponent<Animator>();
@@ -200,7 +200,7 @@ public class Enemy_StateMachine : MonoBehaviour {
     /// Método que ejecuta una acción dependiendo del estadop actual ("_currentState") del enemigo
     /// </summary>
      protected void SetState() {
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
         switch (_currentState)
         {
             case State.Chasing:
@@ -381,7 +381,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         else
         {
             SetDir();
-            _rb.velocity = _dir * MovementSpeed;
+            _rb.linearVelocity = _dir * MovementSpeed;
         }
     }
 
@@ -393,7 +393,7 @@ public class Enemy_StateMachine : MonoBehaviour {
         {
             _playerPosition = _player.transform.position;
             _dir = GetDirection(_playerPosition - (Vector2)transform.position, _tolerancy);
-            _rb.velocity = _dir * 0f;
+            _rb.linearVelocity = _dir * 0f;
             StartCoroutine(Attacking());
         }
     }

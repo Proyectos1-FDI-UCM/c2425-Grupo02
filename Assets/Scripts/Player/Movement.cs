@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
         _mapSize = LevelManager.Instance.GetMapSize();
         _spawnPos = GameManager.Instance.GetSpawnPoint();
         _rb.transform.position = _spawnPos;
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
     }
     void OnEnable()
     {
@@ -103,10 +103,10 @@ public class Movement : MonoBehaviour
     {
         _lastDir = GetLastDir();
         Vector2 movement = InputManager.Instance.MovementVector;
-        _rb.velocity = movement * Velocity;
+        _rb.linearVelocity = movement * Velocity;
 
         
-        if (_rb.velocity != Vector2.zero)
+        if (_rb.linearVelocity != Vector2.zero)
         {
             _animator.SetBool("isRunning", true);
         }
